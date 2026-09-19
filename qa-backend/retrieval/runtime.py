@@ -53,7 +53,13 @@ FINAL_TOP_K = 25        # max records after fusion (LEGACY surface only)
 # SAME FINAL_TOP_K serving cut. Serving size is unchanged — this only
 # stops the deliberately-flat RRF order from discarding rank-26+ rows
 # before content-merit scoring.
-RETRIEVAL_CANDIDATE_POOL = 80
+# RT101-V14 semantic qualification repair (R1 widening, 2026-09-19):
+# with the graph route contributing up to ~2000 weak-consensus records,
+# a single-route lexical hit at raw rank ~64 needs more fused slots to
+# survive flat RRF (1/(rank+60)) into the rerank pool. 160 keeps the
+# widening strictly inside the deep (query-shape-gated) mode — the
+# legacy short-query surface stays byte-identical (FINAL_TOP_K=25 cut).
+RETRIEVAL_CANDIDATE_POOL = 160
 RELEVANCE_FLOOR = 0.3   # vector similarity floor for "honest answer" trigger
 
 # ── Quality gates (moved verbatim) ──
@@ -78,6 +84,7 @@ _bm25_corpus = None
 _graph_data = None
 _entity_index = None      # entity_name -> set(record indices)
 _graph_adj = None         # entity_name -> set(neighbor entity_names)
+_JIEBA_VIEW_LOADED = False  # R1: custom-dict load-once flag for view building
 _graph_nodes = None       # entity_name -> node info (type, degree, description)
 _idx_to_meta = None       # record_idx -> meta dict
 _pipeline = None
@@ -455,6 +462,26 @@ async def run_hybrid(query: str, snapshot=None, exclude_ids: set | None = None,
     qv = await embed_query(query, embed_fn=embed_fn)
     qv = qv / max(np.linalg.norm(qv), 1e-8)
     vec_res = vr.search(qv, top_k=fetch_k)
+    # RT101-V14 semantic qualification repair (R1, generalized §12-13):
+    # whole-query embeddings dilute when conversational scaffolding in one
+    # script wraps topical content in another (e.g. an English question
+    # frame around a Chinese record title) — bge-m3 IS multilingual, the
+    # view is the problem, not the model. In deep-retrieval mode ONLY,
+    # union the whole-query vector list with deterministic content-term
+    # views (quoted/bracketed topical segments + CJK runs). Views derive
+    # from the query text alone (no LLM, no holdout constants, no
+    # translation layer); the legacy short-query surface is untouched.
+    if rerank_fn is not None:
+        for view in content_term_views(query):
+            if not view or view.strip() == query.strip() \
+                    or view.strip() == query.strip("「」『』\"'"):
+                continue
+            try:
+                vv = await embed_query(view, embed_fn=embed_fn)
+                vv = vv / max(np.linalg.norm(vv), 1e-8)
+                vec_res = vec_res + vr.search(vv, top_k=fetch_k)
+            except Exception as view_err:  # noqa: BLE001 — a view fault
+                continue      # must never break the primary route
     bm25_res, graph_res = await asyncio.gather(
         asyncio.to_thread(br.search, query, fetch_k),
         asyncio.to_thread(gr.search, query, fetch_k),
@@ -616,6 +643,76 @@ _CONTENT_TERM_RE = re.compile(
     r"|[A-Za-z][A-Za-z0-9\-]{2,}"          # Latin runs (incl. hyphenated)
     r"|\d{4}(?:-\d{1,2}){0,2}"             # dates / dotted numerics
 )
+
+# RT101-V14 semantic qualification repair (R1): ASCII straight quotes and
+# CJK corner-quote variants are equally topical-name quoting in real user
+# queries (e.g.  When did the events described in '李萌等人AM详细解读' occur?).
+# Same length bounds as the base classes; purely additive.
+_QUOTED_NAME_RE = re.compile(
+    r"'[^']{2,60}'"                        # ASCII straight-quote segment
+    r"|“[^”]{1,60}”|“[^”]{1,60}”"    # CJK curly double quotes
+    r"|'[^']{1,60}'"                 # CJK curly single quotes
+)
+
+
+def content_term_views(query: str) -> list:
+    """Deterministic multi-view content views for deep-retrieval embedding.
+
+    R1 (RT101-V14 semantic qualification, generalized §12-13): returns up
+    to TWO views — (a) quoted/bracketed topical-name segments (base
+    content-term regex PLUS the ASCII/CJK quote classes above, so a
+    straight-quoted record title is recognized exactly like 「…」), and
+    (b) the contiguous CJK token run (jieba tokens of the query joined
+    without spaces), which carries the topical signal when conversational
+    scaffolding in the other script dominates the whole-query embedding.
+    Views derive from the query text alone — no LLM, no holdout-derived
+    constants, no target knowledge; a query with no extractable segments
+    contributes no view (empty list).
+    """
+    if not isinstance(query, str) or not query.strip():
+        return []
+    views: list = []
+
+    segs = [m.group(0).strip("'“”\"「」『』[]").strip()
+            for m in _QUOTED_NAME_RE.finditer(query)]
+    base_segs = [m.group(0).strip("「」『』[]").strip()
+                 for m in _CONTENT_TERM_RE.finditer(query)
+                 if m.group(0)[0] in "「『["]
+    segs = [s for s in (segs + base_segs) if len(s) >= 2]
+    if segs:
+        # de-dup preserving order; drop segments contained in a kept one
+        kept: list = []
+        for s in segs:
+            sl = s.lower()
+            if any(sl in k.lower() or k.lower() in sl for k in kept):
+                continue
+            kept.append(s)
+        if kept:
+            views.append(" ".join(kept)[:160])
+
+    try:
+        import jieba
+        _ensure_jieba_loaded()
+        cjk_runs = [t for t in jieba.cut_for_search(query)
+                    if len(t) >= 2 and re.search(r"[一-鿿]", t)]
+        if cjk_runs:
+            run = "".join(cjk_runs)[:160]
+            if run not in views:
+                views.append(run)
+    except Exception:  # noqa: BLE001 — tokenizer unavailable → no CJK view
+        pass
+    return views
+
+
+def _ensure_jieba_loaded():
+    """Load the custom jieba dict once for view building (query parity with
+    the BM25 tokenizer); safe no-op when already loaded."""
+    global _JIEBA_VIEW_LOADED
+    if not globals().get("_JIEBA_VIEW_LOADED"):
+        try:
+            ensure_jieba()
+        finally:
+            _JIEBA_VIEW_LOADED = True
 
 
 def content_term_view(query: str, max_len: int = 96) -> str:

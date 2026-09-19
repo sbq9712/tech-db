@@ -75,7 +75,10 @@ from ttfb_guard import guard_budget_s, snapshot as ttfb_snapshot
 from degraded_mode import build_user_warning, looks_like_api_failure
 from answer_status import (AnswerStatus, determine_answer_status,
                            build_evidence_summary, build_terminal_response)
-from no_evidence_gate import declared_no_evidence as _declared_no_evidence_impl
+from no_evidence_gate import (
+    declared_no_evidence as _declared_no_evidence_impl,
+    refusal_lead_draft as _refusal_lead_draft_impl,
+)
 from reference_cards import build_reference_cards
 from audit_ui import (AuditAuthorizationError, AuditTraceUnavailable,
                       TraceAuditService)
@@ -586,6 +589,27 @@ def _declared_no_evidence(full_answer: str, search_results) -> bool:
         return False
 
 
+def _refusal_led_answer(full_answer: str) -> bool:
+    """RT101-V14 semantic qualification repair (R3, §34/§37-40).
+
+    True iff the terminal draft LEADS with the generator's own
+    insufficiency declaration. Such a draft is a "refusal + near-match
+    dump" hybrid: the generator declared the requested fact absent, then
+    padded the answer with numeric specifics from near-topic records.
+    The locked scorer contract counts exactly those numerics as
+    fabricated assertions on an insufficiency answer, and §34 removes
+    overclaiming at the terminal filter — so the hybrid routes to the
+    SAME canonical abstention the pure RD-2 gate ships. The detector is
+    deterministic and fails open (never fires on a draft that does not
+    literally open with the refusal-phrase family).
+    """
+    try:
+        return bool((full_answer or "").strip()) and \
+            _refusal_lead_draft_impl(full_answer or "")
+    except Exception:  # pragma: no cover — fail-open by contract
+        return False
+
+
 def _attach_claim_verifier_verdicts(claim_map: dict, verification_status: str,
                                     findings) -> None:
     """RT101-V13 post-mortem (Repair D — canonical evidence semantics).
@@ -904,6 +928,55 @@ def _pctl(vals, p):
     return round(s[k], 1)
 
 
+def _query_content_terms(query: str) -> list:
+    """RT101-V14 semantic qualification repair (R4): content terms of a
+    query after removing the closed-class conversational/interrogative
+    function inventory. Deterministic (jieba + fixed function-word list —
+    standard NLP stopwords, not holdout-derived); empty result means the
+    query carries NO informational request (e.g. 「随便说点什么」) and can
+    only be answered by the canonical loyal boundary, never by a factual
+    answer. Latin/technical tokens (acronyms, entity names, dates) always
+    count as content — cross-lingual queries keep their discriminating
+    signals (§14).
+    """
+    if not (query or "").strip():
+        return []
+    try:
+        from retrieval.deterministic_rerank import extract_query_terms
+        terms = extract_query_terms(query)
+    except Exception:  # noqa: BLE001 — fail open: treat terms as present
+        return ["__fallback__"]
+    _FUNCTION_WORDS = {
+        # interrogative / request scaffolding (CJK)
+        "什么", "怎么", "怎样", "如何", "哪个", "哪些", "哪里", "谁",
+        "为何", "请问", "随便", "说说", "说点", "告诉", "介绍", "根据",
+        "资料", "文档", "数据库", "相关", "记载", "情况", "信息", "内容",
+        "关于", "一下", "一些", "说明", "回答", "知道", "看看", "查查",
+        "帮我", "帮忙", "麻烦", "谢谢", "主要", "说明白",
+        # English conversational scaffolding
+        "the", "and", "for", "with", "about", "please", "tell", "what",
+        "when", "where", "which", "who", "why", "how", "did", "does",
+        "describe", "described", "explain", "occur", "happen",
+    }
+    kept = [t for t in terms
+            if t.lower() not in _FUNCTION_WORDS
+            and not all(ch in "？?！!。，,、：:；;（）()[]「」" for ch in t)]
+    return kept
+
+
+def _weak_query_boundary(query: str, is_relevant: bool) -> bool:
+    """RT101-V14 semantic qualification repair (R4, §37-38): True iff the
+    query is admission-relevant BUT carries NO extractable content terms —
+    it carries no informational request, so whatever the embedding fires
+    on, there is nothing factual to retrieve for, and answering it
+    produces exactly the numeric corpus dump the loyal-boundary contract
+    forbids. Deterministic closed-class function-word check (no LLM, no
+    holdout constants); such queries route through the canonical
+    weak_query boundary.
+    """
+    return bool(is_relevant and not _query_content_terms(query))
+
+
 async def hybrid_search(query: str, exclude_ids: set = None) -> tuple:
     """Hybrid retrieval with dual relevance check for topic exhaustion.
 
@@ -920,6 +993,10 @@ async def hybrid_search(query: str, exclude_ids: set = None) -> tuple:
     results, is_relevant = await _search_with_quality(query, exclude_ids)
 
     status = "ok"
+    if _weak_query_boundary(query, is_relevant):
+        print(f"[search] Content-empty query: routing to canonical "
+              f"weak-query boundary", flush=True)
+        return results, False, "weak_query"
     if not is_relevant:
         # Sub-query admission recheck (bounded, deterministic, fail-closed)
         if os.environ.get("QA_SUBQUERY_ADMISSION_RECHECK", "1").strip().lower() in ("1", "true", "yes"):
@@ -2986,8 +3063,28 @@ async def chat_stream(req: ChatRequest, request: Request):
 
             if context is None:
                 # Legacy path (flag off / phase03 inactive): raw context
-                # build, unchanged.
-                context, citations = build_context(search_results, query)
+                # build. RT101-V14 semantic qualification repair (R5,
+                # §18/§34 — generation focus): the legacy surface used to
+                # hand EVERY fused row (up to FINAL_TOP_K=25) to the
+                # generator, which produced survey-style answers citing
+                # the whole retrieval pool — diluting claim support,
+                # attribution precision, and answer completeness. The
+                # generator now sees the TOP relevance-ordered slice
+                # (deterministic; deep-retrieval rerank order when active)
+                # sized by the versioned env seam below; citation
+                # numbering is preserved (rows keep their [n] indices),
+                # admission gates and the build_context contract are
+                # unchanged. Canonical default applies everywhere; the
+                # env override exists for Q293-class host calibration
+                # only.
+                try:
+                    _ctx_max_rows = int(os.environ.get(
+                        "QA_GENERATOR_CONTEXT_MAX_ROWS", "12"))
+                except (TypeError, ValueError):
+                    _ctx_max_rows = 12
+                _ctx_rows = [r for r in (search_results or [])
+                             if isinstance(r, dict)][:max(1, _ctx_max_rows)]
+                context, citations = build_context(_ctx_rows, query)
 
             # ── Epistemic Claim Classification ──
             # (skip if budget exhausted — epistemic is enhancement, not critical path)
@@ -3314,9 +3411,22 @@ async def chat_stream(req: ChatRequest, request: Request):
             # map + verifier budget on a draft with no factual content.
             # The detector fails OPEN: any substantive draft proceeds
             # through the normal pipeline unchanged.
+            #
+            # RT101-V14 semantic qualification repair (R3): the SAME
+            # canonical abstention also owns the refusal-LED hybrid — a
+            # draft that OPENS with the generator's insufficiency
+            # declaration and then pads itself with a numeric near-match
+            # survey. Shipping that hybrid as an ANSWERED payload
+            # re-creates the exact overclaiming shape the V5 formal run
+            # failed on (fabricated-looking specifics beside a loyal
+            # refusal); §34/§37-40 route it to the canonical abstention
+            # instead. The predicate is deterministic over the draft lead
+            # and verified to never fire on substantive answers that
+            # merely caveat later (fail-open by construction).
             if (not _phase03_active and not _legacy_generator_stream_failed
                     and Flags.ANSWER_STATUS_ENABLED
-                    and _declared_no_evidence(full_answer, search_results)):
+                    and (_declared_no_evidence(full_answer, search_results)
+                         or _refusal_led_answer(full_answer))):
                 _abstain_boundary = _no_evidence_boundary(query, False)
                 trace.add_stage("generator_no_evidence_abstain", {
                     "reason_code": "GENERATOR_DECLARED_NO_EVIDENCE",
@@ -3796,6 +3906,34 @@ async def chat_stream(req: ChatRequest, request: Request):
                                 except Exception:
                                     rows_in = []
                                 out, budget = [], 9000
+                                # RT101-V14 semantic qualification repair
+                                # (R2 — verifier evidence parity, §26):
+                                # the generator answers from a
+                                # query-RELEVANT window over the
+                                # noise-stripped body
+                                # (build_context: 800-char window), while
+                                # the verifier previously saw the RAW
+                                # body HEAD (600 chars) — for records
+                                # whose claim-bearing facts sit beyond
+                                # the head, every content-level claim
+                                # degraded to UNKNOWN ("证据不足以判断")
+                                # and supported-but-unverified answers
+                                # collapsed to UNSUPPORTED. The verifier
+                                # now reads the SAME query-relevant
+                                # window (cited/mapped rows first, with
+                                # a larger per-row budget), falling back
+                                # to the raw head when the excerpt
+                                # yields nothing. Verdict semantics and
+                                # the fail-closed contract are
+                                # UNCHANGED — only the evidence view
+                                # reaches parity with what the draft was
+                                # written from.
+                                try:
+                                    from epistemic import (
+                                        strip_provenance_noise as _spn,
+                                        extract_relevant_excerpt as _ere)
+                                except Exception:  # noqa: BLE001
+                                    _spn = _ere = None
                                 for _i, _r in enumerate(rows_in[:12]):
                                     _meta = _r.get("meta") or {}
                                     _rid = str(_meta.get("record_id") or "")
@@ -3808,14 +3946,34 @@ async def chat_stream(req: ChatRequest, request: Request):
                                         _rec = _by_idx.get(_idx)
                                     if not isinstance(_rec, dict):
                                         continue
+                                    _cited_row = _rid in _cited
+                                    # cited/mapped rows: 1200 chars;
+                                    # context rows: 800 (the generator's
+                                    # own window size)
+                                    _row_cap = 1200 if _cited_row else 800
                                     try:
                                         from primary_evidence import (
                                             source_evidence_text as _set)
-                                        _txt = str(_set(_rec))[:600]
+                                        _body = str(_set(_rec))
                                     except Exception:
-                                        _txt = str(_rec.get("as")
-                                                   or _rec.get("b")
-                                                   or "")[:600]
+                                        _body = str(_rec.get("as")
+                                                    or _rec.get("fb")
+                                                    or _rec.get("b") or "")
+                                    _txt = ""
+                                    if _body and _spn is not None and _ere is not None:
+                                        try:
+                                            _clean = _spn(
+                                                _body,
+                                                str(_rec.get("t")
+                                                    or _meta.get("t") or ""))
+                                            _txt = str(_ere(
+                                                _clean, query, "",
+                                                max_length=_row_cap,
+                                                window=240) or "")
+                                        except Exception:  # noqa: BLE001
+                                            _txt = ""
+                                    if not _txt:
+                                        _txt = _body[:_row_cap]
                                     if not _txt:
                                         continue
                                     out.append({

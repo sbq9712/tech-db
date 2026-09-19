@@ -673,14 +673,19 @@ async def verify_with_fail_safe(
                   if not (isinstance(row, dict) and row.get("text")
                           and row.get("evidence_id"))]
         _lab = json.dumps(_plain, ensure_ascii=False, indent=2)
-        _txt_budget = 12000
+        # RT101-V14 semantic qualification repair (R2 companion): the
+        # evidence rows now carry query-relevant windows (800 chars
+        # context / 1200 cited rows — the same view the generator wrote
+        # the draft from), so the dedicated text budget grows to fit
+        # them; the label budget and verdict semantics are unchanged.
+        _txt_budget = 16000
         _txt = json.dumps(_text_rows, ensure_ascii=False, indent=2)
         if len(_txt) > _txt_budget:
             _txt = _txt[:_txt_budget] + "\n... (truncated)"
         evidence_str = ("// 证据文本（核实声明依据）:\n" + _txt
                         + "\n// 认识论标签元数据:\n" + _lab)
-        if len(evidence_str) > 16000:
-            evidence_str = evidence_str[:16000] + "\n... (truncated)"
+        if len(evidence_str) > 20000:
+            evidence_str = evidence_str[:20000] + "\n... (truncated)"
 
     _structured = isinstance(atomic_claims, list) and bool(atomic_claims)
     if _structured:

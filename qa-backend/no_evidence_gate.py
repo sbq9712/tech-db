@@ -80,6 +80,47 @@ _CITATION_MARKER_RE = re.compile(r"\[\d{1,2}\]")
 _MAX_ABSTAIN_DRAFT_CHARS = 400
 
 
+# ── RT101-V14 semantic qualification repair (R3, generalized §34/§37-40) ────
+# A draft that OPENS with the generator's own insufficiency declaration is a
+# refusal-LED draft: the generator followed its prompt contract ("如果资料中
+# 没有相关信息，诚实回答'数据库中没有相关信息'") for the CORE request, then
+# (model variance) padded the answer with a near-match survey that carries
+# numeric specifics the locked scorer contract counts as fabricated
+# assertions on an insufficiency answer. The canonical product behavior for
+# a refusal-led draft is the SAME canonical abstention the pure RD-2 gate
+# already ships — a hybrid "refusal + numeric near-match dump" is exactly
+# the overclaiming shape §34 removes at the terminal filter. The detector is
+# a fixed generalized regex over the generator's OWN refusal-phrase family
+# (no holdout-derived constants, no target knowledge), evaluated over the
+# draft LEAD only (first _REFUSAL_LEAD_CHARS chars): an answer that opens
+# with its substantive answer and merely caveats later is NOT refusal-led
+# (over-abstention protection, §41).
+_REFUSAL_LEAD_CHARS = 160
+
+_REFUSAL_LEAD_RE = re.compile(
+    r"(数据库|资料库|检索(到)?的资料|资料)(中|里)?[^。\n]{0,40}"
+    r"(没有|未|未能|找不到|无法找到)[^。\n]{0,30}(相关|足够|匹配|涉及)"
+)
+
+
+def refusal_lead_draft(draft: str) -> bool:
+    """True iff the draft LEADS with the generator's insufficiency declaration.
+
+    Deterministic, fail-open by construction (returns False on anything
+    that does not literally match the refusal-phrase family in the lead).
+    Unlike :func:`declared_no_evidence`, this predicate does NOT require a
+    short, marker-free draft — it captures exactly the "refusal-then-
+    substantiate" hybrid the pure gate rejects, so the terminal seam can
+    route BOTH shapes to the same canonical abstention.
+    """
+    if not draft:
+        return False
+    lead = draft.strip()[:_REFUSAL_LEAD_CHARS]
+    # markdown heading / bold markers must not hide the lead sentence
+    lead = lead.replace("#", " ").replace("*", " ")
+    return bool(_REFUSAL_LEAD_RE.search(lead))
+
+
 def declared_no_evidence(draft: str, *, has_retrieval_results: bool = True) -> bool:
     """True iff the draft is a self-declared no-evidence abstention."""
     if not draft:
