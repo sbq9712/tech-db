@@ -7,7 +7,7 @@ from datetime import datetime, timezone, timedelta
 REPO = "/home/rhett/tech-db-fresh"
 LITE_PATH = f"{REPO}/data/processed/all-records-lite.json"
 DATA_DIR = f"{REPO}/data/processed"
-MODEL = 'glm-5.2'
+MODEL = 'glm-5.3-flash'
 PROVIDER = 'zai'
 BATCH = 10
 WORKERS = 6

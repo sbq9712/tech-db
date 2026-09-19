@@ -354,7 +354,26 @@ class RuntimeSafetyProfile:
         return float(getattr(self, aliases.get(stage, stage), self.verifier))
 
 
+def _env_f(name: str, default: float) -> float:
+    # Optional per-stage calibration seam (2026-09-20): unset env keeps the
+    # frozen default; a set value may only be read from the operator's
+    # systemd unit — never changes scoring/verifier semantics.
+    try:
+        return float(os.environ.get(name, default))
+    except (TypeError, ValueError):
+        return default
+
+
 DEFAULT_PROFILE = RuntimeSafetyProfile(
+    rewrite=_env_f("QA_RUNTIME_STAGE_REWRITE", 3.0),
+    router=_env_f("QA_RUNTIME_STAGE_ROUTER", 3.0),
+    retrieval=_env_f("QA_RUNTIME_STAGE_RETRIEVAL", 3.0),
+    reranker_local=_env_f("QA_RUNTIME_STAGE_RERANKER_LOCAL", 5.0),
+    reranker_remote=_env_f("QA_RUNTIME_STAGE_RERANKER_REMOTE", 8.0),
+    worker=_env_f("QA_RUNTIME_STAGE_WORKER", 12.0),
+    grader=_env_f("QA_RUNTIME_STAGE_GRADER", 8.0),
+    generator=_env_f("QA_RUNTIME_STAGE_GENERATOR", 30.0),
+    verifier=_env_f("QA_RUNTIME_STAGE_VERIFIER", 10.0),
     fast_total=float(os.environ.get("QA_RUNTIME_FAST_DEADLINE", "60")),
     research_total=float(os.environ.get("QA_RUNTIME_RESEARCH_DEADLINE", "120")),
     deep_total=float(os.environ.get("QA_RUNTIME_DEEP_DEADLINE", "180")),

@@ -19,7 +19,7 @@ def translate_one(idx_title):
     idx, title = idx_title
     try:
         prompt = f'将以下英文技术标题翻译成简洁中文。只输出中文标题，不要输出任何其他内容。\n{title[:120]}'
-        r = subprocess.run(['hermes','-z',prompt,'--provider','zai','-m','glm-5.2','--cli'],
+        r = subprocess.run(['hermes','-z',prompt,'--provider','zai','-m','glm-5.3-flash','--cli'],
                           capture_output=True, text=True, timeout=45, cwd='/home/rhett')
         out = r.stdout.strip()
         for prefix in ['以下是', '翻译']:

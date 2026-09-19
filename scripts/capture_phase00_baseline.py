@@ -101,7 +101,7 @@ def build(source_sha: str) -> tuple[dict, str]:
         "identity_snapshot_id": mini["identity_snapshot_id"],
         "model_versions": {
             "embedding": "bge-m3 (frozen query/index embeddings)",
-            "generator": "glm-5.2 (historical nightly artifact only)",
+            "generator": "glm-5.3-flash (historical nightly artifact only)",
         },
         "config_versions": {
             "profile_registry": spec["profile_registry_version"],

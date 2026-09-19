@@ -10,7 +10,7 @@ from __future__ import annotations
 import json, re, subprocess, sys, time
 from pathlib import Path
 
-MODEL = 'glm-5.2'
+MODEL = 'glm-5.3-flash'
 PROVIDER = 'zai'
 REPO_ROOT = Path(__file__).resolve().parent.parent
 LITE_PATH = REPO_ROOT / 'data' / 'processed' / 'all-records-lite.json'

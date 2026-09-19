@@ -14,7 +14,7 @@ import json, re, subprocess, sys, time, os
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-MODEL = 'glm-5.2'
+MODEL = 'glm-5.3-flash'
 PROVIDER = 'zai'
 REPO = Path('/home/rhett/tech-db-fresh')
 LITE = REPO / 'data' / 'processed' / 'all-records-lite.json'

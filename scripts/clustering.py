@@ -584,7 +584,7 @@ def main() -> None:
     parser.add_argument("--estimate", action="store_true", help="only count candidate pairs and cost, no LLM")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--provider", default="zai")
-    parser.add_argument("--model", default="glm-5.2")
+    parser.add_argument("--model", default="glm-5.3-flash")
     parser.add_argument("--report", default="/tmp/clustering-report.json")
     args = parser.parse_args()
     indices = [int(value) for value in args.ids.split(",")] if args.ids else None

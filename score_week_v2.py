@@ -44,7 +44,7 @@ SCORING_PROMPT = """你是技术情报质量评估专家。对以下{count}条�
 def call_glm(prompt):
     try:
         result = subprocess.run(
-            ["hermes", "-z", prompt, "--provider", "zai", "-m", "glm-5.2", "--cli"],
+            ["hermes", "-z", prompt, "--provider", "zai", "-m", "glm-5.3-flash", "--cli"],
             capture_output=True, text=True, timeout=TIMEOUT
         )
         output = result.stdout.strip()

@@ -5,7 +5,7 @@ from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import threading
 
-MODEL='glm-5.2'; PROVIDER='zai'
+MODEL='glm-5.3-flash'; PROVIDER='zai'
 REPO=Path('/home/rhett/tech-db-fresh')
 LITE=REPO/'data/processed/all-records-lite.json'
 NUM_WORKERS=4

@@ -2364,10 +2364,39 @@ html:not([data-theme="light"]) .icon-moon { display: block; }
   margin: 0 auto 8px;
   padding: 8px 24px;
   display: flex;
-  align-items: center;
-  gap: 8px;
+  flex-direction: column;
+  gap: 6px;
   font-size: 13px;
   color: var(--text-tertiary);
+}
+.qa-status-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  align-items: center;
+}
+.qa-status-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  opacity: 0.38;
+  transition: opacity 0.25s ease;
+}
+.qa-status-step.done { opacity: 0.85; }
+.qa-status-step.active { opacity: 1; color: var(--text-secondary); }
+.qa-status-step .qa-step-elapsed {
+  font-size: 11px;
+  opacity: 0.7;
+  font-variant-numeric: tabular-nums;
+}
+.qa-status-current {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.qa-status-current .qa-status-elapsed {
+  font-variant-numeric: tabular-nums;
+  opacity: 0.7;
 }
 .qa-status-indicator .qa-status-spinner {
   width: 12px;
@@ -2376,6 +2405,7 @@ html:not([data-theme="light"]) .icon-moon { display: block; }
   border-top-color: var(--brand-light);
   border-radius: 50%;
   animation: qa-spin 0.8s linear infinite;
+  flex-shrink: 0;
 }
 @keyframes qa-spin {
   to { transform: rotate(360deg); }

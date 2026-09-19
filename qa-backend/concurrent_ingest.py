@@ -25,7 +25,7 @@ WORKING_DIR.mkdir(parents=True, exist_ok=True)
 
 ENV_FILE = Path(os.environ.get("TECH_DB_ENV_FILE", REPO / ".env"))
 API_BASE = os.environ.get("ZAI_API_BASE", "https://api.z.ai/api/coding/paas/v4")
-MODEL_NAME = os.environ.get("ZAI_MODEL", "glm-5.2")
+MODEL_NAME = os.environ.get("ZAI_MODEL", "glm-5.3-flash")
 
 def load_api_key():
     key = os.environ.get("ZAI_API_KEY", "").strip()
@@ -85,6 +85,9 @@ async def call_glm_api_direct(prompt: str, max_retries: int = 5) -> str:
         "messages": messages,
         "temperature": 0.3,
         "max_tokens": 8192,
+        # GLM-5.3-flash thinking burns the time budget before any summary
+        # text is produced; ingest summaries don't need reasoning.
+        "thinking": {"type": "disabled"},
     }
     data = json.dumps(payload, ensure_ascii=False).encode("utf-8")
 

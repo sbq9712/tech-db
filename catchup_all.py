@@ -18,7 +18,7 @@ def save(data):
 
 def call_glm(prompt, timeout=180):
     try:
-        r = subprocess.run(["hermes","-z",prompt,"--provider","zai","-m","glm-5.2","--cli"],
+        r = subprocess.run(["hermes","-z",prompt,"--provider","zai","-m","glm-5.3-flash","--cli"],
                           capture_output=True, text=True, timeout=timeout, cwd="/home/rhett")
         out = r.stdout.strip()
         if out.startswith('```'):

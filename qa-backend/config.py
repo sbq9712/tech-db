@@ -20,7 +20,7 @@ WORKING_DIR.mkdir(parents=True, exist_ok=True)
 # ── API Config ──
 ENV_FILE = Path(os.environ.get("TECH_DB_ENV_FILE", REPO / ".env"))
 API_BASE = os.environ.get("ZAI_API_BASE", "https://api.z.ai/api/coding/paas/v4")
-MODEL_NAME = os.environ.get("ZAI_MODEL", "glm-5.2")
+MODEL_NAME = os.environ.get("ZAI_MODEL", "glm-5.3-flash")
 
 def load_api_key():
     """Read the API key lazily so health checks can start without a secret."""
@@ -70,6 +70,17 @@ _LLM_EXECUTOR = concurrent.futures.ThreadPoolExecutor(
 # task (TTFB guard timeouts). Exposed via /api/stats.
 _LLM_ABANDONED = {"submitted": 0, "count": 0}
 
+# GLM-5.3-flash defaults to thinking ENABLED, which burns 60s+ of hidden
+# reasoning before the first visible token. That trips the QA TTFB guard
+# (agentic planner degrades to legacy) and cascades into
+# total_deadline_exhausted. Pipeline calls therefore default to thinking
+# disabled; set QA_LLM_THINKING=enabled to restore deep reasoning.
+_THINKING_MODE = os.environ.get("QA_LLM_THINKING", "disabled").strip().lower()
+
+
+def _thinking_param():
+    return {"type": "enabled" if _THINKING_MODE == "enabled" else "disabled"}
+
 
 def llm_abandoned_stats() -> dict:
     try:
@@ -109,6 +120,7 @@ async def llm_model_func(
         "messages": messages,
         "temperature": kwargs.get("temperature", 0.3),
         "max_tokens": kwargs.get("max_tokens", 8192),
+        "thinking": kwargs.get("thinking") or _thinking_param(),
     }
 
     data = json.dumps(payload, ensure_ascii=False).encode("utf-8")
@@ -190,6 +202,7 @@ async def llm_stream_func(
         temperature=kwargs.get("temperature", 0.3),
         max_tokens=kwargs.get("max_tokens", 8192),
         stream=True,
+        extra_body={"thinking": kwargs.get("thinking") or _thinking_param()},
     )
 
     async for chunk in stream:

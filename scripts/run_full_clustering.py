@@ -14,7 +14,7 @@ candidates = json.load(open(CANDIDATES_FILE))
 existing = clustering.load_checkpoint()
 print(f"Loaded {len(candidates)} candidates, {len(existing)} already in checkpoint", flush=True)
 
-decisions = clustering.adjudicate(data, candidates, "zai", "glm-5.2")
+decisions = clustering.adjudicate(data, candidates, "zai", "glm-5.3-flash")
 accepted = [k for k, v in decisions.items() if v.get("accepted")]
 print(f"Adjudicated {len(decisions)} pairs, accepted {len(accepted)}", flush=True)
 

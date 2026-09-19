@@ -37,7 +37,7 @@ def call_glm(prompt, batch_json, timeout=TIMEOUT):
     full_prompt = prompt + json.dumps(batch_json, ensure_ascii=False)
     try:
         result = subprocess.run(
-            ["hermes", "-z", full_prompt, "--provider", "zai", "-m", "glm-5.2", "--cli"],
+            ["hermes", "-z", full_prompt, "--provider", "zai", "-m", "glm-5.3-flash", "--cli"],
             capture_output=True, text=True, timeout=timeout, cwd="/home/rhett"
         )
         out = result.stdout.strip()

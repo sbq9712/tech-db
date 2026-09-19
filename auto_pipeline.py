@@ -18,7 +18,7 @@ from urllib.parse import urlparse
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts"))
 from build_snapshot import build_snapshot
-from llm_client import call_glm_batch
+from llm_client import call_glm_batch, call_glm
 
 REPO = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(REPO, "data", "processed")
@@ -532,87 +532,76 @@ def upsert_records(lite, changed_records, deleted_urls):
 
 # ── 标题翻译 ──
 def translate_non_chinese_titles(records):
-    """Translate titles that contain no Chinese characters to zh-CN using Google Translate.
-    Uses ThreadPoolExecutor for parallel translation with per-request timeout."""
+    """将无中文字符的标题翻译为中文（GLM-5.3-flash 批量翻译）。
+
+    原 Google Translate 方案因 429 限流失效（2026-09 起），改用 ZAI GLM API。
+    每批携带 id，按 id 回填，批内乱序/缺项不影响对齐。
+    """
     has_cn = lambda s: bool(re.search(r'[\u4e00-\u9fff]', s or ''))
     targets = [(i, r['t']) for i, r in enumerate(records) if not has_cn(r.get('t', ''))]
     if not targets:
-        log(f"  \u6807\u9898\u7ffb\u8bd1: 0 \u6761\u9700\u8981\u7ffb\u8bd1")
+        log(f"  标题翻译: 0 条需要翻译")
         return records
 
-    try:
-        from deep_translator import GoogleTranslator
-    except ImportError:
-        log(f"  [WARN] deep-translator \u672a\u5b89\u88c5\uff0c\u8df3\u8fc7\u6807\u9898\u7ffb\u8bd1")
-        return records
-
-    # Monkey-patch requests.get to add timeout (deep_translator doesn't support it natively)
-    import requests as _requests_mod
-    _original_get = _requests_mod.get
-    def _patched_get(*args, **kwargs):
-        kwargs.setdefault('timeout', 15)
-        return _original_get(*args, **kwargs)
+    log(f"  标题翻译: {len(targets)} 条需要翻译 (GLM 批量)")
+    TRANSLATE_PROMPT = (
+        "你是技术情报标题翻译引擎。将下列 JSON 数组中的每条外语标题翻译成简体中文。\n"
+        "要求：\n"
+        "1. 保留专业术语的准确性与行业通用译法\n"
+        "2. 专有名词（公司名/产品名/模型名/人名）保留英文\n"
+        "3. 只输出 JSON 数组，格式：[{\"id\":0,\"zh\":\"翻译\"},...]，"
+        "id 与输入一致，不要输出其他任何内容\n\n输入："
+    )
 
     from concurrent.futures import ThreadPoolExecutor, as_completed
-    MAX_WORKERS = 8
-    PER_REQUEST_TIMEOUT = 15  # seconds
+    BATCH = 25
+    MAX_WORKERS = 5
+    batches = []
+    for bstart in range(0, len(targets), BATCH):
+        chunk = targets[bstart:bstart + BATCH]
+        batches.append([{"id": k, "title": t} for k, (_, t) in enumerate(chunk)])
 
-    done = 0; failed = 0; skipped = 0
-    log(f"  \u6807\u9898\u7ffb\u8bd1: {len(targets)} \u6761\u9700\u8981\u7ffb\u8bd1 ({MAX_WORKERS} \u5e76\u53d1)")
+    def _do_batch(batch):
+        full_prompt = TRANSLATE_PROMPT + json.dumps(batch, ensure_ascii=False)
+        for attempt, delay in enumerate((0, 5, 15, 45)):
+            if delay:
+                time.sleep(delay)
+            try:
+                out = call_glm(full_prompt, timeout=120)
+                s, e = out.find("["), out.rfind("]")
+                if s >= 0 and e > s:
+                    arr = json.loads(out[s:e + 1])
+                    if isinstance(arr, list):
+                        return arr
+            except Exception:
+                pass
+        return None
 
-    def _translate_one(args_tuple):
-        """Translate a single title. Returns (record_idx, translated_text_or_None)."""
-        idx, title = args_tuple
-        # Each thread gets its own translator instance (not thread-safe to share)
-        t = GoogleTranslator(source='auto', target='zh-CN')
-        try:
-            result = t.translate(title[:5000])
-            if result and has_cn(result):
-                return (idx, result)
-            return (idx, None)
-        except Exception:
-            return (idx, None)
-
-    _requests_mod.get = _patched_get
-    try:
-        completed = 0
-        abort = False
-        consecutive_failures = 0
-        MAX_CONSECUTIVE_FAILURES = 50
-
-        with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
-            futures = {ex.submit(_translate_one, item): item for item in targets}
-            for future in as_completed(futures):
-                completed += 1
+    done = 0
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
+        futures = {ex.submit(_do_batch, b): (bn, b) for bn, b in enumerate(batches)}
+        for f in as_completed(futures):
+            bn, batch = futures[f]
+            try:
+                arr = f.result()
+            except Exception:
+                arr = None
+            if not arr:
+                continue
+            base = bn * BATCH
+            for row in arr:
                 try:
-                    idx, translated = future.result(timeout=PER_REQUEST_TIMEOUT + 5)
-                    if translated:
-                        records[idx]['t'] = translated
-                        done += 1
-                        consecutive_failures = 0
-                    else:
-                        failed += 1
-                        consecutive_failures += 1
+                    rid = int(row.get("id"))
+                    zh = (row.get("zh") or "").strip()
                 except Exception:
-                    failed += 1
-                    consecutive_failures += 1
+                    continue
+                if 0 <= rid < len(batch) and zh and has_cn(zh):
+                    records[targets[base + rid][0]]['t'] = zh
+                    done += 1
 
-                if completed % 500 == 0:
-                    log(f"    \u6807\u9898\u7ffb\u8bd1\u8fdb\u5ea6: {completed}/{len(targets)} (\u6210\u529f {done})")
-
-                # Check if we should abort (too many consecutive failures)
-                if consecutive_failures >= MAX_CONSECUTIVE_FAILURES and not abort:
-                    abort = True
-                    remaining = len(targets) - completed
-                    log(f"  [WARN] \u6807\u9898\u7ffb\u8bd1: \u8fde\u7eed{MAX_CONSECUTIVE_FAILURES}\u6b21\u5931\u8d25\uff0c\u53d6\u6d88\u5269\u4f59")
-                    for f in futures:
-                        f.cancel()
-                    break
-    finally:
-        _requests_mod.get = _original_get
-
-    log(f"  \u6807\u9898\u7ffb\u8bd1: {done}/{len(targets)} \u6210\u529f (\u5931\u8d25 {failed})")
+    log(f"  标题翻译: {done}/{len(targets)} 成功")
     return records
+
 
 def classify_and_score(records):
     items = [{"id": i, "type": "literature" if r.get("i")=="l" else "news",
@@ -1086,7 +1075,7 @@ def incremental_cluster(start_index, total_count):
         log("  无候选对，跳过聚类")
         return 0
 
-    decisions = clustering.adjudicate(data, candidates, "zai", "glm-5.2")
+    decisions = clustering.adjudicate(data, candidates, "zai", "glm-5.3-flash")
     accepted = [k for k, v in decisions.items() if v.get("accepted")]
     log(f"  裁决通过: {len(accepted)}/{len(decisions)}")
 

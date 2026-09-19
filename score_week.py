@@ -44,7 +44,7 @@ def call_glm(prompt):
     """Call GLM 5.2 via hermes CLI."""
     try:
         result = subprocess.run(
-            ["hermes", "-z", prompt, "--provider", "zai", "-m", "glm-5.2", "--cli"],
+            ["hermes", "-z", prompt, "--provider", "zai", "-m", "glm-5.3-flash", "--cli"],
             capture_output=True, text=True, timeout=TIMEOUT
         )
         output = result.stdout.strip()

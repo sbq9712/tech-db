@@ -92,7 +92,7 @@ def main():
             })
             pair_map[len(judge_items) - 1] = (a_idx, b_idx)
         log(f'Calling LLM judge for {len(judge_items)} pairs...')
-        decisions_raw = call_event_judge(judge_items, 'zai', 'glm-5.2')
+        decisions_raw = call_event_judge(judge_items, 'zai', 'glm-5.3-flash')
 
         # Build decisions dict for complete_link_groups
         decisions = {}

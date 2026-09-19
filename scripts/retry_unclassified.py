@@ -3,7 +3,7 @@
 import json, re, subprocess, sys, time
 from pathlib import Path
 
-MODEL='glm-5.2'; PROVIDER='zai'
+MODEL='glm-5.3-flash'; PROVIDER='zai'
 REPO=Path(__file__).resolve().parent.parent
 LITE=REPO/'data/processed/all-records-lite.json'
 SKILL=Path.home()/'.hermes/skills/research/intelligence-classification/templates'

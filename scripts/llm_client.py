@@ -27,7 +27,7 @@ def _get_api_key():
     return ""
 
 
-def call_glm(prompt, system_msg="直接输出结果，不要输出思考过程。", model="glm-5.2",
+def call_glm(prompt, system_msg="直接输出结果，不要输出思考过程。", model="glm-5.3-flash",
              max_tokens=8192, temperature=0.4, timeout=180):
     """Single LLM call. Returns text output."""
     key = _get_api_key()
@@ -125,7 +125,7 @@ def call_glm_batch(prompt, items, batch_size=10, timeout=120, max_workers=5,
 
 
 def call_glm_json(prompt, system_msg="你是资深产业信息编辑。直接输出JSON，不要输出思考过程和markdown标记。",
-                  model="glm-5.2", max_tokens=8192, temperature=0.4, timeout=240):
+                  model="glm-5.3-flash", max_tokens=8192, temperature=0.4, timeout=240):
     """Single LLM call that expects JSON output. Returns parsed dict or None."""
     try:
         out = call_glm(prompt, system_msg=system_msg, model=model,

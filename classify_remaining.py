@@ -29,7 +29,7 @@ batches = [items[i:i+BATCH] for i in range(0, len(items), BATCH)]
 def call(batch):
     p = PROMPT + json.dumps(batch, ensure_ascii=False)
     try:
-        r = subprocess.run(["hermes","-z",p,"--provider","zai","-m","glm-5.2","--cli"], capture_output=True, text=True, timeout=180, cwd="/home/rhett")
+        r = subprocess.run(["hermes","-z",p,"--provider","zai","-m","glm-5.3-flash","--cli"], capture_output=True, text=True, timeout=180, cwd="/home/rhett")
         o = r.stdout.strip()
         s,e = o.find("["),o.rfind("]")
         if s>=0 and e>s: return json.loads(o[s:e+1])

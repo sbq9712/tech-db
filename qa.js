@@ -651,22 +651,76 @@ function handleSSEData(data, assistantMsg) {
   }
 }
 
+// ── Dynamic pipeline progress timeline ──
+// Shows every retrieval/generation stage: done ✓ / active spinner / pending,
+// with a ticking elapsed-seconds counter so the wait stays transparent.
+const QA_STAGE_ORDER = ['rewriting', 'searching', 'planning', 'searched',
+                        'analyzing', 'generating', 'verifying'];
+const QA_STAGE_LABELS = {
+  rewriting:  '理解问题',
+  searching:  '多路检索',
+  planning:   '智能规划检索',
+  searched:   '检索完成',
+  analyzing:  '证据分析',
+  generating: '生成回答',
+  verifying:  '证据核验',
+  retrieving: '检索知识',
+  started:    '流水线启动',
+};
+
+let _qaStatusTimer = null;
+
 function showStatusIndicator(step, message) {
   let indicator = document.querySelector('.qa-status-indicator');
   if (!indicator) {
     indicator = document.createElement('div');
     indicator.className = 'qa-status-indicator';
+    indicator.dataset.t0 = String(Date.now());
+    indicator.dataset.stages = JSON.stringify({});
     const messagesEl = qa$('qaMessages');
     messagesEl.appendChild(indicator);
+    _qaStatusTimer = setInterval(() => {
+      const el = document.querySelector('.qa-status-indicator');
+      if (!el) { clearInterval(_qaStatusTimer); _qaStatusTimer = null; return; }
+      const t0 = parseInt(el.dataset.t0, 10);
+      const cur = el.querySelector('.qa-status-elapsed');
+      if (cur && t0) cur.textContent = `${Math.round((Date.now() - t0) / 1000)}s`;
+    }, 1000);
   }
-  indicator.innerHTML = `<span class="qa-status-spinner"></span> ${escHtml(message)}`;
+  const stages = JSON.parse(indicator.dataset.stages || '{}');
+  if (!stages[step]) stages[step] = Date.now();
+  indicator.dataset.stages = JSON.stringify(stages);
+  const t0 = parseInt(indicator.dataset.t0, 10);
+  const elapsed = t0 ? `${Math.round((Date.now() - t0) / 1000)}s` : '';
+  const reached = Object.keys(stages);
+  const curIdx = QA_STAGE_ORDER.indexOf(step);
+  const stepsHtml = QA_STAGE_ORDER.filter(s => s !== 'searched').map(s => {
+    const idx = QA_STAGE_ORDER.indexOf(s);
+    const state = idx < curIdx || (s === 'searching' && reached.includes('searched'))
+      ? 'done' : (s === step ? 'active' : '');
+    const icon = state === 'done' ? '✓' : (state === 'active'
+      ? '<span class="qa-status-spinner"></span>' : '·');
+    const stageElapsed = stages[s]
+      ? `<span class="qa-step-elapsed"></span>` : '';
+    return `<span class="qa-status-step ${state}">${icon} ${QA_STAGE_LABELS[s] || s}${s === step ? '' : stageElapsed}</span>`;
+  }).join('');
+  indicator.innerHTML = `
+    <div class="qa-status-steps">${stepsHtml}</div>
+    <div class="qa-status-current">
+      <span class="qa-status-spinner"></span>
+      <span>${escHtml(message || QA_STAGE_LABELS[step] || step)}</span>
+      <span class="qa-status-elapsed">${elapsed}</span>
+    </div>`;
   indicator.style.display = 'flex';
   qa$('qaMessages').scrollTop = qa$('qaMessages').scrollHeight;
 }
 
 function removeStatusIndicator() {
   const indicator = document.querySelector('.qa-status-indicator');
-  if (indicator) indicator.remove();
+  if (indicator) {
+    if (_qaStatusTimer) { clearInterval(_qaStatusTimer); _qaStatusTimer = null; }
+    indicator.remove();
+  }
 }
 
 function updateStreamingMessage(assistantMsg) {

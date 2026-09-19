@@ -1605,12 +1605,12 @@ async def health():
         "api_key_configured": bool(os.environ.get("ZAI_API_KEY") or ENV_FILE.is_file()),
         "runtime_mode": os.environ.get("TECH_DB_RUNTIME_MODE", "UNCONFIGURED"),
         "runtime_manifest_id": snapshot.manifest_id if snapshot else None,
-        "vector_index_ready": resources.get("vector_index") is not None if snapshot else _vector_index is not None,
-        "bm25_ready": resources.get("bm25_index") is not None if snapshot else _bm25_index is not None,
-        "graph_ready": _graph_data is not None,
-        "indexed_records": len(_index_meta) if _index_meta else 0,
-        "bm25_records": len(_bm25_meta) if _bm25_meta else 0,
-        "total_records": len(_records) if _records else 0,
+        "vector_index_ready": resources.get("vector_index") is not None if snapshot else _rt._vector_index is not None,
+        "bm25_ready": resources.get("bm25_index") is not None if snapshot else _rt._bm25_index is not None,
+        "graph_ready": _rt._graph_data is not None,
+        "indexed_records": len(_rt._index_meta) if _rt._index_meta else 0,
+        "bm25_records": len(_rt._bm25_meta) if _rt._bm25_meta else 0,
+        "total_records": len(_records_cache[0]) if _records_cache else 0,
         "feature_flags": Flags.status(),
         "shadow_enabled": _SHADOW_RETRIEVAL,          # TK-17 diagnostics
         "retrieval_legacy": None,  # TK-23 contract: legacy path removed (was escape hatch)
@@ -1649,7 +1649,7 @@ async def chat_stream(req: ChatRequest, request: Request):
 
     # Required backend availability is an infrastructure condition, not a
     # client quota.  Decide it before SSE headers and report HTTP 503.
-    if _request_runtime_snapshot.get() is None and _vector_index is None:
+    if _request_runtime_snapshot.get() is None and _rt._vector_index is None:
         CHAT_ADMISSION.record_backend_unavailable()
         return JSONResponse(
             _canonical_terminal_payload({
@@ -1729,10 +1729,12 @@ async def chat_stream(req: ChatRequest, request: Request):
 
         disconnect_task = asyncio.create_task(_watch_disconnect())
         try:
-            # Step 1: Retrieval
+            # Step 1: Retrieval (generic admission banner — the granular
+            # per-stage events below follow: rewriting → searching →
+            # searched → analyzing → generating → verifying)
             yield {"event": "status", "data": json.dumps({
-                "step": "retrieving",
-                "message": "正在检索相关知识..."
+                "step": "started",
+                "message": "已接收问题，正在启动检索生成流水线..."
             })}
 
             execution.check_active()
@@ -1752,6 +1754,10 @@ async def chat_stream(req: ChatRequest, request: Request):
 
             # Rewrite follow-up query + detect novelty intent (single LLM call)
             try:
+                yield {"event": "status", "data": json.dumps({
+                    "step": "rewriting",
+                    "message": "正在理解您的问题..."
+                })}
                 search_query, seeking_novelty, _reason = await execution.run_stage(
                     "rewrite", lambda: rewrite_query(query, req.history),
                     safe_fallback_available=True)
@@ -1923,6 +1929,10 @@ async def chat_stream(req: ChatRequest, request: Request):
                             _agentic_failure_reason = (
                                 "agentic_preloop_budget_fail_closed")
                     else:
+                        yield {"event": "status", "data": json.dumps({
+                            "step": "planning",
+                            "message": "正在进行智能检索规划（路由 → 分解 → 多轮检索 → 评估）..."
+                        })}
                         agentic_state = await asyncio.wait_for(
                             run_agentic_loop(
                                 query=query,
@@ -1963,6 +1973,13 @@ async def chat_stream(req: ChatRequest, request: Request):
                             is_relevant = len(search_results) > 0
                         search_status = agentic_state.stop_reason or "agentic_complete"
                         _agentic_succeeded = True
+                        yield {"event": "status", "data": json.dumps({
+                            "step": "searched",
+                            "message": f"智能检索完成（{agentic_state.iteration} 轮），"
+                                       f"找到 {len(search_results)} 条候选记录",
+                            "count": len(search_results),
+                            "iterations": agentic_state.iteration
+                        })}
 
                         trace.add_stage("agentic_complete", {
                             "iterations": agentic_state.iteration,
@@ -2045,11 +2062,21 @@ async def chat_stream(req: ChatRequest, request: Request):
             # Standard RAG path (only if agentic didn't run or failed)
             if not _agentic_succeeded:
                 # Hybrid search (vector + BM25 + graph → RRF)
+                yield {"event": "status", "data": json.dumps({
+                    "step": "searching",
+                    "message": "正在多路检索知识库（向量 + 关键词 + 知识图谱）..."
+                })}
                 search_results, is_relevant, search_status = await execution.run_stage(
                     "retrieval", lambda: hybrid_search(
                         search_query,
                         exclude_ids=exclude_ids if exclude_ids else None),
                     requirement_critical=True)
+                yield {"event": "status", "data": json.dumps({
+                    "step": "searched",
+                    "message": f"检索完成，找到 {len(search_results)} 条候选记录",
+                    "count": len(search_results)
+                })}
+                # (agentic path emits its own planning/synthesis status events)
                 trace.add_stage("retrieval_hybrid", {
                     "query": search_query[:200],
                     "result_count": len(search_results),
@@ -3140,8 +3167,8 @@ async def get_graph(limit: int = 300):
 @app.get("/api/stats")
 async def stats():
     """Get system statistics."""
-    total = len(_records) if _records else 0
-    indexed = len(_index_meta) if _index_meta else 0
+    total = len(_records_cache[0]) if _records_cache else 0
+    indexed = len(_rt._index_meta) if _rt._index_meta else 0
 
     graph_file = WORKING_DIR / "graph-export.json"
     nodes = edges = 0
@@ -3153,11 +3180,11 @@ async def stats():
     return {
         "total_records": total,
         "indexed_records": indexed,
-        "bm25_records": len(_bm25_meta) if _bm25_meta else 0,
+        "bm25_records": len(_rt._bm25_meta) if _rt._bm25_meta else 0,
         "graph_nodes": nodes,
         "graph_edges": edges,
-        "vector_index_ready": _vector_index is not None,
-        "bm25_ready": _bm25_index is not None,
+        "vector_index_ready": _rt._vector_index is not None,
+        "bm25_ready": _rt._bm25_index is not None,
         "model": MODEL_NAME,
     }
 
@@ -3166,7 +3193,7 @@ async def stats():
 async def search(q: str, top_k: int = 10):
     """Quick vector search without LLM generation. Returns matching records."""
     snapshot = _request_runtime_snapshot.get()
-    if snapshot is None and _vector_index is None:
+    if snapshot is None and _rt._vector_index is None:
         return JSONResponse(
             {"error": "Vector index not loaded", "results": []},
             status_code=503,

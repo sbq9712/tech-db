@@ -35,7 +35,7 @@
 - 运行测试：`python3 -m unittest discover -s tests -v`
 - 语法检查：`python3 -m py_compile <file>` 和 `node --check app.js`
 - 推送（不硬编码 token）：`source /home/rhett/.gh_env && git push "https://sbq9712:${GH_TOKEN}@github.com/sbq9712/tech-db.git" main`
-- 聚类增量：`python3 scripts/clustering.py --ids <id1>,<id2> --dry-run --provider zai --model glm-5.2`
+- 聚类增量：`python3 scripts/clustering.py --ids <id1>,<id2> --dry-run --provider zai --model glm-5.3-flash`
 - 推送后验证线上：sleep 70 然后 curl `https://sbq9712.github.io/tech-db/index.html` 确认 `?v=N` 已更新
 
 ## 技术栈

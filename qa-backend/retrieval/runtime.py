@@ -203,7 +203,7 @@ def build_idx_meta_lookup():
 
 def load_records(lite_file=None):
     """Load full record lookup (legacy mode; default the production lite file)."""
-    global _records_state
+    global _records_state, _records_state_file
     if lite_file is not None:
         if _records_state is None or _records_state_file != str(lite_file):
             _records_state = json.loads(Path(lite_file).read_text("utf-8"))

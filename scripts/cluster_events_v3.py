@@ -22,7 +22,7 @@ from pathlib import Path
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-MODEL = 'glm-5.2'
+MODEL = 'glm-5.3-flash'
 PROVIDER = 'zai'
 REPO = Path(__file__).resolve().parent.parent
 LITE = REPO / 'data' / 'processed' / 'all-records-lite.json'

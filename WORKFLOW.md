@@ -182,7 +182,7 @@
 ## 六、GLM调用规范
 
 ```
-命令: hermes -z "prompt" --provider zai -m glm-5.2 --cli
+命令: hermes -z "prompt" --provider zai -m glm-5.3-flash --cli
 并发: ThreadPoolExecutor, MAX_WORKERS=6
 Batch: 分类/评分=10条/批, 摘要=20条/批, 重试=5条/批
 Timeout: 180s（重试240s）
