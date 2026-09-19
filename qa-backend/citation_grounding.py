@@ -189,8 +189,9 @@ def _normalized_source_view(raw_text: str):
             return None
         # Defined right-bound semantics (V14): the raw range is
         # INCLUSIVE-EXHAUSTIVE — it spans every raw character covered by
-        # the view range, which may include trailing collapsed whitespace
-        # (e.g. view "abc" over raw "abc \n" → raw 0:len("abc \n")). This
+        # the view range, including interior collapsed whitespace (e.g. a
+        # view range ending mid-run of spaces/tabs collapsed to one view
+        # char extends the raw right bound over the whole run). This
         # is never an authority source: grounding_status=VALID is decided
         # solely by _full_correspondence() on the returned slice, so a
         # whitespace-padded bound can only keep a genuine match VALID
