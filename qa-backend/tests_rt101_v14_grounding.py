@@ -102,10 +102,16 @@ def test_raw_map():
     check("stripped drops link syntax", "](https" not in stripped)
     check("stripped keeps label", "程素微" in stripped)
     check("map length matches stripped", len(pmap) == len(stripped))
-    # every mapped index points at an equal raw char (label chars)
-    for i, ch in enumerate(stripped):
-        if pmap[i] < len(raw) and stripped[i] not in "\n":
-            pass  # whitespace collapse happens later; spot-check only
+    # every mapped index is a strictly increasing raw position, and each
+    # mapped raw char equals the stripped char (the map is the identity
+    # outside link wrappers — non-wrapper text is never rewritten)
+    check("map strictly increasing over raw positions",
+          all(pmap[i] < pmap[i + 1] for i in range(len(pmap) - 1)))
+    check("map identity outside link wrappers",
+          all(pmap[i] < len(raw) and raw[pmap[i]] == stripped[i]
+              for i in range(len(pmap))
+              if "](http" not in stripped[max(0, i - 24):i + 1]
+              and stripped[i] not in "\n"))
     # full round trip through the locator
     proposed = "程素微 正文继续这里"
     found, s, e, matched = fuzzy_locate_span(proposed, raw)
@@ -206,27 +212,27 @@ def test_grounding_ladder():
 
 # ── G5: display seam ────────────────────────────────────────────────────────
 def test_display_seam():
-    print("── G5: display authority")
-    # Mirror the server RD-1 seam logic directly (the invariant under test):
-    def seam(rows):
-        for _c in rows:
-            if (not _c.get("display_authorized", True)
-                    or _c.get("grounding_status") != "VALID"):
-                _c["display_authorized"] = False
-                _c["supports_claim_ids"] = []
-        return rows
+    print("── G5: display authority (committed seam function)")
+    # Exercise the COMMITTED seam authority directly — the very function
+    # server.py's RD-1 display seam applies (no local mirror of the
+    # invariant: a seam regression cannot leave this suite green).
+    from citation_grounding import enforce_display_integrity
 
     rows = [
         {"id": 1, "grounding_status": "VALID", "display_authorized": True,
-         "supports_claim_ids": ["c1"]},
+         "supports_claim_ids": ["c1"], "evidence_span": "E1"},
         {"id": 2, "grounding_status": "FUZZY", "display_authorized": True,
-         "supports_claim_ids": ["c2"]},
+         "supports_claim_ids": ["c2"], "evidence_span": "E2"},
         {"id": 3, "grounding_status": "GROUNDING_FAIL",
-         "display_authorized": True, "supports_claim_ids": ["c3"]},
+         "display_authorized": True, "supports_claim_ids": ["c3"],
+         "evidence_span": "E3"},
         {"id": 4, "grounding_status": "VALID", "display_authorized": False,
          "supports_claim_ids": []},
     ]
-    seam(rows)
+    pre_rows = [dict(r) for r in rows]
+    out = enforce_display_integrity(rows, "PARTIALLY_SUPPORTED")
+    check("seam returns the same row list (in place)",
+          out is rows and len(rows) == 4)
     disp = [r for r in rows if r.get("display_authorized")]
     check("only VALID stays displayed",
           [r["id"] for r in disp] == [1], str([(r["id"], r["grounding_status"]) for r in disp]))
@@ -237,7 +243,26 @@ def test_display_seam():
     check("withheld FAIL clears support links",
           rows[2]["supports_claim_ids"] == [])
     check("withheld row keeps evidence for internal verification",
-          rows[1].get("evidence_span") == rows[1].get("evidence_span"))
+          all(rows[i]["evidence_span"] == pre_rows[i]["evidence_span"]
+              for i in (1, 2)) and rows[1]["evidence_span"] == "E2")
+
+    # UNSUPPORTED terminal: nothing verified-supported → EVERY row
+    # withheld, still in place (payload rows retained for diagnostics).
+    rows_u = [
+        {"id": 1, "grounding_status": "VALID", "display_authorized": True,
+         "supports_claim_ids": ["c1"], "evidence_span": "U1"},
+        {"id": 2, "grounding_status": "FUZZY", "display_authorized": True,
+         "supports_claim_ids": ["c2"], "evidence_span": "U2"},
+    ]
+    enforce_display_integrity(rows_u, "UNSUPPORTED")
+    check("UNSUPPORTED displays zero citations",
+          all(r.get("display_authorized") is False for r in rows_u))
+    check("UNSUPPORTED clears all support links",
+          all(r.get("supports_claim_ids") == [] for r in rows_u))
+    check("UNSUPPORTED retains payload rows (no surgery)",
+          len(rows_u) == 2
+          and all(r.get("evidence_span") == "U%d" % r["id"]
+                  for r in rows_u))
 
 
 # ── G6: scorer structural compatibility over synthetic + real shapes ───────

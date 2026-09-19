@@ -187,6 +187,15 @@ def _normalized_source_view(raw_text: str):
                 return None
         if left >= len(pos_map) or right - 1 >= len(pos_map):
             return None
+        # Defined right-bound semantics (V14): the raw range is
+        # INCLUSIVE-EXHAUSTIVE — it spans every raw character covered by
+        # the view range, which may include trailing collapsed whitespace
+        # (e.g. view "abc" over raw "abc \n" → raw 0:len("abc \n")). This
+        # is never an authority source: grounding_status=VALID is decided
+        # solely by _full_correspondence() on the returned slice, so a
+        # whitespace-padded bound can only keep a genuine match VALID
+        # (whitespace is formatting-only under the canonical view); it can
+        # never manufacture one.
         return (pos_map[left], pos_map[right - 1] + 1)
 
     return view.text, view_to_raw
@@ -756,6 +765,37 @@ def ground_citation_exact(record: dict, proposed_spans, claim_text: str = "",
         "match_type": overall,
         "invalid_reason": "",
     }
+
+
+def enforce_display_integrity(citations, answer_status_str: str = "") -> list:
+    """RT101-V14 display seam — the committed display-gating authority.
+
+    A citation row may be user-DISPLAYED only when it carries prior display
+    authorization AND grounding_status == "VALID" against the stored/pinned
+    snapshot authority. FUZZY is diagnostic and can never carry display
+    authority. An UNSUPPORTED terminal has nothing verified-supported, so
+    every row is withheld.
+
+    Withholding is always IN PLACE: ``display_authorized=False`` and
+    ``supports_claim_ids=[]`` — rows are never removed from the payload
+    (no payload surgery). Internal verifier evidence and the RTA/RTB/RTC
+    diagnostics contract (non-authoritative rows stay visible for the
+    pipeline, reference cards hidden) are untouched, and the formal
+    scorer's displayed universe (display_authorized OR supports_claim_ids)
+    excludes withheld rows entirely (withheld_not_displayed).
+
+    Returns the same row list for call-site convenience.
+    """
+    rows = citations if isinstance(citations, list) else list(citations or [])
+    unsupported = str(answer_status_str or "").upper() == "UNSUPPORTED"
+    for c in rows:
+        if not isinstance(c, dict):
+            continue
+        if unsupported or (not c.get("display_authorized", True)
+                           or c.get("grounding_status") != "VALID"):
+            c["display_authorized"] = False
+            c["supports_claim_ids"] = []
+    return rows
 
 
 def is_valid_grounding(result: dict) -> bool:

@@ -65,7 +65,8 @@ from epistemic import (
 )
 from trace import TraceContext
 from feature_flags import Flags, active_profile
-from citation_grounding import ground_citation_evidence, get_original_text
+from citation_grounding import (ground_citation_evidence, get_original_text,
+                                enforce_display_integrity)
 from verifier import verify_with_fail_safe, VerificationResult, VERIFY_PASSED, VERIFY_FAILED, VERIFY_UNVERIFIED
 from claim_mapping import map_claims_to_citations, get_unsupported_major_claims
 from phase02_pipeline import run_phase02_verification, CITATION_SCHEMA_VERSION
@@ -4450,11 +4451,12 @@ async def chat_stream(req: ChatRequest, request: Request):
                 # only when its grounding against the stored/pinned
                 # snapshot authority is exactly VALID and — when the final
                 # claim set carries display authorization — it is
-                # display_authorized. An UNSUPPORTED terminal displays
-                # zero citations: nothing was verified-supported, so there
-                # is nothing to cite. Rows that fail the test are WITHHELD
-                # IN PLACE (display_authorized=false, support links
-                # cleared), never removed from the payload: the canonical
+                # display_authorized. An UNSUPPORTED terminal DISPLAYS
+                # zero citations (nothing was verified-supported), and
+                # every row that fails the test — including on the
+                # UNSUPPORTED terminal — is WITHHELD IN PLACE
+                # (display_authorized=false, support links cleared),
+                # never removed from the payload: the canonical
                 # contract locked by tests_repair_phase09_generic
                 # (RTA/RTB/RTC) keeps non-authoritative rows visible for
                 # diagnostics with reference cards hidden, and the formal
@@ -4464,14 +4466,15 @@ async def chat_stream(req: ChatRequest, request: Request):
                 # payload surgery. Internal verifier evidence is
                 # independent of display and remains intact.
                 _pre_display_count = len(citations)
-                if answer_status_str == "UNSUPPORTED":
-                    citations = []
-                else:
-                    for _c in citations:
-                        if (not _c.get("display_authorized", True)
-                                or _c.get("grounding_status") != "VALID"):
-                            _c["display_authorized"] = False
-                            _c["supports_claim_ids"] = []
+                # RT101-V14 (codex review follow-up): the gating logic is
+                # the committed, test-locked authority
+                # citation_grounding.enforce_display_integrity — the seam
+                # applies it unchanged. UNSUPPORTED terminals are withheld
+                # IN PLACE like every other non-displayable row (zero
+                # display, payload rows retained for diagnostics; nothing
+                # verified-supported was ever removed).
+                citations = enforce_display_integrity(
+                    citations, answer_status_str)
                 trace.add_stage("citation_display_integrity", {
                     "payload_rows": _pre_display_count,
                     "displayed": sum(
