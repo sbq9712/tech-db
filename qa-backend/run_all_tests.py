@@ -88,6 +88,7 @@ SUITES = {
     "rt101_v11_failure_repairs": ("tests_rt101_v11_failure_repairs.py", "push"),
     "rt101_v12_failure_repairs": ("tests_rt101_v12_failure_repairs.py", "push"),
     "rt101_v13_failure_repairs": ("tests_rt101_v13_failure_repairs.py", "push"),
+    "rt101_v14_grounding": ("tests_rt101_v14_grounding.py", "push"),
     "rt101_deploy_sync": ("tests_rt101_deploy_sync.py", "push"),
     "runtime_budget_repair": ("tests_runtime_budget_repair.py", "push"),
     "rt075_shadow_store": ("tests_rt075_shadow_store.py", "push"),

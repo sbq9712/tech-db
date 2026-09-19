@@ -4443,29 +4443,33 @@ async def chat_stream(req: ChatRequest, request: Request):
                 # ── Phase09 repair RD-1 (corpus adjudication): display
                 # integrity — invalid displayed citations are a hard
                 # invariant violation (invalid_displayed_citation = 0).
-                # A citation row is DISPLAYABLE only when its grounding
-                # against the stored/pinned snapshot authority is VALID
-                # or FUZZY and — when the final claim set carries display
-                # authorization — it is display_authorized.  An
-                # UNSUPPORTED terminal displays zero citations: nothing
-                # was verified-supported, so there is nothing to cite.
-                # Rows that fail the test are WITHHELD IN PLACE
-                # (display_authorized=false, support links cleared), never
-                # removed from the payload: the canonical contract locked
-                # by tests_repair_phase09_generic (RTA/RTB/RTC) keeps
-                # non-authoritative rows visible for diagnostics with
-                # reference cards hidden, and the formal scorer excludes
-                # unauthorized rows from the displayed universe entirely
-                # (withheld_not_displayed), so the invariant is enforced
-                # at the display seam without payload surgery.
+                # RT101-V14 (qual P0 repair, 2026-09-19): the formal
+                # structural contract accepts ONLY grounding_status=VALID
+                # on a displayed row; FUZZY is diagnostic and can never
+                # carry display authority. A citation row is DISPLAYABLE
+                # only when its grounding against the stored/pinned
+                # snapshot authority is exactly VALID and — when the final
+                # claim set carries display authorization — it is
+                # display_authorized. An UNSUPPORTED terminal displays
+                # zero citations: nothing was verified-supported, so there
+                # is nothing to cite. Rows that fail the test are WITHHELD
+                # IN PLACE (display_authorized=false, support links
+                # cleared), never removed from the payload: the canonical
+                # contract locked by tests_repair_phase09_generic
+                # (RTA/RTB/RTC) keeps non-authoritative rows visible for
+                # diagnostics with reference cards hidden, and the formal
+                # scorer excludes unauthorized rows from the displayed
+                # universe entirely (withheld_not_displayed), so the
+                # invariant is enforced at the display seam without
+                # payload surgery. Internal verifier evidence is
+                # independent of display and remains intact.
                 _pre_display_count = len(citations)
                 if answer_status_str == "UNSUPPORTED":
                     citations = []
                 else:
                     for _c in citations:
                         if (not _c.get("display_authorized", True)
-                                or _c.get("grounding_status")
-                                not in ("VALID", "FUZZY")):
+                                or _c.get("grounding_status") != "VALID"):
                             _c["display_authorized"] = False
                             _c["supports_claim_ids"] = []
                 trace.add_stage("citation_display_integrity", {

@@ -18,6 +18,19 @@ Key Rules:
   - If all attempts fail → grounding_fail (citation invalid).
   - NEVER fall back to "first 200 chars" as a valid citation span.
   - Returns start/end offsets for UI highlighting.
+
+RT101-V14 grounding contract (qual P0 repair, 2026-09-19):
+  LOCATE / VERIFY SOURCE CORRESPONDENCE / CLAIM SUPPORT are three distinct
+  concerns. A fuzzy locator may only ever PRODUCE a candidate region; the
+  region becomes grounding_status=VALID solely when the FULL proposed span
+  corresponds to the raw canonical slice under the single deterministic
+  canonical_match_view() normalization (markdown link wrappers collapse to
+  their visible label; bare URLs and whitespace runs are formatting-only
+  differences). A short prefix anchor can never by itself justify VALID for
+  a longer proposed span — blind prefix extension is permanently removed.
+  Every emitted offset is a RAW canonical-source coordinate (normalized
+  indexes are mapped back through a reversible offset map and are never
+  exposed as raw offsets).
 """
 import re
 import difflib
@@ -104,70 +117,173 @@ def verify_span_in_text(span: str, text: str) -> tuple:
     return (False, -1, -1)
 
 
+# ── RT101-V14: single canonical match normalization + raw offset map ────────
+# (contract: exactly one deterministic view decides source correspondence;
+# formatting-only differences — markdown link wrappers around a visible
+# label, bare URLs, whitespace runs — never change substantive meaning and
+# are the ONLY allowed differences between a proposed span and its raw slice.)
+_MD_LINK_RE = re.compile(r"\[([^\]\n]*)\]\((?:[^)(]|\([^)]*\))*\)")
+_BARE_URL_RE = re.compile(r"https?://[A-Za-z0-9._~:/?#\[\]@!$&'()*+,;=%-]+")
+
+
+def _link_stripped_with_map(raw: str) -> tuple:
+    """Rewrite ``[label](url)`` → ``label`` (empty label → removed) while
+    tracking, for every character of the stripped copy, the raw index it
+    came from. Returns (stripped_text, pos_map)."""
+    out = []
+    pos_map = []
+    pos = 0
+    for m in _MD_LINK_RE.finditer(raw):
+        for i in range(pos, m.start()):
+            out.append(raw[i])
+            pos_map.append(i)
+        label = m.group(1) or ""
+        label_start = m.start(1) if label else m.start()
+        for j, ch in enumerate(label):
+            out.append(ch)
+            pos_map.append(label_start + j)
+        pos = m.end()
+    for i in range(pos, len(raw)):
+        out.append(raw[i])
+        pos_map.append(i)
+    return "".join(out), pos_map
+
+
+def canonical_match_view(text: str) -> str:
+    """The ONE allowed normalization for source correspondence (V14).
+
+    CRLF → LF; markdown link wrappers collapse to their visible label;
+    bare URLs removed; NFKC + whitespace-run collapse via the snapshot
+    normalizer. Never rewrites substantive content.
+    """
+    if not isinstance(text, str):
+        return ""
+    t = text.replace("\r\n", "\n").replace("\r", "\n")
+    t = _MD_LINK_RE.sub(lambda m: m.group(1) or "", t)
+    t = _BARE_URL_RE.sub(" ", t)
+    from source_snapshot import normalize_with_map
+    return normalize_with_map(t).text
+
+
+def _normalized_source_view(raw_text: str):
+    """Build the canonical view of a canonical source text together with a
+    reversible view-index → raw-index map. Returns
+    (view_text, view_to_raw_fn) where view_to_raw_fn(start, end) maps a
+    half-open view range to the RAW source range it covers (or None when
+    unmappable)."""
+    stripped, pos_map = _link_stripped_with_map(raw_text)
+    from source_snapshot import normalize_with_map
+    view = normalize_with_map(stripped)
+    offsets = view.offsets
+
+    def view_to_raw(start: int, end: int):
+        if start < 0 or end <= start or end > len(offsets):
+            return None
+        spans = offsets[start:end]
+        left, right = spans[0][0], spans[-1][1]
+        # monotonic guard: non-contiguous view range → refuse
+        for prev, nxt in zip(spans, spans[1:]):
+            if nxt[0] < prev[1]:
+                return None
+        if left >= len(pos_map) or right - 1 >= len(pos_map):
+            return None
+        return (pos_map[left], pos_map[right - 1] + 1)
+
+    return view.text, view_to_raw
+
+
+def _full_correspondence(proposed: str, raw_text: str,
+                         raw_start: int, raw_end: int) -> bool:
+    """True iff the raw slice corresponds to the FULL proposed span under
+    canonical_match_view (never a prefix/partial correspondence)."""
+    if raw_start is None or raw_end is None or raw_end <= raw_start:
+        return False
+    if raw_start < 0 or raw_end > len(raw_text):
+        return False
+    return (canonical_match_view(raw_text[raw_start:raw_end])
+            == canonical_match_view(proposed))
+
+
 def fuzzy_locate_span(span: str, text: str, min_ratio: float = 0.75) -> tuple:
-    """Attempt to locate span in text using fuzzy matching.
+    """Attempt to LOCATE a candidate region for span in text (V14).
 
-    Tries:
-    1. Normalized whitespace match
-    2. Sentence-level similarity matching
-    3. Partial substring (first 20+ chars)
+    A locator NEVER decides grounding validity — the caller must verify the
+    full proposed/source correspondence over the returned RAW range before
+    any status upgrade. Returns (found, raw_start, raw_end, matched_text)
+    where offsets are RAW canonical-source coordinates obtained through the
+    reversible normalized offset map (never normalized indexes).
 
-    Returns (found, start_offset, end_offset, matched_text).
+    Strategies (all raw-mapped, none self-validating):
+    1. Full canonical-view match (whitespace/NFKC/link view) — mapped back
+       to raw coordinates. No offset approximation is ever used.
+    2. Sentence-level similarity on the first proposed sentence chooses a
+       candidate source sentence, extended only while source sentences
+       remain inside the canonical length of the proposed span.
+    3. Prefix anchoring (40/30/20 chars of the canonical view): the anchor
+       only seeds a bounded candidate window of the proposed span's own
+       view length. The historical behavior of returning
+       ``anchor_start .. anchor_start + len(span)`` RAW characters after a
+       20-char prefix match (blind prefix extension) is removed — a
+       short anchor can never manufacture a long authoritative span.
     """
     if not span or not text:
         return (False, -1, -1, "")
 
-    # Strategy 1: Normalize whitespace
-    span_norm = re.sub(r'\s+', ' ', span.strip())
-    text_norm = re.sub(r'\s+', ' ', text)
-    idx = text_norm.find(span_norm)
-    if idx >= 0:
-        # Map back to original text position (approximate)
-        return (True, idx, idx + len(span_norm), text_norm[idx:idx + len(span_norm)])
+    view_text, view_to_raw = _normalized_source_view(text)
+    span_view = canonical_match_view(span)
+    if not span_view:
+        return (False, -1, -1, "")
 
-    # Strategy 2: Sentence-level similarity
+    # Strategy 1: full canonical-view find, mapped back to raw.
+    idx = view_text.find(span_view)
+    if idx >= 0:
+        rr = view_to_raw(idx, idx + len(span_view))
+        if rr is not None:
+            s0, e0 = rr
+            return (True, s0, e0, text[s0:e0])
+
+    # Strategy 2: sentence-similarity candidate (locator only).
     span_sentences = _extract_sentences(span)
     text_sentences = _extract_sentences(text)
-
     if span_sentences and text_sentences:
         best_score = 0
         best_match = None
         span_first = span_sentences[0][0]
-
         for sent_text, s_start, s_end in text_sentences:
             ratio = difflib.SequenceMatcher(None, span_first, sent_text).ratio()
             if ratio > best_score:
                 best_score = ratio
                 best_match = (s_start, s_end, sent_text)
-
         if best_match and best_score >= min_ratio:
-            # Extend to cover subsequent sentences if multi-sentence span
             start_offset = best_match[0]
             end_offset = best_match[1]
-            if len(span_sentences) > 1:
-                # Try to extend to cover more of the span
-                remaining_sentences = text_sentences
-                for i, (_, ss, se) in enumerate(remaining_sentences):
-                    if ss == start_offset:
-                        # Extend forward
-                        covered = 1
-                        for j in range(i + 1, min(i + len(span_sentences), len(remaining_sentences))):
-                            end_offset = remaining_sentences[j][2]
-                            covered += 1
-                            if covered >= len(span_sentences):
-                                break
+            # Extend forward only while within the proposed span's own
+            # canonical length — never past it.
+            budget = len(span_view) - (end_offset - start_offset)
+            if len(span_sentences) > 1 and budget > 0:
+                for _, ss, se in text_sentences:
+                    if ss < end_offset:
+                        continue
+                    if se - start_offset > len(span_view):
                         break
-            return (True, start_offset, end_offset, text[start_offset:end_offset])
+                    end_offset = se
+                    break
+            return (True, start_offset, end_offset,
+                    text[start_offset:end_offset])
 
-    # Strategy 3: Partial substring (first significant chunk ≥20 chars)
+    # Strategy 3: prefix ANCHOR + bounded window (locator only).
     for prefix_len in (40, 30, 20):
-        if len(span_norm) >= prefix_len:
-            prefix = span_norm[:prefix_len]
-            idx = text_norm.find(prefix)
-            if idx >= 0:
-                # Extend to approximate full span length
-                end = min(idx + len(span_norm), len(text_norm))
-                return (True, idx, end, text_norm[idx:end])
+        if len(span_view) >= prefix_len:
+            pidx = view_text.find(span_view[:prefix_len])
+            if pidx >= 0:
+                # candidate window covers the anchor plus at most the
+                # proposed span's canonical length in VIEW coordinates,
+                # then is mapped back to raw — no blind raw extension.
+                w_end = min(pidx + len(span_view), len(view_text))
+                rr = view_to_raw(pidx, w_end)
+                if rr is not None:
+                    s0, e0 = rr
+                    return (True, s0, e0, text[s0:e0])
 
     return (False, -1, -1, "")
 
@@ -180,6 +296,13 @@ def ground_citation_evidence(
 ) -> dict:
     """Ground a citation by finding the exact evidence span in the original text.
 
+    V14 contract: LOCATE (may be fuzzy) is separate from VERIFY SOURCE
+    CORRESPONDENCE (deterministic, full-span). grounding_status=VALID is
+    emitted only when the FULL proposed span corresponds to a raw canonical
+    slice under canonical_match_view(); locators merely nominate candidate
+    regions, which are then independently verified. All emitted offsets are
+    RAW canonical-source coordinates.
+
     Args:
         record: The full record dict from all-records-lite.json
         proposed_span: LLM-suggested evidence text (may be imprecise)
@@ -188,31 +311,46 @@ def ground_citation_evidence(
 
     Returns:
         {
-            "evidence_span": str,       # The exact text found
-            "start_offset": int,        # Character offset in original text
-            "end_offset": int,
+            "evidence_span": str,       # verbatim raw source slice
+            "start_offset": int,        # RAW start in original text
+            "end_offset": int,          # RAW end in original text
             "grounding_status": str,    # "VALID" | "FUZZY" | "GROUNDING_FAIL"
             "source_field": str,        # "fb" | "b" | "as"
             "highlight": str,           # Key phrase to highlight in UI
+            "match_type": str,          # exact | normalized_exact | verified_candidate
+            "match_diagnostics": dict,  # locator provenance (V14, additive)
         }
     """
     original_text = get_original_text(record)
     source_field = get_text_source(record)
 
-    if not original_text.strip():
+    # V14: windowed snippets may carry pure truncation decoration (leading/
+    # trailing "..." / "…") added by query-relevant excerpt windows. That
+    # decoration is formatting, not content — strip it for MATCHING only
+    # (highlight keeps the original proposal).
+    proposed_span = re.sub(r"^(?:\.{3,}|\u2026+|\s)+|(?:(?:\.{3,}|\u2026+|\s))+$",
+                           "", proposed_span or "")
+
+    def _fail():
         return {
             "evidence_span": "",
             "start_offset": -1,
             "end_offset": -1,
             "grounding_status": "GROUNDING_FAIL",
-            "source_field": "none",
+            "source_field": source_field,
             "highlight": "",
+            "match_type": "none",
+            "match_diagnostics": {},
         }
 
-    # --- Attempt 1: Exact match of proposed span ---
+    if not original_text.strip():
+        return _fail()
+
+    # --- Attempt 1: RAW exact match of the full proposed span ---
     if proposed_span:
         found, start, end = verify_span_in_text(proposed_span, original_text)
-        if found:
+        if found and _full_correspondence(proposed_span, original_text,
+                                          start, end):
             return {
                 "evidence_span": original_text[start:end],
                 "start_offset": start,
@@ -220,45 +358,101 @@ def ground_citation_evidence(
                 "grounding_status": "VALID",
                 "source_field": source_field,
                 "highlight": proposed_span[:100],
+                "match_type": "exact",
+                "match_diagnostics": {},
             }
 
-    # --- Attempt 2: Fuzzy match of proposed span ---
+    # --- Attempt 2: canonical-view exact (links/whitespace/NFKC), raw-mapped ---
+    if proposed_span:
+        view_text, view_to_raw = _normalized_source_view(original_text)
+        span_view = canonical_match_view(proposed_span)
+        if span_view:
+            vidx = view_text.find(span_view)
+            if vidx >= 0:
+                rr = view_to_raw(vidx, vidx + len(span_view))
+                if rr is not None and _full_correspondence(
+                        proposed_span, original_text, rr[0], rr[1]):
+                    return {
+                        "evidence_span": original_text[rr[0]:rr[1]],
+                        "start_offset": rr[0],
+                        "end_offset": rr[1],
+                        "grounding_status": "VALID",
+                        "source_field": source_field,
+                        "highlight": proposed_span[:100],
+                        "match_type": "normalized_exact",
+                        "match_diagnostics": {},
+                    }
+
+    # --- Attempt 3: fuzzy LOCATORS (never self-validating) ---
+    # Every candidate region is independently verified over the FULL
+    # proposed span; a locator hit alone can only ever produce FUZZY.
+    candidates = []
     if proposed_span and len(proposed_span) >= 10:
-        found, start, end, matched = fuzzy_locate_span(proposed_span, original_text)
+        found, start, end, matched = fuzzy_locate_span(
+            proposed_span, original_text)
         if found:
-            return {
-                "evidence_span": matched,
-                "start_offset": start,
-                "end_offset": end,
-                "grounding_status": "FUZZY",
-                "source_field": source_field,
-                "highlight": proposed_span[:100],
-            }
-
-    # --- Attempt 3: Semantic locate using claim text keywords ---
+            candidates.append({
+                "start": start, "end": end, "matched": matched,
+                "match_type": "fuzzy_located",
+            })
     search_text = claim_text or query
     if search_text:
         result = _keyword_semantic_locate(search_text, original_text)
         if result:
-            start, end, highlight = result
+            kstart, kend, highlight = result
+            candidates.append({
+                "start": kstart, "end": kend, "matched":
+                original_text[kstart:kend],
+                "match_type": "keyword_located",
+            })
+
+    best = None
+    for cand in candidates:
+        if cand["end"] <= cand["start"]:
+            continue
+        ok = _full_correspondence(proposed_span, original_text,
+                                  cand["start"], cand["end"])
+        if ok:
+            best = (cand, True)
+            break
+        ratio = difflib.SequenceMatcher(
+            None,
+            canonical_match_view(proposed_span),
+            canonical_match_view(cand["matched"])).ratio()
+        if best is None or ratio > best[2]:
+            best = (cand, False, ratio)
+    if best is not None:
+        cand, verified = best[0], best[1]
+        if verified:
             return {
-                "evidence_span": original_text[start:end],
-                "start_offset": start,
-                "end_offset": end,
-                "grounding_status": "FUZZY",
+                "evidence_span": original_text[cand["start"]:cand["end"]],
+                "start_offset": cand["start"],
+                "end_offset": cand["end"],
+                "grounding_status": "VALID",
                 "source_field": source_field,
-                "highlight": highlight,
+                "highlight": proposed_span[:100],
+                "match_type": "verified_candidate",
+                "match_diagnostics": {"locator": cand["match_type"]},
             }
+        # Diagnostics-only fuzzy region: provenance kept for highlight /
+        # internal verification, NEVER display authority.
+        return {
+            "evidence_span": original_text[cand["start"]:cand["end"]],
+            "start_offset": cand["start"],
+            "end_offset": cand["end"],
+            "grounding_status": "FUZZY",
+            "source_field": source_field,
+            "highlight": proposed_span[:100],
+            "match_type": cand["match_type"],
+            "match_diagnostics": {
+                "prefix_len": len(canonical_match_view(proposed_span)[:20]),
+                "full_candidate_length": cand["end"] - cand["start"],
+                "similarity": round(float(best[2]), 4),
+            },
+        }
 
     # --- All attempts failed ---
-    return {
-        "evidence_span": "",
-        "start_offset": -1,
-        "end_offset": -1,
-        "grounding_status": "GROUNDING_FAIL",
-        "source_field": source_field,
-        "highlight": "",
-    }
+    return _fail()
 
 
 def _keyword_semantic_locate(query: str, text: str, context_chars: int = 150) -> Optional[tuple]:
