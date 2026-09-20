@@ -1,0 +1,211 @@
+{
+  "type": "daily",
+  "date_label": "2026年9月19日　星期六",
+  "date_range": "2026-09-19",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "能源部向Natura交付1960年代橡树岭熔盐，用于德州MSR-1示范反应堆",
+      "MicroNuclear携手爱达荷国家实验室推进20兆瓦熔盐微堆首次裂变测试",
+      "熔盐微堆采用自然循环冷却，面向关键设施与军事场景供电供热"
+    ],
+    "AI与智能科技": [
+      "达摩院联合浙大一院发布医疗影像模型DAMO RADAR，单模型识别146种腹部病症并开源",
+      "华为发布昇腾960DT芯片路线图，单芯片支持2 PFLOPS FP8算力，2028年推昇腾970",
+      "中科院以DUV光刻实现亚3nm级GAA晶体管早期集成，尚处研发阶段"
+    ],
+    "通用技术": [
+      "Joby完成3199英里横跨美国全自主飞行，关键飞行环节均无人操控",
+      "中国空间站稳定运行五年，累计实施267项在轨科学项目并获取数据超150TB",
+      "中航工业研究院展出约380公斤战斗机激光跟踪瞄准系统，或配套J-36战机"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "能源部向Natura交付1960年代橡树岭熔盐，用于德州MSR-1示范反应堆",
+        "MicroNuclear携手爱达荷国家实验室推进20兆瓦熔盐微堆首次裂变测试",
+        "熔盐微堆采用自然循环冷却，面向关键设施与军事场景供电供热"
+      ],
+      "entries": [
+        {
+          "t": "具有历史意义的 1960 年代美国核冷却剂运抵 Natura 位于德州的反应堆",
+          "d": "2026-09-19",
+          "a": "interesting engineering",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "先进核能公司Natura Resources于9月18日收到美国能源部交付的特殊熔盐冷却剂FLiBe盐，用于其MSR-1示范反应堆。该测试设施目前正建于阿比林基督教大学，此次到货解决了重大供应链难题，获得了设施运行所需的关键材料。该公司的小型模块化反应堆采用液体燃料和低压运行条件，旨在提供清洁可靠的基础负荷电力。这批熔盐源自橡树岭国家实验室，具有1960年代的历史渊源。",
+          "sc": 7.8,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://interestingengineering.com/energy/us-nuclear-coolant-natura-texas-reactor",
+          "tp": "核反应堆冷却剂",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "A specialized molten salt coolant has arrived for a new experimental nuclear reactor in Texas. Advanced nuclear company Natura Resources received the shipment from the US Department of Energy on September 18.The material will serve as the coolant for Natura’s MSR-1 demonstration reactor. Workers are currently building the test facility at Abilene Christian University. By taking possession of the compound, the company has resolved a major supply-chain challenge and obtained an essential material needed to operate the facility.Natura’s small modular reactors are designed to deliver clean, reliable baseload power using liquid fuel and low-pressure operating conditions, according to the company.The newly delivered substance is known as FLiBE salt. It originated at the Oak Ridge National Laboratory and traveled through the Idaho National Laboratory before reaching Texas.Historic legacy and operational baselineThis specific salt directly links today’s commercial efforts to the birth of molten salt technology sixty years ago. The Molten Salt Reactor Experiment (MSRE) operated from 1965 to 1969, logging more than 13,000 hours demonstrating passive safety, high‑temperature performance, and fuel flexibility, noted the company.The very same FLiBE salt formulation cooled that 1960s experiment. Today, Natura is using that early success as the technical baseline for its modern small modular reactors.“Receiving this salt from the DOE is a handoff between generations of American innovation,” said Jordan Robison, CEO of Natura Resources. “The MSRE showed what molten salt technology could achieve. We’re carrying that legacy forward and turning it into a commercial reality that will deliver reliable energy, clean water, and medical isotopes to the world.”Natura won the rights to the coolant through a competitive Department of Energy solicitation. The bidding process was launched in August 2025 and managed by the Idaho National Laboratory.Commercial proving ground with regulatory progressThe material has precise chemical qualities that are critical for nuclear operations. The FLiBE salt contains 99.99% enriched lithium-7 which minimizes tritium generation in the salt, explained the company.Natura intends to run the MSR-1 reactor as a proving ground. Engineers will gather operational data from the test run to design and license future commercial systems. The company plans to deploy these small, liquid-fueled modular units to supply electricity to industrial sites, remote communities, and critical infrastructure. Beyond reliable energy, the technology is designed to produce medical isotopes and support clean water production.The salt arrival represents the second major milestone for the Abilene project in recent months. In July, the Department of Energy approved a Nuclear Safety Design Agreement for the research facility.That formal agreement laid out the safety rules and design standards for the reactor. It defined the technical framework needed to evaluate the primary safety features, the structural materials, and the operating limits of the liquid-fueled core. Establishing those baseline boundaries was an essential regulatory step, giving federal authorities the legal groundwork to approve construction and authorize system testing.",
+          "hb": 1
+        },
+        {
+          "t": "20兆瓦熔盐核电池迈向首次裂变测试",
+          "d": "2026-09-19",
+          "a": "interesting engineering",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "MicroNuclear与爱达荷国家实验室基金会达成新合作，将其20兆瓦热功率的熔盐核电池（MsNB）推进至详细工程设计、安全审查、原型制造和首次裂变测试阶段。合作方还包括工程公司EXP、核设备制造商Premier Technology和Porter House，共同负责工程、制造、核质量保证、运营、培训、许可及商业化工作。MsNB是一种紧凑型熔盐微堆，采用自然循环而非泵来输送冷却剂，旨在为关键基础设施、军事和政府设施提供可靠电力和工艺热能。",
+          "sc": 7.5,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://interestingengineering.com/energy/micronuclear-20mw-molten-salt-nuclear-battery-testing",
+          "tp": "熔盐核电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "MicroNuclear is moving its 20 MW thermal Molten Salt Nuclear Battery toward detailed engineering, safety reviews, prototype manufacturing, and first-fission testing under a new collaboration with the Idaho National Laboratory Foundation.The agreement brings together MicroNuclear, the INL Foundation, engineering firm EXP, nuclear manufacturer Premier Technology and Porter House. The group will work on engineering, manufacturing, nuclear quality assurance, operations, training, licensing and commercialization activities.The MsNB is designed as a compact molten salt microreactor using natural circulation instead of relying on pumps to move its coolant. MicroNuclear says the system is intended to provide resilient power and process heat for critical infrastructure, military and government facilities, remote grids and industrial users.The company envisions the unit as a 20 MW thermal system capable of operating at full power for an anticipated 10-year battery interval before being returned to a centralized facility for fuel and salt recovery and recycling.Compact reactors target resilienceThe collaboration is intended to take the concept through a more structured development phase, including detailed design work, safety documentation, applicable government reviews and regulatory pathways.MicroNuclear describes the MsNB as cyber-protected, with physical and electromagnetic pulse protection also incorporated into its broader microreactor approach. The company is targeting applications where reliable power or high-temperature process heat may be difficult to provide through conventional energy infrastructure.The system could also support potential hydrogen production, according to the company. However, the announcement does not provide details on the hydrogen-production process, operating temperatures, or expected efficiency.“We are well positioned to move the Molten Salt Nuclear Battery from a promising technology to a disciplined path toward engineering, testing, licensing, and eventual development,” CEO of MicroNuclear Paul Marotta said.The development team will also work toward establishing a repeatable model for future deployments. That could help translate the reactor concept from prototype development into potential commercial projects if testing, licensing, and other regulatory requirements are met.Testing moves toward laboratoriesThe INL Foundation will support early fundraising and help facilitate access to Idaho National Laboratory. It also plans to present information about the MsNB through investor events. Contributions supporting testing may qualify for tax-deductible treatment, subject to applicable requirements.EXP will contribute engineering capabilities, while Premier Technology brings advanced manufacturing and nuclear quality-assurance experience. Porter House will contribute expertise related to deployment and commercialization.The companies say the combined effort is intended to accelerate technology maturation and establish the documentation and manufacturing capabilities needed for future demonstration.Testing is expected to take place at Idaho National Laboratory or other U.S. Department of Energy national laboratories. Those activities would be conducted through separate agreements rather than being automatically authorized by the collaboration announced this week.The agreement therefore marks a development step rather than confirmation that the MsNB has entered operational deployment. Before commercial use, the concept will need to progress through engineering, prototype testing, safety evaluation, licensing and other regulatory processes.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "达摩院联合浙大一院发布医疗影像模型DAMO RADAR，单模型识别146种腹部病症并开源",
+        "华为发布昇腾960DT芯片路线图，单芯片支持2 PFLOPS FP8算力，2028年推昇腾970",
+        "中科院以DUV光刻实现亚3nm级GAA晶体管早期集成，尚处研发阶段"
+      ],
+      "entries": [
+        {
+          "t": "科学网-首个专家级通用医疗影像AI登上《科学》，可通过腹部CT识别146种病症",
+          "d": "2026-09-19",
+          "a": "科学网新闻",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "阿里巴巴达摩院与浙江大学医学院附属第一医院等机构9月18日在《科学》杂志发表通用医疗影像AI模型DAMO RADAR，首次实现用单个模型识别腹部18个解剖器官中的146种病症，诊断综合表现达到放射科专家水平，算法代码与权重已全球开源。不同于以往'一病一模'的专病模型路径（训练一种疾病需2年且无法泛化），该模型采用影像与语言联合学习方法，通过学习CT影像与诊断报告的联系理解疾病表现，并改进学习方式让模型先识别器官再关联报告描述，聚焦具体器官异常。该模型在近4万例数据上进行了评估。",
+          "sc": 9.0,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://news.sciencenet.cn/htmlnews/2026/9/571762.shtm",
+          "tp": "通用医疗AI",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "首个专家级通用医疗影像AI登上《科学》，可通过腹部CT识别146种病症\n9月18日，阿里巴巴达摩院与浙江大学医学院附属第一医院等机构在《科学》（Science）杂志上发表了通用医疗影像AI模型DAMO RADAR，首次实现用单个模型识别腹部18个解剖器官中的146种病症，其诊断综合表现达到放射科专家水平。目前，该模型的算法代码与权重已面向全球医疗与科研界完整开源。\n医疗影像AI过去主要采用“一病一模”的路径，即一个模型针对一种疾病进行训练。例如，肺结节、胰腺癌或糖尿病视网膜病变等，都可以分别开发专用模型。这类模型在特定病种的诊断上往往能够取得较好效果。\n达摩院方面表示，这类模型称为“专病模型”，其训练过程“严重依赖人工标注，成本高昂，通常每针对一种疾病训练就需要2年，训练好后无法泛化到其他病种上”。与之相对，通用模型希望用一个模型同时识别多种疾病，减少对单一病种和大量人工标注的依赖。\nDAMO RADAR选择从腹部增强CT切入，这是医疗影像中较难处理的任务之一。一份CT检查通常包含数百张切片，涉及肝脏、胰腺、胆囊、胃肠道等多个器官。腹部器官之间相互重叠，许多组织的密度比较接近，病变信号又可能非常细微。影像科医生不仅要观察患者主诉对应的部位，还要检查其他器官是否存在异常。\n为了更好地识别和诊断，该模型采用了影像与语言联合学习的方法。医院里的CT影像通常会对应一份诊断报告，报告中包含医生对不同器官和病变的描述。模型通过学习大量影像与报告之间的联系，逐步理解某些影像表现可能对应哪些疾病，而不是完全依赖医生逐张图像勾画病灶。\n同时，研究团队对学习方式进行了改进，让模型先尝试识别出肝脏、胰腺、胃肠道等不同器官，再将相应部位与报告中的描述联系起来。这可以让模型更集中地关注具体器官及其异常，避免大量正常组织背景干扰判断。\nDAMO RADAR在18个器官、146种疾病上进行了评估。在近4万次真实世界检查中，模型平均AUC（受试者工作特征曲线下面积）达到0.913。AUC是衡量模型区分患病者和正常者能力的一项指标，数值越接近1，通常说明区分能力越强。\n为了比较模型与医生的表现，研究团队邀请了来自14家机构的26名影像科医生参与测试，其中包括11名资深医生和15名初级医生。医生和模型分别对300名患者的CT影像进行判断。结果显示，DAMO RADAR的平均表现超过了其中23名医生，只有3名资深放射科医生的表现略高于模型。\n虽然真实临床诊断通常还会参考患者主诉、既往病史、实验室检查以及其他医学信息，但该模型已经表现出成为医生得力助手的潜力。在人机协作测试中，研究团队发现，在AI提示下，影像科医生识别疾病的敏感性提高了约10%，平均每例阅片时间减少30.7%。敏感性主要反映发现患者真实患病情况的能力，敏感性提高意味着漏诊风险可能下降。研究还称，在部分测试中，获得AI辅助的初级影像科医生，其敏感性超过了资深医生。\n达摩院将通用模型比作“导航软件”，认为它可以帮助医生在阅片时快速发现可能被忽略的异常，并提供进一步判断的线索。它并不直接替代医生作出最终诊断，而是试图在医生阅读CT影像的过程中，提示可能存在的疾病和相关区域。\n“专病模型的核心价值是高精度，通用模型的核心价值是广覆盖”，达摩院表示，“两条路线不是谁取代谁的关系，而是在不同临床场景下各展所长”。\n论文链接：http://www.science.org/doi/10.1126/science.aec6129\n特别声明：本文转载仅仅是出于传播信息的需要，并不意味着代表本网站观点或证实其内容的真实性；如其他媒体、网站或个人从本网站转载使用，须保留本网站注明的“来源”，并自负版权等法律责任；作者如果不希望被转载或者联系转载稿费等事宜，请与我们接洽。",
+          "hb": 1
+        },
+        {
+          "t": "华为汪涛：华为要打造AI算力底座，只做好一颗芯片远远不够",
+          "d": "2026-09-19",
+          "a": "量子位",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "在华为全联接大会上，华为轮值董事长汪涛披露昇腾芯片路线图：昇腾960DT比原计划提前三个季度就绪，单芯片算力倍增，支持2 PFLOPS FP8、4 PFLOPS FP4，HBM容量最高288GB、带宽9.6TB/s；昇腾960超节点集成4096张NPU卡，最高8 EFLOPS FP8算力、超1PB HBM容量。2028年将推出昇腾970、2029年推出昇腾980，未来几年保持一年一代节奏，这得益于国内半导体制造和封装上下游配套全部打通。汪涛强调AI算力竞争是系统工程，华为同时押注NPO光互联、超节点、CANN软件生态等整体方案，单颗芯片性能远远不够。",
+          "sc": 8.6,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://www.qbitai.com/2026/09/492476.html",
+          "tp": "华为算力底座",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "华为汪涛：华为要打造AI算力底座，只做好一颗芯片远远不够\nCANN跨过拐点，华为补上软件生态\n乔不迟 发自 凹非寺\n量子位 | 公众号 QbitAI\n华为今年全联接大会，最重磅的首先是一组芯片时间表。\n昇腾960DT研发进度比原计划提前三个季度，单芯片算力实现倍增，960DT支持2 PFLOPS FP8、4 PFLOPS FP4，HBM容量最高288GB、带宽9.6TB/s。\n对应的昇腾960超节点做到4096张NPU卡，最高8EFLOPS FP8算力、超过1PB HBM容量。\n华为轮值董事长汪涛把后续路线一并摊开：\n2028年昇腾970、2029年昇腾980，未来几年保持“一年一代”的演进节奏。\n会后，汪涛接受量子位专访时把这个变化说得很直白：\n从今年开始，950、960、970、980连续几代，未来几年我们坚持一年一代，走入了快速演进的节奏。这也是国内半导体制造、封装的上下游配套全部打通之后才实现的。\n但华为这次想讲的，显然不只是一颗更快的芯片。\n围绕960，华为把NPO光互联、超节点、CANN生态和韬定律一起摆上台面，给出的答案很明确：AI算力竞争已经越来越像一场系统工程。\n单芯片倍增，但华为押注的是整套系统\n先从这次核心的新产品说起——昇腾960。\n相比上一代，960把算力、内存容量和带宽继续往上推，同时产品节奏明显加快。\n按照华为披露，960DT比原计划提前三个季度准备就绪，960PR版本也将继续提前。\n更值得注意的是昇腾芯片的研发周期。\n汪涛专访时透露，960芯片已经在实验室测了好几个月。\n“芯片从立项到产品化往往要三年，我们任何一次发布，都是产品已经在实验室反复测试、有准确交付时间之后才做。”\n从950、960到后续的970、980，华为接下来几年计划保持一年一代快速演进的节奏。\nAI大模型的训练和推理规模正在迅速扩大，单颗芯片再强，也很难独自承担万亿、十万亿参数模型的计算需求。\n华为把突破口放到了“规模算力”上：\n910C是384卡，950做到1024卡，960进一步扩到4096卡，并通过跨物理节点的统一内存编址，让多颗NPU互联起来更接近一台逻辑计算机。\n汪涛提到，华为从仿真训练里看到，在同样十万卡集群下，4096卡超节点组成的集群相对传统八卡服务器组成的集群，MFU可提升2.75倍。\nMFU可以简单理解为大模型真正吃到多少理论算力，集群越大，通信、同步、故障越容易把峰值性能吃掉。\n汪涛因此反复强调，AI基础设施已经进入系统工程阶段。\n只做好一颗芯片远远不够，只做一台服务器也不够，最后要交付一个高可用度的复杂系统才有价值。\n这种系统工程能力，也是华为给自己总结的核心优势。\n一个大规模超节点同时涉及芯片、通信、IP网络、光互联、供电、散热、软件和故障管理，单点性能强并不代表系统能长期稳定运行。\n谈到华为在这一轮算力竞争中的位置，汪涛的判断很鲜明，“要做好这么大的超节点集群，需要通信技术、IP、光模块、算力、系统，华为干了30年，每个领域都有长期大规模研发投资。把这些能力全部聚在一个团队里，似乎只有华为。”\n这也是昇腾960超节点值得关注的地方：当先进制程短期内仍然构成约束，华为选择继续提升单芯片，同时把竞争战线扩大到整个系统。\nNPO落地，华为把30年光技术融入超节点\n960超节点这一代最硬的新增技术，是NPO（近封装光学）。\nNPO可以理解为一种用光来承担芯片间高速数据传输的技术。\n过去高速数据传输主要依赖电信号，距离一长，损耗和功耗都会上升。\nNPO把负责光电转换的“光引擎”往芯片附近推进，相当于“让电少跑一点，让光早点接手”，从而降低高速互联的传输损耗和功耗。\n这也是为什么4096卡超节点开始需要NPO——卡越多，芯片之间的数据交换越频繁，互联能力就越容易从配角变成决定整个系统效率的关键。\n而昇腾960是业界首个采用NPO光引擎的超节点。\n华为用这套NPO架构做的具体产品，就是Hi-ONE光引擎。\n单引擎集成36路200G，总传输容量7.2Tbps，并把光源直接内置。\n汪涛在圆桌上把Hi-ONE的领先性概括为“三个第一”：\n第一个规模商用的，大家还在实验室阶段；第二个最大的带宽，36路200G集成；第三个唯一内置光源的。\n值得注意的是，华为没有直接一步走向CPO（共封装光学）。\nCPO把光引擎和主芯片封在一起，理论上还能进一步缩短距离，但今天可靠性、良率、成本和维护都还没到华为认为适合大规模商用的状态。\n汪涛解释得很具体：“CPO把光引擎和主芯片放一起，光引擎坏了整个主芯片就报废，可用度差，故障成本极高，对封装厂要求也高。现在NPO的TCO至少比CPO低40%以上。当前NPO是工程、成本各方面综合最佳选择。”\n他对CPO的态度很开放，“未来CPO如果解决了可靠性、良率问题，华为也可能转向CPO，以进一步降低高速信号传输损耗。”\n昇腾960超节点用约5500个Hi-ONE，替代原本约4.8万个800G光模块，功耗降低超过550kW，系统无故障运行时间提升一倍，系统可用度为99.8%。\n器件数量大幅减少，本身就意味着更少的故障点、更低的布线复杂度和更可控的系统功耗。\n这也是“超节点+集群”路线能真正落地的前提之一：\n华为需要的不只是把更多芯片连起来，还要确保系统规模变大以后，不被光模块、供电、散热和故障率反过来影响效率。\nCANN跨过拐点，华为补上软件生态\n硬件往前跑，生态要同步跟上。\nCANN进入常态化开源社区运营，月活开发者超过5200人，外部开发者占比达到61%；\n昇腾也进入PyTorch官方支持路线，开发者可以直接在PyTorch社区获得相关支持。\n汪涛对此的表述反而很克制：“经过八年努力，我们今天只敢说CANN生态跨过了拐点。”\n华为下一步想把适配动作进一步前置，在模型进入预训练阶段时就和模型厂商协同，把昇腾适配、性能优化等工作尽可能提前完成，不是等一个模型发布后再迁移到昇腾。\n很高兴看到中国涌现出一批十分优秀的大模型企业，既有头部互联网，也有大模型初创企业，他们的优异产品和强大的创新能力显著提升了中国人工智能的全球影响力。华为的使命是为这些优秀企业构建坚实的算力底座，做好他们坚强的后盾和伙伴。\n汪涛表示，未来我们会看到越来越多模型基于昇腾原生训练，这样模型开源发布走向千行万业之后，就基本不需要再做适配和优化。\n这背后对应的，是华为对自己在AI产业链中位置的一次明确划分。\n汪涛直言：“华为的核心使命是打造算力底座。”\n这句话其实给昇腾、超节点、CANN乃至整个AI基础设施业务划出了一条清晰边界：\n华为希望把更多资源放在芯片、互联、系统和软件底座上，为模型厂商和互联网公司提供算力支撑。\n“盘古会继续服务华为自身产品智能化，但华为并不打算在每一层都和伙伴竞争。灵衢协议已经开放，CANN代码也持续开源，华为想把更多研发资源放在芯片、超节点和算力底座。”\n汪涛随后进一步表示，所有做大模型和训练的企业，无论头部互联网公司还是创新企业，都代表着中国科技的未来，华为希望做他们的“底座、后盾”。“我们把他们托得越高，中国AI竞争力越强。”\n对应到产品形态，就是用4096卡超节点作为更大的计算单元，再由多个超节点组成十万卡、数十万卡集群。\n华为披露，多超节点通过灵衢网络或RoCE继续扩展，二层Clos组网最大可到51.2万卡，结合多轨道拓扑，技术上限可支持百万卡。\n汪涛也强调，百万卡更多是技术指标，现实部署仍要看投资、电力和模型需求。\n而华为真正重要的目标，是让算力“触手可及”。\n汪涛说：“我们不仅提供产品，还派很多技术专家团队，支持客户做昇腾原生的预训练，遇到技术问题一起解决。”\n汪涛在思量华为未来的路线，“到2030年甚至未来，我们必须做一个准备：中国最先进的制造工艺还没有取得完全突破，华为必须有一个创新路线，同时满足中国AI训练、推理、行业应用的需求。”\n而对于创新，汪涛说，这是华为没有退路才走出的“胜利之路”。\n这也解释了华为为什么一边继续提升单芯片性能，一边把大量资源投入到超节点、光互联和系统工程。\n先进制程依然重要，但华为不能等制造条件完全改善后再推进产品。\n它需要在现有工艺条件下，把性能提升的空间继续往芯片之外延伸，通过封装、互联、光通信、系统架构和软件协同等多层优化，尽可能放大整体算力效率，缩小与国际领先AI芯片和计算系统之间的差距。\n在圆桌收尾时，汪涛补充道：“华为是一家产品公司，要做最好的产品给客户。任总常讲，每个人都要磨好自己的豆腐，各司其职，我们的豆腐就是把算力底座做好。”\n从昇腾960、Hi-ONE，到4096卡超节点、CANN和韬定律，这次全联接大会真正展开的并不是一颗芯片的参数升级，而是一条更完整的AI基础设施路线：\n单芯片继续迭代，光和互联把系统做大，软件让模型原生跑起来，再用持续的产品化把算力稳定交付出去。\n华为想守住的，也正是这个位置——把中国AI需要的算力底座做厚，为国内模型公司的训练、推理和持续迭代提供充足、稳定的算力支撑。\n- 千万奖池找“鲸锐”！单项奖金200万，只等一个最会用AI讲故事的你2026-09-19\n- AI离“理解万物”还有多远？先拿癌细胞和行星轨道试试水2026-09-19\n- AGI新战场谷歌亚马逊巨头激战，杀出个中国LimiX-2赢了又赢2026-09-18\n- 从“会回答”到“会办事”，vivo如何解AI手机这道题？2026-09-17",
+          "hb": 1
+        },
+        {
+          "t": "中国转向较旧的芯片制造技术来生产 3nm 芯片",
+          "d": "2026-09-19",
+          "a": "interesting engineering",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "据Digitimes援引中国资深半导体专家叶天春的评论，中国研究人员开发出一种早期工艺，在使用深紫外（DUV）光刻的条件下制造亚3nm级环绕栅极（GAA）晶体管，为在无法获得最先进EUV光刻机的情况下推进先进制程提供了另一条路径。中科院表示其研究人员已使用DUV设备完成堆叠纳米片沟道GAA CMOS晶体管的早期集成。该技术仍处早期开发阶段，尚未证明能支持商业化规模生产，且面临美荷出口限制的持续约束。",
+          "sc": 7.3,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://interestingengineering.com/innovation/china-older-chipmaking-technology-smaller-chips",
+          "tp": "DUV产3nm芯片",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Chinese researchers have developed an early process for building gate-all-around (GAA) transistors at the sub-3nm level using deep ultraviolet (DUV) lithography, potentially offering China another route toward advanced chip manufacturing without access to the most advanced EUV machines. The work, reported by Digitimes based on comments from veteran Chinese semiconductor researcher Ye Tianchun, comes as US and Dutch export restrictions continue to limit China’s access to ASML’s most advanced lithography systems. The Chinese Academy of Sciences (CAS) says its researchers have completed early integration of stacked nanosheet-channel GAA CMOS transistors using DUV tools. However, the technology remains at an early development stage and has not demonstrated that it can support commercial-scale production.GAA architecture could help overcome lithography limitsThe research is focused on GAA transistors, an architecture that is replacing FinFET designs as semiconductor manufacturers move toward smaller process nodes. Unlike FinFETs, where the gate surrounds the transistor channel on three sides, GAA designs wrap the gate around the channel, providing greater control over the flow of current, the South China Morning Post reported.The CAS team has reportedly integrated stacked nanosheet-channel GAA CMOS transistors using DUV lithography. Ye Tianchun, a veteran researcher from the Chinese Academy of Sciences’ Institute of Microelectronics, described the work as an early process route for developing sub-3nm devices.However, that does not mean China has demonstrated a production-ready sub-3nm chip. The Chinese researcher emphasized that the work remains at an early stage and that further wafer-level validation will be needed to determine whether the process can eventually be transferred to a manufacturing line.Still, the approach is significant because GAA technology is already being used by leading semiconductor manufacturers. Samsung began mass-producing 3nm chips using GAA, while TSMC moved to the architecture for its 2nm process in 2025.Looking for ways around EUV restrictionsThe research comes against the backdrop of China’s limited access to extreme ultraviolet (EUV) lithography, the technology used by leading chipmakers to manufacture the most advanced semiconductor nodes. ASML’s EUV machines use 13.5nm light to pattern extremely small features on silicon wafers. The systems are among the most sophisticated industrial machines ever built and are critical to modern leading-edge chip production.Export restrictions prevent ASML from selling EUV systems to Chinese customers and as a result, Chinese semiconductor researchers have increasingly explored ways to extract more performance from older DUV equipment, including through new transistor structures, process techniques and materials.CAS has been working on several pieces of this puzzle. In 2025, researchers at the institute developed an all-solid-state DUV laser capable of producing 193nm coherent light, the wavelength used by advanced DUV lithography systems. Furthermore, researchers are also investigating whether different device architectures and process techniques can compensate for limitations in lithography.China’s semiconductor industry is nevertheless pursuing several parallel approaches. Huawei unveiled what it calls the Tau Scaling Law in 2026, a chip-design approach based on “time scaling” that the company says could eventually produce transistor densities comparable to a 1.4nm process by 2031.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "Joby完成3199英里横跨美国全自主飞行，关键飞行环节均无人操控",
+        "中国空间站稳定运行五年，累计实施267项在轨科学项目并获取数据超150TB",
+        "中航工业研究院展出约380公斤战斗机激光跟踪瞄准系统，或配套J-36战机"
+      ],
+      "entries": [
+        {
+          "t": "史上首次横跨美国的全自主飞行，航程达 3199 英里",
+          "d": "2026-09-19",
+          "a": "interesting engineering",
+          "c": "通用技术/通信和运输/航空",
+          "as": "Joby Aviation完成了3199英里横跨美国的全自主飞行，测试其飞机控制技术。飞行使用改装的塞斯纳大篷车飞机，终点位于北卡罗来纳州外滩附近。机上安全飞行员全程在场但从未操控飞机，由位于加州和南卡罗来纳州的设施远程管理，远程操作员可在最远2323英里外监督飞行。滑行、起飞、导航和降落等关键任务环节均自主完成。此次东向飞行是Joby 2026年Electric Skies巡演的一部分，为工程师提供了多环境系统测试机会。",
+          "sc": 8.1,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://interestingengineering.com/transportation/first-fully-autonomous-flight-across-us",
+          "tp": "全自主跨美飞行",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Joby Aviation has completed a 3,199-mile autonomous flight across the United States, marking a major test of its aircraft control technology. The company used a modified Cessna Caravan for the journey, which ended near North Carolina’s Outer Banks.An onboard safety pilot remained present throughout the flight but never operated the aircraft’s controls. Joby instead managed the aircraft remotely, with supervision coming from facilities in California and South Carolina.The aircraft handled critical portions of the mission autonomously, including taxiing, takeoff, navigation and landing. Remote operators supervised the flight from distances reaching 2,323 miles.The eastbound trip formed part of Joby’s 2026 Electric Skies tour. The route also gave engineers opportunities to test the system across different airspace and operating conditions.Autonomy faces real airspaceOne of the more significant tests came at Phoenix Deer Valley Airport in Arizona. The busy general aviation airport provided a tougher environment than a controlled demonstration area.Joby also said its aircraft encountered severe weather and thunderstorms during the journey. Its autonomous system rerouted the aircraft without needing previous familiarity with the destination airport.That capability matters because autonomous aircraft must handle changing conditions beyond carefully scripted test flights. Airports, weather patterns, and surrounding traffic can all change during a mission.The aircraft also stopped at Fort Worth Alliance Airport in Texas. There, Joby demonstrated how autonomous aircraft could eventually support freight operations at a major logistics hub.At Shaw Air Force Base in South Carolina, the aircraft took part in a demonstration focused on military operations. The company sees potential applications across commercial cargo, emergency response, and defense logistics.Autonomy reaches aviation’s birthplaceAfter reaching North Carolina, the aircraft flew a low pass near Kitty Hawk’s First Flight Monument. The location carries particular significance for aviation history.Orville and Wilbur Wright conducted their first powered flight there in 1903. Joby’s aircraft then landed at Dare County Regional Airport.The North Carolina operation also connected autonomy with regional healthcare logistics. Flights supported NCDOT’s eLIFT-NC initiative, which examines statewide transportation of medical supplies.Joby said autonomous aircraft could eventually serve communities that lack efficient access to larger transportation networks. Smaller airports could provide useful launch points for point-to-point cargo missions.800 hours behind systemJoby’s autonomy program has accumulated more than 400 flights and 800 automated flight hours. Those tests have covered both controlled and uncontrolled airspace.The company acquired its current autonomy division from Xwing in 2024. Joby has since tested the technology during several U.S. military exercises.During an Air Force Agile Flag exercise, the system delivered replacement parts 24 hours faster than conventional logistics, according to Joby. Another exercise demonstrated remote operation between Hawaii and Guam, nearly 4,000 miles apart.JoeBen Bevirt, Joby’s founder and CEO, said autonomy could expand aviation access while reducing risks to pilots. The aircraft now faces another test of the westbound return trip. Joby plans stops in Raleigh, the Washington area, Louisville, Wichita, Oklahoma City, Salt Lake City, and Portland.",
+          "hb": 1
+        },
+        {
+          "t": "中国空间站稳定运行五年，我国航天健康保障体系总体达到国际先进水平",
+          "d": "2026-09-19",
+          "a": "IT之家",
+          "c": "通用技术/通信和运输/航天",
+          "as": "据央视《新闻联播》报道，中国空间站稳定运行五年来，我国航天健康保障体系总体达到国际先进水平。在首届航天医学工程大会上介绍，我国已构建'失重防护—营养保障—医监医保—心理保障—环境安全'五位一体的航天健康保障体系。生命保障系统方面，正逐步实现从'物化再生生保'向'受控生态生保'的技术跨越；用于载人登月任务的'望宇'登月服已突破数十项关键技术。空间脑科学领域，弱刺激脑机交互、群脑协同测试与调控设备已入驻空间站并验证多项国际首次技术。'地星三号'卧床实验已于今年8月底结束，验证了空间站一年期飞行失重生理效应防护与载人月球探测低变重力防护技术。中国空间站已在轨部署和实施267项科学与应用项目，去年新增86项在轨实验，获取科学数据超150TB。",
+          "sc": 7.2,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://www.ithome.com/1/004/556.htm",
+          "tp": "空间站航天健康",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "IT之家 9 月 19 日消息，今天（19 日）晚间的央视《新闻联播》报道，中国空间站稳定运行五年来，我国航天健康保障体系总体达到国际先进水平，空间站长期驻留保障能力持续提升。\n今天召开的我国首届航天医学工程大会介绍，我国已构建了“失重防护 — 营养保障 — 医监医保 — 心理保障 — 环境安全”五位一体的航天健康保障体系，总体达到国际先进水平。\n在生命保障系统方面，我国正致力于构建更先进、可持续的生命保障体系，逐步实现从“物化再生生保”向“受控生态生保”的技术跨越。用于载人登月任务的“望宇”登月服以轻量化、小型化、高安全可靠为目标，突破数十项关键技术，为月面复杂环境下的出舱活动提供坚实保障。\n在空间脑科学领域，已有一批国际首创的弱刺激脑机交互、群脑协同测试与调控设备入驻空间站，通过多批次航天员的在轨实验和试验操作，突破多个国际首次，陆续验证了新技术，获得了新发现。目前，航天医学中对特殊环境适应机制的研究，正在探索向民用医疗领域延伸。\n据介绍，“地星三号”卧床实验已于今年 8 月底结束，该实验通过模拟失重环境，研究人体生理变化，同步验证空间站一年期飞行失重生理效应防护与载人月球探测低变重力防护技术，为后续执行更长期飞行任务的航天员健康保障奠定基础。\n据IT之家此前报道，此次大会还披露了多项有关航天服的新成就与新进展。目前，我国舱外航天服整体技术居于国际先进水平，“望宇”登月服研制进展顺利，已攻克数十项关键技术。\n央视新闻今年 6 月披露的数据显示，中国空间站已在轨部署和实施 267 项科学与应用项目，仅去年一年，就新增 86 项在轨实验，上行科学物资约 1179 公斤，下行实验样品约 105 公斤，获取科学数据超过 150TB。",
+          "hb": 1
+        },
+        {
+          "t": "中国展示用于先进 J-36 战斗机的 838 磅激光系统",
+          "d": "2026-09-19",
+          "a": "interesting engineering",
+          "c": "通用技术/通信和运输/航空",
+          "as": "在北京国际国防电子展（9月15日至17日）上，一家中航工业研究院展示了一种战斗机激光跟踪瞄准系统，展板将其与疑似中国第六代战斗机J-36（无尾大飞机）的图像并列。据展会信息，该系统重量小于838磅（约380公斤）。展板上多项技术参数被隐藏，其中功率数值显示为\"*00kW\"，可能意味着输出功率至少为100千瓦；动态跟踪精度数据也被遮挡，而这一指标对机载激光武器至关重要。该系统或为J-36战斗机提供高能激光武器，增加导弹防御层次。",
+          "sc": 7.1,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://interestingengineering.com/military/china-j-36-high-energy-laser",
+          "tp": "战机激光系统",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "China may be developing a high-energy laser weapon for its J-36 fighter, adding a potential new layer of missile defense.An AVIC research institute revealed a fighter laser tracking and aiming system at a Beijing defense expo. The display showed the system beside an image of the large tailless aircraft linked to China’s sixth-generation fighter program.The system weighs less than 838 pounds, according to information shown at the China International Defence Electronics Exhibition. The event ran from September 15 to 17.Several technical figures on the display remained hidden. One power figure appeared as “*00kW,” which could indicate output of at least 100 kilowatts.The poster also obscured the system’s dynamic tracking accuracy. That measurement matters for an airborne laser because even tiny aiming errors can move a beam away from its target.J-36 gets laserChinese military aviation researcher Andreas Rupprecht identified the aircraft shown with the system as the J-36. The three-engine aircraft first appeared over Chengdu in December 2024.Defense analyst Mark Cazalet reached a similar conclusion after examining the display. He said the J-36 likely has enough space, weight capacity and power for a high-energy laser.Large aircraft can provide more room for equipment, cooling hardware and power systems. That could make directed-energy weapons practical on platforms beyond fighters.Bombers, transports and airborne early-warning aircraft could also potentially use similar technology. Such aircraft could use lasers for self-defense against incoming threats.The 838-pound figure still leaves a major question unanswered. It is unclear which components AVIC included within that weight.Cazalet said the figure could encompass the laser source, beam director, and cooling system. The display did not provide a detailed equipment breakdown or electrical power requirement.838-pound systemAn airborne laser faces demanding engineering conditions. Aircraft vibration, turbulence, and rapid maneuvers can constantly disturb the beam.The tracking system must compensate for those movements and maintain an extremely precise aim. That becomes harder as the aircraft and target move at high speed.Cazalet said physical damage would generally require relatively short engagement distances. Lasers could potentially reach farther when attacking or dazzling optical sensors.That makes missile defense one possible mission. A laser could attack an incoming missile or interfere with its seeker before impact.The concept has particular relevance to US airpower. The United States is developing long-range air-to-air weapons including the AIM-174B, AIM-260 and AIM-424.China has investigated airborne laser weapons for years. PLA procurement notices in 2020 sought an airborne laser attack pod and related control software.Chinese researchers have also examined laser tracking from moving aircraft. A 2021 study used transport-aircraft flight data to model the effects of movement and vibration.The US Air Force encountered similar problems with its SHiELD program. The effort explored pod-mounted lasers designed to protect fighters from incoming missiles.SHiELD ended in 2024 without mounting a laser pod on a fighter test aircraft. Program officials had previously identified turbulence, wind and aircraft maneuvers as major challenges.AVIC has also reported testing other directed-energy tracking systems. An AVIC publication described a 2024 trial that maintained a drone lock through clouds, birds and increasing distance.Those tests do not establish that the J-36 carries a laser weapon. No public evidence currently shows the fighter flying with such a system.The Beijing display does, however, offer a rare look at China’s progress toward airborne directed-energy weapons.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}
