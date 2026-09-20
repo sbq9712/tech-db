@@ -16,6 +16,29 @@ const QA_API_BASE = (() => {
   return 'https://hitting-inspiration-although-ensuring.trycloudflare.com';
 })();
 
+// Resilient API base (2026-09-20): if the published tunnel URL is stale
+// (quick-tunnel rotation racing the Pages deploy), silently retry against
+// the local backend — the owner's browser usually runs on the server's own
+// machine. fetch() only rejects here on network/CORS-level failure, which
+// is exactly the "tunnel URL dead" case; HTTP error statuses pass through.
+const QA_API_FALLBACK = 'http://localhost:8765';
+let _activeApiBase = QA_API_BASE;
+async function qaFetch(path, opts = {}) {
+  const candidates = (QA_API_FALLBACK !== QA_API_BASE)
+    ? [_activeApiBase, QA_API_FALLBACK] : [_activeApiBase];
+  let lastErr;
+  for (const base of candidates) {
+    try {
+      const resp = await fetch(base + path, opts);
+      _activeApiBase = base;
+      return resp;
+    } catch (err) {
+      lastErr = err;
+    }
+  }
+  throw lastErr;
+}
+
 // ── State ──
 const qaState = {
   conversations: [],       // [{id, title, messages: []}]
@@ -472,7 +495,7 @@ async function sendQuestion() {
     // Show status indicators
     showStatusIndicator('retrieving', '🔍 正在检索相关知识...');
 
-    const response = await fetch(`${QA_API_BASE}/api/chat/stream`, {
+    const response = await qaFetch(`/api/chat/stream`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -900,7 +923,7 @@ async function loadAndRenderGraph() {
   if (!container) return;
 
   try {
-    const resp = await fetch(`${QA_API_BASE}/api/graph?limit=200`);
+    const resp = await qaFetch(`/api/graph?limit=200`);
     const data = await resp.json();
 
     if (!data.nodes || data.nodes.length === 0) {
@@ -1206,7 +1229,7 @@ function switchFromQAView() {
 // ── Stats loading ──
 async function loadStats() {
   try {
-    const resp = await fetch(`${QA_API_BASE}/api/stats`);
+    const resp = await qaFetch(`/api/stats`);
     const data = await resp.json();
     const statsEl = qa$('qaEmptyStats');
     if (statsEl && data.total_records) {

@@ -1514,6 +1514,19 @@ app.add_middleware(
     allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["Content-Type", "X-Admin-Key"],
 )
+
+
+@app.middleware("http")
+async def _allow_private_network(request: Request, call_next):
+    # 2026-09-20: Chrome/Edge Private Network Access — a public https page
+    # (github.io) falling back to http://localhost:8765 (qa.js qaFetch) must
+    # see this header on the CORS preflight or the browser blocks it.
+    response = await call_next(request)
+    if request.method == "OPTIONS":
+        response.headers["Access-Control-Allow-Private-Network"] = "true"
+    return response
+
+
 app.add_middleware(RuntimePinMiddleware)
 
 
