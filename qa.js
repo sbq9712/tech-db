@@ -347,7 +347,7 @@ function renderAssistantMessage(msg, idx) {
               <span class="qa-citation-number">[${c.id}]</span>
               <span class="qa-citation-title">${escHtml(c.title)}</span>
               ${c.source_label === 'AI_SUMMARY' ? '<span class="qa-ai-summary-badge" title="该引用摘自AI生成的合成摘要，非原文">🤖 AI_SUMMARY</span>' : ''}
-              ${(c.grounding_status === 'VALID' || c.grounding_status === 'FUZZY') ? `<span class="qa-ground-badge qa-ground-${c.grounding_status.toLowerCase()}" title="证据已定位到原文">📍 ${c.grounding_status}</span>` : (c.grounding_status === 'GROUNDING_FAIL' ? '<span class="qa-ground-badge qa-ground-fail" title="未能定位到原文精确片段">⚠️ 未定位</span>' : '')}
+              ${(c.grounding_status === 'VALID' || c.grounding_status === 'FUZZY') ? `<span class="qa-ground-badge qa-ground-${c.grounding_status.toLowerCase()}" title="${c.grounding_status === 'VALID' ? '证据已定位到原文：引用文字与原文一字不差' : '证据已定位到原文：原文经过改写/翻译，系统通过相似度分析找到对应段落'}">${c.grounding_status === 'VALID' ? '📍 精确对位' : '📍 相似对位'}</span>` : (c.grounding_status === 'GROUNDING_FAIL' ? '<span class="qa-ground-badge qa-ground-fail" title="未能定位到原文精确片段">⚠️ 未定位</span>' : '')}
             </div>
             <div class="qa-citation-meta">
               <span>📅 ${c.date || ''}</span>
@@ -364,7 +364,7 @@ function renderAssistantMessage(msg, idx) {
             ${card && card.snapshot_drift && card.snapshot_drift.detected
               ? '<div class="qa-reference-warning" data-warning="SOURCE_SNAPSHOT_DRIFT">⚠️ 来源快照已漂移，精确片段已隐藏</div>' : ''}
             ${card && !card.displayable && card.policy_reason && !(card.snapshot_drift && card.snapshot_drift.detected)
-              ? `<div class="qa-reference-warning" data-warning="${escHtml(card.policy_reason)}">⚠️ 片段不可显示：${escHtml(card.policy_reason)}</div>` : ''}
+              ? `<div class="qa-reference-warning" data-warning="${escHtml(card.policy_reason)}">⚠️ 原文片段未能展示（${card.policy_reason === 'SOURCE_SNAPSHOT_MISSING' ? '该引用生成时未绑定原文快照' : escHtml(card.policy_reason)}），可点"🔗 原文"查看全文</div>` : ''}
             ${c.ungrouded_note ? `<div class="qa-citation-snippet qa-ungrounded-note">${escHtml(c.ungrouded_note)}</div>` : ''}
             ${exactSpans.length
               ? exactSpans.map(span => `<div class="qa-evidence-span" title="已授权精确原文定位">🔖 <mark>${escHtml(span.text || '')}</mark></div>`).join('')

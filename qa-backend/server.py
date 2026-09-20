@@ -2921,6 +2921,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                 # ── T003: Citation Evidence Grounding ──
                 # Ground each citation to exact original text span
                 if Flags.CITATION_GROUNDING_ENABLED and citations:
+                    _legacy_snapshots: dict[str, str] = {}
                     for c in citations:
                         try:
                             rec = _resolve_citation_record(
@@ -2948,6 +2949,38 @@ async def chat_stream(req: ChatRequest, request: Request):
                                     # span actually came from the AI summary field
                                     if grounding.get("source_field") == "as":
                                         c["source_label"] = "AI_SUMMARY"
+                                    # RT-091 legacy snapshot binding (2026-09-20):
+                                    # register a real per-answer source snapshot —
+                                    # hash of the ORIGINAL TEXT grounding actually
+                                    # used — so reference cards can bind and show
+                                    # the span instead of failing closed with
+                                    # SOURCE_SNAPSHOT_MISSING. Not a fabricated
+                                    # authority id (review blocker 7 governs the
+                                    # Phase03 pinned-catalog path, which keeps
+                                    # its own catalog identity).
+                                    _rid = str(c.get("record_id") or "")
+                                    _orig = get_original_text(rec)
+                                    _snap_id = "snap-" + hashlib.sha256(
+                                        json.dumps({
+                                            "record_id": _rid,
+                                            "text_sha256": hashlib.sha256(
+                                                _orig.encode("utf-8")).hexdigest(),
+                                            "start": grounding["start_offset"],
+                                            "end": grounding["end_offset"],
+                                        }, ensure_ascii=False, sort_keys=True,
+                                        separators=(",", ":")).encode()
+                                    ).hexdigest()[:16]
+                                    c["source_snapshot_id"] = _snap_id
+                                    c["locators"] = [{
+                                        "start": grounding["start_offset"],
+                                        "end": grounding["end_offset"],
+                                        "locator_type": "TEXT_SPAN",
+                                        "text_sha256": hashlib.sha256(
+                                            grounding["evidence_span"].encode(
+                                                "utf-8")).hexdigest(),
+                                    }]
+                                    if _rid:
+                                        _legacy_snapshots[_rid] = _snap_id
                                 else:
                                     c["evidence_span"] = c.get("excerpt") or c.get("body_snippet", "")
                                     c["grounding_status"] = "GROUNDING_FAIL"
@@ -2957,6 +2990,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                     trace.add_stage("citation_grounding", {
                         "grounded": sum(1 for c in citations if c.get("grounding_status") in ("VALID", "FUZZY")),
                         "failed": sum(1 for c in citations if c.get("grounding_status") == "GROUNDING_FAIL"),
+                        "snapshots_registered": len(_legacy_snapshots),
                     })
                 trace.add_stage("post_budget", _pp_budget.snapshot())
 
@@ -3070,7 +3104,8 @@ async def chat_stream(req: ChatRequest, request: Request):
                     "citations": citations,
                     "reference_cards": build_reference_cards(
                         citations, _legacy_claims_payload,
-                        caller_scope=effective_access_scope),
+                        caller_scope=effective_access_scope,
+                        current_snapshot_ids=_legacy_snapshots),
                     "claims": _legacy_claims_payload,
                     "cited_record_ids": cited_record_ids,
                     "searched_record_ids": searched_record_ids,
