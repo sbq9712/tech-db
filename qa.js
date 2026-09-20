@@ -399,10 +399,24 @@ function renderAssistantMessage(msg, idx) {
   const claims = msg.claims || [];
   const mappedCitations = citations.filter(c => Array.isArray(c.supports_claim_ids) && c.supports_claim_ids.length > 0);
   if (!isStreaming && claims.length > 0 && mappedCitations.length > 0) {
+    // 2026-09-20: citations referenced in the prose but never mapped to a
+    // claim by the claim-mapper get their own explicit row, so the card
+    // accounts for every [N] the answer text actually uses.
+    const claimedIds = new Set();
+    claims.forEach(cl => (cl.relations || []).forEach(r => {
+      if (r.citation_id !== undefined && r.citation_id !== null) {
+        claimedIds.add(String(r.citation_id));
+      }
+    }));
+    const proseOnly = citations.filter(c => {
+      const n = parseInt(c.id, 10);
+      return Number.isFinite(n) && new RegExp(`\\[${n}\\]`).test(content) &&
+        !claimedIds.has(String(c.id));
+    });
     html += `
       <div class="qa-evidence-card">
         <div class="qa-evidence-card-title">🧩 证据卡片（主张 → 引用映射）</div>
-        ${claims.map(cl => {
+        ${claims.map((cl, i) => {
           const supCits = mappedCitations.filter(c => (c.supports_claim_ids || []).includes(cl.id));
           // RT-029: typed relations per claim — CONTRADICTS/BACKGROUND get
           // their own chips so conflicts are visible, not only support.
@@ -413,16 +427,25 @@ function renderAssistantMessage(msg, idx) {
           }).join('');
           if (!supCits.length && !relChips) return '';
           const statusCls = cl.status === 'SUPPORTED' ? 'qa-claim-supported' : (cl.status === 'UNSUPPORTED' ? 'qa-claim-unsupported' : '');
+          // Number from the claim's own id (claim_6 → 6) so the card matches
+          // the 「支持 主张6」 badges in the citation list; positional numbering
+          // would drift whenever a claim renders without chips.
+          const idNum = String(cl.id || '').match(/(\d+)/);
+          const claimNo = idNum ? parseInt(idNum[1], 10) : (i + 1);
           return `
           <div class="qa-claim-row ${statusCls}">
-            <div class="qa-claim-text">${escHtml(cl.text)}</div>
+            <div class="qa-claim-text">主张${claimNo}：${escHtml(cl.text)}</div>
             <div class="qa-claim-cites">
               ${supCits.map(c => `<span class="qa-claim-cite" data-citation-num="${c.id}">[${c.id}]</span>`).join('')}
               ${relChips}
-              ${cl.status === 'SUPPORTED' ? '<span class="qa-claim-status">✅ 已支持</span>' : (cl.status === 'UNSUPPORTED' ? '<span class="qa-claim-status">⚠️ 未支持</span>' : '')}
             </div>
           </div>`;
         }).join('')}
+        ${proseOnly.length ? `
+          <div class="qa-claim-row">
+            <div class="qa-claim-text">正文提及（写作时引用了原文，但不构成以上任一主张的直接证据）</div>
+            <div class="qa-claim-cites">${proseOnly.map(c => `<span class="qa-claim-cite" data-citation-num="${c.id}">[${c.id}]</span>`).join('')}</div>
+          </div>` : ''}
       </div>
     `;
   }

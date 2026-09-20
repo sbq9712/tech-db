@@ -616,6 +616,67 @@ def _pctl(vals, p):
     return round(s[k], 1)
 
 
+def dedup_search_results(results: list) -> tuple:
+    """Collapse near-duplicate records (same article ingested in different
+    pipeline batches → distinct record_ids, identical title/date/source/url).
+
+    Resolves each result's underlying record exactly like build_context does
+    (records_by_id → positional fallback) so the identity keys are read from
+    the SAME fields the citation will display. Keeps the first (highest-
+    scored) entry per record_id / url / (title|date|source) key. Returns
+    (deduped_results, dropped_count).
+    """
+    if not results:
+        return results, 0
+    pinned = _request_runtime_snapshot.get() is not None
+    records = _runtime_resource("records", None) if pinned else load_records()
+    records_by_id = _runtime_resource("records_by_id", None) if pinned else None
+
+    def _resolve(result):
+        meta = result.get("meta") or {}
+        rid = str(result.get("record_id") or meta.get("record_id") or "")
+        orig_idx = result.get("legacy_idx", meta.get("legacy_idx",
+                                                     meta.get("idx", -1)))
+        record = (records_by_id.get(rid) if records_by_id is not None and rid
+                  else None)
+        if record is None:
+            record = (records[orig_idx]
+                      if isinstance(orig_idx, int)
+                      and 0 <= orig_idx < len(records) else None)
+        return rid, (record or {})
+
+    seen: dict = {}
+    out = []
+    dropped = 0
+    for r in results:
+        rid, record = _resolve(r)
+        title = " ".join(str(record.get("t", "") or "").split()).strip()
+        date = str(record.get("d", "") or "").strip()
+        source = str(record.get("a", record.get("s", "")) or "").strip()
+        url = str(record.get("u", "") or "").strip()
+        # Chunk variants of one record: same record_id, possibly different titles.
+        rec_key = f"rid:{rid}" if rid else None
+        art_key = (f"art:{title[:80]}|{date}|{source[:40]}"
+                   if title else None)
+        url_key = f"url:{url}" if url else None
+        keeper = None
+        for key in (rec_key, url_key, art_key):
+            if key and key in seen:
+                keeper = seen[key]
+                break
+        if keeper is not None:
+            dropped += 1
+            continue
+        if rec_key:
+            seen[rec_key] = r
+        if url_key:
+            seen[url_key] = r
+        if art_key:
+            seen[art_key] = r
+        out.append(r)
+    return out, dropped
+
+
 async def hybrid_search(query: str, exclude_ids: set = None) -> tuple:
     """Hybrid retrieval with dual relevance check for topic exhaustion.
 
@@ -1988,6 +2049,12 @@ async def chat_stream(req: ChatRequest, request: Request):
                             # Explicit legacy_hybrid compatibility field/path.
                             search_results = agentic_state.all_results[:RETRIEVAL_TOP_K]
                             is_relevant = len(search_results) > 0
+                        # 2026-09-20: collapse near-duplicates in the agentic
+                        # candidate pool too (same article ingested in
+                        # different batches / chunk variants of one record).
+                        if not Flags.EVIDENCE_PACKAGE_ENABLED:
+                            search_results, _dedup_dropped = dedup_search_results(
+                                search_results)
                         search_status = agentic_state.stop_reason or "agentic_complete"
                         _agentic_succeeded = True
                         yield {"event": "status", "data": json.dumps({
@@ -2088,6 +2155,10 @@ async def chat_stream(req: ChatRequest, request: Request):
                         search_query,
                         exclude_ids=exclude_ids if exclude_ids else None),
                     requirement_critical=True)
+                # 2026-09-20: collapse near-duplicate records (same article
+                # ingested in different pipeline batches) so the citation
+                # list never shows the same source twice.
+                search_results, _dedup_dropped = dedup_search_results(search_results)
                 yield {"event": "status", "data": json.dumps({
                     "step": "searched",
                     "message": f"检索完成，找到 {len(search_results)} 条候选记录",
