@@ -32,7 +32,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import numpy as np
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, HTTPException
 from fastapi.responses import StreamingResponse, JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -1466,7 +1466,11 @@ async def lifespan(app: FastAPI):
 
 
 # ── FastAPI App ──
-app = FastAPI(title="Tech-DB Q&A API", lifespan=lifespan)
+# 2026-09-20: docs_url/redoc_url/openapi_url disabled — the tunnel forwards
+# to this port from the public internet; the auto schema/UI pages leaked the
+# full API surface to anyone with the tunnel URL.
+app = FastAPI(title="Tech-DB Q&A API", lifespan=lifespan,
+              docs_url=None, redoc_url=None, openapi_url=None)
 
 # RT-017: deployments configure this with a validated RuntimeSnapshotManager.
 # The wrapper below holds the pin for the complete SSE iterator lifetime.
@@ -3209,6 +3213,56 @@ async def search(q: str, top_k: int = 10):
         "total": len(citations),
         "runtime_manifest_id": snapshot.manifest_id if snapshot else None,
     }
+
+
+# ── Local site serving (2026-09-20) ─────────────────────────────────────
+# The owner's browser sits on the same machine as this backend. Serving the
+# frontend from :8765 directly removes the whole class of trycloudflare
+# tunnel failures (URL rotation races with Pages deploys, corp-network
+# interference, browser DNS) for on-machine use: http://localhost:8765
+# Exposure is limited to exactly what the GitHub Pages site publishes:
+# whitelisted root files + the three git-tracked data subdirs the frontend
+# fetches (processed/reports/knowledge). data/csv_cache, data/lightrag,
+# runtime, .git, docs, scripts, qa-backend etc. stay private. Registered
+# AFTER all /api routes so API wins.
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+
+_SITE_FILES = {
+    "index.html": "text/html",
+    "app.js": "text/javascript",
+    "styles.css": "text/css",
+    "qa.js": "text/javascript",
+    "favicon.ico": "image/x-icon",
+}
+# Single files under data/ that app.js fetches directly (git-tracked, same as
+# published on Pages). Subpaths (processed/reports/knowledge) go to the mounts.
+_DATA_FILES = {
+    "category-order.json": "application/json",
+    "category-taxonomy.json": "application/json",
+    "category-order-data.js": "text/javascript",
+    "meta.json": "application/json",
+}
+for _sub in ("processed", "reports", "knowledge"):
+    app.mount(f"/data/{_sub}", StaticFiles(directory=REPO / "data" / _sub),
+              name=f"site-data-{_sub}")
+
+@app.get("/", include_in_schema=False)
+async def _site_index():
+    return FileResponse(REPO / "index.html")
+
+@app.get("/data/{data_file}", include_in_schema=False)
+async def _site_data_file(data_file: str):
+    if data_file not in _DATA_FILES:
+        raise HTTPException(status_code=404, detail="Not Found")
+    return FileResponse(REPO / "data" / data_file,
+                        media_type=_DATA_FILES[data_file])
+
+@app.get("/{site_file}", include_in_schema=False)
+async def _site_file(site_file: str):
+    if site_file not in _SITE_FILES:
+        raise HTTPException(status_code=404, detail="Not Found")
+    return FileResponse(REPO / site_file, media_type=_SITE_FILES[site_file])
 
 
 if __name__ == "__main__":

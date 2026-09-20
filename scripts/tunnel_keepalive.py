@@ -2,7 +2,7 @@
 """Run cloudflared quick tunnel as a child process; whenever it (re)connects
 with a new URL, sync qa.js + push (scripts/tunnel_url_sync.py). Reconnects if
 cloudflared dies. Designed as the main process of techdb-tunnel.service."""
-import re, signal, subprocess, sys, time
+import re, signal, subprocess, sys, time, urllib.request
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
@@ -21,6 +21,19 @@ def sync_url(url):
         log("url_sync: " + (r.stdout.strip()[-200:] or r.stderr.strip()[-200:]))
     except Exception as e:
         log(f"url_sync failed: {e}")
+
+def _healthy(url):
+    """Probe the tunnel end-to-end. Only trust 3 consecutive failures (the
+    caller's policy) so a flaky local proxy doesn't churn the URL."""
+    if not url:
+        return False
+    try:
+        req = urllib.request.Request(url.rstrip("/") + "/api/health",
+                                     headers={"User-Agent": "tunnel-keepalive/1.0"})
+        with urllib.request.urlopen(req, timeout=20) as r:
+            return r.status == 200
+    except Exception:
+        return False
 
 def main():
     seen_urls = set()
@@ -50,12 +63,29 @@ def main():
             sync_url(url)
         elif not url:
             log("no URL found within 90s")
-        try:
-            p.wait(timeout=5 * 3600)
-        except subprocess.TimeoutExpired:
-            log("cloudflared up 5h — restarting for fresh connection")
-            p.terminate()
-            p.wait(30)
+        # 2026-09-20: was an unconditional 5h restart — every restart rotates
+        # the quick-tunnel URL and Pages (plus browser caches) lag behind,
+        # leaving windows where the site points at a dead URL. Now: keep the
+        # process until it exits on its own or 3 consecutive health probes
+        # (10 min apart) fail — i.e. only restart genuinely dead tunnels.
+        fails = 0
+        while p.poll() is None:
+            time.sleep(600)
+            if p.poll() is not None:
+                break
+            if _healthy(url):
+                fails = 0
+            else:
+                fails += 1
+                log(f"health probe failed ({fails}/3)")
+                if fails >= 3:
+                    log("tunnel unhealthy — restarting cloudflared")
+                    p.terminate()
+                    try:
+                        p.wait(30)
+                    except subprocess.TimeoutExpired:
+                        p.kill()
+                    break
         log(f"cloudflared exited rc={p.returncode}; restarting in 10s")
         time.sleep(10)
 
