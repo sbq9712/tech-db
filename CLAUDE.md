@@ -10,7 +10,9 @@
 - 前端分片：`data/processed/lite-part-0~N.js`（每片 2000 条）
 - manifest：`data/processed/manifest-data.js`
 - 固定分类树：`data/category-taxonomy.json`（77 个最小叶子，未经用户明确命令不得修改）
-- 主 pipeline：`auto_pipeline.py`
+- 主 pipeline：`auto_pipeline.py`（本地由 systemd `techdb-pipeline.timer` 每 2 小时触发；SKIP_INDEX_BUILD=1 由 data-sync/vector/graph 专职服务建索引；main 受 GH006 分支保护，推送失败时 ALLOW_LOCAL_STATE_ADVANCE=1 本地推进 state 并推 data-auto-sync/<ts> 备份分支）
+- 模型：GLM-5.3-flash；QA 管线默认 thinking disabled（`QA_LLM_THINKING` 可开）
+- 标题翻译：GLM 批量翻译（`translate_non_chinese_titles`，Google Translate 已 429 死亡）
 - 聚类引擎：`scripts/clustering.py`
 - 数据契约：`scripts/data_contract.py`、`scripts/validate_data_contract.py`、`scripts/build_snapshot.py`
 - 前端：`index.html`、`app.js`、`styles.css`（修改后必须 bump `?v=N`）
