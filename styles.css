@@ -2683,6 +2683,12 @@ html:not([data-theme="light"]) .icon-moon { display: block; }
   background: rgba(99, 102, 241, 0.12);
   color: #4f46e5;
 }
+/* 2026-09-20: pool-status badge for citations not mapped to any claim */
+.qa-claim-badge.qa-pool-badge {
+  background: rgba(120, 120, 130, 0.12);
+  color: var(--text-tertiary, #8a8a94);
+  font-weight: 400;
+}
 .qa-evidence-card {
   max-width: 800px;
   margin: 10px auto 24px;

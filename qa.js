@@ -359,8 +359,19 @@ function renderAssistantMessage(msg, idx) {
             ${(Array.isArray(c.supports_claim_ids) && c.supports_claim_ids.length)
               ? `<div class="qa-claim-badges">${c.supports_claim_ids.map(id =>
                   `<span class="qa-claim-badge">支持 ${escHtml(String(id).replace('claim_', '主张'))}</span>`).join('')}</div>`
-              : ''}
-            ${card ? `<div class="qa-reference-role">来源角色：${escHtml(card.source_role || 'unknown')}</div>` : ''}
+              : (() => {
+                  // 2026-09-20: the citation list is the retrieval evidence pool —
+                  // not every entry is cited in the prose or mapped to a claim.
+                  // Make each entry's status explicit so "24 条引用但答案只引了
+                  // 一部分" is self-explanatory.
+                  const num = parseInt(c.id, 10);
+                  const citedInProse = Number.isFinite(num) &&
+                    new RegExp(`\\[${num}\\]`).test(content);
+                  const label = citedInProse ? '正文引用' : '检索背景 · 未在正文引用';
+                  return `<div class="qa-claim-badges"><span class="qa-claim-badge qa-pool-badge" title="${citedInProse ? '该来源在回答正文中被引用，但未映射为某条主张的直接证据' : '检索时找到的资料，供核查全文；回答正文未直接引用'}">${label}</span></div>`;
+                })()}
+            ${card && card.source_role && card.source_role !== 'unknown'
+              ? `<div class="qa-reference-role" title="来源性质：厂商/当事方自述（self_reported）或独立第三方（independent）">来源角色：${escHtml(card.source_role)}</div>` : ''}
             ${card && card.snapshot_drift && card.snapshot_drift.detected
               ? '<div class="qa-reference-warning" data-warning="SOURCE_SNAPSHOT_DRIFT">⚠️ 来源快照已漂移，精确片段已隐藏</div>' : ''}
             ${card && !card.displayable && card.policy_reason && !(card.snapshot_drift && card.snapshot_drift.detected)
@@ -398,7 +409,7 @@ function renderAssistantMessage(msg, idx) {
           const rels = Array.isArray(cl.relations) ? cl.relations : [];
           const relChips = rels.map(r => {
             const rl = relationLabel(r.relation);
-            return `<span class="qa-rel-chip ${rl.cls}">${rl.icon} ${rl.label} [${r.citation_id}]</span>`;
+            return `<span class="qa-rel-chip ${rl.cls}" ${rl.tip ? `title="${escHtml(rl.tip)}"` : ''}>${rl.icon} ${rl.label} [${r.citation_id}]</span>`;
           }).join('');
           if (!supCits.length && !relChips) return '';
           const statusCls = cl.status === 'SUPPORTED' ? 'qa-claim-supported' : (cl.status === 'UNSUPPORTED' ? 'qa-claim-unsupported' : '');
@@ -619,12 +630,12 @@ function defensivelyFilterCitations(msg) {
 
 function relationLabel(relation) {
   switch (relation) {
-    case 'DIRECT_SUPPORT': return { icon: '✅', label: '直接支持', cls: 'qa-rel-support' };
-    case 'PREMISE_SUPPORT': return { icon: '✅', label: '前提支持', cls: 'qa-rel-support' };
-    case 'ATTRIBUTION': return { icon: '📣', label: '归属（来源自述）', cls: 'qa-rel-attribution' };
-    case 'CONTRADICTS': return { icon: '⚔️', label: '与声明矛盾', cls: 'qa-rel-contradict' };
-    case 'BACKGROUND': return { icon: '📜', label: '仅背景', cls: 'qa-rel-background' };
-    default: return { icon: '•', label: relation || '未知', cls: 'qa-rel-background' };
+    case 'DIRECT_SUPPORT': return { icon: '✅', label: '直接支持', cls: 'qa-rel-support', tip: '引用原文本身就是该事实的报道，事实有出处' };
+    case 'PREMISE_SUPPORT': return { icon: '✅', label: '前提支持', cls: 'qa-rel-support', tip: '引用原文为该主张提供了前提依据' };
+    case 'ATTRIBUTION': return { icon: '📣', label: '引述', cls: 'qa-rel-attribution', tip: '原文确实这样说过（归属属实），但所说内容本身是真是假未经证实' };
+    case 'CONTRADICTS': return { icon: '⚔️', label: '与此矛盾', cls: 'qa-rel-contradict', tip: '引用原文与该主张相矛盾' };
+    case 'BACKGROUND': return { icon: '📜', label: '背景参考', cls: 'qa-rel-background', tip: '查证时翻到过这条资料，但它不构成该主张的证据' };
+    default: return { icon: '•', label: relation || '未知', cls: 'qa-rel-background', tip: '' };
   }
 }
 
