@@ -1,0 +1,38 @@
+{
+  "schema_version": "phase10-prep-manifest-1.0",
+  "status_vocabulary": "PREPARED means code+tests+docs exist and pass hermetically; it NEVER means PASS/DONE/activated. Execution vocabulary is reserved for the Phase10 gate.",
+  "gate_at_prep_time": {
+    "NEXT_PROMPT_ALLOWED": false,
+    "phase10": "NOT_STARTED",
+    "source": "docs/remediation/phase09_NEXT_PROMPT_ALLOWED.json",
+    "blockers": [
+      "RT-101 answer-level blinded release holdout gold (owner-only, environment channel)",
+      "Q-336 durable >=180d release-artifact retention (owner)",
+      "RT-005 repository-admin branch protection with enforce_admins (owner)",
+      "RT-075 production ER shadow / approved equivalent replay (owner)"
+    ]
+  },
+  "branch": {
+    "name": "prep/phase10-rt110-116",
+    "base_sha": "43801a7",
+    "base_ref": "remediation/phase-09-benchmarks-ci-release-gates",
+    "base_relationship": "base == PR #10 head (9a96f3a upstream == 43801a7 local) == RT101 V14 + R1-R4 repairs + R5 revert tip",
+    "merge_policy": "DO NOT MERGE to main. Owner merges after RT101 passes and the gate flips."
+  },
+  "surfaces": [
+    {"rt": "RT-110", "title": "Full-pipeline shadow framework", "files": ["phase10/shadow_framework.py"], "tests": "qa-backend/tests_phase10_prep.py [RT-110]", "state": "PREPARED", "blocked_by": ["RT101"], "dod_mapping": {"shadow cannot alter user output": "ShadowRun returns only user_result; capture() consumes shadow values", "sensitive-ineligible skipped with reason": "classify_eligibility SKIP_* reasons", "diff report stratified by mode/type": "stratified_report()"}},
+    {"rt": "RT-111", "title": "Named-profile canary controller", "files": ["phase10/canary_controller.py"], "tests": "qa-backend/tests_phase10_prep.py [RT-111]", "state": "PREPARED", "blocked_by": ["RT101", "RT-110 execution"], "dod_mapping": {"arbitrary flag mixtures rejected": "CanaryPlan.validate_flag_mixture", "FAST-only cannot satisfy coverage": "CanaryController.can_promote stratum gate"}},
+    {"rt": "RT-112", "title": "Rollback triggers and attribution", "files": ["phase10/rollback_triggers.py"], "tests": "qa-backend/tests_phase10_prep.py [RT-112]", "state": "PREPARED", "blocked_by": ["RT101", "RT-111 execution"], "dod_mapping": {"atomic disable + restore prev profile/manifest/identity": "RollbackController.hard_trigger", "stale cache no blind rollback": "unknown/missing attribution => PAUSE_INVESTIGATE"}},
+    {"rt": "RT-113", "title": "Post-activation drift + Human Review feed", "files": ["phase10/drift_review.py"], "tests": "qa-backend/tests_phase10_prep.py [RT-113]", "state": "PREPARED", "blocked_by": ["RT101", "RT-111 execution"], "dod_mapping": {"drafts carry trace/profile/manifest provenance": "ReviewDraft provenance fields", "drafts never auto-golden": "status=DRAFT frozen"}},
+    {"rt": "RT-114", "title": "Production capacity/SLO benchmark", "files": ["phase10/capacity_slo_benchmark.py"], "tests": "schema-check mode only (live --measure requires authorized endpoint)", "state": "PREPARED_HARNESS_ONLY", "blocked_by": ["RT101", "live prod measurement authorization"], "dod_mapping": {"versioned capacity/SLO artifact": "SCHEMA_VERSION rt114-capacity-slo-1.0; refuses to fabricate numbers"}},
+    {"rt": "RT-115", "title": "Migration/rollback/operator documentation", "files": ["docs/remediation/phase10_OPERATOR_RUNBOOK_PREPARED.md"], "tests": "documentation checklist + drill pending gate", "state": "PREPARED_DRAFT", "blocked_by": ["RT101", "owner review", "dry-run drill"]},
+    {"rt": "RT-116", "title": "Final core acceptance evaluator", "files": ["phase10/final_acceptance_evaluator.py"], "tests": "qa-backend/tests_phase10_prep.py [RT-116]", "state": "PREPARED_FAIL_CLOSED", "blocked_by": ["RT101", "RT-110..115 pass artifacts"], "dod_mapping": {"all 25 gates with artifact links": "GATES_25 + fail-closed evaluate()", "no skipped required suite": "missing artifact key == FAIL"}}
+  ],
+  "repo_test_isolation": {
+    "issue": "tests_e2e_phase09.py raw-assigns server module globals (hybrid_search etc.), permanently contaminating later suites in the same pytest session",
+    "plan": "prep-only fix (test infra, no production semantics) — see phase10/test_isolation_fix_notes.md",
+    "status": "NOTED (deferred: fix touches shared test harness; do it as its own prep commit)"
+  },
+  "owner_directive": "2026-09-19/20 pause directive: preserve RT101 V14 unconsumed; prepare everything else; report PREPARED not PASS",
+  "generated_at_utc": "2026-09-20T00:00:00Z"
+}
