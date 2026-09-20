@@ -213,35 +213,73 @@ function renderMessages() {
     });
   });
 
-  // Attach citation ref click handlers
+  // 2026-09-20: evidence drawer helpers — citations + claim card live in a
+  // click-open sheet attached to each assistant message (trigger = the
+  // answer-status badge or fallback 📎 trigger).
+  const openDrawer = (idx) => {
+    const drawer = document.getElementById(`qa-evidence-drawer-${idx}`);
+    if (!drawer) return;
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden', 'false');
+    const body = drawer.querySelector('.qa-evidence-sheet-body');
+    if (body) body.scrollTop = 0;
+  };
+  const closeDrawer = (idx) => {
+    const drawer = document.getElementById(`qa-evidence-drawer-${idx}`);
+    if (!drawer) return;
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
+  };
+
+  // Trigger: status badge / fallback button opens the drawer.
+  messagesEl.querySelectorAll('[data-evidence-idx]').forEach(trig => {
+    trig.addEventListener('click', () => openDrawer(trig.dataset.evidenceIdx));
+    trig.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openDrawer(trig.dataset.evidenceIdx); }
+    });
+  });
+
+  // Close: ✕ button and backdrop click.
+  messagesEl.querySelectorAll('[data-evidence-close]').forEach(btn => {
+    btn.addEventListener('click', (e) => { e.stopPropagation(); closeDrawer(btn.dataset.evidenceClose); });
+  });
+  messagesEl.querySelectorAll('.qa-evidence-drawer').forEach(d => {
+    d.addEventListener('click', (e) => {
+      if (e.target === d) closeDrawer((d.id.match(/(\d+)$/) || [])[1]);
+    });
+  });
+
+  // Attach citation ref click handlers — prose [N] opens this message's
+  // drawer (if any), then scrolls to the citation inside it.
   messagesEl.querySelectorAll('.qa-citation-ref').forEach(ref => {
     ref.addEventListener('click', (e) => {
       e.preventDefault();
       const citationNum = parseInt(ref.dataset.citation);
-      // Scroll to the specific citation item
-      const citationItem = messagesEl.querySelector(`.qa-citation-item[data-citation-num="${citationNum}"]`);
+      const msgEl = ref.closest('.qa-message');
+      const drawer = msgEl ? msgEl.querySelector('.qa-evidence-drawer') : null;
+      if (drawer && !drawer.classList.contains('open')) {
+        drawer.classList.add('open');
+        drawer.setAttribute('aria-hidden', 'false');
+      }
+      const scope = drawer || msgEl || messagesEl;
+      const citationItem = scope.querySelector(`.qa-citation-item[data-citation-num="${citationNum}"]`);
       if (citationItem) {
         citationItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         citationItem.style.transition = 'background 0.3s';
         citationItem.style.background = 'var(--brand-bg)';
         setTimeout(() => { citationItem.style.background = ''; }, 1500);
-      } else {
-        const citationsBlock = messagesEl.querySelector('.qa-citations-block');
-        if (citationsBlock) {
-          citationsBlock.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
       }
     });
   });
 
-  // Evidence-card citation chips ([N] in the claim rows) use the same
-  // scroll-to-citation behavior (codex-review B2 P2: they rendered with
-  // pointer styling but no click handler did anything).
+  // Evidence-card citation chips ([N] in the claim rows) — already inside
+  // the drawer; scroll to the citation within the same drawer.
   messagesEl.querySelectorAll('.qa-claim-cite').forEach(chip => {
     chip.addEventListener('click', (e) => {
       e.preventDefault();
       const citationNum = parseInt(chip.dataset.citationNum);
-      const citationItem = messagesEl.querySelector(`.qa-citation-item[data-citation-num="${citationNum}"]`);
+      const scope = chip.closest('.qa-evidence-drawer') || chip.closest('.qa-message') || messagesEl;
+      const citationItem = scope.querySelector(`.qa-citation-item[data-citation-num="${citationNum}"]`);
       if (citationItem) {
         citationItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         citationItem.style.transition = 'background 0.3s';
@@ -258,6 +296,49 @@ function renderAssistantMessage(msg, idx) {
   const citations = defensivelyFilterCitations(msg);
   const referenceCards = Array.isArray(msg.reference_cards) ? msg.reference_cards : [];
   const isStreaming = msg.streaming || false;
+
+  // 2026-09-20: the citation list and the evidence card no longer render
+  // inline under the answer — they live in a click-open drawer attached to
+  // the answer-status badge (owner request: collapse the wall of citations;
+  // the prose [N] markers already show what was used).
+  let citationsHtml = '';
+  let evidenceCardHtml = '';
+  if (citations.length > 0 && !isStreaming) {
+    citationsHtml = `
+      <div class="qa-citations-block">
+        <div class="qa-citations-title">📎 来源引用（${citations.length}条）</div>
+        ${citations.map(c => {
+          const card = referenceCards.find(r => String(r.citation_id) === String(c.id));
+          const exactSpans = card && card.displayable && Array.isArray(card.spans) ? card.spans : [];
+          return `
+          <div class="qa-citation-item" data-citation-num="${c.id}" data-record-id="${c.record_id}">
+            <div class="qa-citation-head">
+              <span class="qa-citation-num">[${c.id}]</span>
+              <a class="qa-citation-title" href="${escHtml(c.url || '#')}" target="_blank" rel="noreferrer">${escHtml(c.title || '')}</a>
+            </div>
+            ${(c.grounding_status === 'VALID' || c.grounding_status === 'FUZZY') ? `<span class="qa-ground-badge qa-ground-${c.grounding_status.toLowerCase()}" title="${c.grounding_status === 'VALID' ? '证据已定位到原文：引用文字与原文一字不差' : '证据已定位到原文：原文经过改写/翻译，系统通过相似度分析找到对应段落'}">${c.grounding_status === 'VALID' ? '📍 精确对位' : '📍 相似对位'}</span>` : (c.grounding_status === 'GROUNDING_FAIL' ? '<span class="qa-ground-badge qa-ground-fail" title="未能定位到原文精确片段">⚠️ 未定位</span>' : '')}
+            <div class="qa-citation-meta">
+              <span>📅 ${c.date || ''}</span>
+              <span>📰 ${escHtml(c.source || '')}</span>
+              ${c.score ? `<span>⭐ ${c.score}</span>` : ''}
+              ${c.tag ? `<span>🏷️ ${escHtml(c.tag)}</span>` : ''}
+              <a class="qa-citation-link" href="${escHtml(c.url || '#')}" target="_blank" rel="noreferrer">🔗 原文</a>
+            </div>
+            ${card && card.source_role && card.source_role !== 'unknown'
+              ? `<div class="qa-reference-role" title="来源性质：厂商/当事方自述（self_reported）或独立第三方（independent）">来源角色：${escHtml(card.source_role)}</div>` : ''}
+            ${card && card.snapshot_drift && card.snapshot_drift.detected
+              ? '<div class="qa-reference-warning" data-warning="SOURCE_SNAPSHOT_DRIFT">⚠️ 来源快照已漂移，精确片段已隐藏</div>' : ''}
+            ${card && !card.displayable && card.policy_reason && !(card.snapshot_drift && card.snapshot_drift.detected)
+              ? `<div class="qa-reference-warning" data-warning="${escHtml(card.policy_reason)}">⚠️ 原文片段未能展示（${card.policy_reason === 'SOURCE_SNAPSHOT_MISSING' ? '该引用生成时未绑定原文快照' : escHtml(card.policy_reason)}），可点"🔗 原文"查看全文</div>` : ''}
+            ${c.ungrouded_note ? `<div class="qa-citation-snippet qa-ungrounded-note">${escHtml(c.ungrouded_note)}</div>` : ''}
+            ${exactSpans.length
+              ? exactSpans.map(span => `<div class="qa-evidence-span" title="已授权精确原文定位">🔖 <mark>${escHtml(span.text || '')}</mark></div>`).join('')
+              : ''}
+          </div>
+        `}).join('')}
+      </div>
+    `;
+  }
 
   // Render content with citation refs [1] -> clickable
   let renderedContent = renderMarkdown(content);
@@ -295,6 +376,13 @@ function renderAssistantMessage(msg, idx) {
     `;
   }
 
+  // 2026-09-20: hoisted from TK-13 — needed early so the status badge can
+  // become the evidence-drawer trigger (owner request: citation wall
+  // collapsed behind the status badge click).
+  const claims = msg.claims || [];
+  const mappedCitations = citations.filter(c => Array.isArray(c.supports_claim_ids) && c.supports_claim_ids.length > 0);
+  const hasEvidence = !isStreaming && (citations.length > 0 || (claims.length > 0 && mappedCitations.length > 0));
+
   // T033: Answer status badge (only when not streaming and status is present)
   if (!isStreaming && msg.answer_status) {
     const statusConfig = getAnswerStatusConfig(msg.answer_status);
@@ -313,11 +401,23 @@ function renderAssistantMessage(msg, idx) {
       if (Number.isFinite(es.independent_source_groups)) parts.push(`独立来源${es.independent_source_groups}个`);
       summaryText = parts.join(' · ');
     }
+    const baseStyle = 'display:flex;align-items:center;gap:6px;margin-top:4px;padding:4px 10px;border-radius:8px;background:' + statusConfig.bg + ';font-size:12px;';
+    const trigStyle = hasEvidence ? baseStyle + 'cursor:pointer;' : baseStyle;
     html += `
-      <div class="qa-answer-status" style="display:flex;align-items:center;gap:6px;margin-top:4px;padding:4px 10px;border-radius:8px;background:${statusConfig.bg};font-size:12px;">
+      <div class="qa-answer-status${hasEvidence ? ' qa-status-clickable' : ''}"${hasEvidence ? ` role="button" tabindex="0" data-evidence-idx="${idx}" title="点击查看来源引用与证据卡片"` : ''} style="${trigStyle}">
         <span style="font-size:14px;">${statusConfig.icon}</span>
         <span style="color:${statusConfig.color};font-weight:600;">${statusConfig.label}</span>
         ${summaryText ? `<span style="color:var(--text-quaternary);margin-left:4px;">· ${escHtml(summaryText)}</span>` : ''}
+        ${hasEvidence ? `<span class="qa-status-open-hint" style="margin-left:auto;font-size:11px;color:var(--text-quaternary);">展开依据 ▾</span>` : ''}
+      </div>
+    `;
+  } else if (hasEvidence) {
+    // No answer_status but citations/claims exist — plain fallback trigger.
+    html += `
+      <div class="qa-answer-status qa-status-clickable" role="button" tabindex="0" data-evidence-idx="${idx}" title="点击查看来源引用与证据卡片" style="display:flex;align-items:center;gap:6px;margin-top:4px;padding:4px 10px;border-radius:8px;background:var(--surface-2, #f1f5f9);font-size:12px;cursor:pointer;">
+        <span style="font-size:14px;">📎</span>
+        <span style="color:var(--text-secondary, #475569);font-weight:600;">来源与依据（${citations.length}条引用）</span>
+        <span class="qa-status-open-hint" style="margin-left:auto;font-size:11px;color:var(--text-quaternary);">展开 ▾</span>
       </div>
     `;
   }
@@ -333,71 +433,10 @@ function renderAssistantMessage(msg, idx) {
     html += `<div class="qa-user-warning">${escHtml(msg.user_warning)}</div>`;
   }
 
-  // Citations
-  if (citations.length > 0 && !isStreaming) {
-    html += `
-      <div class="qa-citations-block">
-        <div class="qa-citations-title">📎 来源引用（${citations.length}条）</div>
-        ${citations.map(c => {
-          const card = referenceCards.find(r => String(r.citation_id) === String(c.id));
-          const exactSpans = card && card.displayable && Array.isArray(card.spans) ? card.spans : [];
-          return `
-          <div class="qa-citation-item" data-citation-num="${c.id}" data-record-id="${c.record_id}">
-            <div class="qa-citation-header">
-              <span class="qa-citation-number">[${c.id}]</span>
-              <span class="qa-citation-title">${escHtml(c.title)}</span>
-              ${c.source_label === 'AI_SUMMARY' ? '<span class="qa-ai-summary-badge" title="该引用摘自AI生成的合成摘要，非原文">🤖 AI_SUMMARY</span>' : ''}
-              ${(c.grounding_status === 'VALID' || c.grounding_status === 'FUZZY') ? `<span class="qa-ground-badge qa-ground-${c.grounding_status.toLowerCase()}" title="${c.grounding_status === 'VALID' ? '证据已定位到原文：引用文字与原文一字不差' : '证据已定位到原文：原文经过改写/翻译，系统通过相似度分析找到对应段落'}">${c.grounding_status === 'VALID' ? '📍 精确对位' : '📍 相似对位'}</span>` : (c.grounding_status === 'GROUNDING_FAIL' ? '<span class="qa-ground-badge qa-ground-fail" title="未能定位到原文精确片段">⚠️ 未定位</span>' : '')}
-            </div>
-            <div class="qa-citation-meta">
-              <span>📅 ${c.date || ''}</span>
-              <span>📰 ${escHtml(c.source || '')}</span>
-              ${c.score ? `<span>⭐ ${c.score}</span>` : ''}
-              ${c.tag ? `<span>🏷️ ${escHtml(c.tag)}</span>` : ''}
-              <a class="qa-citation-link" href="${escHtml(c.url || '#')}" target="_blank" rel="noreferrer">🔗 原文</a>
-            </div>
-            ${(Array.isArray(c.supports_claim_ids) && c.supports_claim_ids.length)
-              ? `<div class="qa-claim-badges">${c.supports_claim_ids.map(id =>
-                  `<span class="qa-claim-badge">支持 ${escHtml(String(id).replace('claim_', '主张'))}</span>`).join('')}</div>`
-              : (() => {
-                  // 2026-09-20: the citation list is the retrieval evidence pool —
-                  // not every entry is cited in the prose or mapped to a claim.
-                  // Make each entry's status explicit so "24 条引用但答案只引了
-                  // 一部分" is self-explanatory.
-                  const num = parseInt(c.id, 10);
-                  const citedInProse = Number.isFinite(num) &&
-                    new RegExp(`\\[${num}\\]`).test(content);
-                  const label = citedInProse ? '正文引用' : '检索背景 · 未在正文引用';
-                  return `<div class="qa-claim-badges"><span class="qa-claim-badge qa-pool-badge" title="${citedInProse ? '该来源在回答正文中被引用，但未映射为某条主张的直接证据' : '检索时找到的资料，供核查全文；回答正文未直接引用'}">${label}</span></div>`;
-                })()}
-            ${card && card.source_role && card.source_role !== 'unknown'
-              ? `<div class="qa-reference-role" title="来源性质：厂商/当事方自述（self_reported）或独立第三方（independent）">来源角色：${escHtml(card.source_role)}</div>` : ''}
-            ${card && card.snapshot_drift && card.snapshot_drift.detected
-              ? '<div class="qa-reference-warning" data-warning="SOURCE_SNAPSHOT_DRIFT">⚠️ 来源快照已漂移，精确片段已隐藏</div>' : ''}
-            ${card && !card.displayable && card.policy_reason && !(card.snapshot_drift && card.snapshot_drift.detected)
-              ? `<div class="qa-reference-warning" data-warning="${escHtml(card.policy_reason)}">⚠️ 原文片段未能展示（${card.policy_reason === 'SOURCE_SNAPSHOT_MISSING' ? '该引用生成时未绑定原文快照' : escHtml(card.policy_reason)}），可点"🔗 原文"查看全文</div>` : ''}
-            ${c.ungrouded_note ? `<div class="qa-citation-snippet qa-ungrounded-note">${escHtml(c.ungrouded_note)}</div>` : ''}
-            ${exactSpans.length
-              ? exactSpans.map(span => `<div class="qa-evidence-span" title="已授权精确原文定位">🔖 <mark>${escHtml(span.text || '')}</mark></div>`).join('')
-              : (!card && Array.isArray(c.evidence_spans) && c.evidence_spans.length)
-              ? `<div class="qa-evidence-span" title="精确原文定位（代码点区间）">🔖 <mark>${escHtml(c.evidence_spans[0].text || c.evidence_spans[0].highlight || '')}</mark></div>`
-              : (!card && c.highlight ? `<div class="qa-evidence-span">🔖 <mark>${escHtml(c.highlight)}</mark></div>` : '')}
-            ${!card && c.body_snippet && !(Array.isArray(c.evidence_spans) && c.evidence_spans.length)
-              ? `<div class="qa-citation-snippet">${escHtml(c.body_snippet)}...</div>` : ''}
-            ${(Array.isArray(c.locators) && c.locators.length)
-              ? `<div class="qa-locator-chip">📍 ${escHtml(c.locators[0].locator_type || 'TEXT_SPAN')} [${c.locators[0].start}–${c.locators[0].end}]${c.locators[0].normalized_start !== undefined ? ' · NFKC' : ''}</div>`
-              : ''}
-          </div>
-        `}).join('')}
-      </div>
-    `;
-  }
-
   // TK-13 (Q13/R8): minimal evidence card — claim→citation mapping.
   // Graceful degrade: hidden entirely when supports_claim_ids are empty
   // (legacy path), never a "no data" placeholder.
-  const claims = msg.claims || [];
-  const mappedCitations = citations.filter(c => Array.isArray(c.supports_claim_ids) && c.supports_claim_ids.length > 0);
+  // (claims/mappedCitations hoisted above for the drawer trigger check.)
   if (!isStreaming && claims.length > 0 && mappedCitations.length > 0) {
     // 2026-09-20: citations referenced in the prose but never mapped to a
     // claim by the claim-mapper get their own explicit row, so the card
@@ -413,7 +452,7 @@ function renderAssistantMessage(msg, idx) {
       return Number.isFinite(n) && new RegExp(`\\[${n}\\]`).test(content) &&
         !claimedIds.has(String(c.id));
     });
-    html += `
+    evidenceCardHtml += `
       <div class="qa-evidence-card">
         <div class="qa-evidence-card-title">🧩 证据卡片（主张 → 引用映射）</div>
         ${claims.map((cl, i) => {
@@ -446,6 +485,26 @@ function renderAssistantMessage(msg, idx) {
             <div class="qa-claim-text">正文提及（写作时引用了原文，但不构成以上任一主张的直接证据）</div>
             <div class="qa-claim-cites">${proseOnly.map(c => `<span class="qa-claim-cite" data-citation-num="${c.id}">[${c.id}]</span>`).join('')}</div>
           </div>` : ''}
+      </div>
+    `;
+  }
+
+  // Evidence drawer: citations + claim card live behind a click trigger
+  // (the answer-status badge, or a fallback button when no status exists).
+  const hasEvidenceDrawer = !!(citationsHtml || evidenceCardHtml);
+  if (hasEvidenceDrawer) {
+    html += `
+      <div class="qa-evidence-drawer" id="qa-evidence-drawer-${idx}" aria-hidden="true">
+        <div class="qa-evidence-sheet">
+          <div class="qa-evidence-sheet-head">
+            <span class="qa-evidence-sheet-title">回答依据</span>
+            <button class="qa-evidence-sheet-close" data-evidence-close="${idx}" title="关闭">✕ 关闭</button>
+          </div>
+          <div class="qa-evidence-sheet-body">
+            ${evidenceCardHtml}
+            ${citationsHtml}
+          </div>
+        </div>
       </div>
     `;
   }

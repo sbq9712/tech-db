@@ -2748,3 +2748,68 @@ html:not([data-theme="light"]) .icon-moon { display: block; }
 .qa-rel-contradict { background: rgba(220, 38, 38, 0.12); color: #dc2626; }
 .qa-rel-background { background: rgba(107, 114, 128, 0.12); color: #6b7280; }
 .qa-rel-attribution { background: rgba(217, 119, 6, 0.12); color: #d97706; }
+
+/* 2026-09-20: evidence drawer — citation list + claim card collapsed
+   behind a click on the answer-status badge (bottom sheet overlay). */
+.qa-status-clickable {
+  cursor: pointer;
+  user-select: none;
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+.qa-status-clickable:hover { filter: brightness(0.96); }
+.qa-status-clickable:active { transform: scale(0.995); }
+.qa-status-clickable:focus-visible {
+  outline: 2px solid rgba(79, 70, 229, 0.45);
+  outline-offset: 1px;
+}
+.qa-evidence-drawer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.45);
+}
+.qa-evidence-drawer.open { display: flex; }
+.qa-evidence-sheet {
+  background: #ffffff;
+  width: min(720px, 96vw);
+  max-height: 84vh;
+  border-radius: 14px 14px 0 0;
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: qaSheetUp 0.22s ease;
+}
+@keyframes qaSheetUp {
+  from { transform: translateY(28px); opacity: 0.55; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.qa-evidence-sheet-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e2e8f0;
+  font-weight: 600;
+  font-size: 14px;
+  color: #1e293b;
+  flex: 0 0 auto;
+}
+.qa-evidence-sheet-close {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 13px;
+  color: #475569;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+.qa-evidence-sheet-close:hover { background: #f1f5f9; }
+.qa-evidence-sheet-body {
+  overflow-y: auto;
+  padding: 12px 16px 20px;
+  -webkit-overflow-scrolling: touch;
+}
