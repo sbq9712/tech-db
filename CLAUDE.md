@@ -11,6 +11,7 @@
 - manifest：`data/processed/manifest-data.js`
 - 固定分类树：`data/category-taxonomy.json`（77 个最小叶子，未经用户明确命令不得修改）
 - 主 pipeline：`auto_pipeline.py`（本地由 systemd `techdb-pipeline.timer` 每 2 小时触发；SKIP_INDEX_BUILD=1 由 data-sync/vector/graph 专职服务建索引；main 受 GH006 分支保护，推送失败时 ALLOW_LOCAL_STATE_ADVANCE=1 本地推进 state 并推 data-auto-sync/<ts> 备份分支）
+- 分支策略（2026-09-20，owner 指令"只保留一个 main 分支"）：远端仅 `main` 一个分支；分支保护已放宽（enforce_admins=false、免审，但外部 PR 仍要求 11 项 Phase09 检查）。Phase10 准备工作快照在 tag `phase10-prep-snapshot` + 本地 worktree `/home/rhett/tech-db-phase10-prep`（分支 `prep/phase10-rt110-116` 仅存本地）。data-auto-sync 备份分支已确认全部为 main 祖先并清理；现在 main 可直推，该备份路径自然休眠。
 - 模型：GLM-5.3-flash；QA 管线默认 thinking disabled（`QA_LLM_THINKING` 可开）
 - 标题翻译：GLM 批量翻译（`translate_non_chinese_titles`，Google Translate 已 429 死亡）
 - 聚类引擎：`scripts/clustering.py`
