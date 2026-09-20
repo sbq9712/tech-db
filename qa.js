@@ -298,11 +298,26 @@ function renderAssistantMessage(msg, idx) {
   // T033: Answer status badge (only when not streaming and status is present)
   if (!isStreaming && msg.answer_status) {
     const statusConfig = getAnswerStatusConfig(msg.answer_status);
+    // evidence_summary is a backend dict {requirements_total, …}; render it
+    // as a readable stats string instead of "[object Object]" (2026-09-20).
+    let summaryText = '';
+    const es = msg.evidence_summary;
+    if (typeof es === 'string') summaryText = es;
+    else if (es && typeof es === 'object') {
+      const parts = [];
+      if (Number.isFinite(es.requirements_total) && es.requirements_total > 0) {
+        parts.push(`主张${es.requirements_total}条`);
+        parts.push(`已支持${es.requirements_supported || 0}条`);
+        if (es.requirements_partial > 0) parts.push(`部分${es.requirements_partial}条`);
+      }
+      if (Number.isFinite(es.independent_source_groups)) parts.push(`独立来源${es.independent_source_groups}个`);
+      summaryText = parts.join(' · ');
+    }
     html += `
       <div class="qa-answer-status" style="display:flex;align-items:center;gap:6px;margin-top:4px;padding:4px 10px;border-radius:8px;background:${statusConfig.bg};font-size:12px;">
         <span style="font-size:14px;">${statusConfig.icon}</span>
         <span style="color:${statusConfig.color};font-weight:600;">${statusConfig.label}</span>
-        ${msg.evidence_summary ? `<span style="color:var(--text-quaternary);margin-left:4px;">· ${escHtml(msg.evidence_summary)}</span>` : ''}
+        ${summaryText ? `<span style="color:var(--text-quaternary);margin-left:4px;">· ${escHtml(summaryText)}</span>` : ''}
       </div>
     `;
   }
