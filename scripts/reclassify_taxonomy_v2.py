@@ -24,6 +24,8 @@ Usage:
 """
 from __future__ import annotations
 
+import fcntl
+import hashlib
 import json
 import os
 import re
@@ -43,8 +45,10 @@ from llm_client import call_glm_batch  # noqa: E402
 # extract_key_params with pipeline-identical behavior.
 import auto_pipeline as ap  # noqa: E402
 from build_snapshot import build_snapshot  # noqa: E402
+import validate_data_contract as vdc  # noqa: E402
 
 CHECKPOINT_DIR = os.path.join(REPO, "data", "reclass-checkpoint")
+PIPELINE_LOCK = os.path.join(REPO, ".pipeline.lock")
 
 TAXONOMY_PATH = os.path.join(REPO, "data", "category-taxonomy.json")
 with open(TAXONOMY_PATH, encoding="utf-8") as _f:
@@ -103,17 +107,39 @@ def log(msg: str) -> None:
         print(f"[{time.strftime('%H:%M:%S')}] {msg}", flush=True)
 
 
-class JsonCheckpoint:
-    """Thread-safe {str(id): result} checkpoint persisted as one JSON file."""
+def _read_fingerprint(path: str):
+    fp_file = path + ".fp"
+    if os.path.exists(fp_file):
+        with open(fp_file, encoding="utf-8") as f:
+            return json.load(f)
+    return None
 
-    def __init__(self, path: str):
+
+class JsonCheckpoint:
+    """Thread-safe {str(id): result} checkpoint persisted as one JSON file.
+
+    Guarded by a run fingerprint (taxonomy sha + prompts sha): a checkpoint
+    whose recorded fingerprint differs from the current run context is
+    rejected outright instead of being replayed (Codex review fix #1).
+    """
+
+    def __init__(self, path: str, fingerprint: str):
         self.path = path
         self.lock = threading.Lock()
         self.data: dict[str, dict] = {}
         if os.path.exists(path):
             with open(path, encoding="utf-8") as f:
                 self.data = json.load(f)
+            recorded = self.data.pop("__fingerprint__", None) if "__fingerprint__" in self.data else _read_fingerprint(path)
+            if recorded is not None and recorded != fingerprint:
+                raise SystemExit(
+                    f"[FATAL] {os.path.basename(path)} fingerprint mismatch: "
+                    f"recorded={recorded} current={fingerprint} — refusing to replay stale results"
+                )
             log(f"  断点续跑: {os.path.basename(path)} 已有 {len(self.data)} 条结果")
+        else:
+            with open(path + ".fp", "w", encoding="utf-8") as f:
+                json.dump(fingerprint, f)
 
     def merge_and_save(self, results_so_far: list) -> None:
         """callback signature compatible with llm_client.call_glm_batch(checkpoint_fn=...)"""
@@ -136,8 +162,39 @@ class JsonCheckpoint:
         return out
 
 
+_LEAF_BY_TAIL: dict[str, list[str]] = {}
+for _leaf in NEW_LEAVES:
+    _LEAF_BY_TAIL.setdefault(_leaf.rsplit("/", 1)[-1], []).append(_leaf)
+
+
+def repair_category(cat: str) -> str:
+    """Recover near-miss model output to an exact whitelist leaf.
+
+    Models sometimes drop an intermediate level (e.g. .../传统蓄电池/锂电 for
+    .../传统蓄电池/有机体系/锂电). If the final segment matches exactly one
+    whitelist leaf's final segment, repair to it. Otherwise 未分类.
+    Always returns something inside VALID_CLASSIFICATIONS_NEW.
+    """
+    tail = cat.rsplit("/", 1)[-1].strip()
+    cands = _LEAF_BY_TAIL.get(tail, [])
+    if len(cands) == 1:
+        return cands[0]
+    if len(cands) > 1:
+        # prefer the candidate sharing the longest path prefix with the model output
+        def prefix_len(cand: str) -> int:
+            a, b = cat.split("/"), cand.split("/")
+            n = 0
+            for x, y in zip(a, b):
+                if x != y:
+                    break
+                n += 1
+            return n
+        return max(cands, key=prefix_len)
+    return "未分类"
+
+
 def apply_classify(records: list[dict], results: list[dict]) -> None:
-    """Verbatim per-record logic from auto_pipeline.classify_and_score."""
+    """Per-record logic from auto_pipeline.classify_and_score + tail repair."""
     for r in results:
         idx = r.get("id")
         if not isinstance(idx, int) or idx < 0 or idx >= len(records):
@@ -147,8 +204,10 @@ def apply_classify(records: list[dict], results: list[dict]) -> None:
             cat = cat.replace(sep, '/')
         cat = re.sub(r'\s*/\s*', '/', cat)
         if cat not in VALID_CLASSIFICATIONS_NEW:
-            log(f"  [WARN] Invalid category rejected: {cat}")
-            cat = "未分类"
+            fixed = repair_category(cat)
+            if fixed != cat:
+                log(f"  [REPAIR] {cat} → {fixed}")
+            cat = fixed
         records[idx]["c"] = cat
         if cat == "不相关":
             for field in ("aip", "sc", "scd", "as", "kp", "tp", "cl", "cp", "cln"):
@@ -163,8 +222,79 @@ def apply_classify(records: list[dict], results: list[dict]) -> None:
             records[idx]["tp"] = r.get("topic", "")
 
 
+def _sha(path: str) -> str:
+    return hashlib.sha256(open(path, "rb").read()).hexdigest()[:12]
+
+
+def run_fingerprint() -> str:
+    """Binds checkpoints to (taxonomy, prompts, lite identity)."""
+    tax = _sha(TAXONOMY_PATH)
+    prompts = hashlib.md5((CLASSIFY_PROMPT + SCORE_PROMPT).encode("utf-8")).hexdigest()[:12]
+    with open(LITE_PATH, encoding="utf-8") as f:
+        n = len(json.load(f))
+    return f"tax:{tax};prompt:{prompts};lite_count:{n}"
+
+
+def acquire_pipeline_lock() -> IO:
+    """Non-blocking exclusive lock shared with auto_pipeline (Codex fix #3)."""
+    fh = open(PIPELINE_LOCK, "w")
+    try:
+        fcntl.flock(fh, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except OSError:
+        raise SystemExit("[FATAL] .pipeline.lock 被占用（nightly pipeline 运行中？）——拒绝并发")
+    return fh
+
+
+def fix_cluster_integrity(records: list[dict]) -> int:
+    """Codex fix #4: cluster families must stay intact (exactly 1 cp=0 parent
+    + >=1 cp=1 children, uniform names). If any member of a family lost its
+    leaf category (不相关/未分类), dissolve the ENTIRE family — the most
+    conservative, validator-safe option. Returns dissolved member count."""
+    families: dict[str, list[int]] = {}
+    for i, r in enumerate(records):
+        cl = r.get("cl")
+        if cl not in (None, ""):
+            families.setdefault(str(cl), []).append(i)
+    dissolved = set()
+    for cl, members in families.items():
+        if any(records[i].get("c", "") not in LEAVES_SET for i in members):
+            dissolved.update(members)
+    for i in dissolved:
+        records[i].pop("cl", None)
+        records[i].pop("cp", None)
+        records[i].pop("cln", None)
+    return len(dissolved)
+
+
+def preflight_check(records: list[dict]) -> list[str]:
+    """In-memory pre-publish gate (Codex fix #2): never snapshot broken state."""
+    errors = []
+    for i, r in enumerate(records):
+        c = r.get("c", "")
+        if c not in VALID_CLASSIFICATIONS_NEW:
+            errors.append(f"record {i}: category {c!r} outside whitelist")
+        if c == "不相关":
+            for f in ("aip", "sc", "scd", "as", "kp", "tp", "cl", "cp", "cln"):
+                if r.get(f) not in (None, "", [], {}, 0):
+                    errors.append(f"record {i}: AI field {f} on 不相关 record")
+        if not r.get("tg"):
+            errors.append(f"record {i}: missing tg")
+    # cluster families still present must satisfy the validator shape
+    fams: dict[str, list[dict]] = {}
+    for r in records:
+        cl = r.get("cl")
+        if cl not in (None, ""):
+            fams.setdefault(str(cl), []).append(r)
+    for cl, members in fams.items():
+        parents = [m for m in members if m.get("cp") == 0]
+        children = [m for m in members if m.get("cp") == 1]
+        if len(parents) != 1 or not children:
+            errors.append(f"cluster {cl}: broken family shape")
+    return errors
+
+
 def apply_scores(records: list[dict], idx_list: list[int], score_map: dict) -> None:
-    """Verbatim scoring logic from auto_pipeline (tag-aware weights + boosts)."""
+    """Scoring logic from auto_pipeline (tag-aware weights + boosts)."""
     for idx in idx_list:
         r = records[idx]
         sc = score_map.get(idx)
@@ -220,6 +350,10 @@ def main() -> None:
     skip_classify = "--skip-classify" in args
     skip_score = "--skip-score" in args
 
+    lock_fh = acquire_pipeline_lock()  # Codex fix #3
+    fingerprint = run_fingerprint()
+    log(f"run fingerprint: {fingerprint}")
+
     os.makedirs(CHECKPOINT_DIR, exist_ok=True)
     log("加载 lite ...")
     with open(LITE_PATH, encoding="utf-8") as f:
@@ -237,7 +371,7 @@ def main() -> None:
         items = [{"id": i, "type": "literature" if records[i].get("i") == "l" else "news",
                   "title": records[i]["t"][:200], "body": records[i].get("b", "")[:500]}
                  for i in targets]
-        cp = JsonCheckpoint(os.path.join(CHECKPOINT_DIR, "classify.json"))
+        cp = JsonCheckpoint(os.path.join(CHECKPOINT_DIR, "classify.json"), fingerprint)
         pending = [it for it in items if str(it["id"]) not in cp.data]
         log(f"分类: 目标 {len(items)}, 待跑 {len(pending)}")
         results = cp.restored_results()
@@ -263,7 +397,7 @@ def main() -> None:
         items = [{"id": i, "title": r["t"][:200], "body": r.get("b", "")[:500],
                   "category": r.get("c", "")} for i, r in
                  ((i, records[i]) for i in score_targets)]
-        cp = JsonCheckpoint(os.path.join(CHECKPOINT_DIR, "score.json"))
+        cp = JsonCheckpoint(os.path.join(CHECKPOINT_DIR, "score.json"), fingerprint)
         pending = [it for it in items if str(it["id"]) not in cp.data]
         log(f"评分: 目标 {len(items)}, 待跑 {len(pending)}")
         score_map = {r["id"]: r for r in cp.restored_results()}
@@ -296,6 +430,16 @@ def main() -> None:
             log(f"  [WARN] 关键参数提取失败 (non-fatal): {e}")
 
     # ── stage 5: report + snapshot ───────────────────────────────────────
+    dissolved = fix_cluster_integrity(records)  # Codex fix #4
+    log(f"cluster 完整性: 解除 {dissolved} 条成员的聚类归属（家族内有非叶子记录）")
+
+    errors = preflight_check(records)  # Codex fix #2
+    if errors:
+        log(f"[FATAL] 发布前预检失败 {len(errors)} 项，前 10 条:")
+        for e in errors[:10]:
+            log(f"  - {e}")
+        raise SystemExit(2)
+
     leaf_cnt = sum(1 for r in records if r.get("c", "") in LEAVES_SET)
     irr_cnt = sum(1 for r in records if r.get("c") == "不相关")
     unc_cnt = sum(1 for r in records if r.get("c") == "未分类")
@@ -312,6 +456,18 @@ def main() -> None:
     log("重建 lite + 分片 + manifest (build_snapshot) ...")
     shard_count = build_snapshot(records)
     log(f"快照重建完成: {shard_count} 个分片")
+
+    # Post-publish hard gate: validator on the published artifacts. On
+    # failure, restore previous data files from git (safe rollback).
+    import subprocess
+    val = subprocess.run([sys.executable, os.path.join(REPO, "scripts", "validate_data_contract.py")],
+                         capture_output=True, text=True, cwd=REPO, timeout=120)
+    if val.returncode != 0:
+        log("[FATAL] 发布后 validator 失败——回滚 data/processed 至 git HEAD")
+        log(val.stdout[-800:] or val.stderr[-800:])
+        subprocess.run(["git", "checkout", "--", "data/"], cwd=REPO, timeout=60)
+        raise SystemExit(3)
+    log("validator 通过 ✓")
 
 
 if __name__ == "__main__":
