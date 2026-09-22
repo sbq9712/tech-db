@@ -1,21 +1,6 @@
 [
   {
-    "name": "2026年欧洲电池展",
-    "start_date": "2026-01-01",
-    "end_date": null,
-    "location": "德国斯图加特",
-    "organizer": null,
-    "category": "零碳产业",
-    "sources": [
-      {
-        "title": "2026 年欧洲电池展上的电池安全、热管理",
-        "url": "https://www.designnews.com/batteries-energy-storage/thermal-management-safety-issues-under-scope-at-the-battery-show-europe",
-        "date": "2026-05-27"
-      }
-    ]
-  },
-  {
-    "name": "SNS2026（2026年南部北海论坛）",
+    "name": "2026年南部北海论坛",
     "start_date": "2026-01-01",
     "end_date": null,
     "location": null,
@@ -45,147 +30,42 @@
     ]
   },
   {
-    "name": "2026世界智能产业博览会",
+    "name": "CIBF 2026国际电池展",
     "start_date": "2026-01-01",
     "end_date": null,
-    "location": "国家会展中心（天津）",
-    "organizer": null,
-    "category": "通用技术",
-    "sources": [
-      {
-        "title": "2026世界智能产业博览会预计将实现百分百绿电保障",
-        "url": "https://www.news.cn/tech/20260528/b0cde70a3417473fbeab3e036af4407f/c.html",
-        "date": "2026-05-28"
-      }
-    ]
-  },
-  {
-    "name": "2026第四届中国长时储能大会",
-    "start_date": "2026-01-01",
-    "end_date": null,
-    "location": null,
-    "organizer": "能源央企国家队",
-    "category": "零碳产业",
-    "sources": [
-      {
-        "title": "重磅！LDES2026液流电池企业专属福利",
-        "url": "https://mp.weixin.qq.com/s/OSnaI6JI7tjdDOvx5NEs-g",
-        "date": "2026-06-16"
-      }
-    ]
-  },
-  {
-    "name": "2026全球数字经济大会量子科技专题论坛",
-    "start_date": "2026-01-01",
-    "end_date": null,
-    "location": null,
-    "organizer": "光子盒",
-    "category": "AI与智能科技",
-    "sources": [
-      {
-        "title": "光子盒承办！2026全球数字经济大会量子科技专题论坛即将重磅开幕",
-        "url": "https://mp.weixin.qq.com/s/X2ip_wWb3biWcxRk6VRR2g",
-        "date": "2026-06-26"
-      }
-    ]
-  },
-  {
-    "name": "第八届高比能固态电池大会",
-    "start_date": "2026-01-01",
-    "end_date": null,
-    "location": null,
+    "location": "深圳",
     "organizer": null,
     "category": "零碳产业",
     "sources": [
       {
-        "title": "展商预告｜太原忠睿合确定参展第八届高比能固态电池大会",
-        "url": "https://mp.weixin.qq.com/s/MlUOq8-zVqGHMMDoIcq1SA",
-        "date": "2026-06-28"
+        "title": "CIBF 2026全球电池行业齐聚深圳 现已开放观众报名",
+        "url": "https://batteriesnews.com/cibf-2026-to-gather-global-battery-industry-in-shenzhen-this-may-opens-visitor-registration/",
+        "date": "2026-03-20"
       }
     ]
   },
   {
-    "name": "维萨拉网络研讨会：从固化到填充 – 通过控制铅酸电池制造中的湿度、温度和酸浓度来防止质量损失",
-    "start_date": "2026-03-08",
+    "name": "2026年欧洲电池展（The Battery Show Europe）",
+    "start_date": "2026-06-01",
     "end_date": null,
-    "location": null,
-    "organizer": "维萨拉",
-    "category": "零碳产业",
-    "sources": [
-      {
-        "title": "维萨拉网络研讨会：从固化到填充 – 通过控制铅酸电池制造中的湿度、温度和酸浓度来防止质量损失",
-        "url": "https://www.batteriesinternational.com/2026/03/08/vaisala-webinar-from-curing-to-filling-preventing-quality-losses-through-controlled-humidity-temperature-and-acid-concentration-in-lead-acid-battery-manufacturing/",
-        "date": "2026-03-08"
-      }
-    ]
-  },
-  {
-    "name": "精准糖尿病伤口治疗中协同微环境重编程和 EpSC 复兴的纳米级联工程研讨会",
-    "start_date": "2026-03-16",
-    "end_date": null,
-    "location": null,
-    "organizer": null,
-    "category": "通用技术",
-    "sources": [
-      {
-        "title": "精准糖尿病伤口治疗中协同微环境重编程和 EpSC 复兴的纳米级联工程研讨会",
-        "url": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202522987?af=R",
-        "date": "2026-03-16"
-      }
-    ]
-  },
-  {
-    "name": "GS Yuasa 商用车年度股东大会",
-    "start_date": "2026-03-16",
-    "end_date": null,
-    "location": null,
-    "organizer": "GS Yuasa",
-    "category": "零碳产业",
-    "sources": [
-      {
-        "title": "GS Yuasa 首次推出商用车年度股东大会",
-        "url": "https://www.batteriesinternational.com/2026/03/16/gs-yuasa-rolls-out-agm-first-for-commercial-vehicles/",
-        "date": "2026-03-16"
-      }
-    ]
-  },
-  {
-    "name": "第五届年度 LithiumSAFE：电池安全研讨会",
-    "start_date": "2026-04-09",
-    "end_date": null,
-    "location": null,
-    "organizer": "Soteria Battery Innovation Group, 阿拉巴马州移动与电力中心",
-    "category": "零碳产业",
-    "sources": [
-      {
-        "title": "Soteria Battery Innovation Group 与阿拉巴马州移动与电力中心共同举办第五届年度 LithiumSAFE：电池安全研讨会",
-        "url": "https://batteriesnews.com/soteria-battery-innovation-group-and-alabama-mobility-power-center-to-co-host-fifth-annual-lithiumsafe-battery-safety-workshop/",
-        "date": "2026-04-09"
-      }
-    ]
-  },
-  {
-    "name": "EBMI2026",
-    "start_date": "2026-05-01",
-    "end_date": null,
-    "location": null,
+    "location": "德国斯图加特",
     "organizer": null,
     "category": "零碳产业",
     "sources": [
       {
-        "title": "电池活动 – EBMI2026 完整议程落地：全球最大的循环情报中心宣布免费参加会议",
-        "url": "https://batteriesnews.com/battery-events-full-agenda-lands-for-ebmi2026-worlds-largest-circular-intelligence-hub-announces-free-to-attend-conference/",
-        "date": "2026-05-15"
+        "title": "2026 年欧洲电池展上的电池安全、热管理",
+        "url": "https://www.designnews.com/batteries-energy-storage/thermal-management-safety-issues-under-scope-at-the-battery-show-europe",
+        "date": "2026-05-27"
       }
     ]
   },
   {
-    "name": "DPP4EU 2026 国际会议",
+    "name": "DPP4EU 2026 欧洲数字产品护照国际专业会议",
     "start_date": "2026-06-01",
     "end_date": "2026-06-03",
     "location": "布鲁塞尔",
     "organizer": null,
-    "category": "通用技术",
+    "category": "零碳产业",
     "sources": [
       {
         "title": "数字产品护照的标准已经存在——现在是时候将它们付诸实践了",
@@ -195,132 +75,47 @@
     ]
   },
   {
-    "name": "法兰克福电池回收博览会",
-    "start_date": "2026-06-01",
-    "end_date": null,
-    "location": "法兰克福",
-    "organizer": null,
-    "category": "零碳产业",
-    "sources": [
-      {
-        "title": "超越充电器：为什么回收是电动汽车基础设施最后一英里的关键 – Batteries International",
-        "url": "https://www.batteriesinternational.com/news/beyond-the-charger-why-recycling-is-the-critical-last-mile-of-ev-infrastructure/",
-        "date": "2026-06-04"
-      }
-    ]
-  },
-  {
-    "name": "Supply Chain LIVE峰会",
-    "start_date": "2026-06-01",
-    "end_date": null,
-    "location": "伦敦",
-    "organizer": null,
-    "category": "通用技术",
-    "sources": [
-      {
-        "title": "在 Supply Chain LIVE 上畅游全球贸易和物流",
-        "url": "https://supplychaindigital.com/news/navigating-global-trade-and-logistics-at-supply-chain-live",
-        "date": "2026-06-05"
-      },
-      {
-        "title": "供应链直播：供应链中人工智能的未来",
-        "url": "https://supplychaindigital.com/news/supply-chain-live-the-future-of-ai-in-supply-chain",
-        "date": "2026-06-18"
-      }
-    ]
-  },
-  {
-    "name": "苹果全球开发者大会 (WWDC26)",
-    "start_date": "2026-06-01",
-    "end_date": null,
-    "location": null,
-    "organizer": "苹果",
-    "category": "AI与智能科技",
-    "sources": [
-      {
-        "title": "IDC 分析师：WWDC26 是苹果 AI 的“可信度”测试",
-        "url": "https://www.ithome.com/0/962/129.htm",
-        "date": "2026-06-09"
-      }
-    ]
-  },
-  {
-    "name": "SNEC 2026会议",
+    "name": "2026年上海世界移动通信大会",
     "start_date": "2026-06-01",
     "end_date": null,
     "location": "上海",
     "organizer": null,
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "梅西、C罗点亮世界杯，中国人形机器人迎接点球挑战",
+        "url": "https://interestingengineering.com/ai-robotics/chinese-humanoids-messi-ronaldo-football-fifa-world-cup",
+        "date": "2026-06-24"
+      }
+    ]
+  },
+  {
+    "name": "第四届能源电子产业创新大赛暨第五届先进储能技术创新挑战赛",
+    "start_date": "2026-06-01",
+    "end_date": "2026-12-31",
+    "location": null,
+    "organizer": "工业和信息化部产业发展促进中心",
     "category": "零碳产业",
     "sources": [
       {
-        "title": "全球太阳能需求有望出现二十年来首次年度下降 - pv magazine China",
-        "url": "https://www.pv-magazine.com/2026/06/11/solar-slowing-bnef-asks-whats-next-for-the-industry/",
-        "date": "2026-06-11"
-      },
-      {
-        "title": "太阳能+储能微电网现在可提供具有竞争力的基荷电力 - 储能",
-        "url": "https://www.ess-news.com/2026/06/11/solar-plus-storage-microgrids-now-delivering-competitive-baseload-power/",
-        "date": "2026-06-11"
+        "title": "【大赛通知】工业和信息化部产业发展促进中心关于举办第四届能源电子产业创新大赛暨第五届先进储能技术创新挑战赛的通知",
+        "url": "https://mp.weixin.qq.com/s/_IdaQJeQ9t_AiPv-8WAJhw",
+        "date": "2026-07-21"
       }
     ]
   },
   {
-    "name": "华为云INSPIRE创想者大会",
-    "start_date": "2026-06-01",
-    "end_date": null,
-    "location": "上海",
-    "organizer": "华为云",
-    "category": "AI与智能科技",
-    "sources": [
-      {
-        "title": "迈向智能体时代 国产AI需要何种能力底座",
-        "url": "https://www.news.cn/tech/20260615/dfe3e895a2f149b9b8eaa99ebca531b0/c.html",
-        "date": "2026-06-15"
-      }
-    ]
-  },
-  {
-    "name": "华为开发者大会 2026",
-    "start_date": "2026-06-01",
-    "end_date": null,
-    "location": null,
-    "organizer": "华为",
-    "category": "AI与智能科技",
-    "sources": [
-      {
-        "title": "华为鸿蒙 HarmonyOS 7 Developer Beta 版开启推送，系统扩展特性同步更新",
-        "url": "https://www.ithome.com/0/964/605.htm",
-        "date": "2026-06-15"
-      }
-    ]
-  },
-  {
-    "name": "第十届中国-南亚博览会",
-    "start_date": "2026-06-01",
-    "end_date": null,
-    "location": null,
-    "organizer": null,
-    "category": "AI与智能科技",
-    "sources": [
-      {
-        "title": "探馆南博会：科技赋能服务升级",
-        "url": "https://www.news.cn/tech/20260616/9778f624643e41d69eebadfef353fa40/c.html",
-        "date": "2026-06-16"
-      }
-    ]
-  },
-  {
-    "name": "DPW New York 2026采购与供应链峰会",
+    "name": "SNEC PV&ES第十九届（2026）国际太阳能光伏和智慧能源&储能及电池技术与装备（上海）大会暨展览会",
     "start_date": "2026-06-03",
-    "end_date": "2026-06-04",
-    "location": "布鲁克林海军造船厂Duggal Greenhouse",
+    "end_date": null,
+    "location": "国家会展中心（上海）",
     "organizer": null,
-    "category": "AI与智能科技",
+    "category": "零碳产业",
     "sources": [
       {
-        "title": "DPW 纽约 2026：参加的顶级会议",
-        "url": "https://supplychaindigital.com/news/dpw-new-york-2026-sessions-to-take-part-in",
-        "date": "2026-05-26"
+        "title": "索比直击｜2026 SNEC 新品巡礼（DAY 1）",
+        "url": "https://news.solarbe.com/202606/04/50023925.html",
+        "date": "2026-06-04"
       }
     ]
   },
@@ -329,7 +124,7 @@
     "start_date": "2026-06-03",
     "end_date": null,
     "location": "纽约",
-    "organizer": null,
+    "organizer": "C2V",
     "category": "零碳产业",
     "sources": [
       {
@@ -340,48 +135,28 @@
     ]
   },
   {
-    "name": "“新三样”固废回收利用工作座谈会",
-    "start_date": "2026-06-05",
+    "name": "超越锂电网络研讨会系列",
+    "start_date": "2026-06-03",
     "end_date": null,
     "location": null,
-    "organizer": "商务部",
+    "organizer": "清洁能源集团",
     "category": "零碳产业",
     "sources": [
       {
-        "title": "事关组件回收！商务部召开“新三样”座谈会",
-        "url": "https://news.solarbe.com/202606/10/50024198.html",
-        "date": "2026-06-10"
+        "title": "ESS将于2026年6月3日在清洁能源集团\"超越锂电\"网络研讨会系列中作报告",
+        "url": "https://batteriesnews.com/ess-to-present-in-clean-energy-groups-beyond-lithium-webinar-series-on-june-3-2026/",
+        "date": "2026-05-21"
       }
     ]
   },
   {
-    "name": "互联世界大会",
-    "start_date": "2026-06-10",
-    "end_date": "2026-06-11",
-    "location": "柏林",
-    "organizer": "德国博世集团",
-    "category": "AI与智能科技",
-    "sources": [
-      {
-        "title": "AI加速走向物理世界",
-        "url": "https://www.news.cn/tech/20260615/1017b4fdeb614961bd5e51a05c34e025/c.html",
-        "date": "2026-06-15"
-      }
-    ]
-  },
-  {
-    "name": "华为开发者大会 (HDC 2026)",
+    "name": "华为开发者大会HDC 2026",
     "start_date": "2026-06-12",
     "end_date": "2026-06-14",
-    "location": null,
+    "location": "null",
     "organizer": "华为",
     "category": "AI与智能科技",
     "sources": [
-      {
-        "title": "依旧碰一碰：华为钱包上线 HDC 2026 电子门票，激活后可代替身份证用于进入会场",
-        "url": "https://www.ithome.com/0/962/136.htm",
-        "date": "2026-06-09"
-      },
       {
         "title": "鸿蒙 7 发布已板上钉（dìng）钉：华为 HDC 2026 开发者大会议题公布，将带来全新 UI design kit",
         "url": "https://www.ithome.com/0/962/688.htm",
@@ -421,6 +196,11 @@
         "title": "数字链变身数智链，首设人工智能专区",
         "url": "https://www.news.cn/tech/20260622/a49da728e11a4b728a96fe7d3054b53c/c.html",
         "date": "2026-06-22"
+      },
+      {
+        "title": "“链”上未来：首设人工智能专区 应用加速落地",
+        "url": "https://www.news.cn/tech/20260625/9ef8170ce4f245338d75d31017459633/c.html",
+        "date": "2026-06-25"
       }
     ]
   },
@@ -428,8 +208,8 @@
     "name": "2026年欧洲智慧能源展览会",
     "start_date": "2026-06-23",
     "end_date": "2026-06-25",
-    "location": "慕尼黑",
-    "organizer": null,
+    "location": "慕尼黑展览中心",
+    "organizer": "null",
     "category": "零碳产业",
     "sources": [
       {
@@ -440,10 +220,25 @@
     ]
   },
   {
+    "name": "世界经济论坛第十七届新领军者年会（夏季达沃斯论坛）",
+    "start_date": "2026-06-23",
+    "end_date": "2026-06-25",
+    "location": "大连",
+    "organizer": "世界经济论坛",
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "夏季达沃斯论坛｜人工智能专家谈机器人学“做人”",
+        "url": "https://www.news.cn/tech/20260624/5e2c148f3257497caa7d6e67d1f0129e/c.html",
+        "date": "2026-06-24"
+      }
+    ]
+  },
+  {
     "name": "Gartner 2026企业AI智能体发展趋势在线研讨会",
     "start_date": "2026-06-23",
-    "end_date": "2026-06-23",
-    "location": "线上",
+    "end_date": null,
+    "location": null,
     "organizer": "Gartner",
     "category": "AI与智能科技",
     "sources": [
@@ -455,31 +250,21 @@
     ]
   },
   {
-    "name": "世界经济论坛第17届新领军者年会（2026夏季达沃斯论坛）",
-    "start_date": "2026-06-23",
-    "end_date": "2026-06-25",
-    "location": "大连",
-    "organizer": "世界经济论坛",
-    "category": "通用技术",
-    "sources": [
-      {
-        "title": "亮相2026夏季达沃斯，Pheno Innovations（现象创新）将AI辅助材料发现带上全球舞台",
-        "url": "https://mp.weixin.qq.com/s/bBH7QqRrByGO-FlSc_eAsw",
-        "date": "2026-06-26"
-      }
-    ]
-  },
-  {
     "name": "2026上海世界移动通信大会",
     "start_date": "2026-06-24",
     "end_date": "2026-06-26",
-    "location": "上海新国际博览中心",
-    "organizer": null,
-    "category": "AI与智能科技",
+    "location": "上海",
+    "organizer": "GSMA",
+    "category": "通用技术",
     "sources": [
       {
-        "title": "2026 上海世界移动通信大会开幕，华为携手运营商发布多项创新成果",
-        "url": "https://www.ithome.com/0/968/698.htm",
+        "title": "6G加速天地组网 多方竞逐产业新机遇",
+        "url": "https://www.news.cn/tech/20260625/59818dc9c6a049a3ae48a337a2918ffb/c.html",
+        "date": "2026-06-25"
+      },
+      {
+        "title": "中国移动聚焦AI发力，建成规模化“词元超市”",
+        "url": "https://www.news.cn/tech/20260625/4c1a7a9cb2294197a4b4f8010a6ac4e8/c.html",
         "date": "2026-06-25"
       }
     ]
@@ -488,7 +273,7 @@
     "name": "安徽地热大讲堂（第2期）",
     "start_date": "2026-06-24",
     "end_date": null,
-    "location": "安徽省碳中和产业协会会议室（合肥市包河区延安路）",
+    "location": "合肥市包河区延安路 安徽省碳中和产业协会会议室",
     "organizer": "安徽省建筑节能与科技协会、安徽省碳中和产业协会",
     "category": "零碳产业",
     "sources": [
@@ -500,10 +285,10 @@
     ]
   },
   {
-    "name": "AI自主进化直播活动",
+    "name": "Recursive Self-Improvement：当AI开始进化AI（AI自主进化直播活动）",
     "start_date": "2026-06-24",
     "end_date": null,
-    "location": null,
+    "location": "线上直播",
     "organizer": "机器之心、黄大年茶思屋",
     "category": "AI与智能科技",
     "sources": [
@@ -515,7 +300,7 @@
     ]
   },
   {
-    "name": "“金融强赋能 聚变启未来”核聚变上下游产业链项目路演",
+    "name": "“金融强赋能 聚变启未来”可控核聚变上下游产业链项目路演",
     "start_date": "2026-06-27",
     "end_date": null,
     "location": "合肥",
@@ -530,9 +315,9 @@
     ]
   },
   {
-    "name": "ACL 2026 论文分享会",
+    "name": "ACL 2026论文分享会",
     "start_date": "2026-06-27",
-    "end_date": "2026-06-27",
+    "end_date": null,
     "location": "北京",
     "organizer": "机器之心",
     "category": "AI与智能科技",
@@ -550,11 +335,11 @@
     ]
   },
   {
-    "name": "“地热能 +”清洁供暖技术与区域实践线上研讨会",
+    "name": "IRENA “地热能+”清洁供暖技术与区域实践线上研讨会",
     "start_date": "2026-06-30",
     "end_date": "2026-06-30",
-    "location": "线上",
-    "organizer": "水电水利规划设计总院、IRENA、全球地热联盟（GGA）",
+    "location": "线上（Zoom）",
+    "organizer": "水电水利规划设计总院（中国—国际可再生能源署合作办公室）、国际可再生能源署（IRENA）、全球地热联盟（GGA）",
     "category": "零碳产业",
     "sources": [
       {
@@ -565,7 +350,7 @@
     ]
   },
   {
-    "name": "2026年Electrek美国太阳能挑战赛和太阳能大奖赛",
+    "name": "2026年Electrek美国太阳能挑战赛",
     "start_date": "2026-07-01",
     "end_date": null,
     "location": "明尼苏达州",
@@ -585,177 +370,87 @@
     ]
   },
   {
-    "name": "ICML首尔学术之夜",
+    "name": "2026世界人工智能大会暨人工智能全球治理高级别会议",
     "start_date": "2026-07-01",
     "end_date": null,
-    "location": "首尔",
-    "organizer": "蚂蚁集团, SGLang",
+    "location": "上海",
+    "organizer": null,
     "category": "AI与智能科技",
     "sources": [
       {
-        "title": "蚂蚁集团联名SGLang，邀你共聚ICML首尔学术之夜",
-        "url": "https://mp.weixin.qq.com/s/ayaVuJVBMpgYC6A7arPMAg",
-        "date": "2026-06-24"
+        "title": "中国正加紧筹建世界人工智能合作组织",
+        "url": "https://www.news.cn/tech/20260618/5b1326bbdbcd4f61967181f6fdadae3d/c.html",
+        "date": "2026-06-18"
+      },
+      {
+        "title": "今年我国人形机器人整机产量有望突破10万台",
+        "url": "https://www.news.cn/tech/20260708/d1637bc2782c4cb1b2847b28aa799e5d/c.html",
+        "date": "2026-07-08"
+      },
+      {
+        "title": "超300款AI新品将在2026世界人工智能大会首发",
+        "url": "https://www.news.cn/tech/20260708/fbbd5fbe39b5452098b5dde915b0c959/c.html",
+        "date": "2026-07-08"
+      },
+      {
+        "title": "让人工智能成为造福全人类的国际公共产品——中国为推进人工智能全球治理和国际合作贡献智慧力量",
+        "url": "https://www.news.cn/tech/20260716/0cbce10ce61a4fab94f0110d301af8df/c.html",
+        "date": "2026-07-16"
+      },
+      {
+        "title": "PPT之外，AI之内｜2026WAIC机器之心特别企划栏目",
+        "url": "https://mp.weixin.qq.com/s/HXPr3ebTpRUxZ_QAmOaBaQ",
+        "date": "2026-06-18"
+      },
+      {
+        "title": "国家电投集团参加2026世界人工智能大会暨人工智能全球治理高级别会议开幕式",
+        "url": "https://mp.weixin.qq.com/s/RBVy0K7VCb0v6N-3Ae7urQ",
+        "date": "2026-07-18"
       }
     ]
   },
   {
-    "name": "2026年第三次中国地质大讲堂",
-    "start_date": "2026-07-01",
-    "end_date": null,
-    "location": "线上",
-    "organizer": null,
-    "category": "零碳产业",
-    "sources": [
-      {
-        "title": "直播预约丨2026年第三次中国地质大讲堂",
-        "url": "https://mp.weixin.qq.com/s/zhyXmQ4Zasx5d29g7iQgWw",
-        "date": "2026-07-01"
-      }
-    ]
-  },
-  {
-    "name": "CTE2026 中国热储能与供热大会暨展览会",
-    "start_date": "2026-07-01",
-    "end_date": "2026-10-16",
-    "location": "青岛",
-    "organizer": null,
-    "category": "零碳产业",
-    "sources": [
-      {
-        "title": "7月2日起至9月25日截止！CTE2026 中国热储能与供热大会开放演讲议题申报",
-        "url": "https://mp.weixin.qq.com/s/HF9cfJWV2NV2LWEgNND8JQ",
-        "date": "2026-07-02"
-      },
-      {
-        "title": "采购公示｜北京林业大学磁悬浮飞轮储能系统采购项目单一来源采购公示",
-        "url": "https://mp.weixin.qq.com/s/-yWgAJtctxZualOnqvfgrQ",
-        "date": "2026-07-09"
-      },
-      {
-        "title": "招标｜河南信阳300MW先进压缩空气储能项目技术咨询服务竞争性磋商公告",
-        "url": "https://mp.weixin.qq.com/s/O4y5DAQNEcFaLsnWlveSXg",
-        "date": "2026-07-09"
-      },
-      {
-        "title": "采购 | 郑州豫能热电有限公司储热改造提升机组灵活性可行性研究项目谈判采购公告",
-        "url": "https://mp.weixin.qq.com/s/aP0gdd5armCXdEHWGZVzzg",
-        "date": "2026-07-10"
-      },
-      {
-        "title": "招标 | 渭南蒲城1600MW/9600MWh电网侧先进压缩空气储能电站项目一期工程可行性研究技术服务招标公告",
-        "url": "https://mp.weixin.qq.com/s/6kwJ2-guo0HOv9R4KOQAQQ",
-        "date": "2026-07-10"
-      },
-      {
-        "title": "重磅嘉宾 | 宁波大学教授邹得球：相变材料（PCM）与高效储热换热装备国产化进展",
-        "url": "https://mp.weixin.qq.com/s/2CKRGXC-XCEfsIT_uB5j9A",
-        "date": "2026-07-24"
-      },
-      {
-        "title": "重磅嘉宾 | 中国矿业大学教授朱春宇：高温相变储热材料定型封装与性能强化研究",
-        "url": "https://mp.weixin.qq.com/s/vSsYiND1DIfvPWPMALiskQ",
-        "date": "2026-07-27"
-      }
-    ]
-  },
-  {
-    "name": "第十六届热泵行业年会（2026）",
+    "name": "2026（第三届）新能源与储能工程论坛",
     "start_date": "2026-07-01",
     "end_date": null,
     "location": null,
-    "organizer": null,
+    "organizer": "有色金属技术经济研究院有限责任公司",
     "category": "零碳产业",
     "sources": [
       {
-        "title": "HVAC行业董事会成员兼高级顾问Nicholas Matten确认出席第十六届热泵行业年会（2026）",
-        "url": "https://mp.weixin.qq.com/s/gcs4UOuH0i9pW61qVe719w",
-        "date": "2026-07-09"
-      },
-      {
-        "title": "日本制冷空调学会(JSRAE)会长Kiyoshi Saito确认参加第十六届热泵行业年会（2026）",
-        "url": "https://mp.weixin.qq.com/s/V7S9mxpta6N11ThcGWhEUQ",
-        "date": "2026-07-10"
-      },
-      {
-        "title": "倒计时10天 | 第十六届热泵行业年会（2026）",
-        "url": "https://mp.weixin.qq.com/s/JzcyVowiJVFKkmQWhCYiwA",
-        "date": "2026-07-20"
-      },
-      {
-        "title": "北京工业大学雷标教授确认出席第十六届热泵行业年会（2026）",
-        "url": "https://mp.weixin.qq.com/s/xvFkhADoF-HnzrSAk_M3dA",
-        "date": "2026-07-20"
-      },
-      {
-        "title": "北京建筑大学教授郝斌确认出席第十六届热泵行业年会（2026）",
-        "url": "https://mp.weixin.qq.com/s/B2QlNpuXKJ8eTtSgWHPSdw",
-        "date": "2026-07-21"
-      },
-      {
-        "title": "中国科学院理化技术研究所研究员张振涛确认出席第十六届热泵行业年会（2026）",
-        "url": "https://mp.weixin.qq.com/s/G5vg3zdpzWdXKsIaDdTLQw",
-        "date": "2026-07-21"
-      },
-      {
-        "title": "倒计时9天|第十六届热泵行业年会（2026）",
-        "url": "https://mp.weixin.qq.com/s/AxdFg1aTnsV8N-stqwrO0Q",
-        "date": "2026-07-21"
-      },
-      {
-        "title": "议程发布 | 第十六届热泵行业年会（2026）",
-        "url": "https://mp.weixin.qq.com/s/XVVt7BptPfauZt2kHU6pWw",
-        "date": "2026-07-21"
-      },
-      {
-        "title": "参会指南|第十六届热泵行业年会（2026）",
-        "url": "https://mp.weixin.qq.com/s/nSzTp-32wKuF3zDhtQYZoA",
-        "date": "2026-07-24"
-      },
-      {
-        "title": "倒计时5天|第十六届热泵行业年会（2026）",
-        "url": "https://mp.weixin.qq.com/s/miZESoKh62L8mJGBh3gsBA",
-        "date": "2026-07-25"
-      },
-      {
-        "title": "倒计时4天|第十六届热泵行业年会（2026）",
-        "url": "https://mp.weixin.qq.com/s/pOmSYzxneFJEBkbDXNGcJg",
-        "date": "2026-07-26"
-      },
-      {
-        "title": "华北电力大学副教授孙健确认出席第十六届热泵行业年会（2026）",
-        "url": "https://mp.weixin.qq.com/s/u-g8zcNDEszdIwVbVDEzRA",
-        "date": "2026-07-28"
-      },
-      {
-        "title": "陕西省土木建筑学会热能动力专业委员会主任委员尹留成确认出席第十六届热泵行业年会（2026）",
-        "url": "https://mp.weixin.qq.com/s/LRNEgBxwmTdmfUtZhKLKXw",
-        "date": "2026-07-28"
-      },
-      {
-        "title": "国家建筑节能质量检验检测中心副主任李浩确认出席第十六届热泵行业年会（2026）",
-        "url": "https://mp.weixin.qq.com/s/QyMw6yvqkRgYvRnrbwIPHw",
-        "date": "2026-07-28"
-      },
-      {
-        "title": "倒计时2天|第十六届热泵行业年会（2026）",
-        "url": "https://mp.weixin.qq.com/s/F48BaGAPpUbPkFO9kH_OMQ",
-        "date": "2026-07-28"
+        "title": "日程发布|2026（第三届）新能源与储能工程论坛即将盛大开幕！",
+        "url": "https://mp.weixin.qq.com/s/lCms4Ya-gK44iGCnpIJ5FQ",
+        "date": "2026-07-18"
       }
     ]
   },
   {
-    "name": "首届“钙钛矿+X”叠层光伏产业发展大会",
+    "name": "2026（第十九届）高工锂电产业峰会",
     "start_date": "2026-07-01",
     "end_date": null,
     "location": null,
-    "organizer": "中核光电",
+    "organizer": "高工锂电",
     "category": "零碳产业",
     "sources": [
       {
-        "title": "深耕四端，核光同行！中核光电协办首届“钙钛矿+X”叠层光伏产业发展大会",
-        "url": "https://mp.weixin.qq.com/s/DjDoYSC2SVvyDxjjzx2Pjg",
-        "date": "2026-07-28"
+        "title": "高工锂电峰会直击⑤：从电池到装备，AI如何改写锂电智造？",
+        "url": "https://mp.weixin.qq.com/s/F26YHl_L9Z0GKrmAXmte0w",
+        "date": "2026-07-19"
+      }
+    ]
+  },
+  {
+    "name": "2026年中国情报学年会",
+    "start_date": "2026-07-01",
+    "end_date": null,
+    "location": "南京",
+    "organizer": null,
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "2026年中国情报学年会在南京召开 中信所党委书记黄琦作大会主旨报告",
+        "url": "https://mp.weixin.qq.com/s/jCdrWbDQkv_m1crRT_p5vg",
+        "date": "2026-07-22"
       }
     ]
   },
@@ -764,13 +459,38 @@
     "start_date": "2026-07-02",
     "end_date": "2026-07-05",
     "location": "北京国家会议中心",
-    "organizer": null,
+    "organizer": "2026全球数字经济大会",
     "category": "AI与智能科技",
     "sources": [
       {
         "title": "2026全球数字经济大会7月2日在京启幕",
         "url": "https://www.news.cn/tech/20260626/5de14a459f074df08fafba0c88cb8d4b/c.html",
         "date": "2026-06-26"
+      },
+      {
+        "title": "2026全球数字经济大会开幕",
+        "url": "https://www.news.cn/tech/20260703/f4f2ce09fab146ca9bf0eed9c2811b43/c.html",
+        "date": "2026-07-03"
+      },
+      {
+        "title": "从工业提效到智能体增智 AI赋能产业焕新",
+        "url": "https://www.news.cn/tech/20260703/7162047a3ac647ea9bbab8f991f656e5/c.html",
+        "date": "2026-07-03"
+      }
+    ]
+  },
+  {
+    "name": "AI+能源，从云端走向现场：能源AI边缘智能技术沙龙",
+    "start_date": "2026-07-02",
+    "end_date": null,
+    "location": "北京海淀区",
+    "organizer": "成都万创科技股份有限公司",
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "AI+能源，从云端走向现场：能源AI边缘智能技术沙龙在京圆满举办",
+        "url": "https://news.solarbe.com/202607/08/50025582.html",
+        "date": "2026-07-08"
       }
     ]
   },
@@ -826,16 +546,6 @@
         "title": "倒计时7天！钙钛矿行业现状如何？未来趋势如何？各家策略如何？我们宁波见分晓（7.2-7.3 宁波）",
         "url": "https://mp.weixin.qq.com/s/Icm2KKR5sJQqMq0aN2sunw",
         "date": "2026-06-25"
-      },
-      {
-        "title": "倒计时3天！400+钙钛矿业界同仁齐聚宁波（7.2-7.3 宁波）",
-        "url": "https://mp.weixin.qq.com/s/NtQIKRy8zzXPN2bOgPiyxg",
-        "date": "2026-06-29"
-      },
-      {
-        "title": "倒计时2天！议程/酒店预定/交通/签到流程看这里！！！（JPS 7.2-7.3 宁波）",
-        "url": "https://mp.weixin.qq.com/s/5lgN539gVsqgNX8CuVCyQg",
-        "date": "2026-06-30"
       }
     ]
   },
@@ -862,8 +572,8 @@
   {
     "name": "化工全流程数智化升级线上公开课",
     "start_date": "2026-07-02",
-    "end_date": "2026-07-02",
-    "location": "线上",
+    "end_date": null,
+    "location": null,
     "organizer": "流程工业、施耐德电气",
     "category": "零碳产业",
     "sources": [
@@ -880,7 +590,7 @@
     ]
   },
   {
-    "name": "2026年“热泵大讲堂”宣讲活动第一期",
+    "name": "热泵大讲堂2026年第一期：高温工业热泵在先进制造行业的应用",
     "start_date": "2026-07-02",
     "end_date": null,
     "location": null,
@@ -895,17 +605,32 @@
     ]
   },
   {
-    "name": "ACL 2026大会",
+    "name": "ACL 2026（计算语言学协会年会）",
     "start_date": "2026-07-02",
     "end_date": "2026-07-07",
     "location": "美国圣地亚哥",
-    "organizer": null,
+    "organizer": "计算语言学协会（Association for Computational Linguistics）",
     "category": "AI与智能科技",
     "sources": [
       {
         "title": "ACL 2026圣地亚哥现场，上海AI实验室北极星 X 星启交流会（报名开启）",
         "url": "https://mp.weixin.qq.com/s/jvCLDrUzkvZwSQcdoZM3ZA",
         "date": "2026-06-25"
+      }
+    ]
+  },
+  {
+    "name": "第四届国防科技高地论坛",
+    "start_date": "2026-07-04",
+    "end_date": "2026-07-05",
+    "location": "湖南长沙",
+    "organizer": "国防科技大学、军事科学院、中国电子信息产业集团有限公司",
+    "category": "通用技术",
+    "sources": [
+      {
+        "title": "第四届国防科技高地论坛第二轮公告（含报名注册通道）",
+        "url": "https://mp.weixin.qq.com/s/3YF6Rols8nVk2xJa7FUhJA",
+        "date": "2026-06-23"
       }
     ]
   },
@@ -925,7 +650,37 @@
     ]
   },
   {
-    "name": "AI26 – 拉玛会议 (AI26 – The Lamarr Conference)",
+    "name": "地热计算器专业版GGS-AI智能体功能应用培训",
+    "start_date": "2026-07-05",
+    "end_date": "2026-07-05",
+    "location": "线上（腾讯会议）",
+    "organizer": null,
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "线上免费培训！地热计算器专业版GGS-AI智能体使用",
+        "url": "https://mp.weixin.qq.com/s/SB4JVwHyqdvcGKa1B5F9AA",
+        "date": "2026-06-30"
+      }
+    ]
+  },
+  {
+    "name": "云帆·ICML 2026 AI Talent Meetup",
+    "start_date": "2026-07-06",
+    "end_date": "2026-07-11",
+    "location": "韩国首尔",
+    "organizer": "上海人工智能实验室",
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "直通ICML 2026！上海AI实验室携百余顶尖岗位，双场人才交流会报名开启",
+        "url": "https://mp.weixin.qq.com/s/iR3pMRcvNEORdXd5uO9tKQ",
+        "date": "2026-07-01"
+      }
+    ]
+  },
+  {
+    "name": "AI26 – 拉玛会议",
     "start_date": "2026-07-07",
     "end_date": "2026-07-08",
     "location": "波恩世界会议中心",
@@ -940,10 +695,25 @@
     ]
   },
   {
-    "name": "马来西亚东部地热资源勘查评价方法网络研讨会",
+    "name": "太阳谷峰会",
+    "start_date": "2026-07-07",
+    "end_date": "2026-07-11",
+    "location": "美国太阳谷度假村",
+    "organizer": "Allen & Co.",
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "权力交接前夕，苹果 CEO 库克和接班人特努斯出席太阳谷峰会",
+        "url": "https://www.ithome.com/0/974/253.htm",
+        "date": "2026-07-08"
+      }
+    ]
+  },
+  {
+    "name": "利用重力和磁法勘查中央山脉以东地区的地热开发机会网络研讨会",
     "start_date": "2026-07-07",
     "end_date": null,
-    "location": null,
+    "location": "线上",
     "organizer": "马来西亚国立大学地球科学与环境系（JSBAS）",
     "category": "零碳产业",
     "sources": [
@@ -951,6 +721,21 @@
         "title": "线上直播！马来西亚东部地热资源勘查评价方法",
         "url": "https://mp.weixin.qq.com/s/M-40TjBoQh-rMhwdc1BkYw",
         "date": "2026-07-03"
+      }
+    ]
+  },
+  {
+    "name": "第三届图像处理、机器学习与模式识别学术会议",
+    "start_date": "2026-07-11",
+    "end_date": null,
+    "location": "银川",
+    "organizer": null,
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "《2025图像图形学发展年度报告》正式发布 | 期刊速递",
+        "url": "https://mp.weixin.qq.com/s/uRH_AFN2hTkuPALqjnIAVw",
+        "date": "2026-07-22"
       }
     ]
   },
@@ -966,15 +751,35 @@
         "title": "绿色氢氨醇国内市场即将启动，年度风光氢氨醇一体化论坛7月常州召开！",
         "url": "https://mp.weixin.qq.com/s/Zh4Cue5L3zu-lTmmQcnV2A",
         "date": "2026-06-23"
-      },
+      }
+    ]
+  },
+  {
+    "name": "2026海洋清洁能源论坛",
+    "start_date": "2026-07-15",
+    "end_date": "2026-07-17",
+    "location": "宁波",
+    "organizer": "浙江海洋大学、浙大宁波理工学院",
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "倒计时2周 | 2026海洋清洁能源论坛（浙海大、浙大宁波理工主办，7月15-17日 宁波）",
+        "url": "https://mp.weixin.qq.com/s/eudUzJoWHPoxubyvt1Tm7A",
+        "date": "2026-07-03"
+      }
+    ]
+  },
+  {
+    "name": "2026海水制氢与海上能源岛论坛",
+    "start_date": "2026-07-16",
+    "end_date": null,
+    "location": "常州",
+    "organizer": null,
+    "category": "零碳产业",
+    "sources": [
       {
         "title": "潜江“氢”装上阵",
         "url": "https://mp.weixin.qq.com/s/Fv5UNIIm3RgAAS3YY_-hBQ",
-        "date": "2026-07-07"
-      },
-      {
-        "title": "云南省首批绿电制氢示范项目清单发布！",
-        "url": "https://mp.weixin.qq.com/s/7YjL0A3qcWplrss9tRcTbQ",
         "date": "2026-07-07"
       },
       {
@@ -990,52 +795,47 @@
     ]
   },
   {
-    "name": "2026海洋清洁能源论坛",
-    "start_date": "2026-07-15",
-    "end_date": "2026-07-17",
-    "location": "宁波",
-    "organizer": "浙江海洋大学和浙大宁波理工学院",
+    "name": "蜂巢能源全球合作伙伴峰会",
+    "start_date": "2026-07-16",
+    "end_date": null,
+    "location": "常州",
+    "organizer": "蜂巢能源",
     "category": "零碳产业",
     "sources": [
       {
-        "title": "倒计时2周 | 2026海洋清洁能源论坛（浙海大、浙大宁波理工主办，7月15-17日 宁波）",
-        "url": "https://mp.weixin.qq.com/s/eudUzJoWHPoxubyvt1Tm7A",
-        "date": "2026-07-03"
+        "title": "续航破750km，蜂巢能源发布首款规模化量产混合固液电池",
+        "url": "https://mp.weixin.qq.com/s/YFShnZarwTKVJbcwbuXwTg",
+        "date": "2026-07-18"
       }
     ]
   },
   {
-    "name": "2026世界人工智能大会暨人工智能全球治理高级别会议",
+    "name": "2026世界人工智能大会",
     "start_date": "2026-07-17",
     "end_date": "2026-07-20",
     "location": "上海",
-    "organizer": "外交部、国家发展改革委、工业和信息化部、教育部、科技部、国务院国资委、国家互联网信息办公室、中国科学院、中国科协和上海市人民政府",
+    "organizer": null,
     "category": "AI与智能科技",
     "sources": [
-      {
-        "title": "超300款AI新品将在2026世界人工智能大会首发",
-        "url": "https://www.news.cn/tech/20260708/fbbd5fbe39b5452098b5dde915b0c959/c.html",
-        "date": "2026-07-08"
-      },
-      {
-        "title": "让人工智能成为造福全人类的国际公共产品——中国为推进人工智能全球治理和国际合作贡献智慧力量",
-        "url": "https://www.news.cn/tech/20260716/0cbce10ce61a4fab94f0110d301af8df/c.html",
-        "date": "2026-07-16"
-      },
-      {
-        "title": "加速构建人工智能产业高地——写在2026世界人工智能大会开幕之际",
-        "url": "https://www.news.cn/tech/20260717/179dd754d5b84cb5ada86ae7db7f0896/c.html",
-        "date": "2026-07-17"
-      },
       {
         "title": "“产业发展”“人才生态”“算力”成热词——从百余场论坛主题前瞻世界人工智能大会",
         "url": "https://www.news.cn/tech/20260717/0b04c8330ec844c6b73a2d3b13f94f03/c.html",
         "date": "2026-07-17"
       },
       {
-        "title": "2026 WAIC 全球首发AI for ADANES技术路线 AI赋能先进核能凝练八大共识",
-        "url": "https://www.cinie.net/article/56499.html",
-        "date": "2026-07-23"
+        "title": "WAIC 2026昨日开幕！模型、智能体、机器人……超300款产品将全球首发，一起来看→",
+        "url": "https://mp.weixin.qq.com/s/6I8p3cCe7CtRyK3paBCERQ",
+        "date": "2026-07-18"
+      },
+      {
+        "title": "中国AI的开放逻辑",
+        "url": "https://mp.weixin.qq.com/s/r91pA5G5_Qho5C7glSF8XQ",
+        "date": "2026-07-19"
+      },
+      {
+        "title": "世界模型元年：这一次，昆仑万维又踩准了AI的产业节奏",
+        "url": "https://mp.weixin.qq.com/s/yBOyNy0MBI--E0_8Sr1VUw",
+        "date": "2026-07-19"
       }
     ]
   },
@@ -1043,7 +843,7 @@
     "name": "2026全国纳米材料精准构筑与功能集成学术研讨会",
     "start_date": "2026-07-17",
     "end_date": "2026-07-20",
-    "location": "贵阳市贵怡尚品酒店",
+    "location": "贵州省贵阳市贵怡尚品酒店",
     "organizer": "北京中和化研新材料科技发展中心",
     "category": "通用技术",
     "sources": [
@@ -1051,6 +851,21 @@
         "title": "2026全国纳米材料精准构筑与功能集成学术研讨会 | 7月17-20日 贵阳",
         "url": "https://mp.weixin.qq.com/s/iBH--XW-HW9ivKAlYLBIew",
         "date": "2026-07-11"
+      }
+    ]
+  },
+  {
+    "name": "第十届中国情报学年会暨情报学与情报工作发展论坛",
+    "start_date": "2026-07-17",
+    "end_date": "2026-07-20",
+    "location": "南京",
+    "organizer": "中国科学技术情报学会、南京大学",
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "产业数据MCP+Skill！创新情报专委会探索情报研究能力共享新生态@第十届中国情报学年会",
+        "url": "https://mp.weixin.qq.com/s/8R43FZo_j-imbzyWFXLLmg",
+        "date": "2026-07-22"
       }
     ]
   },
@@ -1070,32 +885,67 @@
     ]
   },
   {
-    "name": "WAIC 2026 世界模型六小龙巅峰论坛",
+    "name": "2026高工钠电产业峰会",
     "start_date": "2026-07-19",
-    "end_date": "2026-07-19",
-    "location": "上海",
-    "organizer": "大晓机器人",
-    "category": "AI与智能科技",
+    "end_date": null,
+    "location": "南通",
+    "organizer": "高工锂电",
+    "category": "零碳产业",
     "sources": [
       {
-        "title": "WAIC世界模型「六小龙」同台，这个赛道杀出一家全栈玩家",
-        "url": "https://mp.weixin.qq.com/s/aSd-F7nPG26N74nmRlMsbw",
-        "date": "2026-07-20"
+        "title": "一场钠电+储能风暴，1000+企业齐聚南通（附议程&参会名单）",
+        "url": "https://mp.weixin.qq.com/s/Q0CHl4lIbpMvqzfFIOymqw",
+        "date": "2026-07-19"
+      },
+      {
+        "title": "飞哥钠电峰会演讲10大剧透",
+        "url": "https://mp.weixin.qq.com/s/91dbPmBGcj6gl6kVQbRfJg",
+        "date": "2026-07-17"
       }
     ]
   },
   {
-    "name": "第15届国际热核聚变实验堆(ITER)国际学校",
+    "name": "第15届国际热核聚变实验堆（ITER）国际学校",
     "start_date": "2026-07-20",
     "end_date": "2026-07-24",
     "location": "四川省乐山市",
-    "organizer": "ITER国际组织和国际原子能机构(IAEA)",
+    "organizer": "ITER国际组织和国际原子能机构（IAEA）",
     "category": "零碳产业",
     "sources": [
       {
-        "title": "第15届ITER国际学校在四川乐山开幕",
-        "url": "https://www.cinie.net/article/56328.html",
-        "date": "2026-07-21"
+        "title": "五洲学者聚发源地 四海英才探聚变能——第15届ITER国际学校在四川乐山开幕",
+        "url": "https://mp.weixin.qq.com/s/F9IAKE0mD40ZXS4e7pPR5Q",
+        "date": "2026-07-22"
+      }
+    ]
+  },
+  {
+    "name": "2026第二届绿电铝论坛",
+    "start_date": "2026-07-21",
+    "end_date": "2026-07-22",
+    "location": "内蒙古霍林郭勒市",
+    "organizer": "中国有色金属工业协会绿色产品评价中心、霍林郭勒市高新铝基新材料产业协会",
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "传递低碳价值  促进全球应用  2026第二届绿电铝论坛在霍林郭勒召开",
+        "url": "https://mp.weixin.qq.com/s/nKUEdfpJeYBJk7_ssYbpvQ",
+        "date": "2026-07-22"
+      }
+    ]
+  },
+  {
+    "name": "青海省投党委管理提升赋能铝产业提产达产工作交流会议",
+    "start_date": "2026-07-21",
+    "end_date": null,
+    "location": null,
+    "organizer": "青海省投党委",
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "青海省投党委召开管理提升赋能铝产业提产达产工作交流会议",
+        "url": "https://mp.weixin.qq.com/s/Z9vVwHdTMicLE7I-5Ls7uA",
+        "date": "2026-07-22"
       }
     ]
   },
@@ -1115,22 +965,22 @@
     ]
   },
   {
-    "name": "2026高工钠电产业峰会",
+    "name": "中国工程热物理学会第十一届热力学与能源利用青年学术论坛",
     "start_date": "2026-07-22",
-    "end_date": null,
-    "location": "南通",
-    "organizer": "高工咨询",
-    "category": "零碳产业",
+    "end_date": "2026-07-24",
+    "location": "甘肃省兰州市宁卧庄宾馆",
+    "organizer": "中国工程热物理学会",
+    "category": "通用技术",
     "sources": [
       {
-        "title": "飞哥钠电峰会演讲10大剧透",
-        "url": "https://mp.weixin.qq.com/s/91dbPmBGcj6gl6kVQbRfJg",
-        "date": "2026-07-17"
+        "title": "会议通知 | 2026年中国工程热物理学会第十一届热力学与能源利用青年学术论坛会议通知（第三轮）",
+        "url": "https://mp.weixin.qq.com/s/LVIkBG8xFIYPBalsGUvXTA",
+        "date": "2026-07-16"
       }
     ]
   },
   {
-    "name": "2026 IEEE GRSS微波与光学遥感建模暑期学校十周年",
+    "name": "2026 IEEE地球科学与遥感学会微波与光学遥感建模暑期学校",
     "start_date": "2026-07-23",
     "end_date": "2026-07-25",
     "location": null,
@@ -1145,10 +995,10 @@
     ]
   },
   {
-    "name": "智能超级周期下打造 Agentic AI 业务—Gartner在线研讨会",
+    "name": "智能超级周期下打造Agentic AI业务—Gartner在线研讨会",
     "start_date": "2026-07-23",
     "end_date": null,
-    "location": "线上",
+    "location": null,
     "organizer": "Gartner",
     "category": "AI与智能科技",
     "sources": [
@@ -1169,14 +1019,9 @@
     "start_date": "2026-07-23",
     "end_date": null,
     "location": null,
-    "organizer": "CSSD气候变化工作委员会",
+    "organizer": null,
     "category": "零碳产业",
     "sources": [
-      {
-        "title": "倒计时2天 | 第五届碳捕集利用与封存技术大会即将召开",
-        "url": "https://mp.weixin.qq.com/s/ZZQBdH_zBPJ7EdHD0xbtig",
-        "date": "2026-07-21"
-      },
       {
         "title": "倒计时1天 | 第五届碳捕集利用与封存技术大会即将召开",
         "url": "https://mp.weixin.qq.com/s/_PRUf7wOJuUPUu3jP6y0pw",
@@ -1185,13 +1030,23 @@
     ]
   },
   {
-    "name": "第三届电化学技术与先进储能材料创新发展研讨会",
+    "name": "第三届全国电化学技术与先进储能材料创新发展研讨会",
     "start_date": "2026-07-24",
     "end_date": "2026-07-27",
-    "location": "乌鲁木齐市",
-    "organizer": "第三届全国电化学技术与先进储能材料创新发展研讨会组委会, 中国新材料科技学术网, 中科材研（北京）新材料技术中心",
+    "location": "乌鲁木齐",
+    "organizer": "第三届全国电化学技术与先进储能材料创新发展研讨会组委会",
     "category": "零碳产业",
     "sources": [
+      {
+        "title": "7.24 乌鲁木齐｜第三届电化学技术与先进储能材料研讨会邀您参会",
+        "url": "https://mp.weixin.qq.com/s/IVcuXEPfXjq1uwX1K4e1FQ",
+        "date": "2026-06-16"
+      },
+      {
+        "title": "第三届电化学技术与先进储能材料研讨会｜7.24 乌鲁木齐",
+        "url": "https://mp.weixin.qq.com/s/bllbs6RnXzelHlf3HLxjSg",
+        "date": "2026-06-22"
+      },
       {
         "title": "日程公布｜第三届电化学技术与先进储能材料研讨会邀您参会｜7.24日相聚乌齐",
         "url": "https://mp.weixin.qq.com/s/7_gVwwEp0GWRxuzyh83pqA",
@@ -1204,7 +1059,7 @@
     "start_date": "2026-07-25",
     "end_date": null,
     "location": null,
-    "organizer": "《储能与节能（英文）》联合微信公众平台“热辐射与微纳光子学”",
+    "organizer": "《储能与节能（英文）》（Energy Storage and Saving）期刊联合微信公众平台“热辐射与微纳光子学”",
     "category": "零碳产业",
     "sources": [
       {
@@ -1235,11 +1090,66 @@
     ]
   },
   {
+    "name": "第十六届热泵行业年会（2026）",
+    "start_date": "2026-07-29",
+    "end_date": "2026-07-31",
+    "location": "湖北武汉",
+    "organizer": "中国节能协会热泵专业委员会",
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "议程发布 | 第十六届热泵行业年会（2026）",
+        "url": "https://mp.weixin.qq.com/s/XVVt7BptPfauZt2kHU6pWw",
+        "date": "2026-07-21"
+      },
+      {
+        "title": "参会指南|第十六届热泵行业年会（2026）",
+        "url": "https://mp.weixin.qq.com/s/nSzTp-32wKuF3zDhtQYZoA",
+        "date": "2026-07-24"
+      },
+      {
+        "title": "北京市勘察设计研究院有限公司能源院总工刘启明确认出席第十六届热泵行业年会（2026）",
+        "url": "https://mp.weixin.qq.com/s/koaFe2xfYri5QS2cqKozgw",
+        "date": "2026-07-27"
+      },
+      {
+        "title": "中信建筑设计研究总院有限公司顾问总工程师、地热产业工作委员会主任陈焰华确认出席第十六届热泵行业年会（2026）",
+        "url": "https://mp.weixin.qq.com/s/ZcwakXx6bz7n2T6IzqVQ2g",
+        "date": "2026-07-27"
+      },
+      {
+        "title": "中建西北院机电五所总工程师陕西省勘察设计大师周敏确认出席第十六届热泵行业年会（2026）",
+        "url": "https://mp.weixin.qq.com/s/eS9K9M9Rw8W1nRlVAp7ULw",
+        "date": "2026-07-27"
+      },
+      {
+        "title": "上海交通大学特聘教授代彦军确认出席第十六届热泵行业年会（2026）",
+        "url": "https://mp.weixin.qq.com/s/4ArXaZFvtjyjNQ5_KZGO7w",
+        "date": "2026-07-27"
+      },
+      {
+        "title": "国家建筑绿色低碳技术创新中心总工程师胥小龙确认出席第十六届热泵行业年会（2026）",
+        "url": "https://mp.weixin.qq.com/s/hbRan7s_qxYgEdeZwaAgfg",
+        "date": "2026-07-27"
+      },
+      {
+        "title": "倒计时3天|第十六届热泵行业年会（2026）",
+        "url": "https://mp.weixin.qq.com/s/SAJXU1VpHrA482E6_SiPpw",
+        "date": "2026-07-27"
+      },
+      {
+        "title": "倒计时2天|第十六届热泵行业年会（2026）",
+        "url": "https://mp.weixin.qq.com/s/F48BaGAPpUbPkFO9kH_OMQ",
+        "date": "2026-07-28"
+      }
+    ]
+  },
+  {
     "name": "EISAP软件线上Workshop",
     "start_date": "2026-07-29",
     "end_date": null,
     "location": "线上",
-    "organizer": "瑞士洛桑联邦理工大学",
+    "organizer": "瑞士洛桑联邦理工学院",
     "category": "通用技术",
     "sources": [
       {
@@ -1252,7 +1162,7 @@
   {
     "name": "DeeCamp2026量子科技大师课——《AI与量子的双向赋能：从基础研究到产业落地》",
     "start_date": "2026-07-29",
-    "end_date": null,
+    "end_date": "2026-07-29",
     "location": "上海世界贸易大厦7楼 黄浦区广东路500号",
     "organizer": "创新工场，上海未来启点社区，上海未来产业基金，《浦江科技评论》·最创社区",
     "category": "AI与智能科技",
@@ -1268,9 +1178,9 @@
     "name": "第五届综合能源服务实训与对接大会",
     "start_date": "2026-07-30",
     "end_date": "2026-07-31",
-    "location": "武汉",
-    "organizer": null,
-    "category": "通用技术",
+    "location": "湖北武汉",
+    "organizer": "ESPlaza长时储能网",
+    "category": "零碳产业",
     "sources": [
       {
         "title": "7月30-31日，抢抓消费侧能源新业态的巨大市场机会",
@@ -1292,7 +1202,7 @@
   {
     "name": "2026第二届核电关键信息技术之国产算力应用研讨会",
     "start_date": "2026-07-30",
-    "end_date": "2026-07-30",
+    "end_date": null,
     "location": "广东深圳",
     "organizer": "中国信息协会能源工作委员会",
     "category": "AI与智能科技",
@@ -1301,51 +1211,6 @@
         "title": "2026第二届核电关键信息技术之国产算力应用研讨会将于7月30日在深圳召开",
         "url": "https://mp.weixin.qq.com/s/DTczIn32F5tVe2Hyoagjug",
         "date": "2026-07-17"
-      }
-    ]
-  },
-  {
-    "name": "第十六届热泵行业年会",
-    "start_date": "2026-07-30",
-    "end_date": null,
-    "location": null,
-    "organizer": null,
-    "category": "零碳产业",
-    "sources": [
-      {
-        "title": "惠生工程(中国)有限公司专业级副总工、教授级高工宫万福确认出席第十六届热泵行业年会（2026）",
-        "url": "https://mp.weixin.qq.com/s/6-lSSaH4QUEEg1nnBxBUOA",
-        "date": "2026-07-22"
-      },
-      {
-        "title": "中国建筑科学研究院有限公司建筑环境与能源研究院热泵与蓄能中心总工杨灵艳确认出席第十六届热泵行业年会（2026）",
-        "url": "https://mp.weixin.qq.com/s/d0ZrnNbjR1Tjt0CKps54VA",
-        "date": "2026-07-22"
-      },
-      {
-        "title": "全国工程勘察设计大师、中国勘察设计协会建筑环境与能源应用分会名誉会长罗继杰确认出席第十六届热泵行业年会（2026）",
-        "url": "https://mp.weixin.qq.com/s/kCoarE1Y-oYBuohwPz-TuQ",
-        "date": "2026-07-22"
-      },
-      {
-        "title": "倒计时8天|第十六届热泵行业年会（2026）",
-        "url": "https://mp.weixin.qq.com/s/qooofVkzdWsu0ElUWomEmQ",
-        "date": "2026-07-22"
-      },
-      {
-        "title": "上海市建筑科学研究院有限公司专业副总工范宏武确认出席第十六届热泵行业年会（2026）",
-        "url": "https://mp.weixin.qq.com/s/ng2XRea-Ror0UVJYs_hy0g",
-        "date": "2026-07-23"
-      },
-      {
-        "title": "中国建筑科学研究院环境测控技术研究中心主任徐昭炜确认出席第十六届热泵行业年会（2026）",
-        "url": "https://mp.weixin.qq.com/s/yJwhPcet9FibTa5YP5VdGQ",
-        "date": "2026-07-23"
-      },
-      {
-        "title": "倒计时7天|第十六届热泵行业年会（2026）",
-        "url": "https://mp.weixin.qq.com/s/ZlanRhqPlIakk6kJOdyLsw",
-        "date": "2026-07-23"
       }
     ]
   },
@@ -1365,122 +1230,42 @@
     ]
   },
   {
-    "name": "第十一届全国储能科学与技术大会暨2026年碳未来论坛",
-    "start_date": "2026-08-05",
-    "end_date": "2026-08-08",
-    "location": "鄂尔多斯",
-    "organizer": "中国化工学会、中国颗粒学会、清华大学、中科院过程工程研究所、鄂尔多斯实验室、《储能科学与技术》编辑部、Carbon Future编辑部",
-    "category": "零碳产业",
-    "sources": [
-      {
-        "title": "6月15日更新报告专家！第十一届全国储能科学与技术大会暨2026年碳未来论坛将于2026年8月5–8日在鄂尔多斯召开",
-        "url": "https://mp.weixin.qq.com/s/15CiqMia7vwVYtBJhDu19w",
-        "date": "2026-06-15"
-      },
-      {
-        "title": "6月23日更新报告专家！第十一届全国储能科学与技术大会暨2026年碳未来论坛将于2026年8月5–8日在鄂尔多斯召开",
-        "url": "https://mp.weixin.qq.com/s/ZGKwqsW-wgdo05oantV-vA",
-        "date": "2026-06-23"
-      },
-      {
-        "title": "6月30日更新报告专家！第十一届全国储能科学与技术大会暨2026年碳未来论坛将于2026年8月5–8日在鄂尔多斯召开",
-        "url": "https://mp.weixin.qq.com/s/P7cpn876-xpGTWodC1PL0g",
-        "date": "2026-06-30"
-      }
-    ]
-  },
-  {
-    "name": "第二届全国原位表征大会",
-    "start_date": "2026-08-05",
-    "end_date": "2026-08-07",
-    "location": "武汉",
-    "organizer": "纳米人科研服务平台",
+    "name": "气候变化国家评估报告研讨会暨21世纪中心气候沙龙第18期",
+    "start_date": "2026-07-31",
+    "end_date": null,
+    "location": "重庆市",
+    "organizer": "中国21世纪议程管理中心",
     "category": "通用技术",
     "sources": [
       {
-        "title": "600人！原位表征，技术盛宴！",
-        "url": "https://mp.weixin.qq.com/s/PaemiMQtAr1svCbUpVv0KA",
-        "date": "2026-06-29"
-      },
-      {
-        "title": "电化学，如何做好原位表征？",
-        "url": "https://mp.weixin.qq.com/s/XG30a_hhJzW5pl4tYHTlaQ",
-        "date": "2026-07-23"
-      },
-      {
-        "title": "500人大会！展商邀请！",
-        "url": "https://mp.weixin.qq.com/s/3keXzf47fej3b04x7z5keA",
-        "date": "2026-07-24"
-      },
-      {
-        "title": "奖金1万元！原位表征技术创新大赛，开放报名开！",
-        "url": "https://mp.weixin.qq.com/s/-uXGZ9NeH_F1f4MG40yr2g",
-        "date": "2026-07-03"
+        "title": "气候沙龙 | 第18期 气候治理的系统转型：数智模型赋能与绿色创新驱动 （重庆，7月31日）",
+        "url": "https://mp.weixin.qq.com/s/pMDq7XFBDPXH-pYErcIpeg",
+        "date": "2026-07-27"
       }
     ]
   },
   {
-    "name": "2026高工新能源新材料产业大会",
-    "start_date": "2026-08-05",
-    "end_date": "2026-08-07",
-    "location": "四川邛崃中国酒业梦工场",
-    "organizer": "高工锂电、高工产业研究院（GGII）",
+    "name": "“聚焦地热”系列网络研讨会之匈牙利地热开发机遇",
+    "start_date": "2026-07-31",
+    "end_date": "2026-07-31",
+    "location": "线上",
+    "organizer": "Enerchange、ThinkGeoEnergy",
     "category": "零碳产业",
     "sources": [
       {
-        "title": "建议收藏！2026高工新能源新材料产业大会参会攻略",
-        "url": "https://mp.weixin.qq.com/s/5S9cwieKleyF8s_Otcng8g",
-        "date": "2026-07-27"
-      },
-      {
-        "title": "2026新能源新材料大会 | 恩捷股份将发表主题演讲",
-        "url": "https://mp.weixin.qq.com/s/G70RF_UdI4accxApgaDWug",
-        "date": "2026-07-27"
-      },
-      {
-        "title": "2026新能源新材料大会 | 莒纳科技创始人、董事长王现英将发表主题演讲",
-        "url": "https://mp.weixin.qq.com/s/W5wTAlOWQI6PDwJRivfoqg",
-        "date": "2026-07-28"
-      },
-      {
-        "title": "2026高工新能源新材料产业大会议程更新",
-        "url": "https://mp.weixin.qq.com/s/wSA1GpHgpAokqAvfl_0KzQ",
-        "date": "2026-07-28"
-      },
-      {
-        "title": "与飞哥同游｜10余位新能源新材料领袖相约天台山",
-        "url": "https://mp.weixin.qq.com/s/7KFBGEuywfiR4EE0J3g6zA",
-        "date": "2026-07-28"
-      },
-      {
-        "title": "2026新能源新材料大会 | 宇能锂工研究院副院长于亚楠将发表主题演讲",
-        "url": "https://mp.weixin.qq.com/s/nZvbGrdxzdhXrb-aKcI6ow",
-        "date": "2026-07-28"
-      }
-    ]
-  },
-  {
-    "name": "2026中国固态电池技术大会暨中国硅碳负极高峰论坛",
-    "start_date": "2026-08-05",
-    "end_date": "2026-08-07",
-    "location": "江苏常州富都洲际酒店",
-    "organizer": "锂电前沿",
-    "category": "零碳产业",
-    "sources": [
-      {
-        "title": "固态电池大消息来的太及时了",
-        "url": "http://mp.weixin.qq.com/s?__biz=MzkzODYxNTc2OA==&mid=2247511260&idx=1&sn=d4173c072bbc894d3eb3e5db81c762ce",
+        "title": "直播预报！匈牙利地热资源潜力、项目开发现状以及未来发展方向",
+        "url": "https://mp.weixin.qq.com/s/Yc59KwIDN68KZGNuHP4Ikg",
         "date": "2026-07-28"
       }
     ]
   },
   {
     "name": "2026年国际太空光伏与钙钛矿论坛暨柔性太阳翼与商业航天论坛",
-    "start_date": "2026-08-06",
+    "start_date": "2026-08-01",
     "end_date": "2026-08-07",
     "location": "江苏无锡",
     "organizer": null,
-    "category": "通用技术",
+    "category": "零碳产业",
     "sources": [
       {
         "title": "报告征集中！2026年国际太空光伏与钙钛矿论坛暨柔性太阳翼与商业航天论坛将于8月6-7日在江苏无锡召开！",
@@ -1533,6 +1318,11 @@
         "date": "2026-06-30"
       },
       {
+        "title": "七一建党节 ｜ 红心永向党 奋进新征程",
+        "url": "https://mp.weixin.qq.com/s/Y8XmBRzZdNfXkx2ydxBX-g",
+        "date": "2026-07-01"
+      },
+      {
         "title": "小暑 ｜ 暑气渐盛 万物繁茂",
         "url": "https://mp.weixin.qq.com/s/DD3O0vQnUlvGBSKl5Uxu3A",
         "date": "2026-07-07"
@@ -1555,11 +1345,6 @@
       {
         "title": "参会报名优惠倒计时！蓝箭、肖特、沃格、德融、福斯特、极电、纤纳、上翼、安普态、西湖、哈工大等8月6-7日相聚无锡太空光伏论坛！",
         "url": "https://mp.weixin.qq.com/s/FTVtY1Etj2BYF3iC5-NmLw",
-        "date": "2026-07-09"
-      },
-      {
-        "title": "98万元！南华大学钙钛矿测试系统采购招标",
-        "url": "https://mp.weixin.qq.com/s/irrRkwJyEGDhx2zH4XXNjg",
         "date": "2026-07-09"
       },
       {
@@ -1668,6 +1453,11 @@
         "date": "2026-07-20"
       },
       {
+        "title": "8.6 柔性太阳翼+太空光伏+钙钛矿论坛",
+        "url": "https://mp.weixin.qq.com/s/8gxHjZzFl10m9bOfAcATgw",
+        "date": "2026-07-21"
+      },
+      {
         "title": "光伏装备单位｜金辰股份团队将出席2026年国际太空光伏与钙钛矿论坛暨柔性太阳翼与商业航天论坛",
         "url": "https://mp.weixin.qq.com/s/nGlt6miQKeYCccz0ndWdXw",
         "date": "2026-07-21"
@@ -1723,11 +1513,6 @@
         "date": "2026-07-22"
       },
       {
-        "title": "8.6柔性太阳翼+太空光伏+钙钛矿论坛",
-        "url": "https://mp.weixin.qq.com/s/TtqZQA_pW8NRu8oEthZMPg",
-        "date": "2026-07-22"
-      },
-      {
         "title": "材料单位｜福纳新材料团队将出席2026年国际太空光伏与钙钛矿论坛暨柔性太阳翼与商业航天论坛",
         "url": "https://mp.weixin.qq.com/s/2vb9IkNcTAUXb_TbyL5k0Q",
         "date": "2026-07-23"
@@ -1745,11 +1530,6 @@
       {
         "title": "【演讲预告】福斯特研究院副院长 林维红博士 :新型封装材料用于钙钛矿电池及太阳翼可靠性研究",
         "url": "https://mp.weixin.qq.com/s/nshkd7qyxMMwi8kCvDiWgQ",
-        "date": "2026-07-23"
-      },
-      {
-        "title": "重磅利好！发改委能源局发文：加速钙钛矿叠层电池产业化与太空光伏关键技术验证！",
-        "url": "https://mp.weixin.qq.com/s/xkvUJ0gKTkAY0XCFkf-TQQ",
         "date": "2026-07-23"
       },
       {
@@ -1788,6 +1568,11 @@
         "date": "2026-07-27"
       },
       {
+        "title": "光伏装备单位｜迈为股份团队将出席2026年国际太空光伏与钙钛矿论坛暨柔性太阳翼与商业航天论坛",
+        "url": "https://mp.weixin.qq.com/s/R0ukW7u_HWkP-LfOOVWTAw",
+        "date": "2026-07-27"
+      },
+      {
         "title": "【演讲预告】创锐光谱总经理陈俞忠博士：《钙钛矿光伏材料与器件表征技术》",
         "url": "https://mp.weixin.qq.com/s/J99M_wdi--cXwu75Dh6pYQ",
         "date": "2026-07-27"
@@ -1815,11 +1600,181 @@
     ]
   },
   {
-    "name": "\"科创天府·智汇蓉城\"2026聚变产业供应链协同发展论坛",
+    "name": "2026世界机器人大会",
+    "start_date": "2026-08-01",
+    "end_date": "2026-08-23",
+    "location": "北京经济技术开发区北人亦创国际会展中心",
+    "organizer": null,
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "WRC 2026开幕在即，四大展馆看什么？ - NE时代",
+        "url": "https://www.ne-time.cn/web/article/39440",
+        "date": "2026-08-17"
+      },
+      {
+        "title": "腱绳还是直驱？两款灵巧手新品给出不同答案｜WRC前瞻 - NE时代",
+        "url": "https://www.ne-time.cn/web/article/39459",
+        "date": "2026-08-18"
+      },
+      {
+        "title": "中国公司将部署 1,000 台机器人来完成要求较高的现实工作",
+        "url": "https://interestingengineering.com/ai-robotics/chinese-firm-to-deploy-1000-robots",
+        "date": "2026-08-20"
+      },
+      {
+        "title": "上半年机器人产业规上企业营收达1655亿元 我国将打造一批智能机器人标志性产品",
+        "url": "https://www.news.cn/tech/20260820/36a420de7f134c359bde1f2f9c94ee9d/c.html",
+        "date": "2026-08-20"
+      },
+      {
+        "title": "中国机器人在2026年WRC上进入航空和战场角色",
+        "url": "https://interestingengineering.com/ai-robotics/wrc-2026-chinese-robots-beijing",
+        "date": "2026-08-21"
+      }
+    ]
+  },
+  {
+    "name": "白宫人工智能监管框架审查会议",
+    "start_date": "2026-08-04",
+    "end_date": null,
+    "location": "美国白宫",
+    "organizer": "美国国家网络总监办公室",
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "白宫将于周二接待人工智能公司审查人工智能框架",
+        "url": "https://www.theinformation.com/articles/white-house-host-ai-companies-tuesday-review-ai-framework",
+        "date": "2026-08-03"
+      }
+    ]
+  },
+  {
+    "name": "第十一届全国储能科学与技术大会暨2026年碳未来论坛",
+    "start_date": "2026-08-05",
+    "end_date": "2026-08-08",
+    "location": "鄂尔多斯",
+    "organizer": "中国化工学会、中国颗粒学会、清华大学、中科院过程工程研究所、鄂尔多斯实验室、《储能科学与技术》编辑部、Carbon Future编辑部",
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "6月15日更新报告专家！第十一届全国储能科学与技术大会暨2026年碳未来论坛将于2026年8月5–8日在鄂尔多斯召开",
+        "url": "https://mp.weixin.qq.com/s/15CiqMia7vwVYtBJhDu19w",
+        "date": "2026-06-15"
+      },
+      {
+        "title": "6月23日更新报告专家！第十一届全国储能科学与技术大会暨2026年碳未来论坛将于2026年8月5–8日在鄂尔多斯召开",
+        "url": "https://mp.weixin.qq.com/s/ZGKwqsW-wgdo05oantV-vA",
+        "date": "2026-06-23"
+      },
+      {
+        "title": "6月30日更新报告专家！第十一届全国储能科学与技术大会暨2026年碳未来论坛将于2026年8月5–8日在鄂尔多斯召开",
+        "url": "https://mp.weixin.qq.com/s/P7cpn876-xpGTWodC1PL0g",
+        "date": "2026-06-30"
+      },
+      {
+        "title": "7月3日更新报告专家！第十一届全国储能科学与技术大会暨2026年碳未来论坛将于2026年8月5–8日在鄂尔多斯召开",
+        "url": "https://mp.weixin.qq.com/s/2ulFHr_hn1fHg9DZpD3QLA",
+        "date": "2026-07-03"
+      },
+      {
+        "title": "日程发布（暂定）！第十一届全国储能科学与技术大会暨2026年碳未来论坛将于2026年8月5–8日在鄂尔多斯召开",
+        "url": "https://mp.weixin.qq.com/s/AhZ01FS_YymYGxamBBvr-w",
+        "date": "2026-07-10"
+      }
+    ]
+  },
+  {
+    "name": "第二届全国原位表征大会",
+    "start_date": "2026-08-05",
+    "end_date": "2026-08-07",
+    "location": "武汉荷田大酒店",
+    "organizer": "纳米人科研服务平台",
+    "category": "通用技术",
+    "sources": [
+      {
+        "title": "600人！原位表征，技术盛宴！",
+        "url": "https://mp.weixin.qq.com/s/PaemiMQtAr1svCbUpVv0KA",
+        "date": "2026-06-29"
+      },
+      {
+        "title": "全国大会：演讲嘉宾，开放报名！",
+        "url": "https://mp.weixin.qq.com/s/x1o4ewUtWECUfA83keX5Jw",
+        "date": "2026-07-02"
+      },
+      {
+        "title": "电化学，如何做好原位表征？",
+        "url": "https://mp.weixin.qq.com/s/XG30a_hhJzW5pl4tYHTlaQ",
+        "date": "2026-07-23"
+      },
+      {
+        "title": "500人大会！展商邀请！",
+        "url": "https://mp.weixin.qq.com/s/3keXzf47fej3b04x7z5keA",
+        "date": "2026-07-24"
+      }
+    ]
+  },
+  {
+    "name": "2026高工新能源新材料产业大会",
+    "start_date": "2026-08-05",
+    "end_date": "2026-08-07",
+    "location": "四川成都邛崃中国酒业梦工场",
+    "organizer": "高工锂电、高工产业研究院（GGII）",
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "建议收藏！2026高工新能源新材料产业大会参会攻略",
+        "url": "https://mp.weixin.qq.com/s/5S9cwieKleyF8s_Otcng8g",
+        "date": "2026-07-27"
+      },
+      {
+        "title": "2026新能源新材料大会 | 恩捷股份将发表主题演讲",
+        "url": "https://mp.weixin.qq.com/s/G70RF_UdI4accxApgaDWug",
+        "date": "2026-07-27"
+      },
+      {
+        "title": "2026新能源新材料大会 | 莒纳科技创始人、董事长王现英将发表主题演讲",
+        "url": "https://mp.weixin.qq.com/s/W5wTAlOWQI6PDwJRivfoqg",
+        "date": "2026-07-28"
+      },
+      {
+        "title": "2026高工新能源新材料产业大会议程更新",
+        "url": "https://mp.weixin.qq.com/s/wSA1GpHgpAokqAvfl_0KzQ",
+        "date": "2026-07-28"
+      },
+      {
+        "title": "与飞哥同游｜10余位新能源新材料领袖相约天台山",
+        "url": "https://mp.weixin.qq.com/s/7KFBGEuywfiR4EE0J3g6zA",
+        "date": "2026-07-28"
+      },
+      {
+        "title": "2026新能源新材料大会 | 宇能锂工研究院副院长于亚楠将发表主题演讲",
+        "url": "https://mp.weixin.qq.com/s/nZvbGrdxzdhXrb-aKcI6ow",
+        "date": "2026-07-28"
+      }
+    ]
+  },
+  {
+    "name": "2026中国固态电池技术大会暨中国硅碳负极高峰论坛",
+    "start_date": "2026-08-05",
+    "end_date": "2026-08-07",
+    "location": "江苏常州富都洲际酒店",
+    "organizer": "锂电前沿",
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "固态电池大消息来的太及时了",
+        "url": "http://mp.weixin.qq.com/s?__biz=MzkzODYxNTc2OA==&mid=2247511260&idx=1&sn=d4173c072bbc894d3eb3e5db81c762ce",
+        "date": "2026-07-28"
+      }
+    ]
+  },
+  {
+    "name": "“科创天府·智汇蓉城”2026年聚变科创城产业生态交流活动暨聚变产业供应链协同发展论坛",
     "start_date": "2026-08-06",
-    "end_date": "2026-08-06",
+    "end_date": null,
     "location": "四川天府新区",
-    "organizer": "成都市科学技术局、四川天府新区科学技",
+    "organizer": null,
     "category": "零碳产业",
     "sources": [
       {
@@ -1830,10 +1785,25 @@
     ]
   },
   {
+    "name": "柔性太阳翼+太空光伏+钙钛矿论坛",
+    "start_date": "2026-08-06",
+    "end_date": null,
+    "location": null,
+    "organizer": null,
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "8.6柔性太阳翼+太空光伏+钙钛矿论坛",
+        "url": "https://mp.weixin.qq.com/s/TtqZQA_pW8NRu8oEthZMPg",
+        "date": "2026-07-22"
+      }
+    ]
+  },
+  {
     "name": "矿产资源勘查技术研修班",
     "start_date": "2026-08-07",
     "end_date": "2026-08-09",
-    "location": "山西太原",
+    "location": "山西省太原市",
     "organizer": null,
     "category": "零碳产业",
     "sources": [
@@ -1845,17 +1815,92 @@
     ]
   },
   {
-    "name": "美国核管理委员会(NRC)先进反应堆许可审查公开听证会",
+    "name": "2026国际基础科学大会",
+    "start_date": "2026-08-09",
+    "end_date": "2026-08-23",
+    "location": "北京怀柔科学城",
+    "organizer": null,
+    "category": "通用技术",
+    "sources": [
+      {
+        "title": "科学网-2026国际基础科学大会即将在北京怀柔启幕",
+        "url": "http://news.sciencenet.cn/htmlnews/2026/8/569514.shtm",
+        "date": "2026-08-07"
+      }
+    ]
+  },
+  {
+    "name": "北汽集团第4000万名用户新车交付仪式",
+    "start_date": "2026-08-10",
+    "end_date": null,
+    "location": "北京汽车产业研发基地",
+    "organizer": "北汽集团",
+    "category": "通用技术",
+    "sources": [
+      {
+        "title": "北汽集团官宣 8 月 10 日迎第 4000 万名用户新车交付",
+        "url": "https://www.ithome.com/0/987/430.htm",
+        "date": "2026-08-08"
+      }
+    ]
+  },
+  {
+    "name": "美国核管理委员会先进反应堆许可审查现代化听证会",
     "start_date": "2026-08-13",
     "end_date": null,
     "location": "田纳西州橡树岭波拉德中心",
-    "organizer": "美国核管理委员会",
+    "organizer": "美国核管理委员会（NRC）",
     "category": "零碳产业",
     "sources": [
       {
         "title": "美国核管会将首次在先进反应堆许可审查中采用现代化听证程序",
         "url": "https://www.cinie.net/article/59127.html",
         "date": "2026-08-07"
+      }
+    ]
+  },
+  {
+    "name": "2026年全国电催化与电合成创新发展交流会",
+    "start_date": "2026-08-13",
+    "end_date": "2026-08-16",
+    "location": "云南省大理市",
+    "organizer": null,
+    "category": "通用技术",
+    "sources": [
+      {
+        "title": "电催化与电合成领域的最新研究成果 8月13日-16日在大理市举办",
+        "url": "https://mp.weixin.qq.com/s/klOocmcb8VAF6N0YO-L2dQ",
+        "date": "2026-07-06"
+      }
+    ]
+  },
+  {
+    "name": "第九届中国数字电源关键元器件应用创新峰会（华东站）",
+    "start_date": "2026-08-13",
+    "end_date": null,
+    "location": "江苏苏州",
+    "organizer": "Big-Bit商务网",
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "苏州数字电源峰会倒计时三天！-索比光伏网",
+        "url": "https://news.solarbe.com/202608/11/50027414.html",
+        "date": "2026-08-11"
+      }
+    ]
+  },
+  {
+    "name": "2026年第九届模式识别与人工智能国际会议",
+    "start_date": "2026-08-14",
+    "end_date": "2026-08-16",
+    "location": "中国上海",
+    "organizer": "上海交通大学",
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "征稿收官 | 上海交大主办・2026年第九届模式识别与人工智能国际会议 (PRAI 2026)",
+        "url": "https://mp.weixin.qq.com/s/M_uI-gBddnVWTjHdVNd84Q",
+        "date": "2026-06-17"
       }
     ]
   },
@@ -1875,11 +1920,66 @@
     ]
   },
   {
+    "name": "2026 WRC世界机器人大会",
+    "start_date": "2026-08-19",
+    "end_date": "2026-08-23",
+    "location": "北京",
+    "organizer": null,
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "亮相WRC 2026，珞石机器人展示具身智能全栈技术布局 - NE时代",
+        "url": "https://www.ne-time.cn/web/article/39487",
+        "date": "2026-08-19"
+      },
+      {
+        "title": "小米新一代人形机器人与观众实时互动视频发布：由大模型驱动，自主理解、判断并完成动作",
+        "url": "https://www.ithome.com/0/991/848.htm",
+        "date": "2026-08-19"
+      },
+      {
+        "title": "科学网-人形机器人瞄准百万台产量，关键核心零部件升级迫在眉睫",
+        "url": "http://news.sciencenet.cn/htmlnews/2026/8/570122.shtm",
+        "date": "2026-08-20"
+      }
+    ]
+  },
+  {
+    "name": "高温超导强场磁体夏季技术研讨会",
+    "start_date": "2026-08-19",
+    "end_date": null,
+    "location": "上海",
+    "organizer": "中国聚变能源有限公司",
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "高温超导强场磁体夏季技术研讨会在上海成功召开",
+        "url": "https://www.cinie.net/article/61516.html",
+        "date": "2026-08-20"
+      }
+    ]
+  },
+  {
+    "name": "2027空天院校招提前批暨交流日活动",
+    "start_date": "2026-08-20",
+    "end_date": null,
+    "location": "空天信息创新研究院新技术园区A座",
+    "organizer": "中国科学院空天信息创新研究院",
+    "category": "通用技术",
+    "sources": [
+      {
+        "title": "2027空天院校招提前批暨交流日活动即将开启",
+        "url": "https://mp.weixin.qq.com/s/EWWcco0ufDklFRKstoJLhw",
+        "date": "2026-07-24"
+      }
+    ]
+  },
+  {
     "name": "2026科学智能大会",
     "start_date": "2026-08-21",
     "end_date": "2026-08-22",
     "location": "北京",
-    "organizer": "科学智能（AI4S）专家委员会",
+    "organizer": null,
     "category": "AI与智能科技",
     "sources": [
       {
@@ -1890,7 +1990,77 @@
     ]
   },
   {
-    "name": "2026核聚变能大会暨核聚变活动周（NFEC 2026）",
+    "name": "中国信息经济学会数智治理与交叉信息科学专业委员会2026学术年会",
+    "start_date": "2026-08-21",
+    "end_date": "2026-08-23",
+    "location": "南京大学苏州校区（苏州虎丘区太湖大道1520号）",
+    "organizer": "中国信息经济学会数智治理与交叉信息科学专业委员会",
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "注册通知 | 数智治理与交叉信息科学2026学术年会（含会议酒店、支持期刊等）",
+        "url": "https://mp.weixin.qq.com/s/DPWMB9f7kboJ2Opwjlicqw",
+        "date": "2026-07-28"
+      }
+    ]
+  },
+  {
+    "name": "核能安全连续讨论会·安全监管领域",
+    "start_date": "2026-08-21",
+    "end_date": null,
+    "location": "国会议员会馆第8座谈会议室（韩国首尔）",
+    "organizer": "韩国环境运动联合、市民环境研究所",
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "韩国环保团体将办核安全讨论会，聚焦SMR监管独立性与制度空白",
+        "url": "https://www.cinie.net/article/59844.html",
+        "date": "2026-08-11"
+      }
+    ]
+  },
+  {
+    "name": "第二届世界人形机器人运动会",
+    "start_date": "2026-08-22",
+    "end_date": "2026-08-26",
+    "location": "北京",
+    "organizer": "北京市政府、中国中央广播电视总台",
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "2,056 个机器人将参加在北京举行的世界仿人机器人运动会",
+        "url": "https://interestingengineering.com/ai-robotics/beijing-2056-robot-world-humanoid-robot-games",
+        "date": "2026-08-14"
+      },
+      {
+        "title": "第二届世界人形机器人运动会参赛机器人数量较上届翻两番",
+        "url": "https://www.news.cn/tech/20260814/52c94790f5b14954bb18bbc31c972f00/c.html",
+        "date": "2026-08-14"
+      },
+      {
+        "title": "两场机器人盛会接踵而至：未来感背后是产业跃升",
+        "url": "https://www.news.cn/tech/20260819/7839c535c16d4d46b62f3dc1bca2202c/c.html",
+        "date": "2026-08-19"
+      }
+    ]
+  },
+  {
+    "name": "全国首届磁共振脑机接口大会",
+    "start_date": "2026-08-23",
+    "end_date": null,
+    "location": "天津",
+    "organizer": "天津大学、脑机交互与人机共融海河实验室、上海联影医疗科技股份有限公司",
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "科学网-全球首个磁共振脑机接口全栈式解决方案正式发布",
+        "url": "http://news.sciencenet.cn/htmlnews/2026/8/570238.shtm",
+        "date": "2026-08-23"
+      }
+    ]
+  },
+  {
+    "name": "2026核聚变能大会暨核聚变活动周",
     "start_date": "2026-08-25",
     "end_date": "2026-08-28",
     "location": "上海虹桥会议中心",
@@ -1907,10 +2077,10 @@
   {
     "name": "IEEE IAS上海分会技术研讨暨I&CPS标准工作交流会议",
     "start_date": "2026-08-25",
-    "end_date": "2026-08-25",
-    "location": "浙江大学西溪校区（杭州）",
-    "organizer": "IEEE IAS上海分会、IEEE IAS ICPS/SDC/RE",
-    "category": "通用技术",
+    "end_date": null,
+    "location": "杭州（浙江大学西溪校区）",
+    "organizer": "IEEE IAS上海分会、IEEE IAS ICPS/SDC/RE（承办：浙江大学、上海交通大学）",
+    "category": "零碳产业",
     "sources": [
       {
         "title": "IEEE IAS上海分会技术研讨暨I&CPS标准工作交流会议的通知",
@@ -1920,17 +2090,52 @@
     ]
   },
   {
+    "name": "第六届国际移动脑/体成像会议",
+    "start_date": "2026-08-25",
+    "end_date": "2026-08-28",
+    "location": "柏林",
+    "organizer": null,
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "邀请：8 月 25 日在柏林工业大学柏林移动脑/身体成像实验室 (BeMoBIL) 开放日",
+        "url": "https://nachrichten.idw-online.de/2026/08/18/einladung-tag-der-offenen-tuer-am-25-august-im-berlin-mobile-brain-body-imaging-lab-bemobil-der-tu-berlin",
+        "date": "2026-08-18"
+      }
+    ]
+  },
+  {
+    "name": "仰望U7驾驶者大会",
+    "start_date": "2026-08-25",
+    "end_date": null,
+    "location": null,
+    "organizer": "比亚迪仰望汽车",
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "比亚迪明天举办仰望 U7 驾驶者大会，将带来“史无前例的极限挑战”",
+        "url": "https://www.ithome.com/0/993/757.htm",
+        "date": "2026-08-24"
+      }
+    ]
+  },
+  {
     "name": "国际原子能机构“海事应用原子技术许可”（ATLAS）倡议部长级启动仪式",
     "start_date": "2026-08-26",
     "end_date": "2026-08-27",
     "location": "华盛顿特区",
-    "organizer": "美国",
+    "organizer": "美国（联合国际原子能机构）",
     "category": "零碳产业",
     "sources": [
       {
         "title": "美国将主办国际原子能机构ATLAS倡议部长级启动仪式",
         "url": "https://www.cinie.net/article/58873.html",
         "date": "2026-08-06"
+      },
+      {
+        "title": "IAEA总干事披露海上核能专项新倡议即将出台",
+        "url": "https://www.cinie.net/article/62710.html",
+        "date": "2026-08-26"
       }
     ]
   },
@@ -1940,7 +2145,7 @@
     "end_date": null,
     "location": "浙江宁波",
     "organizer": null,
-    "category": "零碳产业",
+    "category": "通用技术",
     "sources": [
       {
         "title": "【看青年造物】合成生物前沿科技及青年论坛SynBioYoung 2026，火热报名中！",
@@ -1950,7 +2155,7 @@
     ]
   },
   {
-    "name": "“AI智能体赋能材料研发与中试应用”高级研修班",
+    "name": "\"AI智能体赋能材料研发与中试应用\"高级研修班",
     "start_date": "2026-08-27",
     "end_date": "2026-08-30",
     "location": "上海",
@@ -1969,7 +2174,7 @@
     "start_date": "2026-08-28",
     "end_date": "2026-08-30",
     "location": "贵阳",
-    "organizer": "国家数据局、贵州省人民政府",
+    "organizer": "国家数据局",
     "category": "AI与智能科技",
     "sources": [
       {
@@ -1980,10 +2185,25 @@
     ]
   },
   {
+    "name": "2026生物质材料与能源国际会议",
+    "start_date": "2026-08-29",
+    "end_date": null,
+    "location": "长沙",
+    "organizer": null,
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "科学网-2026生物质材料与能源国际会议长沙开幕",
+        "url": "http://news.sciencenet.cn/htmlnews/2026/8/570593.shtm",
+        "date": "2026-08-30"
+      }
+    ]
+  },
+  {
     "name": "第八届高比能固态电池关键材料技术大会",
     "start_date": "2026-09-01",
     "end_date": "2026-09-11",
-    "location": "湖南·长沙",
+    "location": "湖南长沙",
     "organizer": "中国粉体网",
     "category": "零碳产业",
     "sources": [
@@ -2013,11 +2233,6 @@
         "date": "2026-07-28"
       },
       {
-        "title": "固态电池走到哪一步了？9月长沙，相聚第八届固态电池大会",
-        "url": "https://mp.weixin.qq.com/s/_ZobnJ77GAkdVNv1L3Ccbw",
-        "date": "2026-07-03"
-      },
-      {
         "title": "9月湖南长沙，共探固态电池技术新征程",
         "url": "https://mp.weixin.qq.com/s/46dB48V5MroKFTnVMN2Psg",
         "date": "2026-07-21"
@@ -2040,6 +2255,131 @@
     ]
   },
   {
+    "name": "2026年气象软科学年会暨“智启风云”学术交流会",
+    "start_date": "2026-09-01",
+    "end_date": null,
+    "location": "湖北省",
+    "organizer": "中国气象学会、中国气象局气象发展与规划院、中国气象局政策法规司、湖北省气象局",
+    "category": "通用技术",
+    "sources": [
+      {
+        "title": "会议筹备通知 | 2026年气象软科学年会暨“智启风云”学术交流会",
+        "url": "https://mp.weixin.qq.com/s/ILhI1maGj31jpr6tTraA9Q",
+        "date": "2026-07-16"
+      }
+    ]
+  },
+  {
+    "name": "Gastech 2026",
+    "start_date": "2026-09-01",
+    "end_date": null,
+    "location": "泰国曼谷",
+    "organizer": null,
+    "category": "通用技术",
+    "sources": [
+      {
+        "title": "从感知到自主，智启未来：中控技术携工业全栈方案亮相OGA 2026与Gastech 2026-索比光伏网",
+        "url": "https://news.solarbe.com/202608/11/50027423.html",
+        "date": "2026-08-11"
+      }
+    ]
+  },
+  {
+    "name": "第1届先进反应堆安全技术研讨会（SARST 2026）",
+    "start_date": "2026-09-01",
+    "end_date": "2026-09-02",
+    "location": "韩国釜山",
+    "organizer": "韩国原子能安全技术院（KINS）",
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "韩国原子能安全技术院将办首届先进反应堆安全技术研讨会",
+        "url": "https://www.cinie.net/article/60831.html",
+        "date": "2026-08-16"
+      }
+    ]
+  },
+  {
+    "name": "国际原子能机构大会",
+    "start_date": "2026-09-01",
+    "end_date": null,
+    "location": "维也纳",
+    "organizer": "国际原子能机构",
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "斯洛伐克争取国际原子能机构理事会席位",
+        "url": "https://www.cinie.net/article/62055.html",
+        "date": "2026-08-23"
+      }
+    ]
+  },
+  {
+    "name": "科学公开课：给古人类看牙是一种怎样的体验",
+    "start_date": "2026-09-01",
+    "end_date": null,
+    "location": "科学网微博直播间（线上）",
+    "organizer": "科学网",
+    "category": "通用技术",
+    "sources": [
+      {
+        "title": "科学网-科学公开课丨孙琦雅慧：给古人类看牙是一种怎样的体验",
+        "url": "http://news.sciencenet.cn/htmlnews/2026/8/570615.shtm",
+        "date": "2026-08-31"
+      }
+    ]
+  },
+  {
+    "name": "2026年中东迪拜国际太阳能及储能展览会（MEE）",
+    "start_date": "2026-09-01",
+    "end_date": null,
+    "location": "迪拜",
+    "organizer": null,
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "蜂巢能源携122Ah户储、6.29MWh大储、285kWh工商储亮相迪拜MEE！",
+        "url": "http://www.xevcar.com/gongsi/0Z315LI2026.html",
+        "date": "2026-09-03"
+      },
+      {
+        "title": "蜂巢能源携122Ah户储、6.29MWh大储、285kWh工商储亮相迪拜MEE！ - NE时代",
+        "url": "https://www.ne-time.cn/web/article/39607",
+        "date": "2026-09-03"
+      }
+    ]
+  },
+  {
+    "name": "华为全联接大会",
+    "start_date": "2026-09-01",
+    "end_date": null,
+    "location": null,
+    "organizer": "华为",
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "华为汪涛：华为要打造AI算力底座，只做好一颗芯片远远不够",
+        "url": "https://www.qbitai.com/2026/09/492476.html",
+        "date": "2026-09-19"
+      }
+    ]
+  },
+  {
+    "name": "广州中医药大学科技高质量发展大会",
+    "start_date": "2026-09-02",
+    "end_date": "2026-09-03",
+    "location": "广州中医药大学大学城校区",
+    "organizer": "广州中医药大学",
+    "category": "通用技术",
+    "sources": [
+      {
+        "title": "科学网-广州中医药大学召开科技高质量发展大会",
+        "url": "http://news.sciencenet.cn/htmlnews/2026/9/570981.shtm",
+        "date": "2026-09-06"
+      }
+    ]
+  },
+  {
     "name": "2026中国（太原）国际能源产业博览会",
     "start_date": "2026-09-03",
     "end_date": "2026-09-06",
@@ -2056,6 +2396,226 @@
         "title": "招商热度持续攀升！2026太原能博会释放强烈信号：能源转型看山西-索比光伏网",
         "url": "https://news.solarbe.com/202607/31/50026905.html",
         "date": "2026-07-31"
+      },
+      {
+        "title": "聚焦能源革命 共话绿色转型 2026中国（太原）国际能源产业博览会即将启幕-索比光伏网",
+        "url": "https://news.solarbe.com/202608/26/50028198.html",
+        "date": "2026-08-26"
+      },
+      {
+        "title": "聚焦能源革命 共话绿色转型 2026中国（太原）国际能源产业博览会即将启幕",
+        "url": "https://www.china5e.com/news/news-1208314-1.html",
+        "date": "2026-08-26"
+      },
+      {
+        "title": "全链聚能·向绿而行丨2026中国（太原）国际能源产业博览会在太原开幕-索比光伏网",
+        "url": "https://news.solarbe.com/202609/04/50028659.html",
+        "date": "2026-09-04"
+      }
+    ]
+  },
+  {
+    "name": "2026年深空探测（天都）国际会议",
+    "start_date": "2026-09-03",
+    "end_date": null,
+    "location": "安徽合肥",
+    "organizer": null,
+    "category": "通用技术",
+    "sources": [
+      {
+        "title": "科学网-2026年深空探测（天都）国际会议在合肥开幕",
+        "url": "http://news.sciencenet.cn/htmlnews/2026/9/570845.shtm",
+        "date": "2026-09-03"
+      },
+      {
+        "title": "科学网-国际月球村中心（中国）及4个深空探测联合实验室在合肥揭牌",
+        "url": "http://news.sciencenet.cn/htmlnews/2026/9/570839.shtm",
+        "date": "2026-09-03"
+      },
+      {
+        "title": "科学网-深空探测正从“插旗打卡”走向“安营扎寨”",
+        "url": "http://news.sciencenet.cn/htmlnews/2026/9/570949.shtm",
+        "date": "2026-09-05"
+      }
+    ]
+  },
+  {
+    "name": "2026中国国际福祉博览会暨中国国际康复博览会",
+    "start_date": "2026-09-03",
+    "end_date": null,
+    "location": "北京",
+    "organizer": null,
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "科学网-科技赋能2026中国国际福祉博览会在京开幕",
+        "url": "http://news.sciencenet.cn/htmlnews/2026/9/570841.shtm",
+        "date": "2026-09-03"
+      }
+    ]
+  },
+  {
+    "name": "意大利自行车节",
+    "start_date": "2026-09-04",
+    "end_date": "2026-09-06",
+    "location": "意大利米萨诺",
+    "organizer": null,
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "Bafang 的新型电动自行车电机可产生 8 倍于您自己的踩踏功率",
+        "url": "https://electrek.co/2026/08/26/bafangs-new-electric-bike-motors-produce-8x-your-own-pedaling-power/",
+        "date": "2026-08-26"
+      }
+    ]
+  },
+  {
+    "name": "首届全国科普创作者大会生命科学领域科学家精神分论坛",
+    "start_date": "2026-09-04",
+    "end_date": null,
+    "location": "浙江湖州德清",
+    "organizer": "中国科学院上海高等研究院国家蛋白质科学研究（上海）设施",
+    "category": "通用技术",
+    "sources": [
+      {
+        "title": "科学网-全国科普月启幕，蛋白质设施科学家精神传播再发力",
+        "url": "http://news.sciencenet.cn/htmlnews/2026/9/570781.shtm",
+        "date": "2026-09-02"
+      }
+    ]
+  },
+  {
+    "name": "第八届俄中能源商务论坛",
+    "start_date": "2026-09-04",
+    "end_date": null,
+    "location": null,
+    "organizer": null,
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "第八届俄中能源商务论坛召开 普京称在华俄设核电项目即将完工",
+        "url": "https://www.cinie.net/article/64426.html",
+        "date": "2026-09-05"
+      }
+    ]
+  },
+  {
+    "name": "第八届CMC-China中国制药工业博览会",
+    "start_date": "2026-09-04",
+    "end_date": "2026-09-05",
+    "location": "苏州国际博览中心",
+    "organizer": null,
+    "category": "通用技术",
+    "sources": [
+      {
+        "title": "科学网-普萃超临界携创新技术与装备亮相中国制药工业博览会",
+        "url": "http://news.sciencenet.cn/htmlnews/2026/9/570987.shtm",
+        "date": "2026-09-06"
+      }
+    ]
+  },
+  {
+    "name": "第102届柏林国际电子消费品展览会（IFA 2026）",
+    "start_date": "2026-09-04",
+    "end_date": null,
+    "location": "柏林",
+    "organizer": null,
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "创维集团全场景产品矩阵亮相IFA 2026，全球化品牌矩阵协同发力-索比光伏网",
+        "url": "https://news.solarbe.com/202609/06/50028669.html",
+        "date": "2026-09-06"
+      }
+    ]
+  },
+  {
+    "name": "哈尔滨工程大学E唯协会成立25周年创新发展大会",
+    "start_date": "2026-09-05",
+    "end_date": null,
+    "location": "哈尔滨工程大学",
+    "organizer": "哈尔滨工程大学",
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "科学网-总额超1500万，哈工程设立E唯发展基金",
+        "url": "http://news.sciencenet.cn/htmlnews/2026/9/570997.shtm",
+        "date": "2026-09-06"
+      }
+    ]
+  },
+  {
+    "name": "亚太媒体高端论坛",
+    "start_date": "2026-09-05",
+    "end_date": null,
+    "location": "深圳",
+    "organizer": "中宣部、新华社、广东省人民政府",
+    "category": "通用技术",
+    "sources": [
+      {
+        "title": "科学网-广中医为APEC传统医药现代化提供实践样本",
+        "url": "http://news.sciencenet.cn/htmlnews/2026/9/570990.shtm",
+        "date": "2026-09-06"
+      }
+    ]
+  },
+  {
+    "name": "韩法扩大峰会",
+    "start_date": "2026-09-06",
+    "end_date": "2026-09-09",
+    "location": "法国巴黎",
+    "organizer": null,
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "韩国总统将访法推进核能合作磋商",
+        "url": "https://www.cinie.net/article/64445.html",
+        "date": "2026-09-05"
+      }
+    ]
+  },
+  {
+    "name": "小米秋季旗舰新品发布会",
+    "start_date": "2026-09-07",
+    "end_date": null,
+    "location": null,
+    "organizer": "小米",
+    "category": "通用技术",
+    "sources": [
+      {
+        "title": "小米 18 Fold“中折叠”手机拥有 1.2 米抗跌落能力，雷军称媲美直板旗舰",
+        "url": "https://www.ithome.com/0/997/680.htm",
+        "date": "2026-09-02"
+      }
+    ]
+  },
+  {
+    "name": "ECCV 2026（欧洲计算机视觉国际会议）",
+    "start_date": "2026-09-08",
+    "end_date": "2026-09-12",
+    "location": "瑞典马尔默",
+    "organizer": "欧洲计算机视觉协会",
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "ECCV上，顶尖学者们开始研究如何让AI做生意了",
+        "url": "https://www.qbitai.com/2026/09/486934.html",
+        "date": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "name": "2026全球工业互联网大会",
+    "start_date": "2026-09-08",
+    "end_date": "2026-09-10",
+    "location": "辽宁沈阳",
+    "organizer": null,
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "财经聚焦｜替工厂“动脑筋”，AI让工业互联更智能",
+        "url": "https://www.news.cn/tech/20260911/f8bdb88c78554d5b84a221c39d7c1833/c.html",
+        "date": "2026-09-11"
       }
     ]
   },
@@ -2071,6 +2631,56 @@
         "title": "黄金风口！这场中亚矿业对接会抢位中",
         "url": "https://mp.weixin.qq.com/s/hq7zm4x5NacxdPv_pH5iqA",
         "date": "2026-07-12"
+      }
+    ]
+  },
+  {
+    "name": "2026年中国国际服务贸易交易会",
+    "start_date": "2026-09-09",
+    "end_date": "2026-09-13",
+    "location": "北京首钢园",
+    "organizer": null,
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "从“物理外挂”到“中国鹰眼”——2026服贸会首钢园探营",
+        "url": "https://www.news.cn/tech/20260909/e17d81171e5246a79cab4bcb68cc85ca/c.html",
+        "date": "2026-09-09"
+      }
+    ]
+  },
+  {
+    "name": "2026 Inclusion·外滩大会",
+    "start_date": "2026-09-09",
+    "end_date": "2026-09-12",
+    "location": "上海",
+    "organizer": null,
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "聚焦“共创AI新经济” 2026外滩大会在沪举行",
+        "url": "https://www.news.cn/tech/20260910/afef6f8c8d074fa0afdd696f610471a0/c.html",
+        "date": "2026-09-10"
+      },
+      {
+        "title": "科学网-陆朝阳：量子计算不是一台“加速一切”的超级机器",
+        "url": "http://news.sciencenet.cn/htmlnews/2026/9/571311.shtm",
+        "date": "2026-09-11"
+      },
+      {
+        "title": "科学网-每人20万元！2026蚂蚁InTech科技奖名单揭晓",
+        "url": "http://news.sciencenet.cn/htmlnews/2026/9/571304.shtm",
+        "date": "2026-09-11"
+      },
+      {
+        "title": "行业当固本培元，好产品需表里如一 协鑫碳链4.0 守护每一寸“正”与“真”-索比光伏网",
+        "url": "https://news.solarbe.com/202609/11/50029004.html",
+        "date": "2026-09-11"
+      },
+      {
+        "title": "Inclusion·外滩大会：协鑫集成携手蚂蚁数科签约碳链4.0 共筑数智化低碳产业新优势-索比光伏网",
+        "url": "https://news.solarbe.com/202609/11/50029003.html",
+        "date": "2026-09-11"
       }
     ]
   },
@@ -2110,32 +2720,167 @@
     ]
   },
   {
-    "name": "2026（第二十八届）中国国际矿业大会",
+    "name": "第五届气象经济论坛",
     "start_date": "2026-09-10",
-    "end_date": "2026-09-12",
-    "location": "天津梅江会展中心",
-    "organizer": null,
+    "end_date": null,
+    "location": "北京首钢园",
+    "organizer": "中国气象服务协会、全球能源互联网发展合作组织、环球网",
     "category": "零碳产业",
     "sources": [
       {
-        "title": "参展手册 | 2026（第二十八届）中国国际矿业大会",
-        "url": "https://mp.weixin.qq.com/s/UrygIcRIY8aLwpM70Pw1rQ",
-        "date": "2026-07-15"
+        "title": "科学网-第五届气象经济论坛即将在京启幕",
+        "url": "http://news.sciencenet.cn/htmlnews/2026/8/570543.shtm",
+        "date": "2026-08-29"
       }
     ]
   },
   {
-    "name": "国际锂协会（ILiA）首届年会",
+    "name": "苹果秋季新品发布会",
+    "start_date": "2026-09-10",
+    "end_date": null,
+    "location": null,
+    "organizer": "苹果",
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "古尔曼：苹果 AirPods 5 耳机最早 9 月发布，OLED 版 iPad mini 平板预计 10 月推出",
+        "url": "https://www.ithome.com/0/996/252.htm",
+        "date": "2026-08-30"
+      }
+    ]
+  },
+  {
+    "name": "第十二届亚太能源可持续发展高端论坛暨APEC能源部长对话工商界主题论坛",
+    "start_date": "2026-09-10",
+    "end_date": null,
+    "location": "北京",
+    "organizer": null,
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "上半年中国可再生能源发电装机达到24.55亿千瓦，占全国电力总装机的60.7%-索比光伏网",
+        "url": "https://news.solarbe.com/202609/11/50028997.html",
+        "date": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "name": "第十八届金砖国家领导人峰会",
+    "start_date": "2026-09-12",
+    "end_date": "2026-09-13",
+    "location": "新德里印度会展中心",
+    "organizer": "印度（2026年金砖国家峰会主席国）",
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "印度、俄罗斯领导人将在金砖峰会前会晤 新建核电站谈判列入议程",
+        "url": "https://www.cinie.net/article/64952.html",
+        "date": "2026-09-09"
+      }
+    ]
+  },
+  {
+    "name": "国际原子能机构第70届大会核能相关边会",
+    "start_date": "2026-09-14",
+    "end_date": "2026-09-18",
+    "location": "奥地利维也纳",
+    "organizer": "国际原子能机构核能部",
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "国际原子能机构第70届大会将举办核能相关边会",
+        "url": "https://www.cinie.net/article/62644.html",
+        "date": "2026-08-26"
+      },
+      {
+        "title": "肯尼亚寻求IAEA审查支持推进2034年核电项目",
+        "url": "https://www.cinie.net/article/64563.html",
+        "date": "2026-09-07"
+      },
+      {
+        "title": "俄罗斯国家原子能公司总经理将在IAEA大会期间与格罗西会谈",
+        "url": "https://www.cinie.net/article/65298.html",
+        "date": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "name": "2026年德国汉诺威国际交通运输博览会（IAA TRANSPORTATION）",
+    "start_date": "2026-09-14",
+    "end_date": "2026-09-20",
+    "location": "汉诺威",
+    "organizer": null,
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "起亚更大的电动货车看起来不仅仅是为了交付",
+        "url": "https://insideevs.com/news/806844/kia-pv7-larger-van-teaser/",
+        "date": "2026-09-02"
+      },
+      {
+        "title": "战略合作订单超30GWh！亿纬锂能开源电池亮相2026 IAA",
+        "url": "http://www.xevcar.com/gongsi/091Q5OK2026.html",
+        "date": "2026-09-18"
+      }
+    ]
+  },
+  {
+    "name": "国际锂协会首届年会",
     "start_date": "2026-09-15",
     "end_date": "2026-09-17",
     "location": "新加坡",
-    "organizer": "国际锂协会（ILiA）",
+    "organizer": "国际锂协会",
     "category": "零碳产业",
     "sources": [
       {
         "title": "锂行业前往新加坡参加首届年会 – 国际电池协会",
         "url": "https://www.batteriesinternational.com/news/lithium-industry-heads-to-singapore-for-first-annual-meeting/",
         "date": "2026-05-28"
+      }
+    ]
+  },
+  {
+    "name": "IAA Transportation 商用车展",
+    "start_date": "2026-09-15",
+    "end_date": "2026-09-20",
+    "location": "德国汉诺威",
+    "organizer": null,
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "冲出美洲走向世界，特斯拉 Semi 纯电半挂卡车官宣进军欧洲市场",
+        "url": "https://www.ithome.com/0/992/409.htm",
+        "date": "2026-08-20"
+      }
+    ]
+  },
+  {
+    "name": "美国能源部空间光伏研发线上说明会",
+    "start_date": "2026-09-15",
+    "end_date": null,
+    "location": "线上",
+    "organizer": "美国能源部",
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "美国能源部投入1200万美元发展太空光伏技术-索比光伏网",
+        "url": "https://news.solarbe.com/202609/02/50028473.html",
+        "date": "2026-09-02"
+      }
+    ]
+  },
+  {
+    "name": "AI Infra Summit",
+    "start_date": "2026-09-15",
+    "end_date": "2026-09-17",
+    "location": "Santa Clara, California",
+    "organizer": null,
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "太空数据中心离现实更近一步，但仍有诸多限制",
+        "url": "https://www.datacenterknowledge.com/next-gen-data-centers/space-data-centers-inch-toward-reality-with-caveats",
+        "date": "2026-09-19"
       }
     ]
   },
@@ -2168,6 +2913,11 @@
         "date": "2026-06-23"
       },
       {
+        "title": "绝佳机会 | 来办一场长时储能企业发布会",
+        "url": "https://mp.weixin.qq.com/s/ntZg-bhydPothF67xnlNww",
+        "date": "2026-06-26"
+      },
+      {
         "title": "【附名单】66家单位申请参编《2026中国长时储能产业发展蓝皮书》",
         "url": "https://mp.weixin.qq.com/s/iSjSwBeZB681i_UTxCxkVg",
         "date": "2026-07-02"
@@ -2176,7 +2926,32 @@
         "title": "3天倒计时 | LDES2026早鸟特惠通道即将关闭",
         "url": "https://mp.weixin.qq.com/s/W2gr-rDK2qNGPhAiwo7DDw",
         "date": "2026-07-07"
-      },
+      }
+    ]
+  },
+  {
+    "name": "ESPLAZA AWARDS 2026长时储能行业年度大奖颁奖典礼",
+    "start_date": "2026-09-16",
+    "end_date": null,
+    "location": "陕西西安国际会展中心",
+    "organizer": "ESPLAZA长时储能网",
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "长时储能行业年度大奖ESPLAZA AWARDS 2026评选活动正式启动",
+        "url": "https://mp.weixin.qq.com/s/wRN4EnAZ2wkLivubhUjHhg",
+        "date": "2026-06-24"
+      }
+    ]
+  },
+  {
+    "name": "2026第七届储热大会",
+    "start_date": "2026-09-16",
+    "end_date": "2026-09-17",
+    "location": "西安",
+    "organizer": "ESPLAZA长时储能网",
+    "category": "零碳产业",
+    "sources": [
       {
         "title": "关于邀请参加2026第七届储热大会的通知",
         "url": "https://mp.weixin.qq.com/s/UVjxoKBb58I-ma_aXHktCA",
@@ -2185,7 +2960,7 @@
     ]
   },
   {
-    "name": "2026第五届复合材料界面论坛暨（第五届）绿色复合材料论坛",
+    "name": "2026第五届复合材料界面论坛暨绿色复合材料论坛",
     "start_date": "2026-09-16",
     "end_date": "2026-09-18",
     "location": "安徽合肥",
@@ -2203,7 +2978,7 @@
     "name": "第二届固态电池新技术应用与材料制备验证技术会议",
     "start_date": "2026-09-16",
     "end_date": "2026-09-17",
-    "location": "杭州",
+    "location": "中国·杭州",
     "organizer": "今日锂电/今日钠电",
     "category": "零碳产业",
     "sources": [
@@ -2215,17 +2990,47 @@
     ]
   },
   {
-    "name": "MESIA Business Breakfast on Smart Cities & Distributed Solar Integration",
-    "start_date": "2026-09-17",
-    "end_date": null,
-    "location": "Abu Dhabi",
+    "name": "第18届世界太阳能光伏暨储能产业博览会",
+    "start_date": "2026-09-16",
+    "end_date": "2026-09-18",
+    "location": "广州广交会展馆B区",
     "organizer": null,
     "category": "零碳产业",
     "sources": [
       {
-        "title": "威尔士政府批准凯尔特海 Llyr 浮动风力示范项目",
-        "url": "https://renewablesnow.com/news/welsh-govt-approves-llyr-floating-wind-demo-project-in-celtic-sea-1299396/",
-        "date": "2026-08-07"
+        "title": "倒计时开启！第18届世界太阳能光伏暨储能产业博览会重磅将至-索比光伏网",
+        "url": "https://news.solarbe.com/202608/25/50028123.html",
+        "date": "2026-08-25"
+      }
+    ]
+  },
+  {
+    "name": "2026 vivo开发者大会",
+    "start_date": "2026-09-16",
+    "end_date": null,
+    "location": null,
+    "organizer": "vivo",
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "vivo OriginOS 7 预热：全新蓝心小 V 一句话办事，搭载液态动效",
+        "url": "https://www.ithome.com/1/001/857.htm",
+        "date": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "name": "MESIA智慧城市与分布式太阳能整合商务早餐会",
+    "start_date": "2026-09-17",
+    "end_date": null,
+    "location": "Abu Dhabi",
+    "organizer": "MESIA",
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "Base Power完成10亿美元D轮融资，推出德州制造家用电池",
+        "url": "https://renewablesnow.com/news/base-power-secures-usd-1bn-series-d-launches-texas-made-home-battery-1299164/",
+        "date": "2026-08-03"
       },
       {
         "title": "Haizea 为 Ørsted 的 Hornsea 3 供应超大型单桩",
@@ -2291,6 +3096,96 @@
         "title": "美国对进口多晶硅产品征收15%关税",
         "url": "https://renewablesnow.com/news/us-imposes-15-percent-tariffs-on-imported-polysilicon-products-1299358/",
         "date": "2026-08-07"
+      },
+      {
+        "title": "私募股权公司 NIC 投资英国 Anesco",
+        "url": "https://renewablesnow.com/news/private-equity-firm-nic-invests-in-uks-anesco-1299442/",
+        "date": "2026-08-10"
+      },
+      {
+        "title": "大阪天然气公司与东日本铁路公司签署生物质VPPA协议",
+        "url": "https://renewablesnow.com/news/osaka-gas-inks-biomass-vppa-with-east-japan-railway-1299463/",
+        "date": "2026-08-10"
+      },
+      {
+        "title": "中部电力公司与合作伙伴在鸟取县启用 28 兆瓦生物质发电厂",
+        "url": "https://renewablesnow.com/news/chubu-electric-partners-switch-on-28-mw-biomass-plant-in-tottori-1299460/",
+        "date": "2026-08-10"
+      },
+      {
+        "title": "中国计划到2030年实现一半电力来自非化石能源",
+        "url": "https://renewablesnow.com/news/china-aims-to-generate-half-of-electricity-from-non-fossil-sources-by-2030-1299422/",
+        "date": "2026-08-10"
+      },
+      {
+        "title": "专访 - VPI 致力于 1GW 德国 BESS 管道，着眼于欧洲增长",
+        "url": "https://renewablesnow.com/news/interview-vpi-working-on-1-gw-german-bess-pipeline-eyes-european-growth-1299424/",
+        "date": "2026-08-10"
+      },
+      {
+        "title": "Exponent 牵头融资交易，H&MV Engineering 估值达 14 亿欧元",
+        "url": "https://renewablesnow.com/news/exponent-leads-funding-deal-valuing-hmv-engineering-at-eur-1-4bn-1299495/",
+        "date": "2026-08-11"
+      },
+      {
+        "title": "Recurrent Energy 为加州 330 兆瓦太阳能项目提供融资",
+        "url": "https://renewablesnow.com/news/recurrent-energy-inks-financing-for-330-mw-solar-project-in-california-1299618/",
+        "date": "2026-08-13"
+      },
+      {
+        "title": "日本二人组推出第二只基金，寻求 300 兆瓦的屋顶太阳能",
+        "url": "https://renewablesnow.com/news/japanese-duo-launches-2nd-fund-in-pursuit-of-300-mw-of-rooftop-solar-1299637/",
+        "date": "2026-08-13"
+      },
+      {
+        "title": "ForeFront Power 为弗雷斯诺市提供地面太阳能电池阵列",
+        "url": "https://renewablesnow.com/news/forefront-power-delivers-earth-mounted-solar-array-for-city-of-fresno-1299635/",
+        "date": "2026-08-13"
+      },
+      {
+        "title": "Triple Point 基金从 Recurrent Energy 购买 49.2 兆瓦英国太阳能项目",
+        "url": "https://renewablesnow.com/news/triple-point-funds-buy-49-9-mw-uk-solar-project-from-recurrent-energy-1299627/",
+        "date": "2026-08-13"
+      },
+      {
+        "title": "由于氢气 FID 缓慢，欧洲电解槽产能可能闲置",
+        "url": "https://renewablesnow.com/news/europes-electrolyser-capacity-may-go-idle-due-to-slow-hydrogen-fids-1299621/",
+        "date": "2026-08-13"
+      },
+      {
+        "title": "智利 Empresas Copec 单位启动合成燃料试点项目",
+        "url": "https://renewablesnow.com/news/chiles-empresas-copec-units-kick-off-synthetic-fuels-pilot-project-1299609/",
+        "date": "2026-08-13"
+      },
+      {
+        "title": "托普索凭借氨技术重返 First Ammonia 德克萨斯州项目",
+        "url": "https://renewablesnow.com/news/topsoe-returns-to-first-ammonias-texas-project-with-ammonia-tech-1299599/",
+        "date": "2026-08-13"
+      },
+      {
+        "title": "专访 - SunScout 畅谈 IPO 后的美国太阳能扩张、机器人技术和制造业",
+        "url": "https://renewablesnow.com/news/interview-sunscout-on-us-solar-expansion-robotics-and-manufacturing-after-ipo-1299594/",
+        "date": "2026-08-13"
+      },
+      {
+        "title": "Summit Ridge 和 Apollo 为伊利诺伊州太阳能公司确保了 1.5 亿美元的税收权益",
+        "url": "https://renewablesnow.com/news/summit-ridge-apollo-secure-usd-150m-tax-equity-for-illinois-solar-1299871/",
+        "date": "2026-08-19"
+      },
+      {
+        "title": "Baseload Capital 任命新CEO，战略重心转向地热合作伙伴关系",
+        "url": "https://renewablesnow.com/news/baseload-capital-names-new-ceo-shifts-focus-to-geothermal-partnerships-1299915/",
+        "date": "2026-08-20"
+      },
+      {
+        "title": "火灾影响Ørsted位于台湾的Greater Changhua 4风机",
+        "url": "https://renewablesnow.com/news/fire-affects-turbine-at-rsteds-greater-changhua-4-off-taiwan-1300095/",
+        "date": "2026-08-24"
+      },
+      {
+        "title": "Scatec 报告 D&C 领域第二季度表现强劲",
+        "url": "https://renewablesnow.com/news/scatec-reports-strong-q2-performance-in-dc-segment-1299974/",
+        "date": "2026-08-21"
       }
     ]
   },
@@ -2310,6 +3205,171 @@
     ]
   },
   {
+    "name": "2026年新核能路线图会议",
+    "start_date": "2026-09-17",
+    "end_date": "2026-09-18",
+    "location": "法国巴黎",
+    "organizer": "经合组织核能机构、美国能源部",
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "经合组织核能机构与美国将共同举办“2026年新核能路线图”会议",
+        "url": "https://www.cinie.net/article/61629.html",
+        "date": "2026-08-20"
+      }
+    ]
+  },
+  {
+    "name": "2026绿色能源创新发展大会",
+    "start_date": "2026-09-17",
+    "end_date": "2026-09-18",
+    "location": "天津国家会展中心",
+    "organizer": null,
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "院士、政策专家、央国企代表、一线能源决策者齐聚津门｜2026GEID嘉宾阵容重磅揭晓-索比光伏网",
+        "url": "https://news.solarbe.com/202609/14/50029022.html",
+        "date": "2026-09-14"
+      }
+    ]
+  },
+  {
+    "name": "第九届科学计量与科技评价天府论坛（2026）",
+    "start_date": "2026-09-18",
+    "end_date": "2026-09-20",
+    "location": "四川省成都市",
+    "organizer": "中国科学院成都文献情报中心",
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "会议通知 | 第九届科学计量与科技评价天府论坛（2026）会议通知（第一轮）",
+        "url": "https://mp.weixin.qq.com/s/j-DSmHQmTlZc7AelgSRJCQ",
+        "date": "2026-07-06"
+      }
+    ]
+  },
+  {
+    "name": "光伏技术省部共建协同创新中心第一届学术委员会第六次会议暨产学研合作签约仪式",
+    "start_date": "2026-09-18",
+    "end_date": null,
+    "location": "河北大学七一路校区",
+    "organizer": "光伏技术省部共建协同创新中心",
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "光伏技术省部共建协同创新中心第一届学术委员会第六次会议暨产学研合作签约仪式即将举办-索比光伏网",
+        "url": "https://news.solarbe.com/202609/16/50029207.html",
+        "date": "2026-09-16"
+      }
+    ]
+  },
+  {
+    "name": "第十二届京津冀清洁能源学术论坛",
+    "start_date": "2026-09-18",
+    "end_date": "2026-09-20",
+    "location": "河北保定河北大学七一路校区",
+    "organizer": "河北大学、清华大学、北京大学、天津大学、南开大学等与中国科学院物理研究所联合主办",
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "【会议倒计时】第十二届京津冀清洁能源学术论坛在保定召开!-索比光伏网",
+        "url": "https://news.solarbe.com/202609/16/50029206.html",
+        "date": "2026-09-16"
+      }
+    ]
+  },
+  {
+    "name": "第22届中国汽车产业发展（泰达）国际论坛",
+    "start_date": "2026-09-18",
+    "end_date": null,
+    "location": null,
+    "organizer": null,
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "长安汽车首席专家谭欢：未来要用机器人造车、卖车，让机器人上车、造机器人",
+        "url": "https://www.ithome.com/1/004/337.htm",
+        "date": "2026-09-18"
+      }
+    ]
+  },
+  {
+    "name": "2026世界制造业大会",
+    "start_date": "2026-09-20",
+    "end_date": "2026-09-23",
+    "location": "安徽合肥",
+    "organizer": null,
+    "category": "通用技术",
+    "sources": [
+      {
+        "title": "制造上“新”｜低空“织”网",
+        "url": "https://www.news.cn/tech/20260918/3128ddd5997b477cba2bac81238f572e/c.html",
+        "date": "2026-09-18"
+      }
+    ]
+  },
+  {
+    "name": "第十七届创新发展论坛：学术与科研场景下的AI",
+    "start_date": "2026-09-20",
+    "end_date": "2026-09-20",
+    "location": "科学网App直播间（线上直播）",
+    "organizer": "华南理工大学、中国科学报社、科学出版社、广东省艾思信息化学术交流研究院",
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "科学网-直播预告｜第十七届创新发展论坛：学术与科研场景下的AI",
+        "url": "https://news.sciencenet.cn/htmlnews/2026/9/571758.shtm",
+        "date": "2026-09-19"
+      }
+    ]
+  },
+  {
+    "name": "“科艺共生·智绘未来”科艺融合展示交流会",
+    "start_date": "2026-09-20",
+    "end_date": "2026-09-20",
+    "location": "科学网App直播间（线上直播）",
+    "organizer": "华南理工大学、中国科学报社、科学出版社、广东省艾思信息化学术交流研究院",
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "科学网-直播预告｜“科艺共生·智绘未来”科艺融合展示交流会",
+        "url": "https://news.sciencenet.cn/htmlnews/2026/9/571757.shtm",
+        "date": "2026-09-19"
+      }
+    ]
+  },
+  {
+    "name": "2026中国民营企业投融资洽谈会",
+    "start_date": "2026-09-21",
+    "end_date": "2026-09-23",
+    "location": "天津",
+    "organizer": null,
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "商业路演助力机器人产业发展（组图）",
+        "url": "https://www.news.cn/tech/20260909/a0f0e65f01234eb392174e523679abf7/c.html",
+        "date": "2026-09-09"
+      }
+    ]
+  },
+  {
+    "name": "2026西门子Xcelerator繁星生态大会",
+    "start_date": "2026-09-21",
+    "end_date": null,
+    "location": "深圳前海",
+    "organizer": "西门子",
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "9月21日，深圳前海！聊聊工业AI与生态共创的下一步",
+        "url": "https://www.qbitai.com/2026/09/489277.html",
+        "date": "2026-09-15"
+      }
+    ]
+  },
+  {
     "name": "2026云栖大会",
     "start_date": "2026-09-22",
     "end_date": "2026-09-24",
@@ -2325,7 +3385,7 @@
     ]
   },
   {
-    "name": "Horizons Clean Energy Expansion India Conference",
+    "name": "Horizons清洁能源扩张印度会议",
     "start_date": "2026-09-23",
     "end_date": null,
     "location": "New Delhi",
@@ -2333,9 +3393,9 @@
     "category": "零碳产业",
     "sources": [
       {
-        "title": "威尔士政府批准凯尔特海 Llyr 浮动风力示范项目",
-        "url": "https://renewablesnow.com/news/welsh-govt-approves-llyr-floating-wind-demo-project-in-celtic-sea-1299396/",
-        "date": "2026-08-07"
+        "title": "Base Power完成10亿美元D轮融资，推出德州制造家用电池",
+        "url": "https://renewablesnow.com/news/base-power-secures-usd-1bn-series-d-launches-texas-made-home-battery-1299164/",
+        "date": "2026-08-03"
       },
       {
         "title": "Haizea 为 Ørsted 的 Hornsea 3 供应超大型单桩",
@@ -2401,6 +3461,156 @@
         "title": "美国对进口多晶硅产品征收15%关税",
         "url": "https://renewablesnow.com/news/us-imposes-15-percent-tariffs-on-imported-polysilicon-products-1299358/",
         "date": "2026-08-07"
+      },
+      {
+        "title": "私募股权公司 NIC 投资英国 Anesco",
+        "url": "https://renewablesnow.com/news/private-equity-firm-nic-invests-in-uks-anesco-1299442/",
+        "date": "2026-08-10"
+      },
+      {
+        "title": "大阪天然气公司与东日本铁路公司签署生物质VPPA协议",
+        "url": "https://renewablesnow.com/news/osaka-gas-inks-biomass-vppa-with-east-japan-railway-1299463/",
+        "date": "2026-08-10"
+      },
+      {
+        "title": "中部电力公司与合作伙伴在鸟取县启用 28 兆瓦生物质发电厂",
+        "url": "https://renewablesnow.com/news/chubu-electric-partners-switch-on-28-mw-biomass-plant-in-tottori-1299460/",
+        "date": "2026-08-10"
+      },
+      {
+        "title": "中国计划到2030年实现一半电力来自非化石能源",
+        "url": "https://renewablesnow.com/news/china-aims-to-generate-half-of-electricity-from-non-fossil-sources-by-2030-1299422/",
+        "date": "2026-08-10"
+      },
+      {
+        "title": "专访 - VPI 致力于 1GW 德国 BESS 管道，着眼于欧洲增长",
+        "url": "https://renewablesnow.com/news/interview-vpi-working-on-1-gw-german-bess-pipeline-eyes-european-growth-1299424/",
+        "date": "2026-08-10"
+      },
+      {
+        "title": "ForeFront Power 为弗雷斯诺市提供地面太阳能电池阵列",
+        "url": "https://renewablesnow.com/news/forefront-power-delivers-earth-mounted-solar-array-for-city-of-fresno-1299635/",
+        "date": "2026-08-13"
+      },
+      {
+        "title": "Triple Point 基金从 Recurrent Energy 购买 49.2 兆瓦英国太阳能项目",
+        "url": "https://renewablesnow.com/news/triple-point-funds-buy-49-9-mw-uk-solar-project-from-recurrent-energy-1299627/",
+        "date": "2026-08-13"
+      },
+      {
+        "title": "由于氢气 FID 缓慢，欧洲电解槽产能可能闲置",
+        "url": "https://renewablesnow.com/news/europes-electrolyser-capacity-may-go-idle-due-to-slow-hydrogen-fids-1299621/",
+        "date": "2026-08-13"
+      },
+      {
+        "title": "智利 Empresas Copec 单位启动合成燃料试点项目",
+        "url": "https://renewablesnow.com/news/chiles-empresas-copec-units-kick-off-synthetic-fuels-pilot-project-1299609/",
+        "date": "2026-08-13"
+      },
+      {
+        "title": "托普索凭借氨技术重返 First Ammonia 德克萨斯州项目",
+        "url": "https://renewablesnow.com/news/topsoe-returns-to-first-ammonias-texas-project-with-ammonia-tech-1299599/",
+        "date": "2026-08-13"
+      },
+      {
+        "title": "专访 - SunScout 畅谈 IPO 后的美国太阳能扩张、机器人技术和制造业",
+        "url": "https://renewablesnow.com/news/interview-sunscout-on-us-solar-expansion-robotics-and-manufacturing-after-ipo-1299594/",
+        "date": "2026-08-13"
+      },
+      {
+        "title": "Summit Ridge 和 Apollo 为伊利诺伊州太阳能公司确保了 1.5 亿美元的税收权益",
+        "url": "https://renewablesnow.com/news/summit-ridge-apollo-secure-usd-150m-tax-equity-for-illinois-solar-1299871/",
+        "date": "2026-08-19"
+      },
+      {
+        "title": "Baseload Capital 任命新CEO，战略重心转向地热合作伙伴关系",
+        "url": "https://renewablesnow.com/news/baseload-capital-names-new-ceo-shifts-focus-to-geothermal-partnerships-1299915/",
+        "date": "2026-08-20"
+      },
+      {
+        "title": "火灾影响Ørsted位于台湾的Greater Changhua 4风机",
+        "url": "https://renewablesnow.com/news/fire-affects-turbine-at-rsteds-greater-changhua-4-off-taiwan-1300095/",
+        "date": "2026-08-24"
+      },
+      {
+        "title": "Scatec 报告 D&C 领域第二季度表现强劲",
+        "url": "https://renewablesnow.com/news/scatec-reports-strong-q2-performance-in-dc-segment-1299974/",
+        "date": "2026-08-21"
+      }
+    ]
+  },
+  {
+    "name": "AI Agenda Live",
+    "start_date": "2026-09-23",
+    "end_date": null,
+    "location": "旧金山",
+    "organizer": "Technology Review",
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "新的推理策略席卷 OpenAI 和其他开发者",
+        "url": "https://www.theinformation.com/newsletters/ai-agenda/new-reasoning-strategies-sweep-openai-developers",
+        "date": "2026-09-02"
+      }
+    ]
+  },
+  {
+    "name": "第五届全球数字贸易博览会",
+    "start_date": "2026-09-23",
+    "end_date": "2026-09-27",
+    "location": "浙江杭州",
+    "organizer": null,
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "第五届数贸会将首创Token主题AI未来展区",
+        "url": "https://www.news.cn/tech/20260908/4ab1fd0aa99846dcafca1b8dd9609008/c.html",
+        "date": "2026-09-08"
+      }
+    ]
+  },
+  {
+    "name": "UBT AI Day 2026：迈向面向产业的责任与主权人工智能",
+    "start_date": "2026-09-25",
+    "end_date": null,
+    "location": "拜罗伊特大学校园RW I大楼",
+    "organizer": "拜罗伊特大学科学与社会人工智能研究中心（RAIS²）",
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "2026 年 UBT 人工智能日：主权行业的人工智能",
+        "url": "https://nachrichten.idw-online.de/2026/09/01/ubt-ai-day-2026-kuenstliche-intelligenz-fuer-eine-souveraene-industrie",
+        "date": "2026-09-01"
+      }
+    ]
+  },
+  {
+    "name": "隐私平台第11届年会：创新、竞争与价值导向——作为创新障碍与区位优势的数据保护与数字监管",
+    "start_date": "2026-10-08",
+    "end_date": "2026-10-09",
+    "location": "柏林",
+    "organizer": "弗劳恩霍夫系统与创新研究所（Fraunhofer ISI）协调的隐私平台",
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "创新与数据保护：在竞争力与基本权利之间的欧洲道路",
+        "url": "https://nachrichten.idw-online.de/2026/09/17/innovation-und-datenschutz-ein-europaeischer-weg-zwischen-wettbewerbsfaehigkeit-und-grundrechten",
+        "date": "2026-09-17"
+      }
+    ]
+  },
+  {
+    "name": "2026巴黎车展",
+    "start_date": "2026-10-12",
+    "end_date": "2026-10-18",
+    "location": "法国巴黎",
+    "organizer": null,
+    "category": "通用技术",
+    "sources": [
+      {
+        "title": "2026 巴黎车展最大展台：Stellantis 将展出标致、雪铁龙、零跑各品牌 60 余款车型",
+        "url": "https://www.ithome.com/1/004/339.htm",
+        "date": "2026-09-18"
       }
     ]
   },
@@ -2409,13 +3619,28 @@
     "start_date": "2026-10-15",
     "end_date": "2026-10-16",
     "location": "青岛",
-    "organizer": null,
+    "organizer": "中国新能源网、物理储能网、全球储能网联合主办，杭州创搏网络科技有限公司承办",
     "category": "零碳产业",
     "sources": [
       {
         "title": "储热赛道迎来黄金发展期，CTE2026中国热储能与供热大会10月青岛启幕，全产业链共绘双碳供热新蓝图",
         "url": "https://mp.weixin.qq.com/s/vWizF7u-dTTjP1DCDccpCA",
         "date": "2026-06-23"
+      },
+      {
+        "title": "7月2日起至9月25日截止！CTE2026 中国热储能与供热大会开放演讲议题申报",
+        "url": "https://mp.weixin.qq.com/s/HF9cfJWV2NV2LWEgNND8JQ",
+        "date": "2026-07-02"
+      },
+      {
+        "title": "重磅嘉宾 | 宁波大学教授邹得球：相变材料（PCM）与高效储热换热装备国产化进展",
+        "url": "https://mp.weixin.qq.com/s/2CKRGXC-XCEfsIT_uB5j9A",
+        "date": "2026-07-24"
+      },
+      {
+        "title": "重磅嘉宾 | 中国矿业大学教授朱春宇：高温相变储热材料定型封装与性能强化研究",
+        "url": "https://mp.weixin.qq.com/s/vSsYiND1DIfvPWPMALiskQ",
+        "date": "2026-07-27"
       },
       {
         "title": "重磅嘉宾 | 苏州领先启能新能源董事长章灵军：启能热库，绿色供热新路径 ——构建“民生保供·电网互动·工业零碳”三位一体的新型供热体系",
@@ -2425,11 +3650,11 @@
     ]
   },
   {
-    "name": "IEEE第26届通信技术国际会议",
+    "name": "2026 IEEE第26届通信技术国际会议（IEEE ICCT 2026）",
     "start_date": "2026-10-16",
     "end_date": "2026-10-18",
-    "location": "珠海",
-    "organizer": "暨南大学，IEEE China Council与IEEE Beijing Section",
+    "location": "中国珠海",
+    "organizer": "暨南大学、IEEE China Council、IEEE Beijing Section",
     "category": "通用技术",
     "sources": [
       {
@@ -2440,7 +3665,37 @@
     ]
   },
   {
-    "name": "第十六届国际电致变色会议（IME-16）",
+    "name": "GOSIM Shenzhen 2026开源技术大会",
+    "start_date": "2026-10-16",
+    "end_date": "2026-10-17",
+    "location": "深圳",
+    "organizer": null,
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "DHH领衔，英伟达、微软、HuggingFace等150+全球技术大咖集结，GOSIM Shenzhen 2026全议程公布",
+        "url": "https://www.qbitai.com/2026/09/485154.html",
+        "date": "2026-09-07"
+      }
+    ]
+  },
+  {
+    "name": "安全屏障创建与监测科学技术研讨会",
+    "start_date": "2026-10-19",
+    "end_date": "2026-10-22",
+    "location": "莫斯科国立罗蒙诺索夫大学",
+    "organizer": "莫斯科国立罗蒙诺索夫大学、俄罗斯国家放射性废物管理运营公司(FSUE NO RAO)、铀石墨核反应堆退役试点示范中心(JSC PDC UGR)",
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "俄罗斯国家原子能公司与莫斯科国立大学将联合举办放射性废物安全屏障研讨会",
+        "url": "https://www.cinie.net/article/60656.html",
+        "date": "2026-08-14"
+      }
+    ]
+  },
+  {
+    "name": "第十六届国际电致变色会议",
     "start_date": "2026-10-26",
     "end_date": "2026-10-30",
     "location": "浙江省杭州市",
@@ -2455,12 +3710,12 @@
     ]
   },
   {
-    "name": "2026年IEEE电力与能源协会亚太创新智能电网技术会议",
+    "name": "2026年IEEE电力与能源协会亚太创新智能电网技术会议（IEEE PES ISGT Asia 2026）",
     "start_date": "2026-10-30",
     "end_date": "2026-11-01",
     "location": "中国武汉",
     "organizer": "IEEE电力与能源协会",
-    "category": "通用技术",
+    "category": "零碳产业",
     "sources": [
       {
         "title": "Call for Paper | 2026年IEEE电力与能源协会亚太创新智能电网技术会议（IEEE PES ISGT Asia 2026）",
@@ -2470,7 +3725,72 @@
     ]
   },
   {
-    "name": "2026年Batteries Event电池盛会",
+    "name": "HRTC 2026人形机器人技术与产业大会",
+    "start_date": "2026-11-01",
+    "end_date": null,
+    "location": "上海",
+    "organizer": "NE时代",
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "人形机器人加速进场，产业还要补上哪些环节？｜HRTC 2026 - NE时代",
+        "url": "https://www.ne-time.cn/web/article/39595",
+        "date": "2026-09-02"
+      },
+      {
+        "title": "11月NE时代主办的两场会，你打算去哪一场？ - NE时代",
+        "url": "https://www.ne-time.cn/web/article/39598",
+        "date": "2026-09-03"
+      }
+    ]
+  },
+  {
+    "name": "NET ZERO EUROPE 2026 – Solar & Energy Storage Summit",
+    "start_date": "2026-11-02",
+    "end_date": "2026-11-03",
+    "location": "西班牙巴塞罗那",
+    "organizer": null,
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "NET ZERO EUROPE 2026 吸引了整个欧洲行业的强烈兴趣——领先的能源公司确认参与",
+        "url": "https://renewablesnow.com/news/net-zero-europe-2026-draws-strong-industry-interest-across-europe-leading-energy-companies-confirm-participation-1300565/",
+        "date": "2026-09-02"
+      }
+    ]
+  },
+  {
+    "name": "CESC2026第四届储能大会暨储能及智能电网设备应用展览会",
+    "start_date": "2026-11-03",
+    "end_date": "2026-11-05",
+    "location": "南京国际博览中心",
+    "organizer": "江苏省储能行业协会",
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "比亚迪总冠名，九大赛道全覆盖，CESC第四届储能大会暨展览会什么来头？-索比光伏网",
+        "url": "https://news.solarbe.com/202608/17/50027699.html",
+        "date": "2026-08-17"
+      }
+    ]
+  },
+  {
+    "name": "首届蚂蚁灵波具身大模型挑战赛",
+    "start_date": "2026-11-13",
+    "end_date": "2026-11-15",
+    "location": "上海",
+    "organizer": "蚂蚁灵波、魔搭社区、阿里云天池",
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "首届蚂蚁灵波具身大模型挑战赛正式启动",
+        "url": "https://www.qbitai.com/2026/09/489105.html",
+        "date": "2026-09-14"
+      }
+    ]
+  },
+  {
+    "name": "Batteries Event 2026电池盛会",
     "start_date": "2026-11-16",
     "end_date": "2026-11-18",
     "location": "法国里昂",
@@ -2485,7 +3805,52 @@
     ]
   },
   {
-    "name": "2026 IEEE Electronics Packaging Technology Conference (EPTC)",
+    "name": "OEEG全球海工链大会2026",
+    "start_date": "2026-11-17",
+    "end_date": "2026-11-19",
+    "location": "上海世博展览馆",
+    "organizer": "上海船舶工业行业协会、中国深远海海洋工程装备技术产业联盟、决策者智库",
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "OEEG全球海工链大会2026，抢占全球海工市场机会的必赴之约！",
+        "url": "https://www.china5e.com/news/news-1208162-1.html",
+        "date": "2026-08-24"
+      }
+    ]
+  },
+  {
+    "name": "第二届RETRAKT欧盟大会\"Join the Circle\"",
+    "start_date": "2026-11-19",
+    "end_date": null,
+    "location": "布鲁塞尔",
+    "organizer": null,
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "2. RETRAKT 欧盟大会——“Join the Circle”：将纺织行业的挑战转化为机遇",
+        "url": "https://nachrichten.idw-online.de/2026/09/10/2-retrakt-eu-conference-join-the-circle-herausforderungen-der-textilindustrie-in-chancen-verwandeln",
+        "date": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "name": "国际海事组织海洋环境保护委员会第85次会议",
+    "start_date": "2026-11-30",
+    "end_date": "2026-12-03",
+    "location": "伦敦",
+    "organizer": "国际海事组织",
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "MEPC84：对净零框架的支持在 2026 年底关键决策点之前稳定下来",
+        "url": "https://ammoniaenergy.org/articles/mepc84-support-for-net-zero-framework-stabilizes-ahead-of-key-decision-point-in-late-2026/",
+        "date": "2026-05-12"
+      }
+    ]
+  },
+  {
+    "name": "2026 IEEE电子封装技术会议（EPTC）",
     "start_date": "2026-12-01",
     "end_date": null,
     "location": "新加坡",
@@ -2500,17 +3865,37 @@
     ]
   },
   {
-    "name": "国际海事组织（IMO）海洋环境保护委员会第二届特别会议 (MEPC)",
-    "start_date": "2026-12-04",
+    "name": "GWGI颁奖典礼",
+    "start_date": "2026-12-02",
     "end_date": null,
-    "location": "伦敦",
-    "organizer": "国际海事组织（IMO）",
-    "category": "通用技术",
+    "location": "匈牙利布达佩斯",
+    "organizer": "GWGI",
+    "category": "零碳产业",
     "sources": [
       {
-        "title": "MEPC84：对净零框架的支持在 2026 年底关键决策点之前稳定下来",
-        "url": "https://ammoniaenergy.org/articles/mepc84-support-for-net-zero-framework-stabilizes-ahead-of-key-decision-point-in-late-2026/",
-        "date": "2026-05-12"
+        "title": "GWGI 奖年度氢最终用途项目参赛作品截止日期临近",
+        "url": "https://www.gasworld.com/story/deadline-nears-for-gwgi-awards-hydrogen-end-use-project-of-the-year-entries/2258247.article/",
+        "date": "2026-08-31"
+      }
+    ]
+  },
+  {
+    "name": "第十七届核电前沿高峰论坛暨新建机组大会",
+    "start_date": "2026-12-03",
+    "end_date": "2026-12-04",
+    "location": null,
+    "organizer": "上海英致公司",
+    "category": "零碳产业",
+    "sources": [
+      {
+        "title": "关注 | 6月第二站！上海英致公司拜访辽宁红沿河核电有限公司",
+        "url": "https://mp.weixin.qq.com/s/v32ep4HBOnwBCN9NgBOuNA",
+        "date": "2026-07-06"
+      },
+      {
+        "title": "7月第三站！上海英致公司拜访中核武汉核电运行技术股份有限公司",
+        "url": "https://mp.weixin.qq.com/s/IbbZj6rakjxxG4_oZCI6Yg",
+        "date": "2026-07-25"
       }
     ]
   },
@@ -2519,7 +3904,7 @@
     "start_date": "2027-01-11",
     "end_date": "2027-01-12",
     "location": "广州南沙",
-    "organizer": "Nature系列期刊",
+    "organizer": "Nature Sensors、Nature Microbiology、Nature Reviews Earth & Environment、Nature Communications等期刊共同组织",
     "category": "通用技术",
     "sources": [
       {
@@ -2530,11 +3915,26 @@
     ]
   },
   {
+    "name": "智能电动汽车发展高层论坛",
+    "start_date": "2027-01-22",
+    "end_date": "2027-01-24",
+    "location": "北京",
+    "organizer": "车百会研究院",
+    "category": "AI与智能科技",
+    "sources": [
+      {
+        "title": "“十五五”期间汽车市场以“稳”为主",
+        "url": "https://www.china5e.com/news/news-1209339-1.html",
+        "date": "2026-09-17"
+      }
+    ]
+  },
+  {
     "name": "第52届斯坦福地热研讨会",
     "start_date": "2027-02-08",
     "end_date": "2027-02-10",
-    "location": "斯坦福大学",
-    "organizer": null,
+    "location": "斯坦福大学Frances C. Arrillaga Alumni Center",
+    "organizer": "斯坦福大学",
     "category": "零碳产业",
     "sources": [
       {
@@ -2545,10 +3945,10 @@
     ]
   },
   {
-    "name": "SNEC PV&ES第二十届(2027)国际太阳能光伏和智慧能源&储能和电池(上海)大会暨展览会",
+    "name": "第二十届SNEC国际太阳能光伏和智慧能源&储能和电池(上海)大会暨展览会",
     "start_date": "2027-06-02",
     "end_date": "2027-06-04",
-    "location": "上海虹桥国家会展中心",
+    "location": "上海国家会展中心",
     "organizer": null,
     "category": "零碳产业",
     "sources": [

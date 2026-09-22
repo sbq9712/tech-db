@@ -91,3 +91,6 @@ data/processed/curated_snapshot.json
 # Playwright chromium runtime libs extracted for sandboxed local runs
 # (CI installs them via `python -m playwright install --with-deps`)
 .pw-libs/
+
+# 重分类断点（本地续跑状态，含 prompt/中间产物，不随数据发布）
+data/reclass-checkpoint/
