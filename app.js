@@ -611,6 +611,12 @@ function buildCategoryTree(useFiltered = false) {
       node.count += count;
     }
   }
+  // 特殊分类：不相关/未分类 与三大领域平行恒定展示。
+  // 不相关=已完成分类但不属于任何领域叶子节点；未分类=已入库但尚未完成分类（正常流水线下为 0）。
+  for (const special of ['不相关', '未分类']) {
+    if (q && !special.toLowerCase().includes(q)) continue;
+    if (!tree[special]) tree[special] = { count: counts.get(special) || 0, children: {} };
+  }
   // Compute group totals
   const groupTotals = {};
   for (const [top, node] of Object.entries(tree)) groupTotals[top] = node.count;
