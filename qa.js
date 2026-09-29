@@ -13,7 +13,7 @@ const QA_API_BASE = (() => {
   if (['localhost', '127.0.0.1'].includes(window.location.hostname)) {
     return 'http://localhost:8765';
   }
-  return 'https://rebates-mainly-shut-garmin.trycloudflare.com';
+  return 'https://ryan-senators-cut-cope.trycloudflare.com';
 })();
 
 // Resilient API base (2026-09-20): if the published tunnel URL is stale
