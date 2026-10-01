@@ -1,0 +1,425 @@
+{
+  "type": "monthly",
+  "date_label": "2026-09-01 ~ 2026-09-30",
+  "date_range": "2026-09-01 ~ 2026-09-30",
+  "main_theme": "辉能量产381 Wh/kg全固态电池并获中国'十五五'规划支持，SpaceX星舰首次入轨并部署卫星，AI模型在医疗影像与数学形式化证明上达到专家级水平",
+  "overview": "零碳产业方面，中国台湾辉能科技在桃园吉瓦级工厂量产Gen 3.5锂陶瓷全固态电池，185.4Ah电芯能量密度达381 Wh/kg、903 Wh/L，5%-80%充电用时8分钟，并先后通过TÜV与UL Solutions按GB/T 43568-2026标准的测试。工信部等七部门印发《新型电池产业发展'十五五'规划》，提出2030年全固态电池初步规模化、长寿命锂电池循环寿命15000次、头部企业缺陷率达PPB级。中国批复5个城市群开展氢能综合应用试点，燃料电池汽车累计销量超4万辆，建成加氢站超620座居全球首位。AI方面，阿里巴巴达摩院与浙大一院在《科学》发表医疗影像模型DAMO RADAR，单模型可识别腹部18个器官146种病症；Anthropic发布Claude Opus 5.5，API输入输出价格较上代下降20%，并完成费马大定理首个端到端形式化证明，含约1300万行Lean代码。航天方面，SpaceX星舰第14次试飞首次入轨并部署26颗星链V3卫星；星河动力智神星一号中大型液体火箭首飞成功，设计重复使用不少于25次。",
+  "headlines": {
+    "零碳产业": [
+      "辉能量产381 Wh/kg锂陶瓷全固态电池，8分钟可充至80%",
+      "辉能185.4Ah大电芯通过TÜV与UL全固态电池标准测试",
+      "七部门发布新型电池'十五五'规划，2030年全固态电池初步规模化",
+      "规划明确长寿命锂电池循环寿命目标15000次、缺陷率PPB级",
+      "五大城市群获批氢能综合应用试点，全国加氢站超620座居全球首位"
+    ],
+    "AI与智能科技": [
+      "特斯拉Cybercab商业首日遭NHTSA车辆认证方式审计",
+      "达摩院DAMO RADAR登《科学》，单模型识别腹部CT 146种病症",
+      "DeepMind发布AlphaGenome Atlas，覆盖90亿种单核苷酸变异预测",
+      "Claude Opus 5.5发布，API降价20%、缓存读取价降60%",
+      "Claude完成费马大定理首个完整形式化证明，用时11天1300万行代码"
+    ],
+    "通用技术": [
+      "SpaceX星舰第14次试飞首次入轨并部署26颗星链V3卫星",
+      "星河动力智神星一号首飞成功，设计重复使用不少于25次",
+      "复旦团队结构色研究成果登《科学》，实现千米级连续制造",
+      "广汽埃安三款非晶合金电驱车型亮相，带材厚度仅0.025毫米",
+      "星舰从亚轨道试验转入实际轨道任务阶段，任务约6圈飞行"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": "辉能科技量产Gen 3.5锂陶瓷全固态电池，能量密度381 Wh/kg、903 Wh/L，8分钟完成5%-80%充电，120℃真空6小时失重率低于0.05%。工信部等七部门发布'十五五'规划，设定全固态电池初步规模化与15000次循环寿命目标。5个城市群获批氢能综合应用试点，全国燃料电池汽车累计销量超4万辆，加氢站超620座居全球首位，电堆等核心零部件装车率超80%。",
+      "headlines": [
+        "辉能量产381 Wh/kg锂陶瓷全固态电池，8分钟可充至80%",
+        "辉能185.4Ah大电芯通过TÜV与UL全固态电池标准测试",
+        "七部门发布新型电池'十五五'规划，2030年全固态电池初步规模化",
+        "规划明确长寿命锂电池循环寿命目标15000次、缺陷率PPB级",
+        "五大城市群获批氢能综合应用试点，全国加氢站超620座居全球首位"
+      ],
+      "entries": [
+        {
+          "t": "辉能宣布 381 Wh/kg 锂陶瓷全固态电池量产",
+          "d": "2026-09-03",
+          "a": "IT之家",
+          "c": "零碳产业/能量转化/能量存储/电化学储能/二次电池/传统蓄电池/固态电池",
+          "as": "中国台湾电池制造商辉能宣布其Gen 3.5锂陶瓷全固态电池已在岛内Giga-level工业平台量产。185.4Ah大容量电芯实现381 Wh/kg质量能量密度、903 Wh/L体积能量密度，120℃真空环境放置6小时后失重率低于0.05%。Logithium电芯架构采用陶瓷隔层搭配特殊材料边缘框胶，形成额外隔离结构。未来Gen 4电池计划采用全无机超流体化电解质系统，导入高温主动钝化安全机制以实现零热失控，并强化低温性能与成本竞争力。",
+          "sc": 10.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/998/196.htm",
+          "tp": "辉能固态电池量产",
+          "aip": 1,
+          "kp": [
+            "质量能量密度[辉能Gen3.5锂陶瓷全固态电池]: 381 Wh/kg",
+            "体积能量密度[辉能185.4Ah电芯]: 903 Wh/L",
+            "电芯容量[锂陶瓷全固态电池]: 185.4Ah",
+            "失重率[120℃真空环境放置6hr]: 低于0.05%",
+            "电芯架构[Logithium]: 陶瓷隔层搭配特殊材料边缘框胶，包覆电极毛刺，兼具密封与绝缘"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "IT之家 9 月 3 日消息，中国台湾地区电池制造商辉能 (ProLogium) 本月 2 日宣布，其 Gen 3.5 锂陶瓷全固态电池已于其岛内 Giga-level 工业平台量产。\n辉能的 185.4Ah 大容量电芯实现了 381 Wh/kg 的质量能量密度、903 Wh/L 的体积能量密度，120℃ 真空环境放置 6hr 后失重率低于 0.05%。\n辉能的 Logithium 电芯架构以陶瓷隔层搭配特殊材料边缘框胶，在正负极隔离之外形成额外的隔离结构，包覆电极边缘可能产生的毛刺，兼具密封与绝缘功能。\n而在未来，辉能计划在 Gen 4 锂陶瓷电池中采用全无机超流体化电解质系统；进一步导入可在高温下主动钝化活性材料的主动安全机制，达到“零热失控”；强化低温性能，提升材料与制造成本竞争力，扩展应用范围。",
+          "hb": 1
+        },
+        {
+          "t": "台湾量产固态电池突破381Wh/kg",
+          "d": "2026-09-03",
+          "a": "interesting engineering",
+          "c": "零碳产业/能量转化/能量存储/电化学储能/二次电池/传统蓄电池/固态电池",
+          "as": "台湾辉能科技（ProLogium）开始量产第三代半（Gen 3.5）锂陶瓷电池，实现全固态电池设计的Gig级制造。第三方机构TÜV测试显示，其185.4 Ah大型电芯质量能量密度达381 Wh/kg，体积能量密度达903 Wh/L，在重量和空间受限的电动车等应用中具优势。该电芯还通过UL Solutions按中国GB/T 43568-2026全固态电池标准的测试，在120摄氏度真空环境下六小时后重量损失低于0.05%。",
+          "sc": 9.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://interestingengineering.com/energy/prologium-solid-state-battery-mass-production-381-wh-kg",
+          "tp": "固态电池量产",
+          "aip": 1,
+          "kp": [
+            "质量能量密度[Gen 3.5锂陶瓷电池185.4Ah电芯]: 381 Wh/kg",
+            "体积能量密度[Gen 3.5锂陶瓷电池]: 903 Wh/L",
+            "电芯容量[全固态电池]: 185.4 Ah",
+            "量产状态[TÜV第三方测试]: 已在台湾实现Giga级量产"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ProLogium Technology has started mass production of its Gen 3.5 Lithium Ceramic Battery in Taiwan, putting an all-solid-state battery design with high energy density into Giga-level manufacturing.A third-party test by TÜV found that ProLogium’s 185.4 Ah large-format cell reached 381 Wh/kg of gravimetric energy density and 903 Wh/L of volumetric energy density. In simple terms, the cell can store more energy for its weight and size, an advantage for electric vehicles and other applications where battery space is limited.The cell also passed a separate test by UL Solutions under China’s GB/T 43568-2026 methodology for all-solid-state batteries. After six hours under vacuum at 120 degrees Celsius, the cell recorded less than 0.05% weight loss, compared with the standard’s maximum threshold of 0.5%.That result allows the cell to be classified as all-solid-state under the Chinese standard. GB/T 43568-2026 has also been submitted to the International Electrotechnical Commission as a reference for international standardization.Battery numbers meet factory scaleThe bigger development is not just the cell’s performance figures but the manufacturing scale behind them. ProLogium says its Gen 3.5 battery is now in mass production at its Giga-level facility in Taiwan, moving the technology beyond laboratory and pilot-line production.The company’s Lithium Ceramic Battery platform has been developed since 2012. ProLogium began commercial production in 2013 and says it has since shipped more than 2.4 million cells for consumer, specialty and automotive applications.Its manufacturing process has also evolved in stages. A Sheet-by-Sheet production line began commercial operation in 2013, followed by a Roll-to-Roll line in 2017. The company’s third-generation Giga-level manufacturing platform entered operation in 2024.That progression is important because solid-state batteries have faced a difficult transition from promising laboratory cells to reliable, high-volume manufacturing. ProLogium’s approach is to carry manufacturing knowledge, equipment, and process improvements from one battery generation to the next instead of starting over at each stage.Same architecture, new chemistryAt the center of the platform is ProLogium’s Logithium cell architecture. It uses a ceramic separator and an edge-frame structure that extends around the electrode perimeter to help isolate potential burrs while providing sealing and insulation.The architecture has remained in place as ProLogium has changed electrolyte chemistry and active materials. The company says this allows new battery generations to use much of the existing manufacturing foundation.That strategy will be tested further with Gen 4, which uses a fully inorganic superfluidized electrolyte while retaining the same Logithium architecture and manufacturing process. ProLogium expects only about 10% of its existing Giga-level production line and related equipment to require modification for Gen 4 production.Gen 4 is also designed to add an Active Safety Mechanism intended to prevent thermal runaway by stabilizing electrode active materials at high temperatures. The company is targeting applications including electric vehicles, maritime systems, aerospace, unmanned systems and data centers.ProLogium is also building a manufacturing strategy beyond Taiwan, with France planned for scaled production and North America targeted for phased localization. The company says the model could use battery inlays produced at scale in France or Taiwan before downstream partners assemble them into cells, modules and packs closer to customers.For now, the Gen 3.5 production milestone puts ProLogium’s solid-state battery technology on a manufacturing line rather than leaving it at the prototype stage.",
+          "hb": 1
+        },
+        {
+          "t": "新型电池产业发展“十五五”规划出炉！有哪些看点？",
+          "d": "2026-09-28",
+          "a": "我爱电车网",
+          "c": "零碳产业/能量转化/能量存储/电化学储能/二次电池/传统蓄电池/有机体系/锂电",
+          "as": "工信部等七部门联合印发《新型电池产业发展'十五五'规划》，提出到2030年产业规模稳步增长、全链条创新能力持续增强。规划明确先进电极材料、新型电解质、高端辅材取得新突破，新体系电池研发取得重大进展，全固态电池初步实现规模化应用，长寿命锂电池循环寿命达到15000次，头部企业产品缺陷率达到PPB级。规划围绕加快全链条创新发展、推动产业转型升级、完善产业体系建设、提升产业科技服务能力、提升贸易投资合作质量水平五方面提出19项重点任务和5个专栏，并从政企协同、资金统筹、产教融合等方面加强组织实施。",
+          "sc": 9.6,
+          "i": "n",
+          "tg": "政策监管",
+          "u": "http://www.xevcar.com/hangye/092Q5QF2026.html",
+          "tp": "电池十五五规划",
+          "aip": 1,
+          "kp": [
+            "长寿命锂电池[2030年目标]: 循环寿命15000次",
+            "头部企业产品缺陷率[2030年目标]: PPB级",
+            "全固态电池[2030年目标]: 初步实现规模化应用"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "《新型电池产业发展“十五五”规划》明确，到2030年，我国新型电池产业规模实现稳步增长。全链条创新能力持续增强，先进电极材料、新型电解质、高端辅材等取得新突破，新体系电池研发取得重大进展，全固态电池初步实现规模化应用，长寿命锂电池循环寿命达到15000次，头部企业产品缺陷率达到PPB级。\n为贯彻落实党中央、国务院决策部署，推动新型电池产业高质量发展，依据《中华人民共和国国民经济和社会发展第十五个五年规划纲要》，工业和信息化部、国家发展改革委、交通运输部、商务部、市场监管总局、国家能源局、国家铁路局等七部门近日联合印发《新型电池产业发展“十五五”规划》（以下简称《规划》）。\n《规划》提出，统筹发展与安全，以推动高质量发展为主题，加快构建创新引领、安全高效、韧性强健，智能绿色的新型电池产业体系，推动技术创新水平、产品附加值、企业竞争能力、产业链现代化水平的全面跃升，为发展新质生产力、推进新型工业化提供有力支撑。到2030年，我国新型电池产业规模实现稳步增长；全链条创新能力持续增强，先进材料取得新突破，新体系电池研发取得重大进展，头部企业产品缺陷率达到PPB级别；全场景应用生态加速构建，电池技术与清洁能源、用能终端加快融合创新发展；国际贸易投资一体化深入推进，服务全球绿色低碳发展。\n围绕主要目标，《规划》聚焦加快全链条创新发展、推动产业转型升级、完善产业体系建设、提升产业科技服务能力、提升贸易投资合作质量和水平等五个方面提出19项重点任务和5个专栏。同时，从强化政企协同联动、开展实施指导评估、强化资金渠道统筹、深化产教融合、优化市场环境等方面加强《规划》组织实施。\n关于印发《新型电池产业发展“十五五”规划》的通知\n工信部联规〔2026〕220号\n各省、自治区、直辖市、计划单列市及新疆生产建设兵团工业和信息化、发展改革、交通运输、商务、市场监管、能源主管部门，各地区铁路监督管理局，各省、自治区、直辖市通信管理局，各相关单位：\n现将《新型电池产业发展“十五五”规划》印发给你们，请结合实际，认真贯彻实施。\n新型电池产业发展“十五五”规划\n新型电池是以新机理、新材料、新结构、新工艺为核心创新方向的高效电能存储与转化装置或系统，以锂电池、钠电池、液流电池等为代表，具有技术迭代快、应用范围广、辐射带动强的典型特征。加快发展新型电池产业，是培育发展新产业新赛道的重要方向，是构建新型能源体系、培育新质生产力，建设制造强国、能源强国、交通强国、数字中国的重要基础支撑。为推动新型电池产业高质量发展，依据《中华人民共和国国民经济和社会发展第十五个五年规划纲要》，制定本规划。\n坚持以习近平新时代中国特色社会主义思想为指导，深入贯彻党的二十大和二十届历次全会精神，认真落实四中全会部署，完整准确全面贯彻新发展理念，加快构建新发展格局，锚定基本实现新型工业化目标，统筹发展与安全，以推动高质量发展为主题，加快构建创新引领、安全高效、韧性强健、智能绿色的新型电池产业体系，推动技术创新水平、产品附加值、企业竞争能力、产业链现代化水平的全面跃升，为发展新质生产力、推进新型工业化提供有力支撑。\n到2030年，我国新型电池产业规模实现稳步增长。全链条创新能力持续增强，先进电极材料、新型电解质、高端辅材等取得新突破，新体系电池研发取得重大进展，全固态电池初步实现规模化应用，长寿命锂电池循环寿命达到15000次，头部企业产品缺陷率达到PPB级。全场景应用生态加速构建，新型电池技术与清洁能源、用能终端加快融合创新发展，高效赋能智能终端产品迭代升级和汽车、船舶、航空、智能机器人、工程机械、农机装备等领域电动化，满足新型电力系统建设需要，在电源侧、电网侧，以及工业园区、数据中心等储能应用场景进一步拓展。国际贸易投资一体化深入推进，服务全球经济社会绿色低碳发展。\n（一）加快全链条创新发展\n1.强化前沿和共性技术攻关。深化新型电池基础性、前瞻性科学问题研究，强化原始创新和颠覆性技术攻关。加强电池材料、结构设计、制造技术、系统集成等多维度工艺协同创新，提升本质安全、能量和功率密度、结构强度及轻量化水平。聚焦离子电导率和循环稳定性提升、成本优化等重点方向，加快突破全固态电池产业化技术。前瞻布局新型碱金属离子电池、多价离子电池、金属－空气/硫电池、多功能复合材料结构电池、核电池等新一代电池体系。\n专栏1 共性和关键技术提升\n1.机理研究。开展电化学、热力学、动力学基础理论研究，深入研究离子输运、能量转换等机理规律和电能存储机制。发展原子尺度到系统层级、常规工况和极端环境下的多维度原位表征方法，探索高能量密度存储与高效转换过程中表界面作用机理。\n2.结构创新。深化研究柔性、异形、内部串联等新型电池本体结构技术，发展低阻抗高效连接、无模组系统集成、电池底盘（仓体）一体化、智能组串、高压直流、分区热管理等电池系统结构技术。\n3.先进工艺开发。开发厚电极、干法电极、热压转印等电极制备技术，研究高精度叠片、多层极耳激光焊接技术、等静压等电池制造技术和超声喷涂、膜电极等量产技术。\n4.全固态电池技术突破。创新固态电池关键材料和工艺技术解决方案，畅通基础研究与工程应用的信息共享渠道。提升界面接触、高离子电导率、长循环寿命、工程化压力系统设计等关键技术，推动高电压、高比容量正极材料与新型锂金属基负极材料、无锂负极等融合应用。\n2.发展先进电池材料和高端制造设备。加快新型电池材料迭代升级，发展基于储量充裕、供给稳定矿产资源的关键材料和高容量、高稳定、智能响应、自修复新型电极（堆）材料，提升高电导率、高性能固态电解质材料量产能力。发展高速化、柔性化、智能化高端成套设备，实现工艺联动和精度跃升，提高生产效率和产品一致性。研发制片、组装、化成等重点工序专用设备，补齐专用工业软件短板。\n专栏2 先进材料和高端设备升级\n1.电极（堆）材料。开发高电压高稳定锰基、高镍三元、高压实密度磷酸铁锂、聚阴离子、层状氧化物等锂/钠电池正极材料和高首效低膨胀硅基、锂/钠金属、硬碳、无烟煤等负极材料。发展复合集流体、高效补锂/钠剂、高性能粘合剂、导电添加剂、低成本高选择性离子交换膜。\n2.电解质材料。提升固态电解质稳定性和离子电导率。发展高空气稳定性硫化物、卤化物等固态电解质、高性能聚合物复合固态电解质。发展高化学稳定性、耐高压锂盐、高浓度高热稳定性液流电池电解质。\n3.高端制造设备。开发高精度双面无溶剂涂布、高精度高速叠片、膜电极卷对卷、超声喷涂、化成分容、高扭矩高精度隔膜挤出、固态电池用等静压、生产用机器人、智能传感与检测、自动化拆解、高效绿色提取、直接再生等设备。\n4.专用工业软件。开发辅助工程和电池系统管理工具软件和通用软件，发展系统燃烧模拟、刚强度分析、显示动力学分析等专用软件。运用计算机辅助仿真工具开展安全失效分析和优化设计。\n3.丰富高端电池产品供给。面向多元应用场景，加快新型电池产品高端化、多元化、融合化发展，提高产品安全性和可靠性。构建以锂电池为主，钠电池、液流电池等协同发展的新型电池产品供给体系。提升钠电池功率和能量密度，研发高转化效率液流电池，推动混合型超级电容器等产品迭代。升级轻薄化、柔性化消费电子产品电池，优化高安全、全气候新能源汽车动力电池，研发满足长时储能需求的长寿命、高安全储能电池，提升低空装备、智能机器人电池及航空和深海极地等极端环境高耐受电池供给水平。提高全固态电池、水系电池、超快充电池产业化能力。\n专栏3 新型电池产品创新\n1.锂电池。通过工艺优化、材料升级、结构创新提升能量密度、功率密度、循环寿命。发展高安全消费电子产品锂电池，提升新能源汽车、电动船舶动力电池安全性、快充性能、低温适应性、轻量性和能量密度，发展高安全、大容量、构网型、超长循环寿命储能电池。\n2.钠电池。充分发挥钠电池成本、安全性和资源保障优势，加快高容量正极材料、高压实密度负极材料研发和应用，发展高功率启停电池，研发高安全、耐低温、高能量密度动力电池，开发高安全、高经济性、长循环寿命储能电池。\n3.液流电池。提升电堆电流密度、能量转化效率，降低电解液成本，发展面向长时和户用储能的液流电池产品，开发高转化效率、高经济性、绿色可回收全钒液流电池，提升铁基、锌基、有机液流电池功率密度和循环寿命。\n4.专用电池。发展航空级安全、兼顾高能量和功率密度、高持续放电能力、轻量化低空装备和智能机器人电池。研发超高可靠、生物相容医疗器械用微型电池。面向极端环境场景，发展特种环境耐受电池。研发高能量密度、高可靠性、放电电流达到安培级、体积小的医用一次性锂电池及适用于复杂农业作业环境的农机装备专用电池。\n4.强化系统集成创新。聚焦结构集成、热管理系统、电池管理系统、能量管理系统、高压电气、系统安全等维度，发展结构优化、多域融合、安全高效的系统集成技术。推动人工智能技术参与支撑决策管理，提升电池系统级安全水平。推进电池系统用电子器件集成化、智能化和定制化发展，加快耐高温高压、低损耗、高可靠的功率半导体器件的研发与应用，提升电源管理芯片、智能传感器等新型电池配套元器件供给水平。\n专栏4 高端系统集成技术跃升\n1.电池管理系统。提升宽温域、高倍率、老化衰减场景下电池管理系统的估算精度，实现热失控提前精准预警。加快研发高集成度、低功耗、轻量化硬件方案，满足大规模储能、特种装备等多场景应用需求。\n2.热管理系统。加大宽温域、低能耗高效热泵技术攻关，开发高导热、低粘度换热介质，推动系统架构向集成化、轻量化升级。聚焦固态电池、钠电池、液流电池等新型电池技术特性，开发定制化温控方案。\n3.能量管理系统。提高能量管理系统运行可靠性与智能调度能力，推动多能源主体全域协同管控，实现能量分配方案动态优化。推进源网荷储一体化建设，研发适配光伏、风电、储能、电网多环节协同优化的能量管理系统。\n4.电子元器件。开发高可靠继电器、高载流连接器、高精度智能传感器、耐高温耐高压低损耗半导体器件，发展高精度模拟前端、集成式电池管理系统、电源管理、隔离通信等芯片，并推动国产芯片普及应用。\n5.推动多领域创新应用。提高柔性电池、异形电池等新型电池在智能可穿戴设备、智慧家庭、移动医疗设备领域的应用水平，巩固扩大新能源汽车、消费电子领域应用规模，拓展“沙戈荒”和高寒地区应用场景。积极推进公共交通、重型货车、航空、内河船舶、农用机械等领域电动化，开展新型储能在智算中心和工业绿色微电网等创新场景应用。探索绿电直连、虚拟电厂、算电协同等应用模式创新。挖掘深空深海深地极地探测、脑机接口、智能仿生、智能机器人、特种装备等应用场景，服务国家重大战略与前沿科技发展需求。\n6.健全回收利用体系。落实生产者责任延伸制度，推动企业以自建或委托等方式建立与产品销售量相匹配的废旧电池回收体系，加快废旧电池回收服务网点建设运营，支持新型电池精细化拆解、低成本利用、有价元素高效提取等技术装备研发和产业化应用，提升废旧电池拆解、破碎、分选、冶炼等流程精细化、自动化水平，推进再生资源高效利用。引导各地合理布局与区域废旧电池产生量相适应的处理能力，促进资源向优势企业集聚。引导企业在具备条件的新型电池主要出口市场布局废旧电池综合利用产能，提升资源保障能力。\n（二）推动产业转型升级\n7.提升数智化发展水平。推动人工智能、数字孪生、大数据分析等新一代信息技术赋能新型电池全产业链，加快发展新一代智能制造。场景化、图谱化推动新型电池产业数智化转型，支持上下游关键环节数据共享互通，建设跨电池体系的行业专用大模型和人工智能研发平台。推广智能化材料设计模式，优化电池智能化开发流程。深化智能工厂梯度培育，提高设备智能感知、故障预测、安全管控水平，推动生产制造、物流仓储可视化管理与智能化调控。提升电池安全预警和寿命评估能力。\n专栏5 数智化赋能\n1.设计开发。推动人工智能技术赋能跨尺度电池材料设计开发与筛选，开发电极/电解质配方人工智能设计与优化、多物理场与人工智能融合的电池设计与性能预测等技术，提升电池产品数字化设计水平。\n2.生产制造。构建关键工艺的智能生产线，研发人工智能调控的制造参数优化与产线柔性重构平台，借助机器视觉与多尺度物性表征，实现关键工序的毫秒级调优，开发模块化、智能化的制造装备，提升设备稼动率和电池产品直通率。\n3.智联应用。研发融合物理模型与数据驱动算法的智能管理与运维系统，构建电池大模型体系。依托工业互联网平台实现数据汇聚与边缘决策，完善电池全生命周期数据闭环管理。\n8.加快绿色化转型发展。推动低碳减排、节能降耗、环境友好型新技术在新型电池产业的应用。扩大可再生能源应用规模，推行新型电池产品绿色设计，引导企业优先采用标准化、易拆解的设计方案，使用无毒无害或者低毒低害以及便于回收利用的材料，稳步提高再生材料使用比例，推动企业构建绿色供应链管理体系，建设一批零碳工厂、绿色工厂、绿色园区。\n9.构建融合化生态体系。支持新型电池产业跨技术、跨业态、跨领域融合发展，构建创新产业生态。推动新型电池与智能终端、交通运输、能源电力、工程机械等领域的融通发展。支持制造企业突破传统产销模式，培育服务型制造等创新业态，持续提升商业附加值。加快多元材料体系电池技术的交叉创新，以先进材料、智能制造、绿色低碳等技术融合赋能产业升级。\n10.提升产业安全发展水平。构建新型电池全产业链安全体系，加快国内锂钴等矿产资源勘探开发，提高盐湖、锂云母等资源利用水平，防范供应链安全风险。强化生产、仓储、物流、使用环节的安全监测和风险预警，提升应急处置能力。突破电池一致性控制、热失控抑制、高效灭火与事故后安全处置等关键技术。加强储能电池安全管理公共服务能力建设。加强工业控制系统网络安全，细化数据分类分级等标准，指导企业落实主体责任，提升网络和数据安全保护水平。规范开展锂电池等产品运输，推进铁路运输试点，推动降低物流成本。\n（三）完善产业体系建设\n11.培育产业优质企业。构建优质企业梯度培育体系，培优育强新型电池领域龙头企业，支持企业兼并重组，围绕全产业链培育世界一流企业，壮大高新技术企业和专精特新中小企业构成的骨干力量，锻强专精特新“小巨人”企业和制造业单项冠军企业构成的中坚力量。加强瞪羚企业、独角兽企业的监测和服务。实施制造业卓越质量提升工程，持续开展制造业企业质量管理能力评价。打造一批中小企业特色产业集群，为新型电池产业高质量发展筑牢主体根基。\n12.优化产业区域布局。按照区域集聚、主体集中的原则，优化锂电池产业布局。引导各地发挥比较优势，实现差异化、特色化协同发展。巩固提升京津冀、长三角、粤港澳大湾区等地区高质量发展动力源作用，更好发挥粤闽浙沿海等城市群作用，加快培育新型电池先进制造业集群。依托长江经济带、黄河流域、东北等地区产业基础，推动新型电池产业强链补链、提质升级。立足中西部地区资源，提升新型电池产业链韧性。\n（四）提升产业科技服务能力\n13.完善产业科技创新体系。构建产业链一体化技术攻关路径，完善新型电池核心技术创新体系。支持制造业创新中心、国家产业技术工程化中心等科技创新平台基地建设，推动重点地区建设制造业中试平台和重点实验室。支持产学研用协同创新，鼓励研发中试资源开放共享和可持续运营，强化关键共性技术供给，推动基础研究和产业化能力同步提升。深入实施国家高新区新赛道培育行动，培育一批国家高新区新型电池重点新赛道。\n14.强化标准引领作用。持续开展锂电池标准体系建设，推进全固态电池、钠电池等新型电池重点领域标准研制。落实《国家锂电池产业标准体系建设指南》，加快关键共性、先进适用性标准研制，补齐产品安全等级、性能分级、快速测试等标准缺项。促进与新能源汽车、智能机器人、低空装备、工程和农用机械等应用领域共建标准。加强标准化工作统筹协同，合力推进新型电池各领域标准化工作。提升标准国际化水平，深度参与国际标准组织建设和标准制定。\n15.优化检测认证服务水平。提升面向新型电池产品和关键材料的检验检测技术能力、产品缺陷与失效分析能力，适时组织开展检验检测机构能力验证，突破一批合格评定共性和关键核心技术，推动相关认证国际互认。严格落实质量、认证法律法规有关规定，健全完善新型电池质量认证和产品分级分类评价体系，深化质量强链工作。提升标准研制、检测评估、失效分析、认证认可一体化公共服务能力。\n16.健全知识产权体系。加强新型电池领域知识产权全链条保护和高效运用。完善知识产权保护和商业秘密管理制度，构建涵盖研发创新、成果转化、产业应用的知识产权保护体系。加强全固态电池、大容量长寿命储能电池、高比能钠电池等关键核心技术专利布局，储备一批高价值专利。充分利用专利优先审查“绿色通道”，支持企业提升专利申请布局的质量和效率，建立重点专利保护清单。加强知识产权国际交流合作，积极参与国际知识产权规则制定。\n17.完善产品溯源和碳足迹管理。加强新型电池全生命周期溯源管理等公共服务能力建设，强化编码统筹管理，建立新能源汽车动力电池等产品数字身份证管理体系，实现全产业链信息透明化与智能化管理，探索新型电池数字护照国际通行方案。统筹推进新型电池产品碳足迹核算体系建设，积极开展产品碳足迹管理。搭建新型电池全生命周期评价模型，持续完善产品碳足迹因子数据库，推动数据国际互认与共享。\n（五）提升贸易投资合作质量和水平\n18.引导企业有序“走出去”。强化全球新能源市场需求与地缘环境分析研判。统筹利用国内国际两个市场、两种资源，指导企业多元有序开展对外投资。健全风险防范与应急响应机制，强化企业出海安全保障。\n19.打造开放合作高地。强化与国际性经贸组织、行业商协会、专业投资机构高效互动，常态化开展合作对接。搭建具有国际影响力的新型电池产业与技术合作平台，面向多元国际市场应用需求，提升企业产品体系全球化适配水平。完善海外综合服务体系，推进国际多双边互认合作，降低技术性贸易壁垒。\n三  加强组织实施\n健全会商联动机制，强化部门联动、政企协同。深入调查研究，加强规划跟踪指导，开展规划实施情况动态监测、中期评估和总结评估。强化专项资金渠道统筹，推动新型电池关键技术攻关突破。支持符合条件的新型电池产业链骨干企业融资。深化新型电池领域产教融合，构建高端人才培养网络。倡导诚信经营、安全生产、节能环保、和谐用工、依法纳税，推动建立公平竞争、健康有序的市场环境。\n《新型电池产业发展“十五五”规划》解读\n为推动新型电池产业高质量发展，依据《中华人民共和国国民经济和社会发展第十五个五年规划纲要》，工业和信息化部、国家发展改革委、交通运输部、商务部、市场监管总局、国家能源局、国家铁路局等七部门（以下简称七部门）近日联合印发《新型电池产业发展“十五五”规划》（以下简称《规划》）。为更好理解和贯彻落实《规划》，现就有关内容解读如下。\n一、《规划》出台的背景是什么？\n新型电池是以新机理、新材料、新结构、新工艺为核心创新方向的高效电能存储与转化装置或系统，以锂电池、钠电池、液流电池等为代表，具有技术迭代快、应用范围广、辐射带动强的典型特征。加快新型电池产业发展，是构建新型能源体系、培育新质生产力，建设制造强国、能源强国、交通强国、数字中国的重要基础支撑。\n“十四五”期间，我国新型电池产业实现跨越发展，在产业规模、技术创新、产业链建设和全球影响力等方面取得历史性成就。一是产业规模稳步增长，我国新型电池产业总产值突破万亿元大关，占据全球市场主要份额。二是技术迭代步伐加快，量产电池单体能量密度超过300Wh/kg，新型电池循环寿命最高超过12000次。先进电池系统集成技术广泛应用，大幅提升系统能量密度和空间利用率。全固态电池研发加速。三是产业链供应链韧性不断增强，我国已建成涵盖材料、电池单体、系统集成、工艺装备、回收利用的完备产业体系，资源整合与市场响应能力显著提升。四是市场应用深度广度持续拓宽，新型电池大规模应用在移动智能终端、智能网联新能源汽车、电力储能、航空航天等领域。我国新型电池产业成为推进新型工业化建设、培育壮大新质生产力的重要代表，为推进实现“双碳”目标和加快产业绿色转型奠定坚实基础。\n“十五五”时期是基本实现社会主义现代化承前启后的关键时期，是全面巩固我国新型电池产业全球竞争优势的战略机遇期。从国际看，围绕新型电池产业和技术发展，全球各国竞争不断加剧。从国内看，我国固态电池等前沿电池领域已形成扎实技术储备，人工智能等技术正加速赋能新型电池制造，产业数智化、绿色化、融合化升级动力充沛。同时，我国新型电池产业发展不平衡不充分问题仍然突出，行业竞争秩序有待规范，原始创新和颠覆性技术能力仍有不足，标准、知识产权等软实力建设与优势产业地位不相适应。为持续推动新型电池产业健康有序发展，巩固产业发展优势，七部门在深入调查研究、广泛征集行业意见的基础上，研究制定发布《规划》。\n二、《规划》的总体考虑是什么？\n《规划》编制过程中主要考虑以下四个方面：\n一是坚持目标导向和问题导向。经过多年发展，我国新型电池产业已初步取得全球优势地位，以锂电池为代表的新型电池成为拉动外贸增长的“新三样”产品和中国制造的崭新名片。面向“十五五”时期，《规划》以推动新型电池产业高质量发展为主线，通过强化产业发展指引，破解产业原始创新能力不足、锂电池领域供需结构矛盾等突出问题。\n二是注重创新引领和全链条发展。“十五五”时期，新型电池产业处于技术升级的关键窗口期，必须牢牢把握科技创新和产业创新战略机遇。《规划》聚焦关键共性技术、电池材料、制造设备、电池产品、系统集成等重点环节，系统部署创新发展的重点工作，明确提出产业数智化、绿色化、融合化、安全化升级的实施路径，并充分强调标准、检测认证和知识产权体系的支撑作用。\n三是强化供需协调和应用拓展。新型电池市场空间大、产业前景好，既要抓住机遇顺势而为，也要统筹好发展和安全的关系，避免大起大落。《规划》引导各地发挥比较优势，实现差异化、特色化发展，同时聚焦消费电子、新型储能、电动交通工具等多领域加快拓展应用，推动供需有效协同。相关部门也将持续完善行业治理体系，落实产能预警调控，产品质量监督，规范价格竞争等工作，推动产业高质量发展。\n四是强化国际国内协同发展。强化全球新能源市场需求与地缘环境分析研判。统筹利用国内国际两个市场、两种资源，指导企业多元有序开展对外投资。《规划》在指导国内新型电池产业创新升级发展的同时，将提升贸易投资合作质量和水平列为重点任务，引导企业有序“走出去”，打造开放合作高地。\n三、《规划》的总体要求和发展目标是什么？\n（一）关于总体要求\n《规划》坚持以习近平新时代中国特色社会主义思想为指导，深入贯彻落实党的二十大和二十届历次全会精神，认真落实四中全会部署，完整准确全面贯彻新发展理念，加快构建新发展格局，锚定基本实现新型工业化目标，统筹发展与安全，以推动高质量发展为主题，加快构建创新引领、安全高效、韧性强健，智能绿色的新型电池产业体系，推动技术创新水平、产品附加值、企业竞争能力、产业链现代化水平的全面跃升，为发展新质生产力、推进新型工业化提供有力支撑。\n（二）关于发展目标\n《规划》提出，到2030年，我国新型电池产业规模实现稳步增长。全链条创新能力持续增强，先进电极材料、新型电解质、高端辅材等取得新突破，新体系电池研发取得重大进展，全固态电池初步实现规模化应用，长寿命锂电池循环寿命达到15000次，头部企业产品缺陷率达到PPB级别。全场景应用生态加速构建，新型电池技术与清洁能源、用能终端加快融合创新发展，高效赋能智能终端产品迭代升级和汽车、船舶、航空、智能机器人、工程机械、农机装备等领域电动化，满足新型电力系统建设需要，在电源侧、电网侧，以及工业园区、数据中心等储能应用场景进一步拓展。国际贸易投资一体化深入推进，实现新型电池产业链供应链合理有序布局，服务全球经济社会绿色低碳发展。\n四、《规划》部署了哪些重点任务？\n为进一步推动新型电池产业高质量发展，《规划》从五大方面提出19项重点任务和5个专栏。\n（一）在全链条创新发展方面，一是强化前沿和共性技术攻关，加强工艺协同创新，加快突破全固态电池产业化技术，布局新一代电池体系。二是发展电池先进材料和高端制造设备，补齐专用工业软件短板。三是丰富高端电池产品供给，加快新型电池产品高端化、多元化、融合化发展。四是强化系统集成创新，推动人工智能技术参与，加强关键元器件研发应用和配套供给。五是推动多领域创新应用，巩固扩大优势领域，推动交通领域，创新储能场景，挖掘前沿科技、特种设备的应用。六是健全回收利用体系。设置共性和关键技术提升、先进材料和高端设备升级、新型电池产品创新、高端系统集成技术跃升4个专栏。\n（二）在产业转型升级方面，一是提升产业数智化发展水平，加快发展新一代智能制造，建设专用大模型和AI研发平台，推动可视化管理与智能化调控，提升预警和寿命评估能力。二是加快绿色化转型发展，推动新技术应用，扩大可再生能源应用，推行绿色设计供应链管理，建设零碳工厂、绿色工厂和绿色园区。三是构建融合化生态体系，创新产业生态，推动融通发展，培育创新业态，加快交叉创新。四是提升产业安全发展水平，构建全产业链安全体系，强化监测预警，突破关键技术，加强储能电池安全管理公共服务能力建设，提升网络数据安全水平，规范产品运输，并推进铁路运输试点。设置数智化赋能1个专栏。\n（三）在产业体系建设方面，一是培育产业优质企业，构建优质企业梯度培育体系，打造一批中小企业特色产业集群。二是优化产业区域布局，按照区域集聚、主体集中的原则，优化锂电池产业布局；引导各地发挥比较优势，实现差异化、特色化协同发展。《规划》也对完善行业治理体系，规范竞争秩序工作做出具体部署。\n（四）在产业科技服务方面，一是完善产业科技创新体系，构建产业链一体化攻关路径，建设科创平台、中试平台和重点实验室，推动产学研协同，培育高新区新赛道。二是强化标准引领作用、推进锂电池标准体系建设，深度参与国际标准化工作。三是优化检测认证服务水平，提升检测评估能力，健全评价体系，深化质量强链。四是健全知识产权体系，加强知识产权保护与专利布局。五是完善产品溯源和碳足迹管理，加强全生命周期溯源，推进碳足迹核算，推动数据国际互认共享。\n（五）在贸易投资合作方面，一是引导企业有序“走出去”，强化全球新能源市场需求与地缘环境分析研判。统筹利用国内国际市场、资源，指导企业多元有序开展对外投资。健全风险防范与应急响应机制，强化企业出海安全保障。二是打造开放合作高地，强化与国际性组织的高效互动，常态化开展合作对接。搭建具有国际影响力的新型电池产业与技术合作平台，提升全球化适配水平。完善海外综合服务体系，推进国际双多边互认合作，降低技术性贸易壁垒。\n五、《规划》如何抓好组织实施？\n《规划》发布后，工业和信息化部将组织开展宣贯解读工作，抓好组织实施。健全会商联动机制，强化部门联动、政企协同。深入调查研究，加强跟踪指导，开展规划实施情况动态监测和总结评估。强化专项资金渠道统筹、支持符合条件的骨干企业融资。深化新型电池领域产教融合，构建高端人才培养网络。倡导诚信经营、安全生产、节能环保、和谐用工、依法纳税，推动建立公平竞争、健康有序的市场环境。\n更多行业价值资讯浏览、分享，欢迎扫描下方二维码关注我爱电车网官方微信（xevcar）！",
+          "hb": 1
+        },
+        {
+          "t": "这款 381 Wh/kg 固态电池可提供更多能量，只需 8 分钟即可充满电",
+          "d": "2026-09-08",
+          "a": "INSIDEEVs",
+          "c": "零碳产业/能量转化/能量存储/电化学储能/二次电池/传统蓄电池/固态电池",
+          "as": "获梅赛德斯-奔驰投资的台湾固态电池公司辉能科技（ProLogium）宣布已开始量产全固态电池电芯，在其桃园吉瓦级工厂推出首批大尺寸软包电芯。其最新的锂陶瓷电池能量密度达381 Wh/kg，5%-80%充电时间低于10分钟（8分钟即可充满），承诺更长续航、更快充电和更高安全性。",
+          "sc": 9.4,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://insideevs.com/news/807472/solid-state-battery-mass-production-prologium/",
+          "tp": "固态电池量产",
+          "aip": 1,
+          "kp": [
+            "能量密度[ProLogium固态电池]: 381 Wh/kg",
+            "充电速度[ProLogium锂陶瓷电池]: 5%-80%仅需8分钟",
+            "量产状态[ProLogium固态电池]: 已开始量产，首批大尺寸软包电芯于桃园吉瓦级工厂投产"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "A Mercedes-Backed Company Just Put Solid-State Batteries Into Mass Production\nTaiwan’s ProLogium seems to have cracked the code, with the first mass-produced solid-state cells promising impressive energy density.\n- ProLogium claims it has started mass-producing all-solid-state battery cells.\n- The Taiwanese company, backed by Mercedes-Benz, is rolling out the first large-format pouch cells at its gigawatt-capable facility in Taoyuan.\n- ProLogium’s latest Lithium Ceramic Battery promises 5-to-80% charging times in under 10 minutes.\nAll-solid-state battery cells, which promise longer driving ranges, faster charging times, and increased safety, are now being mass-produced. That’s what Taiwan’s ProLogium, which has seen investments from Mercedes-Benz and other big industry names, claims.\nAnd yes, Finland’s Donut Lab made some bombastic claims at the beginning of the year, but so far we haven’t seen concrete evidence that the startup has fulfilled its promise of selling solid-state batteries to the masses.\nProLogium, meanwhile, has some big names backing up its claims. Its Generation 3.5 large-format 185.4 ampere-hour Lithium Ceramic Battery (LCB) cell, which is now rolling off the Taoke assembly line at its facility in Taoyuan, Taiwan, has been tested by Germany’s TÜV, showing a gravimetric energy density of 381 watt-hours/kilogram and a volumetric energy density of 903 watt-hours/liter.\nProLogium Lithium-Ceramic Battery Cell Lineup\nThat’s roughly 30% better than the mainstream nickel-manganese-cobalt (NMC) cells powering most electric cars on the road in the United States today, which usually top out at around 300 Wh/kg at the cell level. Meanwhile, the more cost-effective lithium-iron-phosphate cells, which are increasingly finding their way into EVs around the world, have a gravimetric energy density between 150 and 200 Wh/kg.\nWhen Donut published the first specs of its promised solid-state battery cell, it said that it delivered 400 Wh/kg.\nSeparately, UL Solutions, which tests and certifies the safety of EV chargers, batteries, cables, and much more, tested ProLogium’s large-format cell under China’s new GB/T 43568-2026 methodology, which was introduced in July to better differentiate between all-solid-state cells and units that still use some form of liquid electrolyte.\nAs part of the test, the cell was kept in a vacuum for six hours at a constant temperature of 248°F (120°), and the recorded weight loss was less than 0.05%, which is well below the 0.5% maximum threshold that allows companies to label their products as all-solid-state batteries.\nProLogium’s Gen 3.5 cell uses a composite solid electrolyte and a ceramic separator with a proprietary edge-frame structure that helps isolate potential burrs while providing sealing and insulation.\nThe company says its previous Gen 3 cell can fast-charge from 5% to 80% state of charge in eight and a half minutes, and that it won’t catch fire if shot with a bullet, at temperatures as high as 338°F (170°F), and when overcharged at twice the rated voltage.\nThe initial production capacity of the facility that’s making the first Gen 3.5 large-format pouch cells is 0.5 gigawatt-hours. That’s roughly 6,000 EV battery packs, each with 80 kWh of capacity, so not a lot compared to traditional lithium-ion EV battery plants, but ProLogium has big expansion plans. The Taiwan facility is set to double production by 2030, and a second production facility in Dunkirk, France, is designed for an initial annual output of 4 GWh, with a maximum capacity of 44 GWh. The French factory is expected to go online in 2028, with production ramping up through 2030.\nThen, there’s the Gen 4 battery cell, which is right around the corner, according to ProLogium. With a fully inorganic superfluidized electrolyte system, the next-gen battery promises even faster charging times and better low-temperature performance. And better yet, factories that build Gen 3.5 cells will need to upgrade just 10% of their line equipment to start assembling Gen 4 cells, which means costs stay down.\nRECOMMENDED FOR YOU\nThis American Battery Could Break China’s Grip On The EV Supply Chain\nAudi Wants To Sweeten Your EV Lease Buyout Deal With Up to $10,000 Off\n'Most Companies Are Struggling': Executive Shares An Uncomfortable Truth About Solid-State EV Batteries\nChina's Best-Selling EV Can Drift Really Well\nInside The $2 Billion Battery Factory Making Cells For Tesla And Toyota\nIs This Mullen Five Concept Car From A Failed Startup Worth Your Money?\nThe McLaren P1 Is Getting A Huge Battery Upgrade With 3X The Original Capacity",
+          "hb": 1
+        },
+        {
+          "t": "加快产业规模化发展 5个城市群开展氢能综合应用试点",
+          "d": "2026-09-17",
+          "a": "中国能源网",
+          "c": "零碳产业/能量转化/能量存储/化学能/氢基能源/氢能",
+          "as": "我国正式批复5个城市群开展氢能综合应用试点，开启氢能产业规模化发展。其中京津冀、大湾区两个城市群以燃料电池汽车为主要场景，东北—长三角、新疆—成渝地区双城经济圈、黄河几字弯—中原三个城市群以工业领域为主要场景。京津冀和大湾区将推进氢能走廊示范线和氢能高速建设。截至2026年8月，我国燃料电池汽车累计销量超4万辆，建成加氢站超620座，居全球首位。国产电堆、膜电极、双极板等核心零部件装车率达80%以上，催化剂、质子交换膜、碳纸装车率分别达23%、14%、6%，初步实现产业化。",
+          "sc": 9.4,
+          "i": "n",
+          "tg": "政策监管",
+          "u": "https://www.china5e.com/news/news-1209341-1.html",
+          "tp": "氢能综合应用试点",
+          "aip": 1,
+          "kp": [
+            "试点范围: 5个城市群开展氢能综合应用试点",
+            "燃料电池汽车累计销量[截至2026年8月]: 超过4万辆",
+            "加氢站累计建成[截至2026年8月]: 超620座，位居全球首位"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "记者从工业和信息化部获悉，日前，我国正式批复5个城市群开展氢能综合应用试点，这意味着我国氢能产业开启规模化发展新篇章。\n这5个城市群包括2个以燃料电池汽车为主要场景的城市群，分别为京津冀、大湾区;3个以工业领域为主要场景的城市群，分别为东北—长三角、新疆—成渝地区双城经济圈、黄河几字弯—中原。专家表示，其中的京津冀、大湾区城市群将依托“十四五”燃料电池汽车示范应用先发优势，进一步联动周边省市，深入推进氢能走廊示范线、氢能高速建设，带动技术装备迭代升级。\n中汽中心中国汽车战略与政策研究中心技术总监 王佳：“十四五”期间，我国以车辆为先导领域，“以点带面”带动氢能及燃料电池汽车产业实现“从0到1”突破，为下阶段产业发展打下了坚实的基础。“十五五”期间，氢能综合应用试点将以多元场景应用为牵引，进一步提升清洁低碳氢供给能力。\n据统计，截至2026年8月，我国燃料电池汽车累计销量已超过4万辆，累计建成加氢站超620座，位居全球首位。“十四五”期间，燃料电池汽车产业链自主可控水平显著提升。根据氢能及燃料电池汽车示范评价平台数据，我国企业生产的电堆、膜电极、双极板、空气压缩机、氢气循环系统等核心零部件产品装车率达80%以上，催化剂、质子交换膜、碳纸等长期面临“卡脖子”问题的核心材料，装车率也分别达23%、14%、6%，初步实现产业化。\n多地加快探索氢能产业实现规模化应用\n氢能是推动经济社会绿色转型的重要新质生产力，我国已初步具备规模化发展基础和潜力。我国多地正积极以特色场景为依托，加快探索氢能产业实现规模化应用。\n在京津冀城市群，跨区域货运需求旺盛，但重载、长途的运输特点，让新能源重卡推广一直面临难题。氢能重卡凭借动力足、续航长、加注快等优势，成为干线物流绿色转型的关键突破口。京津冀城市群规划建设了5条单程200—300公里的跨省市氢能走廊，以及超600公里的北京—天津—青岛长途干线物流通道。\n天津荣程新能集团副总经理 于建兵：我们基于“天津港—邯郸—荣程钢铁”运输需求，探索“去程铁矿，返程焦炭”的满载运输模式，显著降低运输成本，使得氢能重卡初步具备经济性优势。\n氢能冷藏车具有排放污染小、制冷续航能力突出等优势，在大湾区城市群，冷链物流、城市配送对时效和保鲜要求较高，这里已经探索形成了广州与韶关、佛山、东莞等地的跨区域冷链物流高速运营路线。\n广东云韬氢能科技有限公司联席总裁 刘伟：我们通过全产业链布局极大降低燃料电池重卡运营成本，初步形成可持续的商业闭环。目前我们已有2000多台氢燃料电池商用车在湾区街头运营，累计行驶3000多万公里，减碳2000多万公斤。\n不仅是氢燃料电池汽车，在工业领域，氢能应用也在加速落地。内蒙古赤峰、吉林大安、吉林松原等地绿色氨醇项目陆续投运，内蒙古多伦绿氢耦合煤化工一体化项目落地，广东湛江、辽宁营口氢冶金项目全线贯通。氢能应用场景从燃料电池汽车逐步向工业、交通等多元化方向拓展。\n长城控股集团未势能源科技有限公司董事长 张天羽：依托燃料电池核心零部件装备制造基础，下一步将在国家氢能示范政策支持下，进一步发挥氢走廊等中长途干线的规模化应用优势，同时向氢发电、氢储能等更广泛的氢能应用场景进行拓展。\n多地制定政策 加快氢能产业规模化发展\n不仅是国家层面，多地也在制定不同的支持政策，破解产业关键堵点，加快氢能产业规模化发展。\n截至目前，河北、广东、内蒙古等多地探索允许化工园区外建设可再生能源制氢项目或制氢加氢一体站等，创新氢能项目安全管理机制。北京提出氢能车辆参与碳交易等机制，助力车辆可持续运营。河南、山西、辽宁等出台燃料电池汽车高速公路通行费减免政策，加快推动氢能高速示范线建设，切实降低车辆跨区域运营成本。\n而作为第三方支撑机构，中国汽车技术研究中心同时牵头建立了首个集“车—站—氢”为一体的管理服务平台，目前已接入全国范围内的燃料电池汽车2.7万辆，加氢站超250座。\n中汽中心中国汽车战略与政策研究中心技术总监 王佳：下一步，中汽中心将按照政策要求，进一步拓展平台管理范围，全面推进工业、创新应用等新场景接入，以大数据持续深入赋能氢能产业高质量发展。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": "达摩院与浙大一院在《科学》发表DAMO RADAR，单模型识别腹部18个器官146种病症，达放射科专家水平并开源。DeepMind推出AlphaGenome Atlas，覆盖90亿种单核苷酸变异，数据规模1PB。Anthropic发布Claude Opus 5.5，输出速度提升30%以上，API价格下调20%，并完成含1300万行Lean代码的费马大定理形式化证明。特斯拉Cybercab推出当日遭NHTSA认证审计。",
+      "headlines": [
+        "特斯拉Cybercab商业首日遭NHTSA车辆认证方式审计",
+        "达摩院DAMO RADAR登《科学》，单模型识别腹部CT 146种病症",
+        "DeepMind发布AlphaGenome Atlas，覆盖90亿种单核苷酸变异预测",
+        "Claude Opus 5.5发布，API降价20%、缓存读取价降60%",
+        "Claude完成费马大定理首个完整形式化证明，用时11天1300万行代码"
+      ],
+      "entries": [
+        {
+          "t": "Tesla Cyber​​cab 推出后已接受 NHTSA 调查",
+          "d": "2026-09-04",
+          "a": "Electrek",
+          "c": "AI与智能科技/具身智能/模型和具身操作系统",
+          "as": "特斯拉Cybercab在商业推出当天即遭NHTSA联邦调查。该机构就在特斯拉于奥斯汀开始搭载乘客的同一天，对其车辆认证方式展开审计。调查针对的正是Cybercab的独特之处：它没有方向盘、没有踏板、没有后视镜，但特斯拉仍将其认证为合法上路车辆。特斯拉昨日（无直播、无发布会、马斯克未公开发言）在奥斯汀邀请小批股东和友好网红试乘，据称乘客被要求签署保密协议，随后向公众开放乘坐。",
+          "sc": 9.3,
+          "i": "n",
+          "tg": "政策监管",
+          "u": "https://electrek.co/2026/09/04/tesla-cybercab-nhtsa-investigation-fmvss-certification/",
+          "tp": "无人车监管",
+          "aip": 1,
+          "kp": [
+            "[Tesla Cybercab]: 无方向盘、无踏板、无后视镜，在奥斯汀商业运营首日即遭NHTSA审计认证合规性"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Tesla Cybercab\nFred Lambert\n| Sep 4 2026 - 5:46 am PT\nTesla’s Cybercab is already under federal investigation. NHTSA opened an audit into how Tesla certified the vehicle the same day the company started putting passengers in it in Austin.\nThe probe targets the exact thing that makes the Cybercab unusual: it has no steering wheel, no pedals, and no mirrors, and Tesla certified it as road-legal anyway.\nTesla launched the Cybercab commercially in Austin yesterday, and the event turned out to be the nothing-burger we\nexpected\n. There was no livestreamed reveal, no stage presentation, and no public remarks from Elon Musk.\nInstead, Tesla invited a small group of shareholders and friendly influencers to ride in the two-seater, with guests reportedly required to sign NDAs, before rides opened up more broadly through the Robotaxi app.\nWhat NHTSA is investigating\nThe investigation is an Open Audit Query, numbered AQ26002, from NHTSA’s Office of Defects Investigation. It was “prompted by public information,” according to the filing, opened September 3, and it covers an estimated 1,000 Cybercab vehicles.\nNHTSA says it’s examining “the process and technical data on which Tesla relied when certifying the Cybercab and related issues.”\nTesla told the agency it certified the vehicles as compliant with all applicable Federal Motor Vehicle Safety Standards, and that it plans to gradually expand deployment to more vehicles and more locations.\nThe question is how Tesla got there. NHTSA says it will consider “the extent to which Tesla’s certification depended on determinations that certain FMVSS are inapplicable to the Cybercab.”\nA car with no controls, self-certified\nIn the US, automakers don’t get their vehicles pre-approved by a regulator. They self-certify that a vehicle meets the federal safety standards, and NHTSA can investigate after the fact.\nThat system runs into a problem with the Cybercab. Many of the FMVSS were written around a human driver. They assume there’s a steering wheel, a brake pedal, side mirrors, and controls the driver can reach. The Cybercab has none of those.\nTesla’s answer was to decide that some of those standards simply don’t apply to a car with no human controls. Now NHTSA wants to see the work behind that decision.\nThis isn’t happening in a vacuum. Tesla’s driverless ambitions are already under a stack of federal scrutiny. NHTSA has an open probe into “Full Self-Driving” covering 3.2 million vehicles after a series of\nvisibility-related crashes\n, and it collected crash data showing a\nTesla remote operator crashed a Robotaxi\nearlier this year. The Cybercab runs on a very similar FSD software.\nElectrek’s Take\nOf course, this is an NHTSA investigation of Tesla, so like the Cybertruck launch, it’s more likely than not going to be another nothingburger.\nAnyway, as we previously reported, Tesla is only going to deploy Cybercab in its limited geo-fenced robotaxi service. They won’t be sold to the public anytime soon.\nIn fact, Tesla is trying to pull another FSD and have fleet owners buy the Cybercab to deploy their own robotaxi services – shifting the burden to them. It’s going to be a mess.\nIf you’re riding in EVs, you might as well power the ones you own at home with your own electricity. With electricity rates up almost 10% last year and expected to keep climbing, going solar is one of the best ways to protect yourself against rising costs. And with lease and PPA options, you can do it with zero upfront cost and start saving immediately. If you want to find the best deal, check out\nEnergySage\n. It’s a free service with hundreds of pre-vetted installers competing for your business, so you save 20 to 30% compared to going it alone. No sales calls until you pick an installer.\nGet your free quotes here\nFeatured\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nComments\nFred is the Editor in Chief and Main Writer at Electrek.\nThrough Zalkon.com, you can check out Fred’s portfolio and get monthly green stock investment ideas.\nFred Lambert's favorite gear\nCombat Edge\nGet an edge on MMA with the best stats\nEnergySage\nEnergySage helps you get the best price possible on a home solar installation for free and without hassel.",
+          "hb": 1
+        },
+        {
+          "t": "科学网-首个专家级通用医疗影像AI登上《科学》，可通过腹部CT识别146种病症",
+          "d": "2026-09-19",
+          "a": "科学网新闻",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "阿里巴巴达摩院与浙江大学医学院附属第一医院等机构9月18日在《科学》杂志发表通用医疗影像AI模型DAMO RADAR，首次实现用单个模型识别腹部18个解剖器官中的146种病症，诊断综合表现达到放射科专家水平，算法代码与权重已全球开源。不同于以往'一病一模'的专病模型路径（训练一种疾病需2年且无法泛化），该模型采用影像与语言联合学习方法，通过学习CT影像与诊断报告的联系理解疾病表现，并改进学习方式让模型先识别器官再关联报告描述，聚焦具体器官异常。该模型在近4万例数据上进行了评估。",
+          "sc": 9.0,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://news.sciencenet.cn/htmlnews/2026/9/571762.shtm",
+          "tp": "通用医疗AI",
+          "aip": 1,
+          "kp": [
+            "识别病症数[DAMO RADAR, 腹部增强CT]: 146种",
+            "覆盖器官[腹部CT]: 18个解剖器官",
+            "诊断水平[DAMO RADAR]: 达到放射科专家综合水平",
+            "专病模型训练周期[传统一病一模]: 每种疾病约需2年",
+            "开源状态[DAMO RADAR]: 算法代码与权重已全球完整开源"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "首个专家级通用医疗影像AI登上《科学》，可通过腹部CT识别146种病症\n9月18日，阿里巴巴达摩院与浙江大学医学院附属第一医院等机构在《科学》（Science）杂志上发表了通用医疗影像AI模型DAMO RADAR，首次实现用单个模型识别腹部18个解剖器官中的146种病症，其诊断综合表现达到放射科专家水平。目前，该模型的算法代码与权重已面向全球医疗与科研界完整开源。\n医疗影像AI过去主要采用“一病一模”的路径，即一个模型针对一种疾病进行训练。例如，肺结节、胰腺癌或糖尿病视网膜病变等，都可以分别开发专用模型。这类模型在特定病种的诊断上往往能够取得较好效果。\n达摩院方面表示，这类模型称为“专病模型”，其训练过程“严重依赖人工标注，成本高昂，通常每针对一种疾病训练就需要2年，训练好后无法泛化到其他病种上”。与之相对，通用模型希望用一个模型同时识别多种疾病，减少对单一病种和大量人工标注的依赖。\nDAMO RADAR选择从腹部增强CT切入，这是医疗影像中较难处理的任务之一。一份CT检查通常包含数百张切片，涉及肝脏、胰腺、胆囊、胃肠道等多个器官。腹部器官之间相互重叠，许多组织的密度比较接近，病变信号又可能非常细微。影像科医生不仅要观察患者主诉对应的部位，还要检查其他器官是否存在异常。\n为了更好地识别和诊断，该模型采用了影像与语言联合学习的方法。医院里的CT影像通常会对应一份诊断报告，报告中包含医生对不同器官和病变的描述。模型通过学习大量影像与报告之间的联系，逐步理解某些影像表现可能对应哪些疾病，而不是完全依赖医生逐张图像勾画病灶。\n同时，研究团队对学习方式进行了改进，让模型先尝试识别出肝脏、胰腺、胃肠道等不同器官，再将相应部位与报告中的描述联系起来。这可以让模型更集中地关注具体器官及其异常，避免大量正常组织背景干扰判断。\nDAMO RADAR在18个器官、146种疾病上进行了评估。在近4万次真实世界检查中，模型平均AUC（受试者工作特征曲线下面积）达到0.913。AUC是衡量模型区分患病者和正常者能力的一项指标，数值越接近1，通常说明区分能力越强。\n为了比较模型与医生的表现，研究团队邀请了来自14家机构的26名影像科医生参与测试，其中包括11名资深医生和15名初级医生。医生和模型分别对300名患者的CT影像进行判断。结果显示，DAMO RADAR的平均表现超过了其中23名医生，只有3名资深放射科医生的表现略高于模型。\n虽然真实临床诊断通常还会参考患者主诉、既往病史、实验室检查以及其他医学信息，但该模型已经表现出成为医生得力助手的潜力。在人机协作测试中，研究团队发现，在AI提示下，影像科医生识别疾病的敏感性提高了约10%，平均每例阅片时间减少30.7%。敏感性主要反映发现患者真实患病情况的能力，敏感性提高意味着漏诊风险可能下降。研究还称，在部分测试中，获得AI辅助的初级影像科医生，其敏感性超过了资深医生。\n达摩院将通用模型比作“导航软件”，认为它可以帮助医生在阅片时快速发现可能被忽略的异常，并提供进一步判断的线索。它并不直接替代医生作出最终诊断，而是试图在医生阅读CT影像的过程中，提示可能存在的疾病和相关区域。\n“专病模型的核心价值是高精度，通用模型的核心价值是广覆盖”，达摩院表示，“两条路线不是谁取代谁的关系，而是在不同临床场景下各展所长”。\n论文链接：http://www.science.org/doi/10.1126/science.aec6129\n特别声明：本文转载仅仅是出于传播信息的需要，并不意味着代表本网站观点或证实其内容的真实性；如其他媒体、网站或个人从本网站转载使用，须保留本网站注明的“来源”，并自负版权等法律责任；作者如果不希望被转载或者联系转载稿费等事宜，请与我们接洽。",
+          "hb": 1
+        },
+        {
+          "t": "谷歌 DeepMind 推出 AlphaGenome Atlas，覆盖人类基因组全部 90 亿种单核苷酸变异预测",
+          "d": "2026-09-08",
+          "a": "IT之家",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "谷歌DeepMind推出AlphaGenome Atlas平台，包含人类基因组全部90亿种单核苷酸变异的功能预测，是目前涵盖基因突变对分子生物学影响最全面的目录，学术用户可免费使用。该平台基于此前AlphaGenome AI模型大规模预计算构建，数据规模达1PB，比AlphaFold数据库大30倍以上。谷歌同时发布AlphaGenome Variant Impact（AVI）评分，结合AlphaGenome和AlphaMissense两模型预测优势，将结果浓缩为单一数值，帮助研究人员快速对变异排序并解读分子效应，每个变异包含数千个分子效应预测，覆盖数百种人类和小鼠细胞类型与组织。",
+          "sc": 8.9,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/999/937.htm",
+          "tp": "基因组预测",
+          "aip": 1,
+          "kp": [
+            "变异覆盖规模[AlphaGenome Atlas]: 人类基因组全部90亿种单核苷酸变异功能预测",
+            "访问方式[学术界]: 免费门户网站免费使用",
+            "评分体系[AVI]: 结合AlphaGenome与AlphaMissense评估变异影响"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "IT之家 9 月 8 日消息，谷歌今日推出 AlphaGenome Atlas，这一平台包含了人类基因组中 90 亿种单核苷酸变异（所有可能的单字母 DNA 改变）的功能预测，是目前涵盖基因突变对分子生物学影响最全面的目录，学术界可通过免费门户网站免费使用。\nDNA 是生命的语言，掌握其密码能够改变人类理解生物学和治疗疾病的能力，但解读基因变异对分子层面的影响长期存在瓶颈：人类基因组有约 90 亿种可能的单字母突变，在实验室逐一测试几乎不可能。\n根据介绍，谷歌 DeepMind 此前已经推出 AI 模型 AlphaGenome，可以预测基因变异对生物过程的影响，可用于分析特定变异并在研究中得到广泛应用，此次通过大规模预先计算 AlphaGenome 的预测结果，构建出覆盖全基因组变异的全景资源库，就像地图集汇总地理信息一样，绘制出全基因组 DNA 变异的分子效应图谱。\n为帮助科学家快速找到影响最大的遗传改变，谷歌同时发布了 AlphaGenome Variant Impact（AVI）评分，该评分结合了 AlphaGenome 和 AlphaMissense（IT之家注：谷歌用于预测改变蛋白质的 DNA 变异影响的模型）两者的预测优势，将两个模型的预测结果浓缩为单个数值，研究人员可以快速对变异进行排序，同时解读其分子效应。\nAlphaGenome Atlas 是一个规模达 1 PB 的数据集，比 AlphaFold 数据库大 30 倍以上。该平台提供多个互相联动的资源：\n- 分子效应预测：每个变异包含数千个分子效应预测，涵盖基因调控的多个重要方面，覆盖数百种人类和小鼠细胞类型与组织。\n- AVI 评分：描述每个遗传变异影响的单一数值。\n- AVI 特征归因：每个 AVI 评分都关联到驱动其结果的特定生物学特征，比如 AlphaGenome 预测的基因调控方面，或是 AlphaMissense 的蛋白质影响评分。\n- DNA 序列基序：包含超过 2500 个重复性 DNA 序列（基因组的“词汇”）及其位置的完整合集。\nAVI 评分同时适用于编码区（占基因组 2%，负责编码蛋白质）和非编码区（占基因组 98%，负责协调基因活性，容纳绝大多数性状相关变异），帮助研究人员根据潜在影响快速对变异进行评分和排序。测试显示，AVI 评分在多种变异致病性和罕见疾病基准测试中都展现出一流性能。\n目前外部合作研究团队已经借助 AlphaGenome Atlas 取得多项实际成果：在罕见病研究中，博德研究所团队借助 AVI 评分筛选变异，发现了此前被忽略的、与癫痫性脑病密切相关的 DNM1 基因变异，实验验证确认了该预测结果；埃克塞特大学研究人员对英国生物样本库超过 54000 名参与者的全基因组数据进行分析，通过 AlphaGenome Atlas 发现了多 22% 的非编码基因关联，精准定位了调控关键蛋白质水平的特定变异。\nAlphaGenome Atlas 今起通过门户网站、AlphaGenome API 向学术研究开放，也可作为技能在 Google Antigravity 使用，非商业研究可免费获取，后续还将在谷歌云开放商业使用权限。",
+          "hb": 1
+        },
+        {
+          "t": "Claude Opus 5.5突袭！68万行代码一天迁完，API价格打8折",
+          "d": "2026-09-23",
+          "a": "量子位",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "Anthropic发布最新旗舰模型Claude Opus 5.5，在代码、知识工作、计算机操作等多项基准测试登顶，输出速度比Opus 5快30%以上。API定价方面，输入、输出价格分别为每百万Token 4美元和20美元，较Opus 5下降20%；缓存读取价从0.50美元降至0.20美元，降幅达60%，对Agent编程等长上下文场景成本改善显著。结合完成同一任务所需步骤和Token更少，典型任务总成本可下降40%。新增Fast mode输出速度达标准模式2.5倍，价格为输入8美元、输出40美元。订阅用户五小时使用限额提高，并提供可暂存的rate limit reset。测试显示该模型可用纯Python代码生成复杂图像渲染。",
+          "sc": 8.9,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.qbitai.com/2026/09/496221.html",
+          "tp": "Claude新模型发布",
+          "aip": 1,
+          "kp": [
+            "输出速度[Claude Opus 5.5 vs Opus 5]: 快30%以上",
+            "输入价格[Opus 5.5]: 4美元/百万Token",
+            "输出价格[Opus 5.5]: 20美元/百万Token",
+            "缓存读取价格[Opus 5.5]: 0.20美元/百万Token（较Opus 5的0.50美元降60%）",
+            "典型任务总成本[Opus 5.5]: 下降40%"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Claude Opus 5.5突袭！68万行代码一天迁完，API价格打8折\n缓存读取价砍了60%\n梦晨 听雨 发自 凹非寺\n量子位 | 公众号QbitAI\nClaude最新旗舰Opus 5.5跑分登顶！\n在代码、知识工作、计算机操作等多项基准测试中拿下第一的同时，输出速度也比Opus 5快了30%以上。\n这暂停得好好的前沿，怎么不到两周又被推进了。\n那CEO Dario Amodei发表的“放缓前沿”公开信算什么？\n这届模型开始拿代码当画笔\n目前看到比较新颖的测试是用纯代码生成图像，SVG鹈鹕骑自行车已经被刷爆了，这次是更复杂的Python渲染。\n类似的能力可以扩展成用纯js代码生成渲染视频。\n多项跑分登顶，API价格打8折\n他们说任务成本降4成，但API价格并没有直接打6折。\nOpus 5.5的输入、输出价格分别是每百万Token 4美元和20美元，相比Opus 5下降20%。\n再加上完成同一任务需要的步骤和Token更少，Anthropic测算，典型任务的总成本可以下降40%。\n真正下狠手的是缓存读取价。这一项从Opus 5的每百万Token 0.50美元，直接降到0.20美元，砍了60%。\n做Agent编程的都知道，长对话和大型代码任务需要反复读取上下文，缓存读取经常占据成本的大头。相比账面上的API单价，这一刀可能更有实际体感。\n另外还有一个Fast mode，输出速度最高可达标准模式的2.5倍，价格也翻倍至每百万输入Token 8美元、输出Token 40美元，适合对延迟特别敏感的场景。\n订阅用户也加量了，Pro、Max、Team和按席位收费的企业版，五小时使用限额都会提高；Anthropic还提供了一次可以暂存、由用户自行选择时间使用的rate limit reset。\n具体看跑分，目前最新鲜的榜就是Terminal-Bench 4.0了，衡量模型处理复杂命令行任务的能力。\nOpus 5.5拿下66.4%，上一代Opus 5是52.3%，OpenAI的GPT-6 Astra是57.9%，Claude自家的Fable 5.1是55.8%。\n已经明显拉开差距。\n在另一项编程基准FrontierCode v1.1上，Opus 5.5以54.4%超过GPT-6 Astra的53.3%，差距就没那么明显了。\n而且推理effort开中档效果反而更好。\nOpus 5.5在默认effort，也就是中档设置下，反而跑出了54.6%，超过表中其他模型的最高成绩，也略高于自己开到最高档时的54.4%。\n到了这个能力水平，0.2个百分点基本已经落在波动范围里。\nAnthropic自己也承认，跑分差距越来越难准确反映真实使用体验，他们内部使用时，Opus 5.5和Fable 5.1的差距就没有榜单看起来这么大。\n另一项CursorBench 4.0，测的是来自真实Cursor会话的多文件模糊任务。\n最高effort下，Opus 5.5拿到57.8%，比Fable 5.1的51.8%高6分，比GPT-5.6 Sol的41.7%高16.1分。\n如果看性价比，Opus 5.5在默认中档设置下得分52.5%，依然领先GPT-5.6 Sol的最高成绩约11分，单项任务成本只有后者的三分之一左右。\nOpus 5.5特别强调在大规模代码库级别的任务上有明显提升。\n早期测试者曾用它迁移68万行代码，不到一天完成。换成人类工程团队，预计至少需要数周。\n还有一位测试者用它审计并修复一个20万行代码库，耗时不到3小时。同样的任务，Opus 5花了超过20小时，使用的Token数量还是它的2.5倍。\n在一项内部测试中，Anthropic让Opus 5.5和Fable 5.1分别将HAProxy从C语言重写成Rust。HAProxy是一款被广泛使用的Web流量负载均衡软件。\n两个版本都通过了HAProxy自身几乎全部回归测试，但Opus 5.5只用了9.5小时，Fable 5.1用了12小时，前者的成本低了51%。\nAnthropic还让模型优化一个Web应用所有页面的加载速度。Opus 5.5在40次测试中成功了39次；Opus 5虽然也缩短了加载时间，但改进幅度更小，还改变了应用原本的行为。\n知识工作方面同样值得关注。\n在覆盖44个职业的真实工作能力评估GDPval-AA v2.1中，Opus 5.5得分1846 Elo，Fable 5.1是1735，Opus 5是1708。\n在默认effort设置下，Opus 5.5的得分就超过了GPT-6 Astra在最高effort下的表现，单项任务成本大约只有后者的五分之一。\n投资公司Walleye Capital反馈，Opus 5.5在最低设置下，就基本完成了他们的量化研究评测任务。\n把effort调高后，它还发现评测指令里的分钟索引存在一个off-by-one错误，并主动修正。\n模型甚至特意备注：这样处理是正确的，但可能会导致自己被评分器扣分。\nWalleye称，此前测试过的所有模型，都没有发现并处理这个问题。\n还有个明显变化在于：Opus 5.5说话的方式变了。\n以前Opus 5虽然也能找到答案，但很快就会钻进代码块、时间线和区间定义里，用户需要自己从大量技术细节中提炼结论。\nOpus 5.5会先把最重要的信息摆出来，再解释原因。\n官网展示了一个billing系统Bug的对比。Opus 5找到问题后，马上开始解释代码改动和时间区间；Opus 5.5开头就把账算清楚了：\n额外减少的9.92美元来自一个Bug，免费层调整只占1.50美元。\n随后它才说明，究竟是哪次代码重构把每个月最后一天的大部分用量漏掉了。\n一位早期测试者的评价是：\nIt writes the way I do（它写东西的方式跟我一样）。\nAnthropic还特意强调，表达清楚不只是文风升级。模型把关键信息放在前面、减少术语和特异性表达，人类检查其结论和操作过程也会更加容易，这本身就是一项安全收益。\n和Fable一个级别的笼子\n能力往前冲，安全笼子也跟着加厚了。\nOpus 5.5是首款同时搭载Fable 5.1同级网络安全、生物安全和反蒸馏护栏的Opus模型。触发相关限制后，系统会透明地回退到其他模型处理。\n发布之前，它还接受了METR和Frontier Design两家外部机构的评估。\n这也是Anthropic对“放缓前沿”的解释：模型照常研发和发布，但要给安全对齐和外部审查留出时间。\n在Anthropic内部覆盖近2000个模拟场景的自动化行为审计中，Opus 5.5在几乎所有失调行为指标上，都拿到了近期Claude模型中的最好成绩。\n在一项专门测试模型越过安全边界倾向的新评估中，Opus 5.5尝试规避边界的频率，比Opus 5和Claude Mythos 5.1低了约85%。\n仅有的几次尝试也都属于低严重性事件，而且由模型自行上报。\n不过Anthropic同时承认，他们观察到Opus 5.5经常怀疑自己正在接受评估。\n一旦模型知道“这是一场考试”，测试中的表现能否代表真实部署环境，就要打上一个问号。Anthropic称，目前仍然没有办法在发布前可靠地发现所有潜在问题。\n在更实际的Agent防护上，Opus 5.5还配备了三层措施。\n它会在执行前检查每一个操作；运行环境放在安全团队可以审计的开源沙箱中；代码审查功能则会在代码合并前检查漏洞。\n面对提示注入攻击，Opus 5.5在Anthropic测试的编程、工具调用、计算机操作和网页浏览等场景中，都追平或超过了Opus 5。\n这么厚的笼子，也和它在高风险领域的能力有关。\n在生物学领域，Opus 5.5已经在多个方向追平甚至超过Claude Mythos 5.1，因此使用了与Fable 5.1相同的生物安全护栏。\n在与Dyno Therapeutics合作开展的长期分子预测和设计评估中，Opus 5.5取得了进一步提升。参与红队测试的专家认为，其科学新颖性与他们测试过的最强模型相当。\n经过审核的学术实验室、初创公司和制药企业，可以通过新推出的Life Sciences Verification Program，申请适用于生物研发工作的更宽松权限。\n网络安全也是一样。\n由于Opus 5.5的网络安全能力很强，普通用户提交的大多数网络安全任务会被自动转交给Opus 4.8。经过认证的网络安全从业者，则可以通过即将扩展的Cyber Verification Program申请使用Opus 5.5。\n反蒸馏措施也直接上到了Fable 5.1的级别。\nOpus 5.5搭载了preserved thinking机制，限制API用户编辑Claude此前生成的思考上下文，防止攻击者借此批量提取模型的推理能力。\n这项限制适用于2026年8月31日及以后创建的API账户。\n与此同时，Opus 5.5不再允许关闭thinking模式，输出文本中也加入了水印。\n这种水印不会直接显示在文本里，也没有添加隐藏字符。它通过调整模型在多个意思相近的词语之间如何选择，留下可供专用检测工具识别的统计模式，普通读者看不出区别。\nOMT：Haiku终于更新了\n在Sonnet、Opus和Fable都已经进入5系列之后，Claude家的“小杯”还停留在Haiku 4.5。\n这次终于有准信了。\nAnthropic宣布，Sonnet 5.5和Haiku 5.5都将在未来几周内推出，同样会获得性能、效率和安全方面的升级。\n也就是说，Opus 5.5只是5.5系列的第一款。\nOpenAI这边刚刚一口气端出GPT-6 Astra和GPT-5.6 Sol，Anthropic那边紧接着发布Opus 5.5，还预告后面有两款新模型排队。\n前沿确实没有停，大家都在忙着踩油门啊～\n- GPT-6 Astra搓3D刷屏后，3D生成的竞争规则变了2026-09-23\n- 协同办公进入Agent时代，飞书+豆包工作跑在了最前面2026-09-16\n- Claude双入口合并，原生Office上线！硅谷AI办公大战也开始了2026-09-17\n- 百度秒哒再升级！让最懂业务的人，亲手造自己的系统2026-09-11",
+          "hb": 1
+        },
+        {
+          "t": "姚班校友主导，Claude攻克费马大定理首个完整形式化证明",
+          "d": "2026-09-05",
+          "a": "量子位",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "Anthropic宣布Claude完成了首个端到端、可由计算机完整检查的费马大定理形式化证明，全程用时11天。整个工程包含约1300万行Lean代码、超过3万个中间定理，最终证明使用约29500个，规模超过Lean核心数学库Mathlib的5倍。Claude并未发现全新的证明，而是将人类数学家的证明翻译成计算机可逐行检查的形式化证明。费马大定理指对任意整数n>2，不存在正整数a、b、c使aⁿ+bⁿ=cⁿ，1994年由Andrew Wiles与Richard Taylor完成证明。该工作由姚班校友主导，过程中曾依靠Harness纠正问题。",
+          "sc": 8.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.qbitai.com/2026/09/484551.html",
+          "tp": "费马定理证明",
+          "aip": 1,
+          "kp": [
+            "形式化证明[费马大定理]: 约1300万行Lean代码",
+            "中间定理[Claude费马大定理证明]: 超过3万个，最终使用约29500个",
+            "证明耗时[Claude]: 11天",
+            "工程规模[Claude证明]: 超过Lean核心数学库Mathlib的5倍"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "姚班校友主导，Claude攻克费马大定理首个完整形式化证明\n最后靠Harness救回来\n梦瑶 发自 凹非寺\n量子位 | 公众号 QbitAI\n人类和费马大定理纠缠了三个半世纪，Claude这次只用了11天！？\n刚刚，Anthropic宣布，Claude完成了首个端到端、可由计算机完整检查的费马大定理证明。\n约1300万行Lean代码、超过3万个中间定理、最终证明使用其中约29500个。\n整个工程规模，已经超过Lean核心数学库Mathlib的5倍。\n这次Claude没有发现一个全新的费马大定理证明。\n它完成的是另一件同样工程量《惊人》的工作：\n把人类数学家能够读懂的证明，彻底翻译成计算机能够一行一行检查、没有任何「这里显然」的形式化证明。\n而这件事，数学界原本是按多年工程来准备的？？？？\n350多年数学史，被Claude塞进1300万行Lean\n先快速说一下费马大定理到底是什么。\n其指的是，对于任意整数n>2，都不存在正整数a、b、c，使：aⁿ+bⁿ=cⁿ。\n这个命题看起来极其简单，难度却高得离谱！！\n从17世纪费马留下这个命题开始，欧拉、勒让德、库默尔等一代代数学家不断往前推进，始终没能拿下完整证明。\n直到1993年，英国数学家Andrew Wiles第一次公开宣布证明费马大定理。\n随后审查发现其中存在关键缺口。\nWiles又花了大约一年时间和Richard Taylor一起修补，最终在1994年完成证明，到这里，困扰数学界350多年的命题才终于被攻克。。。\nBut！数学界随后又给自己挖了一个更工程化的坑——\n能不能让计算机，也百分之百确认这份证明成立捏？\n这就是所谓的「形式化」。\n简单理解，普通数学论文是写给数学家看的，人脑看到很多步骤，可以直接说：嗯，这里显然成立～\n但Lean这种专门检查数学证明的程序系统证明助手，可不吃这一套。。。\n我们可以把Lean理解成数学世界里的「超级严格编译器」——\n数学家或者AI负责把定理、定义和证明一步一步写成Lean能够理解的形式；Lean则负责检查，每一个推导到底有没有从前面的公理和定理合法地走出来。\n这也是为什么形式化一个大型现代数学证明，工作量经常大得惊人！！\n2000年代，计算机科学家就已经提出过形式化Wiles证明的设想。\n到2024年，帝国理工学院Kevin Buzzard等人才正式启动一个多年社区项目，准备使用Lean完成费马大定理形式化，光项目第一阶段的技术蓝图，就写了86页。\n结果Claude来了之后：11天。\nAnthropic研究员Tianyi Peng最初其实没打算一口气干完这事儿。\n作为早年是信息学竞赛尖子，Tianyi Peng曾获全国青少年信息学奥赛选拔赛第八名，2017年从清华姚班本科毕业，2023年获MIT博士学位。\n如今，他是哥伦比亚大学助理教授、Anthropic研究员，长期聚焦强化学习、AI Agent与形式化工具。\n开始吧，他只是想测试一下，Claude究竟能把这个项目往前推多远。\n最后，没成想，Claude直接一路干到了终点。。。\n整个过程中，不同Agent被同时拉起来并行工作。\n有的负责补数学定义，有的专门攻中间引理，有的沿着已有成果继续往更高层定理推进，还有Agent负责把不同部分重新拼回整个证明体系。\n最后堆出来的成果，是约1300万行Lean代码、超过3万个中间定理。\n而这个代码量，甚至超过Lean核心数学库Mathlib自身规模的5倍！！！\nAnthropic对此也表示，完整证明只依赖Lean三个标准公理，而且他们还专门通过比较程序确认，Claude最终证明的定理陈述，与Mathlib里的费马大定理完全一致。\n也就是说，至少在逻辑检查这件事上，不能靠模型自己说「我证明完了」。\n而裁判，正是Lean。\nClaude也曾组团组到失忆，最后靠Harness救回来\n不过Claude这11天，也没一路开挂到底。\n项目刚开始时，多Agent协作很快撞上了一个如今几乎所有大型Agent系统都会遇到的问题——\n人一多，活一多，项目开始乱了。。。（doge）\nAnthropic透露，早期Agent虽然很快拿下了一些结果，但随着工程规模扩大，它们逐渐跟不上整个项目的状态，也越来越难有效协作。\n这些失败尝试留下的代码，最终只占成品非模板代码的大约7%。\n真正的转折点，是团队换上了一个叫「Prove2Me」的平台——\n这是Tianyi Peng及其哥伦比亚大学合作者专门为数学形式化搭建的一套协作系统。\n我们可以把它理解成，给几十个Claude装上了一套数学版项目管理系统。\nProve2Me会把整个证明拆成一个由定理节点组成的DAG，也就是有向无环图。\n哪个定理已经证明了，哪个还缺前置条件，下一步该攻哪个节点，Agent都能从这张图里判断。\n同时，平台还会把定理陈述和证明分开管理、加速Lean编译，并给每个定理保留自然语言描述，方便不同Agent搜索和复用已有结果。\n这一下，多Agent才真正开始像一支能协作的大型数学团队了～\n而Anthropic最后使用的，则是Prove2Me+基于Claude Code的multi-agent harness。\n最后整个项目消耗约60亿个输出Token，内部使用的通用研究模型能力大致相当于Claude Fable 5.1。\n更夸张的是，人类在过程中提供的数学指导其实相当有限。。。\nTianyi Peng更多只是偶尔给一些非常高层的提示，比如某个方向优先级更高、某个定理尽快推进。\n剩下的大量定义、中间证明、任务拆分和拼装，主要由Claude自己完成。\n负责审阅结果的Kevin Buzzard将其评价为一次「非凡的自动形式化成果」。\n这个评价背后，其实还有一层更大的含义。\n因为费马大定理的价值已经不止于又被AI证明了一遍——\n如果这样规模、这样依赖复杂度的现代数学成果，都开始能够被AI自动搬进形式化系统，那么过去极度依赖人工、推进速度缓慢的数学文献形式化，可能第一次真正具备了大规模提速的条件。\nOne More Thing\nClaude这边刚用11天，把350多年的数学名题重「喂」给计算机验了一遍。\nOpenAI那边也没闲着，是的，GPT-6 Astra开始往更多人手里塞了。。。\nOpenAI最新信息显示，GPT-6 Astra正在逐步向ChatGPT付费用户开放。\n其中GPT-6 Pro面向Pro、Business和Enterprise计划推出，Pro用户还可以在Chat、Work和Codex里使用Astra。\nSam Altman也亲自出来吆喝了一波，大意很简单：\n货到了，可以开始上桌了友友们～\n友友们要知道，俺们奥特曼的新模型Astra，重点强化的也是是如今各家最卷的那几项能力——\n长链路Agent任务、软件工程、计算机操作、浏览器使用，以及科学和专业工作。\nA社刚秀完Claude可以拉着一群Agent，狠干11天数学工程。\nOpenAI转头开始把新旗舰往Pro和企业用户手里推。\n我是感觉啊，一大批刚出炉的数学、科研和Agent狠活，估计已经跟着GPT-6 Astra一起在路上了。。。\n[1]https://x.com/search?q=%E8%B4%B9%E9%A9%AC%E5%A4%A7%E5%AE%9A%E7%90%86&src=typed_query\n[2]https://www.anthropic.com/research/formalizing-fermats-last-theorem\n- 陶哲轩吐槽GPT-6孪生素数新突破：令人无语的一幕2026-09-05\n- 这个世界模型训练完就“退场”，机器人反而更能干了2026-09-05\n- OpenClaw：红过，爱过，散了2026-08-29\n- 机器人的GPT-3时刻真·来了！卡卡西上身，看3秒就学会新动作2026-08-21",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": "SpaceX星舰第14次试飞首次入轨，S41飞船单台发动机入轨约275km轨道，部署26颗星链V3卫星。星河动力智神星一号9月1日首飞成功，全长52米、起飞推力350吨，配备7台针栓式液氧/煤油发动机。复旦大学与剑桥大学团队的结构色组装技术登《科学》，实现千米级连续制造。广汽埃安三款非晶合金电驱量产车型亮相，非晶带材厚度仅0.025毫米。",
+      "headlines": [
+        "SpaceX星舰第14次试飞首次入轨并部署26颗星链V3卫星",
+        "星河动力智神星一号首飞成功，设计重复使用不少于25次",
+        "复旦团队结构色研究成果登《科学》，实现千米级连续制造",
+        "广汽埃安三款非晶合金电驱车型亮相，带材厚度仅0.025毫米",
+        "星舰从亚轨道试验转入实际轨道任务阶段，任务约6圈飞行"
+      ],
+      "entries": [
+        {
+          "t": "马斯克 SpaceX 成功完成星舰第 14 次试飞，首次入轨、返回、溅落并部署 26 颗卫星",
+          "d": "2026-09-28",
+          "a": "IT之家",
+          "c": "通用技术/通信和运输/物质运输/航天",
+          "as": "北京时间9月28日20时48分，SpaceX星舰在得州星际基地完成第14次试飞，首次实现入轨。升空约6分50秒后超重型助推器B21按计划溅落；S41飞船虽一台真空发动机故障、仅靠单台猛禽发动机点火，仍在升空约25分钟后成功进入约275km地球轨道，完成溅落。任务中星舰首次部署26颗星链V3卫星，SpaceX已与全部卫星取得联系，这是星舰首次执行真正的轨道载荷部署任务，此前13次试飞均为亚轨道飞行。原计划约10小时的任务在入轨约3小时后提前结束，飞船被引导至太平洋预定海域。星舰由此从试验性亚轨道飞行进入实际轨道任务阶段。",
+          "sc": 9.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/1/008/065.htm",
+          "tp": "星舰首次入轨",
+          "aip": 1,
+          "kp": [
+            "入轨高度[星舰S41第14次试飞]: 约275km",
+            "载荷部署[星舰首次入轨任务]: 26颗星链V3卫星",
+            "发动机状态[真空发动机故障]: 单台猛禽发动机点火入轨",
+            "任务时长[原计划]: 约10小时",
+            "任务实际时长[提前结束]: 进入轨道约3小时后溅落太平洋"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "感谢IT之家网友 补药吖 的线索投递！\nIT之家 9 月 28 日消息，北京时间 20 时 48 分，SpaceX 星舰在得克萨斯州星际基地开启第 14 次试飞，首次尝试将上级飞船送入地球轨道。\n升空约 6 分 50 秒之后，超重型助推器 B21 按计划完成溅落。随着 S41 刚刚完成溅落，SpaceX 首次实现星舰轨道飞行，为此次任务划上了一个相对圆满的句号。\n由于星舰一台真空发动机出现故障，因此 S41 在升空约 25 分钟后仅能通过单台猛禽发动机进行点火，但最终仍成功进入约 275km 的地球轨道。这也是它首次真正进入地球轨道。\n此次任务原计划持续约 10 小时，但 SpaceX 宣布，飞行团队将在“星舰”进入轨道约 3 小时后，将其安全引导至预先划定的太平洋海域，任务将提前结束。\n此次任务中，“星舰”首次成功进入地球轨道，并完成 26 颗星链 V3 卫星部署；SpaceX 表示，星链团队已与全部 26 颗卫星取得联系。这是星舰首次执行真正的轨道载荷部署任务，此前 13 次试飞均采用亚轨道轨迹。\n随着 S41 入轨成功，星舰首次从试验性亚轨道飞行进入实际轨道任务阶段\n广告声明：文内含有的对外跳转链接（包括不限于超链接、二维码、口令等形式），用于传递更多信息，节省甄选时间，结果仅供参考，IT之家包含外链的文章均包含本声明。",
+          "hb": 1
+        },
+        {
+          "t": "智神星一号运载火箭首飞成功",
+          "d": "2026-09-02",
+          "a": "新华网科技",
+          "c": "通用技术/通信和运输/物质运输/航天",
+          "as": "9月1日10时，星河动力自主研发的中大型可重复使用液体运载火箭智神星一号在酒泉东风商业航天创新试验区点火升空，顺利进入预定轨道。火箭为两级构型（可选装上面级），全长52米，芯级直径3.35米，起飞质量约283吨，起飞推力350吨。一子级采用7台自研苍穹-50（CQ-50）针栓式液氧/煤油发动机，支持32%至105%深度变推和多次重复启动，设计重复使用不少于25次。此次任务也是星河动力自建的智神星系列发射工位（一期）首次使用。",
+          "sc": 9.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.news.cn/tech/20260902/9a2101fd88004b41bef5ab43733dd0c1/c.html",
+          "tp": "智神星一号首飞",
+          "aip": 1,
+          "kp": [
+            "全长[智神星一号火箭]: 52米",
+            "芯级直径[智神星一号]: 3.35米",
+            "起飞质量[智神星一号]: 约283吨",
+            "起飞推力[智神星一号]: 350吨",
+            "重复使用次数[智神星一号设计]: 不少于25次"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "记者从星河动力航天公司获悉，9月1日10时00分，该公司自主研发的中大型可重复使用液体运载火箭——智神星一号，在酒泉东风商业航天创新试验区智神星系列专用发射工位点火升空，火箭按程序顺利进入预定轨道。\n智神星一号运载火箭是星河动力面向大型星座组网和大型卫星发射市场重点布局的核心型号之一。该火箭为两级构型（可选装上面级），全长52米，芯级直径3.35米，起飞质量约283吨，起飞推力350吨，低地球轨道运载能力满足低轨星座组网发射需求。\n该火箭设计重复使用次数不少于25次，火箭一子级采用7台星河动力自主研制的苍穹-50（CQ-50）针栓式可重复使用液氧/煤油发动机并联方案。面向回收复用需求，该型发动机实测支持32%至105%大范围深度变推能力，并可多次重复启动。\n此次任务也是星河动力自建的智神星系列火箭发射工位（一期）首次使用。该工位可支撑火箭的测试、加注、发射全流程作业。（记者付毅飞）",
+          "hb": 1
+        },
+        {
+          "t": "科学网-让颜色“长”在材料里，科学家打破“不可能三角”",
+          "d": "2026-09-05",
+          "a": "科学网新闻",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "复旦大学汪长春团队与英国剑桥大学奥伦·谢尔曼团队合作，提出单体介导的胶体粒子组装策略，使结构色直接从材料微观结构中'长'出来，成果9月4日发表于《科学》。团队采用胶体光子晶体，由均匀小球组装堆叠，反射颜色由小球大小决定。'单体介导组装'技术中，介导单体先引导小球在剪切作用下数十秒内形成高度有序结构，再通过光聚合形成聚合物网络固定结构。苯乙烯和多种丙烯酸酯类单体均能有效介导组装，适用于有机微球、无机微球、核壳微球及杂化微球。团队还发展出适配工业规模的组装路线，实现从实验室样品到千米级连续制造的跨越，为产业化打开新路径，避免了传统颜料的污染排放和掉色问题。",
+          "sc": 9.3,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "http://news.sciencenet.cn/htmlnews/2026/9/570946.shtm",
+          "tp": "结构色材料",
+          "aip": 1,
+          "kp": [
+            "技术策略[结构色材料]: 单体介导的胶体粒子组装策略",
+            "制造规模[结构色材料连续制造]: 千米级连续制造",
+            "显色机制[胶体光子晶体]: 由均匀小球有序堆叠的微观结构反射特定波长光，颜色由小球大小决定"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "让颜色“长”在材料里，科学家打破“不可能三角”\n提到上色，很多人的第一反应是“油墨”“油漆”“涂料”。这类传统颜料大多依靠复杂化学分子显色，其生产过程往往伴随污染物排放，使用久了还会掉色、刮花，拉扯后色彩还容易斑驳脱落。\n复旦大学教授汪长春团队与英国剑桥大学教授奥伦·谢尔曼团队合作，提出单体介导的胶体粒子组装策略，能够让颜色直接从材料的微观结构里“长”出来。团队同时发展出适配工业规模的组装路线，实现结构色材料。从实验室样品到千米级连续制造的跨越，为其产业化应用打开新路径。9月4日，相关研究成果发表于《科学》。\n汪长春团队合影。复旦大学供图，下同\n让颜色直接“长”在材料里\n由材料微观结构产生的颜色，称作结构色。\n“我们使用的材料是胶体光子晶体。”汪长春解释，胶体光子晶体由均匀的小球组装而成。这些小球就像一块块“砖头”，整齐堆叠，码成一面“墙”。白光照射上去，墙体便会反射出特定波长的光，反射什么颜色，则由小球大小决定。\n胶体光子晶体结构原理示意图\n但如何把无序分散的胶体小球组装成高度有序的结构，是一道难题。而且，在室温条件下，组装过程往往非常缓慢，难以满足快速、稳定、连续的工业化加工要求。\n经过反复实验，研究团队提出了“单体介导组装”技术。将适量的介导单体加入胶体粒子体系后，原本杂乱分散粒子的排列仿佛被按下快进键，在剪切作用下，数十秒内就可形成高度有序的胶体光子晶体结构。\n单体和小球，就像是“水泥”和“砖块”。在聚合前，单体先作为介导分子引导小球组装，同时调控小球间的作用力、体系黏弹性，使小球们保持均匀分散的状态。组装完成后，单体进一步通过光聚合形成长链或三维聚合物网络，将已经成型的有序结构固定下来，让这面“砖块砌成的墙”变得更结实、稳定。\n“苯乙烯和多种丙烯酸酯类单体均能够有效介导胶体粒子的快速组装。有机微球、无机微球、核壳微球以及有机—无机杂化微球等不同材料，都可以使用该技术在室温下快速形成光子晶体结构，表明这项技术方案具有广泛适配性。”汪长春表示。\n破解“不可能三角”\n长期以来，在胶体光子晶体体系，存在一个“不可能三角”，即光子晶体的制备速度、光学性能、力学性能，三者无法同时兼顾。想要快，内部小球排列质量可能下降；想要光学效果好，组装时间就拉长；想要材料结实，又会影响组装过程中小球有序排列。\n“在单体介导组装方法中，介导单体触发了多个节点组装性能的跃升，贯穿整个组装过程，获得了‘一石三鸟’的协同增强效果。”汪长春介绍，该技术能使单分散小球在室温下数十秒内完成高质量组装，并可在光引发下快速聚合定型，还能通过单体种类调控材料最终性能，造出可刚可柔、亲水或疏水的胶体光子晶体薄膜。\n为了能让实验成果产业化，汪长春团队与业界伙伴开展合作，选用聚合物核壳微球为模型，将单体与微球乳液均匀混合，并进一步开发了集涂布、干燥、剪切组装、紫外光固化和收卷于一体的卷对卷连续制造工艺。\n“工业化很重要的一点就是效率高，具备成本优势。”汪长春说，基于该方法，团队以25米/分钟的速度，连续制备出长4000米、宽1.3米、厚15微米的胶体光子晶体薄膜。成品薄膜色彩鲜亮通透，只需更换不同粒径的胶体微球，就能批量制备出各种颜色的结构色薄膜，粉碎后就可以得到光子晶体颜料，充分证明该技术的工业潜力。\n工业级胶体光子薄膜制备过程与光学性质\n团队制备的胶体光子晶体薄膜，为兼顾视觉设计与功能发挥提供了新的解决方案。\n彩色光伏板是一个直观例子。目前，许多光伏板外观呈现为黑色或蓝色，而这款薄膜可以实现多色彩调控，推动光伏器件与建筑幕墙、公共设施等生活场景一体化融合，让城市更美好。\n在更广阔的应用中，胶体光子晶体薄膜和颜料可以用于防伪商标、炫彩车衣、低能耗显示、可视化感知、光信息传输以及柔性可穿戴器件等各种与颜色相关的领域，由终端厂家继续转化成不同的产品。\n“未来，我们还将围绕胶体光子晶体的功能展开探索，例如让颜色用于显示温度、湿度，作用力、或与防晒等特定功能结合，同时探索这些功能背后的科学原理问题。”汪长春告诉《中国科学报》。\nhttps://doi.org/10.1126/science.aed8723",
+          "hb": 1
+        },
+        {
+          "t": "全球最强推力 Starship 火箭入轨，部署26颗 Starlink 卫星",
+          "d": "2026-09-28",
+          "a": "interesting engineering",
+          "c": "通用技术/通信和运输/物质运输/航天",
+          "as": "SpaceX星舰（Starship）第14次综合试飞于9月28日从得州星基地发射，首次进入地球轨道，并部署26颗Starlink V3互联网卫星。这枚407英尺（124米）高、由超重型助推器和星舰上面级组成的火箭计划在近10小时飞行中完成约6圈轨道飞行，为其迄今最长任务，随后将在智利以西太平洋溅落。",
+          "sc": 9.3,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://interestingengineering.com/space/worlds-most-powerful-rocket-reaches-orbit-deploys-26-starlink-v3-satellites",
+          "tp": "星舰首次入轨",
+          "aip": 1,
+          "kp": [
+            "火箭高度[Starship]: 124米（407英尺）",
+            "部署卫星[Starship Flight 14]: 26颗Starlink V3",
+            "飞行状态[Starship]: 首次入轨，第14次综合飞行试验"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The world’s largest and most powerful launch vehicle, SpaceX’s Starship, has just launched into orbit for the first time and deployed 26 of the company’s higher-performing Starlink V3 internet satellites. The uncrewed Starship Flight 14 lifted from the company’s Starbase site in Texas at around 7:46 am CT, on Monday, September 28. The historic departure marked the vehicle’s 14th integrated flight and the first aimed at sending the vehicle into orbit around Earth. The 407-foot-tall (124 meter) rocket consists of the Super Heavy booster and the Starship upper stage. If the mission proceeds as planned, Starship will reportedly complete about six orbits around Earth during a nearly 10-hour flight, its longest mission to date. It will then splash down in the Pacific Ocean west of Chile. The flight also marks the first time Starship is carrying operational satellites into space. “Payload deploy complete. All 26 Starlink V3 satellites are in orbit,” one of SpaceX’s latest posts on the social media platform X, stated. First flight headed for orbitSpaceX plans to deploy 26 Starlink V3 satellites during Flight 14, marking the first operational satellite deployment from Starship. Every satellite is designed to add one terabit per second (Tbps) of capacity to the company’s internet network.Together, the 26 satellites could add a total of 26 Tbps of capacity, which is about 10 times as much as a single Falcon 9 launch carrying V2 Mini Starlink satellites. In addition, the satellites are set to unfold their antennas and solar arrays. They will then make initial contact with ground stations as well as the rest of the Starlink constellation through radio-frequency and laser links.Starship completing its ascent burn. Credit: SpaceX / ScreenshotThey will afterward use their onboard thrusters to raise their orbits and undergo checks before beginning service. “Following their on-orbit checkouts the satellites should begin serving customers as soon as a few weeks after launch,” SpaceX representatives, said.What’s more, SpaceX has equipped three of the satellites with cameras made to look back at Starship and capture images of its heat shield following deployment. The images will allow the team to better study the condition of Starship’s thermal protection system, as SpaceX works toward eventually returning the spacecraft directly to its launch site.Six trips around EarthAll 13 previous Starship flights since 2023 were suborbital. Flight 14 is designed to send the spacecraft into orbit for the first time. Starship is expected to fly roughly 171 miles (275 kilometers) above Earth.Nevertheless, the spacecraft will only perform its orbital insertion burn after flight controllers confirm there is sufficient redundancy in systems necessary for its later deorbit burn. By the end of the mission, it will fire a single Raptor engine in space to leave orbit before making a controlled reentry and splashdown.Starship deploying its payload of 26 Starlink V3 satellites.Credit: SpaceX / ScreenshotFlight 14 also includes changes after the previous test. During Starship’s Flight 13, Super Heavy used all 33 engines for its boostback burn for the first time. Ice later clogged three center engines, and ended the maneuver early. The firm therefore made hardware changes to improve engine filtering and software changes aimed at improving relight reliability.SpaceX is further testing several heat-shield upgrades on Starship. These include additional mechanisms to keep tiles attached and curved tiles designed to reduce heating in the gaps between them. Two heat-shield tiles recovered from Ship 40 are being used again on Ship 41. This is the first time Starship has reused heat-shield tiles.",
+          "hb": 1
+        },
+        {
+          "t": "科学网-非晶合金电驱加速“上车”！东莞材料所携手企业推动产业化",
+          "d": "2026-09-24",
+          "a": "科学网新闻",
+          "c": "通用技术/材料工程/特种功能材料/磁性材料",
+          "as": "9月23日，非晶电驱两创融合论坛及合作成果发布会在中科院东莞材料所举行，广汽埃安三款搭载非晶合金电驱的量产车型集中亮相，标志非晶合金材料完成从基础科研到民用整车量产的关键跨越。非晶合金又称金属玻璃，原子排列无序，具有高磁导率和低磁损耗，成品带材厚度仅0.025毫米，约为头发丝的五分之一，被称为手撕钢。凭借极低矫顽力和超高电阻率，可大幅抑制电机涡流和磁滞损耗，是车载电驱极具潜力的铁芯材料。东莞材料所所长汪卫华院士表示，该所与广汽集团深度战略合作，打通从基础研究到整车产业化的完整创新链条，破解车载非晶软磁材料应用瓶颈，提升新能源汽车核心材料自主可控水平。",
+          "sc": 9.0,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "http://news.sciencenet.cn/htmlnews/2026/9/572117.shtm",
+          "tp": "非晶合金电驱上车",
+          "aip": 1,
+          "kp": [
+            "非晶合金电驱[车载应用]: 完成从基础科研到民用整车量产的关键跨越",
+            "搭载车型[广汽埃安, 非晶合金电驱]: 三款量产车型集中亮相"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "非晶合金电驱加速“上车”！东莞材料所携手企业推动产业化\n当前，全球汽车产业正处于提质升级、优胜劣汰的关键窗口期，市场竞争已从配置内卷转向核心材料、核心部件、核心技术的较量。先进制造浪潮下，如何锚定自主研发，推进创新链、产业链、资金链、人才链深度融合，让科研成果走出实验室、实现大规模产业化落地，成为行业亟待回答的命题。\n9月23日，非晶电驱两创融合论坛及合作成果发布会在中国科学院东莞材料科学与技术研究所（以下简称东莞材料所）举行。论坛现场，广汽埃安三款搭载非晶合金电驱的量产车型集中亮相，标志着非晶合金这项前沿战略材料，在广州汽车集团股份有限公司（以下简称广汽集团）与东莞材料所协同攻关下，完成从基础科研到民用整车量产的关键跨越，打造可复制、可参考的产学研实践范例。\n汪卫华主持活动。东莞材料所供图，下同\n“前沿材料的创新火种，只有汇入产业应用的实践沃土，才能真正释放驱动产业升级的澎湃力量。”中国科学院院士、东莞材料所所长汪卫华指出，东莞材料所作为国立科研机构，与广汽集团等领军企业开展深度战略合作，就是要打通从基础研究、关键技术攻关到工程化验证、整车产业化应用的完整创新链条，破解车载非晶软磁材料应用瓶颈，提升新能源汽车核心材料自主可控水平，助力培育壮大新质生产力。\n从超薄带材到车规级电驱\n非晶合金又称“金属玻璃”，其原子排列不同于传统晶态金属，具有较高磁导率和较低磁损耗。成品带材厚度仅0.025毫米，约为头发丝的五分之一，业内也形象地称为“手撕钢”。\n非晶合金是突破传统硅钢性能瓶颈的新一代前沿材料，广泛应用于消费电子、电力变压器、航天器件等领域。凭借独特的无序原子排布结构，它拥有极低矫顽力和超高电阻率，能够大幅抑制电机工作中的涡流、磁滞损耗，是车载电驱极具潜力的铁芯材料。但材料薄而脆的物理属性，给车规级大批量制造竖起极高门槛。\n传统硅钢电机的冲压工艺无法直接复用，必须从零搭建激光切割、精密叠压、专属热处理整套非标产线。广汽集团携手汪卫华院士领衔的东莞材料所非晶材料团队开展工程攻关，将非晶铁芯叠压层数提升至3800层，达到传统硅钢电机的10倍，充分释放非晶材料性能潜力。\n参会专家了解产品研发情况。\n“基于超薄非晶材料的低损耗定子铁芯精密制造关键技术和应用”项目，摘得第51届日内瓦国际发明展最高奖项“评审团特别金奖”。依托这一系列前沿材料自主创新技术打造的非晶合金电驱，斩获2025年度“全球新能源汽车唯一动力系统创新技术”。\n成果实物展是本次论坛的高光环节。以2027款埃安RT为例，非晶合金铁芯搭配碳纤维转子，让电机铁芯损耗直接下降75%，实现99%电机峰值效率，做到一度电多跑一公里。配套碳化硅电控，相比传统硅基IGBT电控，电控损耗降低71.6%，进一步放大整车节能优势。\n在海南环岛高速真实家庭出游实测工况下，该款汽车跑出8.571kWh/100km，创下“驾驶量产纯电轿车通过海南环岛高速电耗最低”吉尼斯世界纪录。基于“非晶合金电驱+碳化硅电控+宁德时代电池”黄金三电组合，该款汽车实现向9-12万级家用市场下沉，成为前沿技术普惠的标杆载体。\n2027款埃安RT、埃安N60等车型集中亮相。\n从实验室里的超薄带材，到新能源汽车的电驱系统，非晶合金材料正在跨越工程化和规模化制造门槛。\n让创新成果从“书架”走向“货架”\n作为新材料领域的国家战略科技力量，东莞材料所深耕非晶材料基础研究与核心攻关，积累了多项国际领先成果。\n8月25日，东莞材料所与广汽集团动力总成BU签订战略合作协议，共同开启下一代非晶材料车载应用联合攻关。根据协议，双方将充分发挥各自在前沿科研与产业应用领域的优势，围绕以非晶材料为代表的新材料，在新能源汽车动力系统关键材料、应用场景、成果转化等方面开展联合技术攻关。\n汪卫华指出，广汽集团是非晶电机工程化的行业先行者，在国内率先将非晶电机应用于量产车型。东莞材料所科研团队在非晶材料等前沿领域积淀多年，自研高频非晶材料已达到世界先进水平。该材料作为新一代高性能低损耗金属材料，在新能源汽车领域应用前景广阔，可助力汽车更节能、更高效、更安全。\n非晶合金定子搭配碳纤维转子。\n“材料科研的真正考验，不在于实验室做出完美样品，而在于跨越工程化、规模化量产这道鸿沟，把纸面科研结论变成经得起市场、工况双重检验的工业产品。”东莞材料所研究员张博表示，基础科研的价值不能止步于论文和实验室样品。非晶合金材料研究历经数十年沉淀，只有完成工程转化，真正驶上千家万户的公路，做到老百姓买得起、用得上，科研的价值才算闭环。\n广汽集团动力总成BU相关负责人表示，新能源竞争已经深入底层材料这一“根技术”。从方寸实验室的非晶薄带，到10万级家轿规模化装车，“从书架到货架，再奔赴公路”这条转化链条，离不开科研机构和产业团队的接力攻坚。广汽将发挥链主企业作用，打通实验室到生产线“最后一公里”，构建研发、中试、量产、市场完整价值闭环。\n“我们诚挚期待更多高校、科研院所、整车企业、零部件企业和上下游伙伴加入进来，共同建设开放协同的创新生态，共同攻克材料-器件-系统-整车全链条的关键难题，把非晶电驱这条新赛道做宽、做实、做强。”汪卫华表示，未来，东莞材料所与广汽集团将持续深化合作，向新一代高性能非晶系材料发起攻关，推动高端三电技术进一步普惠下沉。",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}
