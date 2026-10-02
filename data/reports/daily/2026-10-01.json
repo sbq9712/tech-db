@@ -1,0 +1,86 @@
+{
+  "type": "daily",
+  "date_label": "2026年10月1日　星期四",
+  "date_range": "2026-10-01",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [],
+    "AI与智能科技": [
+      "新型超分子纳米复合物实现Cas9 RNP体内递送，肿瘤基因编辑效率达37.2%",
+      "糖精基光催化策略实现芳烃C–H胺化，兼容未活化苯及缺电子芳烃等多种底物"
+    ],
+    "通用技术": []
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "新型超分子纳米复合物实现Cas9 RNP体内递送，肿瘤基因编辑效率达37.2%",
+        "糖精基光催化策略实现芳烃C–H胺化，兼容未活化苯及缺电子芳烃等多种底物"
+      ],
+      "entries": [
+        {
+          "t": "顺序自组装超分子纳米复合物实现Cas9 RNP的全身递送与体内肿瘤基因组编辑",
+          "d": "2026-10-01",
+          "a": "ACS Applied Materials & Interfaces: Latest Articles (ACS Publications)",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "Cas9/sgRNA核糖核蛋白（RNP）的体内基因组编辑具有重大治疗潜力，但RNP在血液中快速清除和降解阻碍了其在靶点的积累与有效编辑。研究人员构建了一种超分子三元复合物平台，通过顺序自组装将RNP与单宁酸（TA）和苯硼酸（PBA）偶联聚合物共组装，形成约30 nm的核壳结构，可保护RNP免受酶降解，并在内体pH条件下选择性解离。在皮下荷瘤小鼠静脉给药后，该三元复合物表现出延长血液循环和肿瘤优先富集，肿瘤部位基因编辑效率达37.2%，而对照组仅约1.5%。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://pubs.acs.org/aamick/article/doi/10.1021/acsami.6c14858/5443094/Sequentially-Self-Assembled-Supramolecular",
+          "tp": "Instinct算力紧缺",
+          "aip": 1,
+          "kp": [
+            "递送平台[Cas9 RNP体内递送]: 单宁酸(TA)与苯基硼酸(PBA)聚合物顺序自组装超分子三元复合物",
+            "纳米结构尺寸[核-壳结构]: 约30 nm",
+            "功能[递送系统]: 保护RNP免受血液快速清除和降解，实现全身递送与体内肿瘤基因组编辑"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract In vivo genome editing utilizing Cas9/sgRNA ribonucleoproteins (RNPs) holds substantial therapeutic promise, yet rapid bloodstream clearance and degradation of RNPs have hindered its accumulation within the target site and effective gene editing. Herein, we report a supramolecular ternary complex platform where RNPs are co-assembled with tannic acid (TA) and phenylboronic acid (PBA)-conjugated polymers through sequential self-assembly. This ∼30 nm core–shell structure protects RNPs from enzymatic degradation and dissociates selectively at endosomal pH. Upon intravenous administration in subcutaneous tumor-bearing mice, the ternary complex exhibits prolonged blood circulation and preferential tumor accumulation, achieving 37.2% gene editing at tumor sites compared with only 1.5% for free RNPs. The platform successfully disrupts PLK1 in subcutaneous tumors, accompanied by significant tumor growth suppression. This is further applied to a KRASG13D-mutant tumor model, in which treatment delayed tumor growth. By integrating sequential supramolecular self-assembly with stimuli-responsive cargo release, this strategy presents a promising approach for systemic RNP delivery and tumor genome editing.",
+          "hb": 1
+        },
+        {
+          "t": "糖精参与芳烃的光催化C–H胺化反应",
+          "d": "2026-10-01",
+          "a": "Angewandte Chemie International Edition",
+          "c": "AI与智能科技/AI硬件层/数据中心",
+          "as": "研究人员报道了一种新型有机光催化策略，以易得的糖精为氮源，直接实现芳烃C(sp²)–H胺化反应。与传统自由基胺化方案需要芳烃自由基阳离子中间体不同，该体系优先对原位生成的糖精阴离子进行单电子转移（SET）氧化，这一机理转变绕过了长期存在的电子限制，使底物适用范围极广。该方案可兼容多种芳香体系，包括未活化的苯（仅需2.0当量）、卤代芳烃、多环体系以及含酯基、氰基等强吸电子基团的缺电子芳烃。该策略为芳烃直接胺化提供了通用性强、条件温和的新途径。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.3193418",
+          "tp": "Oracle云需求增长",
+          "aip": 1,
+          "kp": [
+            "反应类型[芳烃C(sp2)–H胺化]: 光催化直接胺化",
+            "氮源[光催化C–H胺化]: 糖精",
+            "机理[光催化体系]: 优先对原位生成的糖精阴离子进行单电子转移(SET)氧化，绕过芳烃自由基阳离子中间体",
+            "策略特点[传统自由基胺化对比]: 无需瞬态芳烃自由基阳离子中间体，普适性高"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT We report an unprecedented, highly general organic photocatalytic strategy for direct C(sp 2 )–H amination of arenes using easily accessible saccharin as a nitrogen source. In sharp contrast to conventional radical amination protocols requiring transient arene radical cation intermediates, our system operates via an initial preferential single‐electron transfer (SET) oxidation of the in situ–generated saccharinate anion. This mechanistic pivot successfully bypasses longstanding electronic limitations, enabling an exceptionally broad substrate scope. The protocol tolerates a full spectrum of aromatic systems, including unactivated benzene (using only 2.0 equiv), haloarenes, polycyclic networks, highly electron‐deficient arenes bearing strong electron‐withdrawing groups (ester, nitrile, or trifluoromethyl substituents), and complex pharmaceutical frameworks, delivering the corresponding N ‐aryl saccharins in up to 99% yield (98% for benzene) with predictable regioselectivity. Density functional theory (DFT) calculations quantitatively corroborate the electrophilic radical kinetics (Δ G ‡ = 2.3–14.4 kcal/mol for arene addition) and TEMPO‐mediated rearomatization cascade. Furthermore, the N ‐aryl saccharin adducts function as robust, programmable modified Gabriel reagents, smoothly delivering diverse primary and secondary aryl amine hydrochloride salts in up to 99% yield under remarkably mild conditions.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    }
+  ]
+}
