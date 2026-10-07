@@ -1,0 +1,104 @@
+{
+  "type": "daily",
+  "date_label": "2026年10月6日　星期二",
+  "date_range": "2026-10-06",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [],
+    "AI与智能科技": [
+      "科研团队研制MoS2-x/MoTe2异质结器件，实现光电流动力学25倍范围可调的传感内储备池计算",
+      "仿生骨骼化方法实现多金属纳米框架的三维结构与组分精确构筑",
+      "研究揭示电镀诱导应力异质性通过化学势梯度调控水系锌电池枝晶生长机制"
+    ],
+    "通用技术": []
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "科研团队研制MoS2-x/MoTe2异质结器件，实现光电流动力学25倍范围可调的传感内储备池计算",
+        "仿生骨骼化方法实现多金属纳米框架的三维结构与组分精确构筑",
+        "研究揭示电镀诱导应力异质性通过化学势梯度调控水系锌电池枝晶生长机制"
+      ],
+      "entries": [
+        {
+          "t": "通过栅极可调MoS2−x/MoTe2异质结动力学实现速度自适应的传感内储备池计算",
+          "d": "2026-10-06",
+          "a": "ACS Applied Materials & Interfaces",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "本文报道了一种基于单一MoS2−x/MoTe2范德华异质结的传感内储备池计算器件。现有光电集成器件的载流子动力学固定、制备后无法重构。该器件集成了高性能自供电宽带光电探测与栅极可调的突触可塑性，通过跨硫空位缺陷态调制费米能级，实现光电流衰减动力学在25倍范围内的连续调控，从而实现速度自适应的传感内储备池计算，支持传感、存储与计算的软硬件协同设计。",
+          "sc": 6.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://doi.org/10.1021/acsami.6c14718",
+          "tp": "机器人导航模型",
+          "aip": 1,
+          "kp": [
+            "传感内储备池计算器件[MoS2−x/MoTe2范德华异质结]: 栅极可调、速度自适应的载流子动力学"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract Compact, low-power optoelectronic devices that integrate sensing, memory, and computing have shown substantial potential for realizing software–hardware co-design in artificial intelligence systems. However, existing optoelectronic devices integrating multiple functions typically suffer from fixed carrier dynamics that cannot be reconfigured after fabrication, which imposes a significant challenge on machine vision. Here, we overcome this challenge with a single MoS2–x/MoTe2 van der Waals heterojunction that delivers both self-powered broadband photodetection with superb performance and gate-tunable synaptic plasticity in one device. By modulating the Fermi level across sulfur vacancy defect states, we achieve continuous control of photocurrent decay dynamics over a 25-fold range—enabling speed-adaptive in-sensor reservoir computing that matches relaxation kinetics to human motion, attaining 100% recognition accuracy for running, side-jumping, and walking. A random pruning strategy further reduces computational cost by three orders of magnitude while preserving 95% accuracy, demonstrating the system’s potential for edge deployment. This work suggests that defect-engineered van der Waals heterojunctions offer a promising materials platform for speed-adaptive neuromorphic vision systems integrating sensing, memory, and computing capabilities.",
+          "hb": 1
+        },
+        {
+          "t": "仿生骨骼化启发的纳米片跨维度雕塑形成多金属多孔纳米框架",
+          "d": "2026-10-06",
+          "a": "Energy & Environmental Science",
+          "c": "AI与智能科技/AI硬件层/计算集群",
+          "as": "本文受仿生骨骼化启发，报道了纳米片跨维度雕塑形成多金属多孔纳米框架的研究。将多金属纳米晶体精确构筑成三维多孔框架（包括结构与组分调控）受到广泛关注，但如何同时协调跨维度重构并管理多金属界面间复杂的原子扩散动力学是一大挑战。该工作实现了对多金属纳米框架的精确结构与组分 sculpting。",
+          "sc": 6.5,
+          "i": "l",
+          "tg": "观点评论",
+          "u": "https://doi.org/10.1039/d6ee05309b",
+          "tp": "科研体系改革",
+          "aip": 1,
+          "kp": [
+            "[仿生骨骼化启发纳米片]: 跨维度重构形成多金属三维多孔纳米框架"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Precise architectural and compositional sculpting of multimetallic nanocrystals into three-dimensional (3D) porous frameworks attract enormous interest, while simultaneously orchestrating cross-dimensional reconstruction and managing complex atomic diffusion kinetics across multimetallic interfaces...",
+          "hb": 1
+        },
+        {
+          "t": "电镀诱导的应力异质性决定锌枝晶生长",
+          "d": "2026-10-06",
+          "a": "Journal of the American Chemical Society",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "本文研究了水系锌离子电池中电镀诱导应力与锌枝晶萌生的直接关联。研究发现，局部拉伸/压缩应力异质性会改变沉积锌的化学势，在锌/电解液界面产生空间化学势梯度和不均匀沉积动力学；应力诱导的化学势差促进凸起区域的优先生长，加速界面失稳。相反，应力均匀化可抑制局部沉积、缓解枝晶生长，为通过应力调控抑制锌枝晶提供了机理依据。",
+          "sc": 6.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://doi.org/10.1021/jacs.6c15035",
+          "tp": "游戏本新品发布",
+          "aip": 1,
+          "kp": [
+            "应力异质性[电镀锌负极]: 局域拉/压应力差异调控沉积锌化学势，决定枝晶萌生"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract Dendrite formation on Zn metal anodes remains a major obstacle to the practical deployment of aqueous Zn-ion batteries. The plating-induced stress in Zn anodes and its effect on Zn-deposition morphologies have not been fully elucidated. Herein, we establish a direct correlation between plating-induced stress and dendrite initiation. We reveal that localized tensile/compressive-stress heterogeneity modulates the chemical potential of deposited Zn, generating spatial chemical-potential gradients and nonuniform deposition kinetics at the Zn/electrolyte interface. Such stress-induced chemical-potential differences promote preferential Zn growth at protruded regions and accelerate interfacial instability, whereas stress homogenization suppresses localized deposition and mitigates dendrite evolution. Based on this, we introduced a stress-relieving additive that selectively adsorbs on Zn (100) facets and guides a (100) textured Zn anode. This flattens the Zn deposition and establishes a homogeneous compressive-stress distribution with reduced local chemical-potential differences, effectively suppressing stress-driven dendrite formation. Consequently, the Zn anode has a high cycling life of 3500 h in the symmetric Zn||Zn cell. The Zn||I2 full cell shows remarkable long-term stability exceeding 10,000 cycles at 2 A g–1. This work unveils the intrinsic interplay between stress evolution and dendritic morphology, providing a viable interfacial stress-regulation strategy for dendrite-free metal anodes.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    }
+  ]
+}
