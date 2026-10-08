@@ -28,7 +28,10 @@ sleep 2
 
 # ── 1. 同步数据 ──
 echo "[1/6] 拉取最新数据（关机期间 CI 的新数据）..."
-git pull --ff-only origin main 2>&1 | head -3
+# codex-review fix: head -N 在读完 N 行后退出会让 git pull 收到 SIGPIPE (rc=141)，
+# 在 set -euo pipefail 下被当作失败直接杀死整个脚本 — 2026-10-08 重启时连续两次
+# 卡死在 [1/6]。tail -N 会读完全部输出，不会触发 SIGPIPE。
+git pull --ff-only origin main 2>&1 | tail -3
 
 # ── 2. 重建 lite JSON ──
 echo "[2/6] 重建 all-records-lite.json..."
@@ -56,10 +59,10 @@ fi
 echo "[6/6] 启动 Cloudflare 隧道..."
 nohup /home/rhett/bin/cloudflared tunnel --url http://localhost:8765 > runtime/cloudflared.log 2>&1 &
 sleep 8
-TUNNEL_URL=$(grep -oP 'https://[a-z0-9-]+\.trycloudflare\.com' runtime/cloudflared.log 2>/dev/null | head -1)
+TUNNEL_URL=$(grep -m1 -oP 'https://[a-z0-9-]+\.trycloudflare\.com' runtime/cloudflared.log 2>/dev/null)
 if [ -n "$TUNNEL_URL" ]; then
     # 检查隧道 URL 是否跟 qa.js 里的一致
-    CURRENT_URL=$(grep -oP "https://[a-z0-9-]+\.trycloudflare\.com" qa.js 2>/dev/null | head -1)
+    CURRENT_URL=$(grep -m1 -oP "https://[a-z0-9-]+\.trycloudflare\.com" qa.js 2>/dev/null)
     if [ "$TUNNEL_URL" != "$CURRENT_URL" ]; then
         echo ""
         echo "  ⚠️  隧道地址变了！需要更新 qa.js 并推送："
@@ -73,7 +76,7 @@ if [ -n "$TUNNEL_URL" ]; then
         # silently discarded) and only the hardcoded 161→162 fallback ran, so
         # a second tunnel change published a new URL with no cache-bust.
         # Shell-side arithmetic instead:
-        _VER=$(grep -oP 'qa\.js\?v=\K[0-9]+' index.html | head -1)
+        _VER=$(grep -m1 -oP 'qa\.js\?v=\K[0-9]+' index.html)
         if [ -n "$_VER" ] && [ "$_VER" -ge 1 ] 2>/dev/null; then
             sed -i "s/qa\.js?v=${_VER}/qa.js?v=$(( _VER + 1 ))/" index.html
             echo "  cache version: v=$_VER → v=$(( _VER + 1 ))"
@@ -94,7 +97,7 @@ if [ -n "$TUNNEL_URL" ]; then
         if [ "$_CONTRACT_OK" = "1" ]; then
             git add qa.js index.html
             git commit -m "fix: 更新隧道URL — $TUNNEL_URL" 2>/dev/null
-            git push "https://sbq9712:${GH_TOKEN}@github.com/sbq9712/tech-db.git" main 2>&1 | head -3
+            git push "https://sbq9712:${GH_TOKEN}@github.com/sbq9712/tech-db.git" main 2>&1 | tail -3
             echo "  ✅ 已自动更新并推送，等 Pages 部署后公网问答即可用"
         fi
     else
