@@ -1,0 +1,343 @@
+{
+  "type": "weekly",
+  "date_label": "2026-10-05 ~ 2026-10-11",
+  "date_range": "2026-10-05 ~ 2026-10-11",
+  "main_theme": "大模型能力竞赛与能源配套并行推进：Mistral发布万亿参数多模态开源模型ML4，Google洽谈超10亿美元核能采购；储能侧华能700MW全球最大盐穴压缩空气储能项目完成全系统启动，Amprius硅负极电池落地美国无人机产线。",
+  "overview": "AI领域，法国Mistral AI于10月6日发布1万亿总参数、490亿激活参数的原生多模态模型Mistral Large 4，权重月底开放，训练耗用3800块英伟达Grace Blackwell GPU；OpenAI按欧盟《人工智能法案》为ChatGPT文本添加隐形水印。能源配套方面，Alphabet正与Constellation Energy谈判超10亿美元核能采购协议，以支撑数据中心电力需求。储能领域，华能700MW金坛盐穴压缩空气储能项目完成全系统启动，为全球已报道装机最大同类项目；Amprius与Caminus达成协议，明年在美国生产数十万枚硅负极无人机电池。医疗AI方面，犹他州批准Nolla Health系统实施全球首个无需医生逐一预批的自主处方。",
+  "headlines": {
+    "零碳产业": [
+      "Amprius与Caminus合作，明年起在美量产硅负极无人机电池",
+      "双功能MPTMS涂层使硫化物电解质H2S排放减少93%并提升耐湿性",
+      "华能700MW金坛盐穴压缩空气储能项目完成全系统启动",
+      "Renalfa与Eurowind在保加利亚建成311MW/773MWh光储混合园区"
+    ],
+    "AI与智能科技": [
+      "Mistral发布万亿参数多模态模型ML4预览版，月底开放权重",
+      "犹他州批准全球首个无需医生逐一预批的自主处方系统",
+      "Alphabet与Constellation洽谈超10亿美元核能采购协议",
+      "OpenAI为欧盟地区ChatGPT文本添加隐形水印以符合AI法案"
+    ],
+    "通用技术": [
+      "美澳合作的高超音速巡航导弹HACM启动飞行测试，拟2027财年采办决策",
+      "前驱体脱气法制备出兼具柔性与高导电性的新型硼异形体Imma-B60",
+      "智能手机集成的SID-WAVES微流控平台实现阿托摩尔级多重诊断",
+      "2026年诺贝尔物理学奖授予冰立方中微子天文台贡献者哈尔岑"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": "Amprius与印第安纳州Caminus达成协议，由后者封装硅负极电池，明年上半年为约6万架四轴无人机供电，年产能目标80万组电池包。华能700MW金坛盐穴压缩空气储能项目9月12日完成两台350MW机组全系统启动，利用约1000米深盐穴、储气容积120万立方米。研究侧，MPTMS涂层使硫化物电解质在30%湿度下暴露35分钟的H2S排放减少93%。",
+      "headlines": [
+        "Amprius与Caminus合作，明年起在美量产硅负极无人机电池",
+        "双功能MPTMS涂层使硫化物电解质H2S排放减少93%并提升耐湿性",
+        "华能700MW金坛盐穴压缩空气储能项目完成全系统启动",
+        "Renalfa与Eurowind在保加利亚建成311MW/773MWh光储混合园区"
+      ],
+      "entries": [
+        {
+          "t": "独家：Amprius 达成合作协议，加速美国无人机电池生产",
+          "d": "2026-10-05",
+          "a": "the information",
+          "c": "零碳产业/能量转化/能量存储/电化学储能/二次电池/传统蓄电池/有机体系/锂电",
+          "as": "美国下一代电池制造商Amprius Technologies与印第安纳州电池初创公司Caminus达成合作协议，由后者明年生产数十万枚无人机电池。根据协议，Caminus将把Amprius的硅负极装入电池，在明年上半年为约6万架四轴战斗无人机提供动力，年产能后续可能达到80万组无人机电池包。值得注意的是，Caminus明年第一季度才将首次商业化销售电池。此合作反映美国电池行业快速变化的格局，以及美国国内可用电池制造产能的匮乏。",
+          "sc": 8.9,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.theinformation.com/newsletters/the-electric/exclusive-amprius-deal-accelerate-u-s-drone-battery-production",
+          "tp": "无人机硅阳极电池",
+          "aip": 1,
+          "kp": [
+            "供应商[硅负极电池]: Amprius Technologies（美国领先下一代电池组件商）",
+            "代工厂商[无人机电池]: Caminus（印第安纳州初创公司）",
+            "产能[2026年上半年]: 约60,000架四轴战斗无人机用电池（数十万块）",
+            "后续产能[无人机电池]: 总量可能达800,000块"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Amprius Technologies, the U.S.’s leading next-generation battery component maker, has awarded Caminus, a small Indiana battery startup, a contract to produce hundreds of thousands of drone batteries next year. In a deal reported here for the first time, Indianapolis-based Caminus will insert Amprius’ silicon anodes into enough batteries to power roughly 60,000 quadcopter combat drones in the first half of next year, Caminus CEO Adrian Yao told me. The total could later reach 800,000 drone battery packs per year. That Amprius has turned to little-known Caminus, which will make its first commercially sold batteries in the first quarter of next year, reflects the fast-changing pace of the U.S. battery industry, as well as the lack of readily available battery manufacturing capacity in the country. Last week, Caminus changed its name from EnPower. Until recently, the U.S. next-gen battery industry was struggling. But the wars in Ukraine and Iran have jolted it awake, creating sudden demand for batteries that can power drones for long distances—giving them sufficient power to intercept other drones, maneuver through buildings and hover for long periods. The demand is coming from the Department of Defense, which is pushing the nascent U.S. drone industry to catch up to Chinese companies that currently make most of the world’s drones, along with the batteries that power them. In that push, the Pentagon since February has been running a competition under its Drone Dominance program to award contracts to the companies that can make the most powerful and nimble drones—and to demonstrate the capacity to manufacture them quickly at large scale in the U.S. As an example of the dollar amounts in the program that are motivating the battery industry, California-based Neros Technologies late last month won a $100 million drone contract in the second stage of the competition. Though no one discloses the value of the batteries powering those drones, they are the most expensive single component. The next stage of the competition, taking place later this month, will pay even more: It’s worth a total of $450 million in drone orders, which would mean tens of millions of dollars in batteries to power them. This helps explain Amprius’ deal with Caminus, which allows Amprius to get more U.S. manufacturing capacity ahead of the Pentagon competition. Already, drone business has made Amprius the most successful U.S. next-gen battery maker, with $140 million in expected revenue this year. The deal—and Caminus’ part in it—is in fact a beneficiary of the battery industry’s struggles. In 2021, Caminus bought most of the cell production equipment of EnerDel. EnerDel had bought the production lines in 2012 with a $118 million Department of Energy grant. It later went bankrupt. And a year ago, Caminus bought production equipment from Natron Energy, a sodium-ion battery maker that had gone bankrupt earlier in 2025. Caminus has declined to disclose how much it paid for the equipment in either the EnerDel or Natron deals. Together, those two equipment purchases set up Caminus to serve drone battery component makers almost immediately, with Amprius as its first customer. Caminus also has plans to make its own batteries, Yao said. That’s a contrast to another agreement Amprius announced last week, with an unnamed South Korean company that will retrofit its U.S.-based equipment for making electric vehicle batteries to instead make drone batteries for Amprius. In that case, the South Korean company won’t be ready to begin producing them until 2028. Now Amprius will have greater U.S. supply for participants in the latest stage of the Pentagon competition. Amprius already has manufacturing agreements with battery makers in China and South Korea, as well as some in the U.S., but CEO Tom Stepien told me there is much more demand for U.S.-made batteries because that’s what the Pentagon prefers. This new Pentagon priority on manufacturing comes amid repeated critical shortages of weapons and ammunition needed for the wars in Iran and Ukraine. Last week, the DOD released a 23-page strategy paper laying out a five-year build-out of factories that can turn out and replenish the Pentagon’s latest weapons quickly. Caminus’ Yao said the U.S. had to build up battery manufacturing capacity if it wants to compete with China. “The ability to execute and the ability to manufacture is the differentiating way to win,” he said.",
+          "hb": 1
+        },
+        {
+          "t": "双功能涂层实现高电导率与耐湿性硫化物电解质用于实用全固态锂电池",
+          "d": "2026-10-05",
+          "a": "Nano-Micro Letters",
+          "c": "零碳产业/能量转化/能量存储/电化学储能/二次电池/传统蓄电池/固态电池",
+          "as": "该研究针对硫化物固态电解质对湿度极度敏感、易释放有毒H2S并快速降解的问题，提出了一种双功能(3-巯基丙基)三甲氧基硅烷（MPTMS）涂层策略来保护Li5.5PS4.5Cl0.8Br0.7（LPSCBr）。MPTMS层形成约10纳米的疏水屏障，在30%相对湿度下暴露35分钟后可将H2S排放减少93.0%，显著提升了硫化物电解质的耐湿性，为实用化全固态锂电池在环境条件下的规模化制造提供了可行方案。",
+          "sc": 8.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nmlett.org/index.php/nml/article/view/2652",
+          "tp": "硫化物电解质涂层改性",
+          "aip": 1,
+          "kp": [
+            "电解质类型[全固态锂电池]: 硫化物固态电解质，离子电导率优异",
+            "技术方案: 双功能涂层实现高电导率与耐湿性",
+            "涂层解决的问题[硫化物电解质]: 湿气敏感导致H2S释放和结构降解"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The pursuit of safer and higher-energy-density batteries has driven the advancement of all-solid-state lithium batteries (ASSLBs). Among various material systems, sulfide solid-state electrolytes (SEs) stand out as highly promising candidates owing to their exceptional ionic conductivity. Nevertheless, their extreme sensitivity to moisture results in the release of toxic H2S and rapid structural degradation, which severely impedes their scalable manufacturing under ambient conditions. A bifunctional (3-mercaptopropyl)trimethoxysilane (MPTMS) coating strategy is herein presented to shield Li5.5PS4.5Cl0.8Br0.7 (LPSCBr) from moisture-induced degradation. The MPTMS layer forms a hydrophobic barrier of approximately 10 nm, which reduces H2S emission by 93.0% after 35 min of exposure to 30% relative humidity, while maintaining 83.1% of the initial ionic conductivity (10.8 mS cm−1). This approach tackles the core challenge associated with sulfide solid-state electrolytes: the realization of compatibility with controlled ambient air without sacrificing critical electrochemical properties. The modified electrolyte maintains a high ionic conductivity (> 5.7 mS cm−1) even after 10 h of air exposure. When applied in all-solid-state cells paired with LiNi0.83Co0.11Mn0.06O2 cathodes, it exhibits remarkable electrochemical performance, delivering a capacity retention of 84.6% after 1000 cycles. By enabling moisture-tolerant processing, MPTMS-modified LPSCBr SEs lay a solid foundation for the scalable, high-performance, and cost-effective production of ASSLBs. Highlights:1 (3-Mercaptopropyl)trimethoxysilane (MPTMS) forms a hydrophobic coating on Li5.5PS4.5Cl0.8Br0.7 (LPSCBr) via synergistic covalent bonding of dual functional groups (–SH and –Si(OCH3)3).2 The siloxane network blocks moisture, and S–S bonds stabilize the PS43− framework to inhibit electrolyte hydrolysis fundamentally.3 The bifunctional MPTMS coating on LPSCBr simultaneously enhances electrolyte moisture resistance and cathode interfacial stability.",
+          "hb": 1
+        },
+        {
+          "t": "中国金坛700 MW盐穴压缩空气储能项目完成全系统启动 - 储能",
+          "d": "2026-10-05",
+          "a": "ESS News",
+          "c": "零碳产业/能量转化/能量存储/储热/压缩气体",
+          "as": "中国华能700 MW金坛盐穴压缩空气储能（CAES）项目于9月12日在江苏常州完成两台发电机组的全系统启动，两台350 MW机组在运行工况下通过整套启动试运行。该项目为二期工程，装机容量700 MW，是全球已报道盐穴压缩空气储能项目中装机容量最大的。电站利用约1000米深的四个地下盐穴，总储气容积约120万立方米。充电时电能将空气压缩至超过130个大气压，压缩过程中产生的热量被回收利用。项目接下来将开展并网前试验和系统调试。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.ess-news.com/2026/10/05/chinas-700-mw-jintan-salt-cavern-caes-project-completes-full-system-startup/",
+          "tp": "盐穴压缩空气储能",
+          "aip": 1,
+          "kp": [
+            "装机容量[金坛盐穴压缩空气储能二期]: 700 MW",
+            "单机组容量[金坛项目]: 350 MW",
+            "地位[全球盐穴压缩空气储能]: 已报道装机容量最大"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "China Huaneng’s 700 MW Jintan salt-cavern compressed air energy storage (CAES) project has completed full-system startup of its two generating units in Changzhou, Jiangsu province. The milestone was reached on Sept. 12, with both 350 MW units undergoing integrated startup testing under operating conditions. At 700 MW, the second phase of the Jintan project has the largest installed power capacity of any salt-cavern CAES facility currently reported worldwide. The project will now proceed with pre-grid-connection tests and system commissioning. The plant uses four underground salt caverns at depths of around 1,000 meters, with total gas-storage volume of about 1.2 million cubic meters. Electricity is used to compress air to pressures exceeding 130 atmospheres during charging, while heat generated during compression is captured and stored. During discharge, the stored air is reheated and expanded through turbines without burning natural gas. A full charging cycle stores about 2.8 GWh of electricity. Project documents describe an approximately eight-hour charging period and four hours of rated power generation, with more than 70% round-trip energy conversion efficiency. The facility is expected to complete around 330 charge-discharge cycles annually and generate about 924 GWh per year. The second phase represents a major scale-up from the 60 MW/300 MWh first phase commissioned in 2022. Its compression system uses a dual-line, four-stage architecture to handle substantially higher airflow, while each generating unit employs a 350 MW air turbine with three reheating stages and four expansion stages. The turbine operates with a main air pressure of 13.5 MPa and has a design efficiency of more than 93%. Thermal storage is another major change from the first phase. Jintan Phase II replaces the heat-transfer oil used previously with medium-temperature pressurized water. Sixteen spherical tanks, each holding 3,500 cubic meters, provide 56,000 cubic meters of thermal storage volume. Pressurization raises the water operating temperature to around 180 C, allowing compression heat to be recovered and reused during generation. China Huaneng and China Salt Group jointly developed the project, with technical support from Tsinghua University and Xi’an Thermal Power Research Institute. Huaneng Jiangsu and China Salt’s salt-cavern business are responsible for project development, construction and operations. PowerChina subsidiary SEPCO1 has undertaken construction and installation work for Unit 2. The Jintan design differs in several respects from Zhongchu Guoneng’s operating 300 MW/1,800 MWh Feicheng CAES plant in Shandong. Feicheng, based on technology developed by the Chinese Academy of Sciences’ Institute of Engineering Thermophysics, uses multi-stage wide-load compression, high-load turbine expansion and compact regenerative thermal-storage technology. It provides six hours of discharge and has a rated design efficiency of 72.1%. Jintan, by contrast, places greater emphasis on scaling individual turbine capacity to 350 MW, parallel four-stage compression and pressurized-water heat storage, while delivering four hours at rated output. Both projects illustrate China’s shift from demonstration-scale CAES toward several-hundred-megawatt long-duration storage plants designed to provide peak shifting, renewable energy integration and other grid-balancing services. The post China’s 700 MW Jintan salt-cavern CAES project completes full-system startup appeared first on Energy Storage .",
+          "hb": 1
+        },
+        {
+          "t": "Renalfa 与 Eurowind Energy 揭幕773 MWh 双电池混合储能园区 - 储能",
+          "d": "2026-10-05",
+          "a": "ESS News",
+          "c": "零碳产业/能量转化/能量存储/电化学储能/二次电池/传统蓄电池/有机体系/锂电",
+          "as": "维也纳独立发电商Renalfa IPP与丹麦开发商Eurowind Energy在保加利亚东南部为Tenevo混合可再生能源综合体举行落成仪式。项目将242 MWp光伏电站与两套共址的电池储能系统（BESS）结合，总规模311 MW/773 MWh。储能分两期建设：一期为4小时65 MW/260 MWh系统，2025年起投运；二期为约2小时246 MW/512.5 MWh系统，主要提升充放电功率而非延长时长。光伏电站经冰雹损坏修复后于2026年第一季度全容量投运。",
+          "sc": 8.1,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.ess-news.com/2026/10/05/renalfa-and-eurowind-energy-inaugurate-773-mwh-double-battery-hybrid-park/",
+          "tp": "混合储能园区",
+          "aip": 1,
+          "kp": [
+            "光伏装机容量[Tenevo混合园区]: 242 MWp",
+            "储能总规模[Tenevo混合园区BESS]: 311 MW / 773 MWh",
+            "一期储能系统[Tenevo园区]: 65 MW / 260 MWh（4小时）",
+            "二期储能系统[Tenevo园区]: 246 MW / 512.5 MWh（约2小时）"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Vienna-based independent power producer Renalfa IPP and Danish developer Eurowind Energy have inaugurated the Tenevo hybrid renewable energy complex in southeastern Bulgaria. The site combines a 242 MWp solar photovoltaic (PV) plant with two co-located battery energy storage systems (BESS) totaling 311 MW / 773 MWh. The site’s storage was developed in two phases: an initial four-hour, 65 MW / 260 MWh system and a second 246 MW / 512.5 MWh system with approximately two hours of storage. The expansion adds substantially more charging and discharging power, rather than simply extending the duration of the original battery. The initial BESS has been operational since 2025 . The full solar plant was commissioned in the first quarter of 2026, according to Renalfa IPP, following repairs to hailstorm damage. The companies expect the complex to generate around 332 GWh of electricity annually. Renalfa and Eurowind Energy say the hybrid approach is intended to make greater use of the available grid connection. They plan to add more than 250 MW of wind generation, with total investment across all phases expected to exceed €500 million. The PV plant received €50 million in financing from the European Bank for Reconstruction and Development (EBRD) and €53 million from Raiffeisen Bank International AG (RBI). A further €60 million financing package for the second BESS phase is expected to be signed shortly, according to the companies. EBRD’s project disclosure puts the cost of the second BESS at €72 million and records approval of a loan of up to €30 million in July. It identifies Hithium as the battery supplier and specifies lithium iron phosphate (LFP) technology, with Solarpro responsible for procurement and installation. The bank says the absence of a contract-for-difference scheme and other mechanisms to stabilize revenues in Bulgaria has limited long-term lending for merchant renewable projects. It describes its financing as filling a gap in the local market. Tenevo is also among the first projects in Bulgaria to benefit from a guarantee under the European Union’s InvestEU program , according to the companies. The project company, Tenevo Solar Technologies, is a 50:50 joint venture between Renalfa IPP and Eurowind Energy. Renalfa IPP is itself a joint venture between Renalfa Solarpro Group and French infrastructure fund manager Rgreen Invest. The post Renalfa and Eurowind Energy inaugurate 773 MWh double-battery hybrid park appeared first on Energy Storage .",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": "Mistral AI发布ML4公开预览版，1万亿总参数、490亿激活参数，API定价输入每百万tokens 1.36美元、输出4.18美元，权重月底开放。Alphabet与Constellation Energy谈判超10亿美元核能采购协议。OpenAI为欧盟ChatGPT文本嵌入隐形统计水印，此前Anthropic已为Claude推出全球水印系统。犹他州批准Nolla Health自主处方系统，前500名患者阶段医生仅作监督。",
+      "headlines": [
+        "Mistral发布万亿参数多模态模型ML4预览版，月底开放权重",
+        "犹他州批准全球首个无需医生逐一预批的自主处方系统",
+        "Alphabet与Constellation洽谈超10亿美元核能采购协议",
+        "OpenAI为欧盟地区ChatGPT文本添加隐形水印以符合AI法案"
+      ],
+      "entries": [
+        {
+          "t": "宣称“欧美最强开源模型”：Mistral AI 发布 Mistral Large 4 公开预览版，月底开放权重",
+          "d": "2026-10-06",
+          "a": "IT之家",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "法国Mistral AI于10月6日发布Mistral Large 4（ML4，代号le Chonk）公开预览版，用户可在Mistral Studio体验预览版API，模型权重将于本月底开放下载。ML4是拥有1万亿总参数、490亿激活参数的原生多模态模型，官方称其媲美全球顶尖开源模型，大幅领先欧美所有开放权重模型，在网络安全、金融与法律等企业级工作负载中达到开源模型SOTA，在视觉定位等特定领域甚至超越前沿闭源模型。模型在Mistral欧洲自建数据中心用3800块英伟达Grace Blackwell GPU从零训练，端到端独立运营并遵循欧盟法规。训练语料覆盖超160种自然语言。API价格为每百万tokens输入1.36美元、输出4.18美元。官方正联合网络安全机构等开展红队测试。",
+          "sc": 9.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/1/010/108.htm",
+          "tp": "Mistral Large 4发布",
+          "aip": 1,
+          "kp": [
+            "总参数量[Mistral Large 4]: 1万亿",
+            "激活参数量[Mistral Large 4]: 490亿",
+            "开放权重时间[ML4]: 本月底",
+            "训练规模[ML4]: 基于欧洲自建数据中心3,800块GPU"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "IT之家 10 月 6 日消息，当地时间 10 月 6 日，法国公司 Mistral AI 正式推出 Mistral Large 4 模型的公开预览版（Public Preview），简称 ML4，代号 le Chonk。\n即日起，用户可以在 Mistral Studio 上体验预览版 API，模型权重将于本月底正式开放下载。\n目前，官方正联合顶尖网络安全机构、受信任的合作伙伴及政府监管部门，在真实业务环境中对模型展开红队测试（Red-Teaming）。相关合作方将获得该模型的专项测试访问权限；该测试版本适当放宽了内容安全审查策略，并强化了网络安全攻防技术能力。\nML4 是一款拥有 1 万亿总参数、490 亿激活参数的原生多模态模型，Mistral 称其实测表现不仅足以媲美全球顶尖的开源模型，更大幅领先于欧美开发的所有开放权重模型。\n在网络安全、金融与法律等关键企业级工作负载中，该模型在所有开源模型中均达到了 SOTA。\n在某些特定领域（例如视觉定位），它的表现更进一步，甚至超越了当前的前沿闭源模型。\n据介绍，ML4 是在 Mistral 位于欧洲的自建数据中心内，基于 3,800 块英伟达 Grace Blackwell GPU 从零开始训练完成的，其欧洲部署方案完全由 Mistral 实施端到端独立运营，严格遵循欧盟法律法规，不受制于任何其他第三方数字服务提供商。\nML4 的训练数据具备显著的多语言特性，语料覆盖超 160 种自然语言，全面囊括了欧盟的所有官方语言。\n价格方面，ML4 每百万 tokens 输入 1.36 美元（IT之家注：现汇率约合 9.1 元人民币），每百万 tokens 输出 4.18 美元（现汇率约合 28.1 元人民币）。\nIT之家附相关分数如下：\n广告声明：文内含有的对外跳转链接（包括不限于超链接、二维码、口令等形式），用于传递更多信息，节省甄选时间，结果仅供参考，IT之家包含外链的文章均包含本声明。",
+          "hb": 1
+        },
+        {
+          "t": "犹他州批准全球首个无需医生参与的自主处方",
+          "d": "2026-10-06",
+          "a": "interesting engineering",
+          "c": "AI与智能科技/AI软件层/工程改进",
+          "as": "犹他州已批准一家医疗系统在无需医生逐一预先批准的情况下开具痤疮初始处方，这标志着美国自主医疗决策的重要试验。该系统由纽约健康科技公司Nolla Health开发，利用患者信息和面部扫描，从医生预先批准的有限治疗方案中选择疗法；系统不能自行制定治疗方案，无法确定时须转交持证医生。自主权将逐步引入：前100名患者的每张处方均由医生批准；在覆盖前500名患者的下一阶段，系统将自主开具处方，医生进行监督。",
+          "sc": 8.6,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://interestingengineering.com/ai-robotics/utah-autonomous-acne-prescriptions",
+          "tp": "AI自主处方获批",
+          "aip": 1,
+          "kp": [
+            "自主处方[犹他州/痤疮治疗]: 无需医生预先审批即可开具初始处方",
+            "技术条件[Nolla Health系统]: 基于患者信息与面部扫描从医生批准的有限方案中选择",
+            "系统限制[治疗方案]: 不能自行创建治疗方案，复杂病例须转交医生"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Utah has cleared a healthcare system to begin issuing initial acne prescriptions without a doctor approving each prescription beforehand, marking a significant test of autonomous medical decision-making in the U.S.The system, developed by New York-based health technology company Nolla Health, uses patient information and facial scans to select treatments from a limited set of physician-approved options. It cannot create its own treatment regimens, according to the company, and must hand a case to a licensed physician when it cannot confidently choose a treatment.The autonomy will be introduced gradually. A physician will approve every prescription for the first 100 patients. During the next stage, covering the first 500 patients, the system will issue prescriptions autonomously while a physician reviews them afterwards each day. In the third stage, doctors will retrospectively review a sample of prescriptions once a week.The pilot is available through the Nolla Derm app to Utah residents ages 18 and older. Patients complete a 10- to 15-minute questionnaire and a facial scan before the system assesses their skin and selects an acne treatment. Nolla says the process can produce a treatment plan and prescription within minutes.Prescribing autonomy expands graduallyThe program was developed with Utah’s Office of Artificial Intelligence Policy under the state’s regulatory framework for testing new AI applications. Utah regulators have described the arrangement as a controlled pilot for evaluating technology that can assess acne and write new prescriptions without prior human review.Today, Nolla Health became the first organization in the U.S. (and possibly the world) to receive regulatory approval for an AI to issue initial prescriptions.This makes Nolla the first ever actual end-to-end AI doctor. pic.twitter.com/xn6rvb8IyW— Luis Wenus (@luiswenus) October 5, 2026The distinction from conventional telehealth is important. Many digital health services use software to collect symptoms or assist clinicians, but a medical professional ultimately makes the prescribing decision. Nolla’s system is designed to eventually make that decision itself within predefined limits.The technology combines structured information from the patient’s intake with analysis of facial images. Nolla says its healthcare platform uses multimodal machine-learning systems, including vision transformers, which can identify patterns across images and other patient data. The company says its broader systems have been trained on more than 3 million labeled clinical cases.For the acne pilot, however, the system cannot freely choose among all prescription drugs. It is restricted to a short list of physician-approved topical treatments and predefined treatment pathways.“The AI can’t improvise. It can only choose from a short list of physician-approved topical treatments,” said Dr. Zaid Fadul, Nolla Health’s chief medical advisor. “The moment a patient falls outside those limits, it stops and hands them to a doctor.”Doctors audit automated decisionsNolla says licensed clinicians agree with the system’s treatment recommendations in more than 96 percent of real-world cases. The company says disagreements have involved adjustments such as changing the strength of a topical medication rather than fundamentally different treatments. That performance figure was provided by Nolla and was not independently established in the announcement.After receiving a prescription, patients can choose home delivery or pharmacy pickup. The app also uses daily skin scans to track changes, with treatment plans reviewed monthly based on the patient’s response. Patients can contact a licensed physician directly when they need additional support.The service starts at $4.99 per month under the Utah pilot. Nolla says its dermatology app has already been downloaded more than 175,000 times across 44 states, although autonomous initial prescribing is currently limited to eligible adults in Utah.",
+          "hb": 1
+        },
+        {
+          "t": "大型科技公司核能计划持续推进：Google新协议谈判展开",
+          "d": "2026-10-06",
+          "a": "interesting engineering",
+          "c": "AI与智能科技/AI硬件层/算力能源基础设施",
+          "as": "Alphabet（Google母公司）正与Constellation Energy公司谈判一项价值超过10亿美元的大型多年期核能采购协议，可能最早于本周宣布。随着生成式AI的发展，数据中心耗电量巨大，而太阳能、风能等可再生能源受天气影响无法持续稳定供电，核能因此成为满足AI算力电力需求的重要选择。此项交易反映了大型科技公司为保障AI基础设施不间断电力供应而加码核能布局的趋势。",
+          "sc": 8.1,
+          "i": "n",
+          "tg": "资本运作",
+          "u": "https://interestingengineering.com/energy/alphabet-constellation-nuclear-power-deal",
+          "tp": "谷歌核电采购",
+          "aip": 1,
+          "kp": [
+            "协议价值[Google-Constellation核能采购]: ≥10亿美元",
+            "协议性质[Google-Constellation]: 多年期核能购电协议"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Can nuclear energy satisfy AI’s endless demand for power? It is too early to know for sure, but Alphabet is betting over $1 billion that it can.Reports suggest that Google’s parent company, Alphabet Inc., is nearing a massive multi-year agreement to buy nuclear energy from Constellation Energy Corp. According to sources familiar with the matter, the deal is expected to be valued at $1 billion or more and could be announced as early as this week. It is a striking figure. But in the world of generative AI, where data centers gulp gigawatts like water, a billion dollars is just the cover charge to keep the power running.Rush for uninterrupted powerAI models demand continuous power that renewable sources like solar and wind cannot consistently provide because they depend on the weather. Nuclear energy could supply steady, carbon-free baseload power around the clock. Google’s electricity demand soared from 12.8 terawatt-hours in 2019 to 44 terawatt-hours in 2025. Over 95 per cent of Alphabet’s total global electricity consumption goes directly to its data centers, with administrative offices and corporate campuses accounting for the remaining 5 per cent. The tech giant counters this surge by deploying custom high-performance servers, machine learning, intelligent climate controls, and advanced cooling systems across its data centers. These targeted efficiency measures ensure that hardware operates with minimal energy waste even as global computing loads expand.However, building brand-new nuclear reactors is a slow process. This leaves tech companies with little choice but to squeeze every remaining drop of capacity from existing infrastructure. Alphabet’s potential agreement with Constellation follows a flurry of similar moves across the tech sector. Amazon recently inked a 690-megawatt power agreement with Constellation linked to Maryland’s Calvert Cliffs facility, while Microsoft backed the restart of Pennsylvania’s Three Mile Island plant. Google similarly laid groundwork through partnerships with NextEra Energy to reopen Iowa’s Duane Arnold reactor and investments in upgrades at two Southern Co. nuclear sites.The net-zero paradoxHigh costs and safety concerns cooled global enthusiasm for atomic energy. But global attitudes toward it have shifted in recent years. Nations aiming to hit climate targets are aligning with technology firms seeking reliable electricity, driving a widespread revival of nuclear power worldwide.Yet, the huge need for computing power also creates a clear conflict for the company. Alphabet set an ambitious goal to reach net-zero carbon emissions across all operations by 2030, but its latest environmental report highlights an 81 percent surge in greenhouse gas emissions compared to the 2019 baseline.Driven by the rapid growth of AI over the past five years, the company secured over 12 gigawatts of net-new clean energy in 2025 alone. The long-term strategy focuses on advancing next-generation clean sources such as nuclear energy and enhanced geothermal, alongside strategic investments in commercial fusion power.To optimize grid connection timelines, grid software unicorn Emerald AI formed a coalition with Google and Nvidia.Operating as the AI Energy Management Alliance, the group uses Emerald AI’s technology to enable demand response mechanisms that temporarily reduce or shift data center power usage during peak grid stress. The coalition estimates that pausing noncritical tasks and adjusting compute loads could free up capacity for an additional 100 gigawatts of data center infrastructure to connect to the power grid.Neither Google nor Constellation Energy offered official commentary on the reported deal. Specific details regarding the exact output scale and geographic locations of the nuclear capacity remain undisclosed.Nevertheless, the broader trend is clear: accelerating AI workloads could mean permanently binding tech’s growth to the reliability of the nuclear grid.",
+          "hb": 1
+        },
+        {
+          "t": "按欧盟规定，OpenAI为ChatGPT文本添加隐形水印",
+          "d": "2026-10-06",
+          "a": "interesting engineering",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "OpenAI将开始为ChatGPT和Codex在欧盟生成的文本添加隐形水印，以满足欧盟《人工智能法案》的透明度要求。该系统在模型生成的文本中嵌入隐藏的统计信号，读者无法察觉，但OpenAI的检测器可分析文本中是否存在该信号。此举正值大型AI公司面临识别合成内容的日益压力之际——两个月前Anthropic已宣布为Claude文本推出全球水印系统，引发部分用户反对。OpenAI此前也曾开发过文本水印技术但推迟发布，据报道是担心用户流失。",
+          "sc": 7.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://interestingengineering.com/ai-robotics/openai-chatgpt-invisible-watermarks-eu",
+          "tp": "ChatGPT文本水印",
+          "aip": 1,
+          "kp": [
+            "水印技术[ChatGPT/Codex文本]: 嵌入隐形统计信号",
+            "可见性[欧盟用户]: 对读者不可见，可由OpenAI检测器分析识别",
+            "合规背景[欧盟AI法案]: 满足透明度要求"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "OpenAI will begin adding invisible watermarks to text generated by ChatGPT and Codex in the European Union. The rollout addresses transparency requirements under the EU AI Act.The system embeds a hidden statistical signal into model-generated writing. Readers will not see the watermark, but OpenAI’s detector can analyze text for evidence of that signal.The technology arrives as major AI companies face growing pressure to identify synthetic content. Anthropic announced a worldwide watermarking system for Claude text two months ago.Some Claude users pushed back against that move. They argued that users provide the instructions, context and decisions while AI remains a tool.OpenAI had also developed text watermarking before, but delayed its release. The company reportedly worried that users could move to competing services without similar restrictions.OpenAI targets EU usersOpenAI calls its system textGrain. It works by subtly changing statistical patterns in the words selected during generation. The company expects the watermark to reach eligible ChatGPT and Codex users across all EU plans over the coming weeks.API customers worldwide will get a separate option. They can enable watermarked output for selected models, while the default setting remains off.We're expanding our approach to content provenance to include text in response to EU regulatory requirements, while recognizing the significant limitations of current text watermarking technology.Our tools already help verify whether an image or audio file was created with our…— OpenAI (@OpenAI) October 5, 2026OpenAI has also opened applications for its text watermark detector. Researchers and expert organizations will receive access initially.The cautious rollout reflects weaknesses in current detection technology. OpenAI says its detector can generate false positives and miss genuine watermarks.Editing weakens detectionOpenAI’s tests show that longer passages give the detector a better chance of finding the signal. It detected watermarks in about 80% of 200-token psychology passages.That figure reached roughly 95% for 400-token passages. Results dropped significantly for mathematics, where writers have fewer choices in wording.Human editing creates an even bigger challenge. Replacing 10% of words with synonyms reduced detection from about 92% to 66%.Replacing 25% of words pushed detection down to roughly 17%. Translation and extensive rewriting can also weaken the signal.That means a watermark cannot establish that AI produced an entire passage. It also cannot measure how much human work went into the final text.A positive detection does not identify the user, account or conversation behind the writing. It also says nothing about accuracy, ownership or responsibility.An absent watermark proves little as well. Short text, editing, translation and unsupported models can all produce undetected content.Provenance takes multiple formsOpenAI plans to release textGrain as open-source technology and continue testing its performance. The company also wants to study how translation and editing affect watermark durability.The effort fits into a broader industry push around AI provenance. Anthropic, Google, Meta, Microsoft and OpenAI have committed to following the EU’s code of practice for AI-generated content.OpenAI already uses Content Credentials and invisible watermarks for supported images and audio. Text presents a harder engineering problem because people can rewrite words without changing the underlying meaning.The company says it will expand detector access as reliability improves. It will also adjust its approach as technical evidence and regulatory standards develop.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": "美国空军HACM高超音速巡航导弹（设计速度超5马赫）在澳大利亚靶场启动飞行测试，快速原型试飞由七次减至五次，力争2027财年做出采办决策。材料方面，Imma-B60硼异形体合成成功，具窄带隙、高电导率与可塑性。2026年诺贝尔物理学奖授予冰立方中微子天文台贡献者弗朗西斯·哈尔岑。",
+      "headlines": [
+        "美澳合作的高超音速巡航导弹HACM启动飞行测试，拟2027财年采办决策",
+        "前驱体脱气法制备出兼具柔性与高导电性的新型硼异形体Imma-B60",
+        "智能手机集成的SID-WAVES微流控平台实现阿托摩尔级多重诊断",
+        "2026年诺贝尔物理学奖授予冰立方中微子天文台贡献者哈尔岑"
+      ],
+      "entries": [
+        {
+          "t": "美国新型高超音速巡航导弹设计速度超5马赫，进入测试阶段",
+          "d": "2026-10-06",
+          "a": "interesting engineering",
+          "c": "通用技术/通信和运输/物质运输/航空",
+          "as": "美国空军的高超音速攻击巡航导弹（HACM）已开始飞行测试，由澳大利亚皇家空军在澳大利亚靶场上空投放一枚测试弹，2026年10月5日的报道确认了这一里程碑。该项目此前多次延期，空军已将快速原型试飞次数从七次减至五次，并力争在2027财年做出快速采办决策。美澳双方通过SCIFiRE合作项目推进HACM研发，该项目建立在两国超过15年的合作基础之上。空军尚未公布投放时间及导弹是否自主飞行。",
+          "sc": 7.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://interestingengineering.com/military/us-mach-5-hypersonic-cruise-missile-tested",
+          "tp": "高超音速导弹试飞",
+          "aip": 1,
+          "kp": [
+            "设计速度[HACM高超音速巡航导弹]: >5马赫",
+            "测试状态[HACM]: 已在澳大利亚靶场开始飞行测试",
+            "采购节点[HACM项目]: 面临多次延迟后推进快速采购决策"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The U.S. Air Force’s Hypersonic Attack Cruise Missile (HACM) has started flight testing after the Royal Australian Air Force released a test unit over an Australian range. A report confirmed this on October 5, 2026, calling it a major milestone for a program that has faced several delays. The Air Force has not said when the release happened or if the missile flew on its own power afterwards.The development comes as the Air Force works toward a potential rapid acquisition decision in fiscal year 2027. It has also cut the rapid-prototyping campaign from seven flight tests to five.Australia hosts the testThe U.S. and Royal Australian Air Force are working together on HACM through the Southern Cross Integrated Flight Research Experiment (SCIFiRE), a project built on more than 15 years of partnership.“The U.S. Air Force, in partnership with Australia, has conducted a flight test of the Hypersonic Attack Cruise Missile (HACM) as part of our continuous work to advance long-range strike capabilities,” an Air Force spokesperson confirmed to The War Zone (TWZ). “This effort is part of the Southern Cross Integrated Flight Research Experiment (SCIFiRE), a collaborative agreement built on more than 15 years of partnership between our two nations.”The Air Force has not shared the location or date of the test. It is also not clear which aircraft carried the HACM or if the missile’s scramjet engine worked after release. Earlier reports said the RAAF F/A-18F Super Hornet was expected to be used for testing.Inside the hypersonic designHACM is based on DARPA’s Hypersonic Air-breathing Weapon Concept (HAWC). In 2022, Raytheon, now called RTX, and Northrop Grumman were chosen to develop the missile.The weapon uses a rocket booster to reach the speed needed for its scramjet-powered cruiser to operate. The cruiser then separates from the booster and continues toward its target.“The missile consists of two stages, a rocket booster and a scramjet cruiser, which separates from the booster and eventually dives toward its target,” according to Government Accountability Office (GAO).HACM is designed for speeds above Mach 5, the standard threshold for hypersonic flight. Its maximum speed has not been disclosed.The flight schedule slippedHACM was originally expected to begin flight testing in 2024. The target moved to 2025 and then to fiscal year 2026. A July 2026 GAO report said the program was on track for its first flight test in the second quarter of fiscal year 2026, a period that ended on March 31, 2026.That planned window has therefore passed. The October announcement confirms that a flight-test release has occurred, but it does not state when the event happened.“The HACM program is on track to conduct its first flight test in the second quarter of fiscal year 2026, but officials said there is effectively zero margin left in the schedule for the rapid prototyping effort. The program has already descoped the rapid prototyping effort from seven to five planned flight tests,” GAO said in a July report.Five tests remainThe shortened campaign leaves little room for failure as the Air Force targets a fiscal 2027 procurement decision.“If a significant flight test failure occurs, it is likely that the program will not be able to complete all five tests within the 5-year rapid prototyping timeframe,” the report continued. “According to the program, completing at least the first three flight tests is critical for informing the Air Force’s decision to initiate a rapid fielding effort and procure HACM in fiscal year 2027.”The program has also taken risks to preserve its schedule. The confirmed Australian release now moves HACM into its long-awaited flight-test phase, while the Air Force faces the challenge of completing the remaining tests in time to support its 2027 acquisition plans.",
+          "hb": 1
+        },
+        {
+          "t": "一种前驱体脱气法用于制备硼同素异形体",
+          "d": "2026-10-05",
+          "a": "Nature Chemistry",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究人员通过前驱体介导的脱气方法成功合成兼具力学柔性与高导电性的新型硼同素异形体Imma-B60。该材料具有开框架结构，表现出窄带隙、高电导率和可塑性，突破了硼长期局限于超硬相和半导体相的瓶颈，拓展了硼材料在柔性电子等领域的潜在应用。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41557-026-02281-9",
+          "tp": "新型硼同素异形体",
+          "aip": 1,
+          "kp": [
+            "材料[硼同素异形体]: Imma-B60开放骨架结构",
+            "制备方法[Imma-B60]: 前驱体介导脱气法",
+            "性能[Imma-B60]: 窄带隙、高导电性与塑性"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The synthesis of a boron allotrope that combines mechanical flexibility and high electrical conductivity is challenging. Now, an open-framework boron allotrope — Imma-B60 — is realized through a precursor-mediated degassing approach. Imma-B60 exhibits a narrow bandgap, high electrical conductivity and plasticity, expanding the potential application of boron beyond superhard and semiconducting phases.",
+          "hb": 1
+        },
+        {
+          "t": "利用可编程多维微流控系统重构去中心化诊断",
+          "d": "2026-10-05",
+          "a": "Biological sciences : Nature Communications subject feeds",
+          "c": "通用技术/检测和表征/传感器",
+          "as": "该研究展示了SID-WAVES，一种智能手机集成的多模态微流控诊断平台，用于传染病去中心化诊断。平台集成低熔点相变阀与双虹吸阀、RPA-CRISPR/Cas12a核酸检测和蛋白质免疫分析，通过AI辅助智能手机读出实现自动化、一步式样本到答案的操作，减少了操作者依赖的变异性。时空-信号编码支持多重、多样本和多模态分析，实现阿托摩尔级灵敏度，突破了现有即时检测工具单一维度的局限，满足精准管理所需的多维信息获取。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-77744-1",
+          "tp": "微流控CRISPR诊断平台",
+          "aip": 1,
+          "kp": [
+            "平台名称: SID-WAVES智能手机集成多模态微流控诊断平台",
+            "技术集成: 低熔点相变阀与双虹吸阀结合RPA-CRISPR/Cas12a核酸检测"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Decentralized diagnostics are vital for infectious disease control, yet current point-of-care tools remain largely one-dimensional, failing to capture the multidimensional profiles required for precision management. Here, we show SID-WAVES (Smartphone-Integrated Diagnostics with Wax-encoded Amplified and Versatile Evaluation System), an intelligent, multimodal microfluidic platform. Integrating low-melting-point phase-change and dual-siphon valves with RPA–CRISPR/Cas12a nucleic acid detection and protein immunoassays, the platform enables automated, one-step, sample-to-answer operation via an AI-assisted smartphone readout that reduces operator-dependent variability. Spatial-temporal-signal encoding supports multiplexed, multi-sample, and multimodal analysis, achieving attomolar-level sensitivity (10−18 M) and >95% diagnostic accuracy across 225 clinical and self-collected molecular assays, demonstrating robust usability. For proteins, a triple-amplification strategy and hierarchical capture enhance sensitivity 125-fold, improving accuracy from 87.6% to 100% in 54 simulated samples. Functioning as a reconfigurable analytical framework where panels are changed by swapping targets and probes, this work helps mitigate the Sensitivity–Multiplexing–Accessibility trade-off, reframing decentralized diagnostics from single-target screening to multi-dimensional health profiling.",
+          "hb": 1
+        },
+        {
+          "t": "科学网-诺奖解读：用南极冰层下的冰捕捉神秘的宇宙中微子",
+          "d": "2026-10-06",
+          "a": "科学网新闻",
+          "c": "通用技术/基础学科/基础物理",
+          "as": "2026年诺贝尔物理学奖授予比利时裔美国科学家、威斯康星大学麦迪逊分校教授弗朗西斯·哈尔岑，以表彰他对冰立方中微子天文台的决定性贡献及对天体物理起源高能中微子的发现。中微子不带电荷、质量极小、几乎不与物质作用，每秒约有650亿个太阳中微子穿过人的指甲。哈尔岑早在20世纪80年代提出利用南极冰层捕捉宇宙中微子的构想，1992年研究团队首次尝试将光传感器植入南极冰川。约二十年后，“冰立方”中微子天文台记录到特征指向遥远宇宙的高能中微子事件，由此开启了寻找宇宙中微子起源的工作，为理解宇宙极端环境提供了关键线索。",
+          "sc": 7.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "http://news.sciencenet.cn/htmlnews/2026/10/572532.shtm",
+          "tp": "冰立方中微子诺奖",
+          "aip": 1,
+          "kp": [
+            "奖项[2026年诺贝尔物理学奖]: 弗朗西斯·哈尔岑，表彰对冰立方中微子天文台的决定性贡献及发现天体物理起源的高能中微子",
+            "中微子通量[来自太阳]: 每秒650亿个穿过指甲",
+            "探测器介质[冰立方]: 南极冰川冰",
+            "中微子属性: 不带电荷、质量微乎其微、几乎不与物质作用"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "诺奖解读：用南极冰层下的冰捕捉神秘的宇宙中微子\n瑞典皇家科学院宣布，2026年诺贝尔物理学奖授予比利时裔美国科学家弗朗西斯·哈尔岑（Francis Halzen），以表彰他对冰立方中微子天文台的决定性贡献，以及对天体物理起源的高能中微子的发现。\n南极的坚冰内，封存着破解宇宙奥秘的钥匙。\n任教于美国威斯康星大学麦迪逊分校的科学家哈尔岑以非凡的想象力、坚韧不拔的精神以及科学方面的远见卓识，为一种全新的天文学奠定了基石——他提出利用南极冰川捕捉一种神秘的粒子：中微子。\n这一构想最终催生了“冰立方”中微子天文台，使人类得以追踪来自遥远宇宙深处的中微子，窥探那些肉眼无法触及的宇宙奥秘。\n“冰立方”捕捉中微子。图片来源：诺贝尔奖官网\n宇宙中最“害羞”的粒子\n中微子，堪称宇宙中最“害羞”的粒子。老子云：“大音希声，大象无形。”中微子亦然。它不带电荷，质量微乎其微，几乎不与物质发生作用。每秒钟就有650亿个来自太阳的中微子悄然穿过你的指甲，而你毫无察觉。\n然而，这些“沉默的使者”也来自宇宙的其他角落，能为解开宇宙谜题提供关键线索。一旦成功捕获这些稀有的宇宙中微子，科学家便能从中提取其起源地的极端环境信息，读懂宇宙的秘密。\n早在20世纪80年代，哈尔岑便意识到，南极的冰层或许是捕捉足够多宇宙中微子的理想介质。他很快说服了众多同行，1992年，一群坚韧的研究者与工程师首次尝试将光传感器植入南极冰川。约二十年后，曙光初现：“冰立方”中微子天文台记录到高能中微子事件，其特征指向遥远宇宙。寻找宇宙中微子起源的工作，由此正式拉开序幕。\n粒子物理与天体物理交汇\n哈尔岑在比利时长大，20世纪60年代粒子物理学的飞速发展深深吸引了他。最初，他专注于由夸克构成的大质量粒子。获得博士学位后，他赴美任教于威斯康星大学麦迪逊分校。渐渐地，他开始思考：粒子物理学能否从抵达地球的宇宙粒子中获得启示？天体物理学又能否从粒子物理学中受益？\n寻找中微子的契机，源于他对另一种粒子——宇宙射线的观测。宇宙中不断有高能粒子穿过，它们多为质子，即氢原子核。这些来自太空的质子有时携带着惊人能量，远超地球上任何人造粒子加速器所能达到的极限。这些极高能宇宙射线的起源，一直是宇宙中蕴藏的最深层的奥秘之一。物理学告诉我们，能将质子加速至高能的过程，必然同时产生高能中微子。因此，中微子成为破解“宇宙粒子加速器”之谜的关键钥匙。\n成功识别高能中微子，意味着能将其与来自放射性衰变、太阳或大气宇宙射线碰撞产生的低能中微子区分开来。那些并非源于地球附近的中微子，必来自遥远深空——或许源自恒星爆炸的剧烈区域，或遥远活动星系的核心。\n冰中闪光捕捉宇宙间的“幽灵”\n20世纪80年代，哈尔岑在研究宇宙粒子时，得知苏联科学家计划在南极使用无线电接收器捕捉中微子信号。其原理是：当中微子与冰中原子核碰撞时，会产生电火花并辐射无线电波。若信号足够强，便可被天线捕捉。哈尔岑受此启发，意识到另一种方法或许更可行：在冰川中安装光传感器，捕捉碰撞产生的微弱闪光。\n上世纪60年代，就有物理学家提出，水可以作为探测中微子的介质。当中微子罕见地与原子核碰撞时，会产生带电粒子，沿原中微子方向运动并发出蓝光。由于水透明，这种光可被探测。若设备得当，甚至可反推中微子的来向。关键在于：需要足够大的水体，以捕捉足够多的碰撞事件。\n哈尔岑的创见在于：使用天然冰，而非水。他联系了参与夏威夷深海中微子探测项目的同事约翰·G·勒纳德。两人共同探讨在南极冰层中捕捉中微子的机遇与挑战。\n1988年，他们在波兰的一次会议上首次提出在南极冰层中建立中微子天文台的构想。\n南极是天然的宇宙实验室\n哈尔岑意识到，将观测站设于南极具有多重优势：那里已有研究站，具备定期运输与团队协作所需的一切基础设施。冰本身也是一种理想介质，其位于足够深处。而且，与海洋不同，南极无生物干扰，放射性本底极低。冰层稳定，为工作人员提供坚实表面；地质结构稳定，无地震之虞。\n唯一不便的是严寒——一年中大部分时间无法往返南极。所有实地工作必须集中在11月至第二年2月的短暂夏季。\n起初，哈尔岑专注于理论工作；而勒纳德则忙于其他项目，未再深入参与。若非这一概念激起广泛兴趣，故事或许就此终结。但短短数年内，来自不同机构的研究者纷纷汇聚于哈尔岑周围，共同推动南极中微子天文台梦想的实现。\n科学家们面临的首要挑战是如何将仪器深埋冰中。他们从冰川学家处得知，可用热水钻探技术融化冰层，钻出数公里深的孔洞，再将装有光传感器的长缆放入其中。哈尔岑将这些传感器形容为“反向的灯泡”——它们不发光，而是捕捉光，并将其转化为电信号。\n科学家们首先在格陵兰冰层中测试传感器，验证其能否记录粒子产生的光信号。随后，他们开始在南极建造首个中微子天文台——“冰立方”的前身：高能中微子探测器阵列（AMANDA）。\n哈尔岑回忆，1993年圣诞前夕，他坐在餐桌旁，膝上放着电脑，焦急等待第一条装有光学模块的电缆成功安装的消息。\n起初结果令人失望：冰层上部充满气泡，使光线散射，模糊了粒子轨迹信息。然而，在1400米深度以下，冰层变得极其纯净透明。在那里，中微子产生的闪光在被吸收前可传播达300米，远超预期。这一“副产品”使科学家对冰层不同深度的物理性质有了更深入的理解。\n尽管如此，现有装置仍不足以完成探测高能宇宙中微子的使命。需要更大的探测体积——于是，“冰立方”应运而生：一立方公里的冰体，配备5160个光传感器，分布于86条缆线上。2010年9月，探测器全部布设完成、投入运行；2011年正式宣告项目完工。\n“冰立方”框架图。图片来源：“冰立方”中微子天文台官网\n多年来，哈尔岑始终是这一事业的催化剂与灵魂人物。作为尽职而热情的首席研究员，他将项目从构想一步步推进至科学成果的产出。\n冰立方终于听见宇宙的低语\n当然，像“冰立方”这样的中微子天文台，探测到的远不止目标中微子。\n2023年“冰立方”外观图。图片来源：“冰立方”中微子天文台官网\n宇宙中微子必须在大量背景信号中被识别——主要是宇宙射线撞击地球大气产生的粒子。其中一些粒子可穿透至地表下1450至2400米深处的传感器。每天，超过一亿个此类大气粒子被记录。宇宙射线也会在大气中产生中微子，其中每天有数百个从北半球穿过地球，抵达“冰立方”。\n为“揪出”宇宙中微子，科学家们必须筛选出冰中发生相互作用的中微子事件。即便无法完全确定单个中微子的宇宙起源，他们仍可分析所有候选事件的整体特征，判断其是否符合宇宙中微子的预期，并与大气中微子区分开来。2013年，团队报告了首个支持“已发现宇宙中微子”的证据。数年后，随着数据积累，这一发现得到确证。\n更多宇宙秘密即将揭晓\n科学家们当前的重要目标之一是确定天体中微子的具体来源。“冰立方”已发现若干潜在源，其中之一是活动星系 NGC 1068（又称M77）。在记录的中微子中，79个似乎来自该星系方向，但证据尚不充分。随着捕获的中微子增多，定位来源的可能性将大幅提升。\n近年来，“冰立方”团队还首次观测到来自银河系内部的高能中微子。科学家们推测，这些中微子产生于宇宙射线与恒星间稀薄气体原子碰撞之时。\n未来几年，中微子天文学必将迎来更多成果。北半球已有多个处于不同发展阶段的中微子望远镜，它们建在水中而非冰中。启发哈尔岑的DUMAND项目虽1995年终止，但其技术经验滋养了后续贝加尔湖、地中海等相关研究。\n与此同时，“冰立方”仍在持续捕捉中微子。南极的下一步扩张已在规划中——“冰立方-Gen2”将是一个规模达8立方公里的惊人设施。\n正如古人云：“仰观宇宙之大，俯察品类之盛。”如今，人类不仅仰望星空，更透过南极冰层，倾听宇宙深处最微弱的低语。中微子，这宇宙的信使，正带领我们走向一个更深远、更神秘的天文学新时代。\n特别声明：本文转载仅仅是出于传播信息的需要，并不意味着代表本网站观点或证实其内容的真实性；如其他媒体、网站或个人从本网站转载使用，须保留本网站注明的“来源”，并自负版权等法律责任；作者如果不希望被转载或者联系转载稿费等事宜，请与我们接洽。",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}
